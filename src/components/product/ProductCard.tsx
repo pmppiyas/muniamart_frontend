@@ -2,13 +2,12 @@
 
 import * as React from 'react';
 import Link from 'next/link';
-import { Heart } from 'lucide-react';
+import Image from 'next/image';
+import { Heart, ShoppingCart, Package } from 'lucide-react';
 import { Product, ViewMode } from '@/types/product';
-import { ProductImage } from './ProductImage';
-import { ProductPrice } from './ProductPrice';
-import { ProductRating } from './ProductRating';
-import { ProductActions } from './ProductActions';
 import { useWishlist } from '@/hooks/useWishlist';
+import { useCart } from '@/hooks/useCart';
+import { useCurrency } from '@/hooks/useCurrency';
 import { toast } from 'sonner';
 import { cn } from '@/lib/utils';
 
@@ -28,7 +27,17 @@ export function ProductCard({
   onToggleWishlist,
 }: ProductCardProps) {
   const { isInWishlist, toggleItem } = useWishlist();
+  const { addItem } = useCart();
+  const { formatPrice } = useCurrency();
   const isWishlisted = isInWishlist(product.id);
+
+  const isOutOfStock = product.stock <= 0;
+  const hasDiscount = Boolean(
+    product.originalPrice && product.originalPrice > product.price
+  );
+  const savings = hasDiscount
+    ? (product.originalPrice as number) - product.price
+    : 0;
 
   const handleWishlistClick = async (e: React.MouseEvent) => {
     e.preventDefault();
@@ -58,6 +67,32 @@ export function ProductCard({
     }
   };
 
+  const handleAddToCart = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (isOutOfStock) return;
+
+    if (onAddToCart) {
+      onAddToCart(product);
+    } else {
+      await addItem({
+        productId: product.id,
+        name: product.name,
+        slug: product.slug,
+        sku: product.sku,
+        price: product.price,
+        originalPrice: product.originalPrice,
+        photoUrl: product.photoUrl,
+        category: product.category?.name,
+        brand: product.brand,
+        stock: product.stock,
+        quantity: 1,
+      });
+
+      toast.success(`Added "${product.name}" to cart!`);
+    }
+  };
+
   const productHref = `/products/${product.slug || product.id}`;
 
   // 1. LIST VIEW MODE
@@ -65,45 +100,43 @@ export function ProductCard({
     return (
       <div
         className={cn(
-          'group relative flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 sm:gap-6 rounded-2xl border border-border bg-card p-4 shadow-2xs transition-all duration-300 hover:border-primary/40 hover:shadow-md',
+          'group relative flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-5 rounded-2xl sm:rounded-3xl border border-zinc-200/90 dark:border-zinc-800/80 bg-card p-2.5 sm:p-3.5 shadow-xs transition-all duration-300 hover:border-primary/40 hover:shadow-md',
           className
         )}
       >
         {/* Left: Image Container */}
         <Link
           href={productHref}
-          className="relative h-44 w-full sm:h-36 sm:w-36 shrink-0 overflow-hidden rounded-xl bg-muted/40 block focus:outline-none focus-visible:ring-2 focus-visible:ring-primary cursor-pointer"
+          className="relative h-44 w-full sm:h-36 sm:w-36 shrink-0 overflow-hidden rounded-2xl bg-muted/20 flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-primary cursor-pointer"
           title={product.name}
         >
-          <ProductImage
-            src={product.photoUrl}
-            alt={product.name}
-            discountPercent={product.discountPercent}
-            isNew={product.isNew}
-            isBestSeller={product.isBestSeller}
-            isOutOfStock={product.stock <= 0}
-            sizes="(max-width: 640px) 100vw, 150px"
-          />
+          {product.photoUrl ? (
+            <Image
+              src={product.photoUrl}
+              alt={product.name}
+              fill
+              sizes="(max-width: 640px) 100vw, 150px"
+              className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
+            />
+          ) : (
+            <Package className="h-10 w-10 text-muted-foreground" />
+          )}
+
+          {isOutOfStock && (
+            <div className="absolute inset-0 z-10 flex items-center justify-center bg-background/80 backdrop-blur-2xs">
+              <span className="rounded-lg bg-zinc-900 px-3 py-1 text-xs font-bold text-white shadow-xs">
+                Out of Stock
+              </span>
+            </div>
+          )}
         </Link>
 
-        {/* Center: Info & Metadata */}
+        {/* Center: Info */}
         <div className="flex flex-1 flex-col justify-between space-y-2">
           <div>
-            <div className="flex items-center gap-2 text-xs text-muted-foreground">
-              <span className="font-semibold text-primary">
-                {product.category?.name || 'Category'}
-              </span>
-              {product.brand && (
-                <>
-                  <span>•</span>
-                  <span>{product.brand}</span>
-                </>
-              )}
-            </div>
-
             <Link
               href={productHref}
-              className="mt-1 block text-base font-bold text-foreground hover:text-primary transition-colors line-clamp-2"
+              className="block text-base sm:text-lg font-bold text-foreground hover:text-primary transition-colors line-clamp-2"
               title={product.name}
             >
               {product.name}
@@ -116,132 +149,174 @@ export function ProductCard({
             )}
           </div>
 
-          <div className="flex items-center gap-4 pt-1">
-            <ProductRating
-              rating={product.rating}
-              reviewsCount={product.reviewsCount}
-            />
-
-            <span className="text-xs font-medium text-muted-foreground">
-              {product.stock > 0 ? (
-                <span className="text-emerald-600 dark:text-emerald-400 font-semibold">
-                  In Stock ({product.stock})
+          <div className="space-y-1">
+            <div className="text-lg font-black text-foreground">
+              {formatPrice(product.price)}
+            </div>
+            {hasDiscount && (
+              <div className="flex items-center gap-2 text-xs">
+                <span className="text-muted-foreground line-through font-medium">
+                  {formatPrice(product.originalPrice!)}
                 </span>
-              ) : (
-                <span className="text-destructive font-semibold">Out of Stock</span>
-              )}
-            </span>
+                <span className="rounded-md bg-emerald-500/10 px-1.5 py-0.5 text-[11px] font-bold text-emerald-600 dark:text-emerald-400">
+                  {formatPrice(savings)} OFF
+                </span>
+              </div>
+            )}
           </div>
         </div>
 
-        {/* Right: Pricing & Actions */}
+        {/* Right: Actions */}
         <div className="flex sm:flex-col items-center sm:items-end justify-between sm:justify-center border-t sm:border-t-0 sm:border-l border-border pt-3 sm:pt-0 sm:pl-6 gap-3 shrink-0">
-          <ProductPrice
-            price={product.price}
-            originalPrice={product.originalPrice}
-            discountPercent={product.discountPercent}
-            size="lg"
-            showBadge
-          />
+          <button
+            type="button"
+            onClick={handleWishlistClick}
+            aria-label={isWishlisted ? 'Remove from wishlist' : 'Add to wishlist'}
+            className={cn(
+              'flex h-10 w-10 items-center justify-center rounded-full border border-border/80 bg-background text-muted-foreground shadow-2xs transition-all hover:scale-105 active:scale-95 cursor-pointer',
+              isWishlisted && 'text-destructive bg-destructive/10 border-destructive/20'
+            )}
+          >
+            <Heart className={cn('h-4 w-4', isWishlisted && 'fill-destructive')} />
+          </button>
 
-          <ProductActions
-            product={product}
-            variant="list"
-            onAddToCart={onAddToCart}
-            onToggleWishlist={onToggleWishlist}
-          />
+          <div className="flex items-center gap-2">
+            <Link
+              href={productHref}
+              className="h-10 px-5 flex items-center justify-center rounded-full border border-border/80 bg-background text-xs font-bold text-foreground transition-all duration-200 hover:bg-primary hover:text-primary-foreground hover:border-primary active:scale-98 cursor-pointer"
+            >
+              Shop Now
+            </Link>
+            <button
+              type="button"
+              onClick={handleAddToCart}
+              disabled={isOutOfStock}
+              className="h-10 w-10 flex items-center justify-center rounded-full border border-border/80 bg-background text-muted-foreground hover:text-primary hover:border-primary hover:bg-primary/5 transition-all duration-200 active:scale-95 disabled:opacity-50 cursor-pointer"
+            >
+              <ShoppingCart className="h-4 w-4" />
+            </button>
+          </div>
         </div>
       </div>
     );
   }
 
-  // 2. GRID VIEW MODE (Default)
+  // 2. GRID VIEW MODE (Clean, simple, matching reference design)
   return (
     <div
       className={cn(
-        'group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-border bg-card p-2.5 sm:p-3 shadow-2xs transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:-translate-y-1',
+        'group relative flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl border border-zinc-200/90 dark:border-zinc-800/80 bg-card p-2 sm:p-2.5 shadow-xs transition-all duration-300 hover:shadow-md hover:border-border/80',
         className
       )}
     >
-      {/* Media Image Section */}
-      <div className="relative">
+      {/* Top Media Image Container */}
+      <div className="relative aspect-square w-full overflow-hidden rounded-xl bg-muted/15 flex items-center justify-center">
         <Link
           href={productHref}
-          className="block overflow-hidden rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-primary cursor-pointer"
+          className="block h-full w-full relative focus:outline-none focus-visible:ring-2 focus-visible:ring-primary cursor-pointer"
           title={product.name}
         >
-          <ProductImage
-            src={product.photoUrl}
-            alt={product.name}
-            discountPercent={product.discountPercent}
-            isNew={product.isNew}
-            isBestSeller={product.isBestSeller}
-            isOutOfStock={product.stock <= 0}
-          />
+          {product.photoUrl ? (
+            <Image
+              src={product.photoUrl}
+              alt={product.name}
+              fill
+              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+              className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
+            />
+          ) : (
+            <div className="flex h-full w-full items-center justify-center text-muted-foreground">
+              <Package className="h-10 w-10" />
+            </div>
+          )}
+
+          {/* Out of Stock Overlay */}
+          {isOutOfStock && (
+            <div className="absolute inset-0 z-10 flex items-center justify-center bg-background/80 backdrop-blur-2xs">
+              <span className="rounded-lg bg-zinc-900 px-2.5 py-0.5 text-xs font-bold text-white shadow-xs">
+                Out of Stock
+              </span>
+            </div>
+          )}
         </Link>
 
-        {/* Quick Wishlist Action Floating Button */}
+        {/* Wishlist Button - Top Right */}
         <button
           type="button"
           onClick={handleWishlistClick}
           aria-label={isWishlisted ? 'Remove from wishlist' : 'Add to wishlist'}
           suppressHydrationWarning
           className={cn(
-            'absolute right-2.5 top-2.5 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-background/90 backdrop-blur-xs text-muted-foreground shadow-xs transition-all hover:scale-110 active:scale-95 cursor-pointer',
+            'absolute right-1.5 top-1.5 z-20 flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-background/90 backdrop-blur-xs text-muted-foreground shadow-2xs transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer',
             isWishlisted
               ? 'text-destructive bg-destructive/10'
               : 'hover:text-destructive hover:bg-background'
           )}
         >
           <Heart
-            className={cn('h-4 w-4 transition-colors', {
+            className={cn('h-3.5 w-3.5 sm:h-4 sm:w-4 transition-colors', {
               'fill-destructive text-destructive': isWishlisted,
             })}
           />
         </button>
       </div>
 
-      {/* Content Details */}
-      <div className="mt-2 sm:mt-3 flex flex-1 flex-col justify-between space-y-2 sm:space-y-2.5">
+      {/* Product Information */}
+      <div className="mt-2 flex flex-1 flex-col justify-between px-0.5">
         <div>
-          {/* Category & Rating */}
-          <div className="flex items-center justify-between gap-1 text-[10px] sm:text-[11px] text-muted-foreground">
-            <span className="truncate font-medium hover:text-primary max-w-[80px] sm:max-w-none">
-              {product.category?.name || product.brand || 'Category'}
-            </span>
-
-            <ProductRating
-              rating={product.rating}
-              reviewsCount={product.reviewsCount}
-            />
-          </div>
-
           {/* Title */}
           <Link
             href={productHref}
-            className="mt-1 block font-semibold text-foreground hover:text-primary transition-colors text-xs sm:text-sm line-clamp-2 leading-tight sm:leading-snug"
+            className="block font-semibold text-xs sm:text-sm text-foreground hover:text-primary transition-colors line-clamp-1 leading-snug"
             title={product.name}
           >
             {product.name}
           </Link>
+
+          {/* Price */}
+          <div className="mt-1 space-y-0.5">
+            <div className="text-sm sm:text-base font-bold text-foreground tracking-tight">
+              {formatPrice(product.price)}
+            </div>
+
+            {/* Discount row: original strikethrough + green savings badge */}
+            {hasDiscount ? (
+              <div className="flex items-center gap-1.5 pt-0.5">
+                <span className="text-[11px] sm:text-xs text-muted-foreground line-through font-medium">
+                  {formatPrice(product.originalPrice!)}
+                </span>
+                <span className="rounded-md bg-emerald-500/10 px-1.5 py-0.2 text-[10px] sm:text-[11px] font-bold text-emerald-600 dark:text-emerald-400">
+                  {formatPrice(savings)} OFF
+                </span>
+              </div>
+            ) : product.discountPercent && product.discountPercent > 0 ? (
+              <div className="flex items-center gap-1.5 pt-0.5">
+                <span className="rounded-md bg-emerald-500/10 px-1.5 py-0.2 text-[10px] sm:text-[11px] font-bold text-emerald-600 dark:text-emerald-400">
+                  {product.discountPercent}% OFF
+                </span>
+              </div>
+            ) : null}
+          </div>
         </div>
 
-        {/* Price & Add to Cart */}
-        <div className="pt-1">
-          <ProductPrice
-            price={product.price}
-            originalPrice={product.originalPrice}
-            discountPercent={product.discountPercent}
-          />
+        {/* Bottom Action Row: Shop Now (Primary on hover) + Cart Icon Button */}
+        <div className="mt-2.5 sm:mt-3 flex items-center gap-1.5">
+          <Link
+            href={productHref}
+            className="flex-1 h-8.5 sm:h-9 flex items-center justify-center rounded-full border border-border/80 bg-background text-xs font-bold text-foreground transition-all duration-300 group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground hover:!bg-primary-hover hover:!border-primary hover:!text-primary-foreground active:scale-98 cursor-pointer shadow-2xs"
+          >
+            Shop Now
+          </Link>
 
-          <div className="mt-2.5">
-            <ProductActions
-              product={product}
-              variant="card"
-              onAddToCart={onAddToCart}
-              onToggleWishlist={onToggleWishlist}
-            />
-          </div>
+          <button
+            type="button"
+            onClick={handleAddToCart}
+            disabled={isOutOfStock}
+            aria-label={`Add ${product.name} to cart`}
+            className="h-8.5 w-8.5 sm:h-9 sm:w-9 shrink-0 flex items-center justify-center rounded-full border border-border/80 bg-background text-muted-foreground hover:text-primary hover:border-primary hover:bg-primary/5 transition-all duration-200 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer shadow-2xs"
+          >
+            <ShoppingCart className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+          </button>
         </div>
       </div>
     </div>

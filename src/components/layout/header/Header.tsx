@@ -44,8 +44,8 @@ export function Header({
   const displayWishlistCount = !mounted
     ? 0
     : wishlistCount !== undefined
-    ? wishlistCount
-    : reduxWishlistCount;
+      ? wishlistCount
+      : reduxWishlistCount;
 
   const reduxUser = useAppSelector(selectCurrentUser);
   const activeUser = user !== undefined && user !== null ? user : reduxUser;
@@ -71,7 +71,7 @@ export function Header({
       <TopNavbar />
 
       {/* Main Header bar */}
-      <div className="border-b border-border bg-background">
+      <div className="border-b border-border md:border-b-0 bg-background">
         <div className="mx-auto flex h-16 sm:h-20 max-w-7xl items-center justify-between gap-2 sm:gap-3 px-3 sm:px-6 lg:px-8">
           {/* Logo (Left) */}
           <div className="flex items-center gap-2 sm:gap-4">
@@ -86,11 +86,6 @@ export function Header({
           {/* Right: Actions */}
           <div className="flex items-center gap-1.5 sm:gap-2.5">
             <OfferButton />
-
-            {/* Currency Switcher (BDT / USD / EUR) on the right */}
-            <div className="hidden sm:block">
-              <CurrencySwitcher variant="header" />
-            </div>
 
             {/* Light / Dark Mode Switcher */}
             <div className="hidden md:block">

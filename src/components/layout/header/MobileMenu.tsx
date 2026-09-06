@@ -7,7 +7,6 @@ import { siteConfig } from '@/config/site';
 import { useGetAllCategoriesQuery } from '@/services/api/categoryApi';
 import { Logo } from './Logo';
 import { ThemeToggle } from '@/components/common/ThemeToggle';
-import { CurrencySwitcher } from '@/components/common/CurrencySwitcher';
 import { cn } from '@/lib/utils';
 
 interface MobileMenuProps {
@@ -96,11 +95,6 @@ export function MobileMenu({ className }: MobileMenuProps) {
           >
             <X className="h-5 w-5" />
           </button>
-        </div>
-
-        {/* Currency Switcher for Mobile */}
-        <div className="px-4 py-3 border-b border-border bg-muted/20">
-          <CurrencySwitcher variant="mobile" />
         </div>
 
         {/* Tab Switcher */}

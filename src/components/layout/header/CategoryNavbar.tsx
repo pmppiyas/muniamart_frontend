@@ -13,7 +13,6 @@ function CategoryNavLinks() {
   const searchParams = useSearchParams();
 
   const isItemActive = (href: string) => {
-    // If href has query params (e.g. /products?deal=true, /products?sort=newest)
     if (href.includes('?')) {
       const [itemPath, itemQuery] = href.split('?');
       if (pathname !== itemPath) return false;
@@ -26,10 +25,9 @@ function CategoryNavLinks() {
       return true;
     }
 
-    // Exact path or subpath check (e.g. /categories, /about, /contact)
     if (href === '/products') {
       if (pathname !== '/products') return false;
-      // If deal=true or sort=newest is in searchParams, Deals or New Arrivals is active instead of generic Shop
+
       const isDeals = searchParams.get('deal') === 'true';
       const isNewest = searchParams.get('sort') === 'newest';
       return !isDeals && !isNewest;
@@ -107,7 +105,7 @@ function CategoryNavLinksFallback() {
 
 export function CategoryNavbar() {
   return (
-    <div className="hidden md:block border-b border-border bg-background shadow-2xs">
+    <div className="hidden md:block bg-background">
       <div className="mx-auto flex h-12 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Left: All Categories Dropdown */}
         <div className="flex items-center gap-6">
@@ -123,7 +121,9 @@ export function CategoryNavbar() {
         <div className="hidden xl:flex items-center gap-2 text-xs font-semibold text-muted-foreground">
           <Headphones className="h-4 w-4 text-primary" />
           <span>Support 24/7:</span>
-          <span className="font-bold text-foreground">{siteConfig.contact.phone}</span>
+          <span className="font-bold text-foreground">
+            {siteConfig.contact.phone}
+          </span>
         </div>
       </div>
     </div>
