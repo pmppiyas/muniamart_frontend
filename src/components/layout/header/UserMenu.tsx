@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import Link from 'next/link';
-import { User, Package, MapPin, Heart, LogIn, LogOut, ChevronDown } from 'lucide-react';
+import { User, Package, MapPin, Heart, LogIn, LogOut, ChevronDown, LayoutDashboard } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface UserMenuProps {
@@ -11,6 +11,7 @@ interface UserMenuProps {
     name?: string;
     email?: string;
     avatar?: string;
+    role?: string;
   } | null;
   onLogout?: () => void;
 }
@@ -89,6 +90,22 @@ export function UserMenu({ className, user = null, onLogout }: UserMenuProps) {
           )}
 
           <div className="py-1">
+            {user && (user.role === 'ADMIN' || user.role === 'SUPER_ADMIN') && (
+              <Link
+                href="/admin/dashboard"
+                onClick={() => setIsOpen(false)}
+                className="flex items-center justify-between gap-2.5 rounded-lg bg-primary/10 px-3 py-2 text-xs font-bold text-primary hover:bg-primary/20 transition-colors mb-1"
+              >
+                <div className="flex items-center gap-2">
+                  <LayoutDashboard className="h-4 w-4" />
+                  <span>Admin Dashboard</span>
+                </div>
+                <span className="rounded bg-primary px-1.5 py-0.2 text-[9px] font-extrabold text-white uppercase">
+                  {user.role === 'SUPER_ADMIN' ? 'Super' : 'Admin'}
+                </span>
+              </Link>
+            )}
+
             <Link
               href="/profile?tab=info"
               onClick={() => setIsOpen(false)}

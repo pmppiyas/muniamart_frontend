@@ -30,7 +30,12 @@ export function Newsletter({ className }: NewsletterProps) {
   };
 
   return (
-    <div className={cn('rounded-3xl border border-border bg-gradient-to-br from-card via-card to-primary/5 p-6 sm:p-8 lg:p-10 shadow-xs', className)}>
+    <div
+      className={cn(
+        'rounded-3xl bg-zinc-50 dark:bg-zinc-900/80 p-6 sm:p-8 lg:p-10 shadow-xs border border-zinc-100 dark:border-zinc-800/60',
+        className
+      )}
+    >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
         {/* Left copy */}
         <div className="lg:col-span-7 space-y-2 text-left">
@@ -41,7 +46,7 @@ export function Newsletter({ className }: NewsletterProps) {
           <h3 className="text-2xl sm:text-3xl font-black tracking-tight text-foreground">
             Get $10 Off Your First Order
           </h3>
-          <p className="text-sm text-muted-foreground max-w-xl">
+          <p className="text-sm text-muted-foreground max-w-xl leading-relaxed">
             Subscribe to our weekly newsletter to receive member-only flash discounts, trending arrivals, and seasonal coupons.
           </p>
         </div>
@@ -49,11 +54,17 @@ export function Newsletter({ className }: NewsletterProps) {
         {/* Right form */}
         <div className="lg:col-span-5">
           {isSubscribed ? (
-            <div className="flex items-center gap-3 rounded-2xl border border-emerald-500/30 bg-emerald-500/10 p-4 text-emerald-700 dark:text-emerald-300 animate-in fade-in zoom-in-95">
+            <div className="flex items-center gap-3 rounded-2xl bg-emerald-500/10 p-4 text-emerald-800 dark:text-emerald-200 animate-in fade-in zoom-in-95">
               <CheckCircle className="h-6 w-6 text-emerald-500 shrink-0" />
               <div>
                 <p className="text-sm font-bold text-emerald-800 dark:text-emerald-200">Subscription Confirmed!</p>
-                <p className="text-xs">Use coupon code <span className="font-mono font-bold bg-card px-1.5 py-0.5 rounded border border-emerald-500/40">WELCOME10</span> at checkout.</p>
+                <p className="text-xs text-muted-foreground mt-0.5">
+                  Use coupon code{' '}
+                  <span className="font-mono font-bold bg-white dark:bg-zinc-800 text-foreground px-1.5 py-0.5 rounded shadow-2xs border border-emerald-500/30">
+                    WELCOME10
+                  </span>{' '}
+                  at checkout.
+                </p>
               </div>
             </div>
           ) : (
@@ -67,7 +78,7 @@ export function Newsletter({ className }: NewsletterProps) {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email address..."
                     required
-                    className="h-12 w-full rounded-xl border border-border bg-card pl-10 pr-4 text-sm text-foreground placeholder:text-muted-foreground shadow-xs focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                    className="h-12 w-full rounded-xl border border-zinc-200/90 dark:border-zinc-800 bg-white dark:bg-zinc-950 pl-10 pr-4 text-sm text-foreground placeholder:text-muted-foreground shadow-2xs focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
                   />
                 </div>
                 <button
@@ -80,7 +91,7 @@ export function Newsletter({ className }: NewsletterProps) {
                 </button>
               </div>
               <div className="flex items-center gap-1.5 text-[11px] text-muted-foreground">
-                <Shield className="h-3 w-3 text-emerald-500" />
+                <Shield className="h-3.5 w-3.5 text-emerald-500 shrink-0" />
                 <span>Zero spam guarantee. You can unsubscribe anytime with 1-click.</span>
               </div>
             </form>

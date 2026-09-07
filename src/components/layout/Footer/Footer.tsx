@@ -1,6 +1,7 @@
 'use client';
 
 import * as React from 'react';
+import { usePathname } from 'next/navigation';
 import {
   Phone,
   Mail,
@@ -13,36 +14,45 @@ import { FooterColumn } from './FooterColumn';
 import { SocialLinks } from './SocialLinks';
 
 export function Footer() {
+  const pathname = usePathname();
+
+  if (pathname?.startsWith('/admin')) {
+    return null;
+  }
+
   const categoryLinks = siteConfig.categories.map((c) => ({
     label: c.name,
     href: `/categories/${c.slug}`,
   }));
 
   return (
-    <footer className="border-t border-border bg-background text-muted-foreground">
-      {/* 2. Newsletter Section */}
-      <div className="mx-auto max-w-7xl px-3 pt-10 sm:px-6 lg:px-8">
-        <Newsletter />
-      </div>
+    <>
+      {/* 1. Separated CTA / Newsletter Section (Normally White) */}
+      <section className="bg-white dark:bg-zinc-950 py-10 sm:py-14">
+        <div className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
+          <Newsletter />
+        </div>
+      </section>
 
-      {/* 3. Main Footer Links Grid */}
-      <div className="mx-auto max-w-7xl px-3 py-12 sm:px-6 lg:px-8">
+      {/* 2. Main Black Footer */}
+      <footer className="bg-black text-zinc-400">
+        <div className="mx-auto max-w-7xl px-3 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12">
           {/* Brand Column */}
           <div className="lg:col-span-4 space-y-4">
-            <Logo showTagline />
-            <p className="text-xs text-muted-foreground leading-relaxed max-w-sm">
+            <Logo showTagline variant="dark" />
+            <p className="text-xs text-zinc-400 leading-relaxed max-w-sm">
               {siteConfig.description}
             </p>
 
             <div className="space-y-2 text-xs pt-2">
-              <div className="flex items-center gap-2.5 text-foreground/80">
+              <div className="flex items-center gap-2.5 text-zinc-300">
                 <MapPin className="h-4 w-4 text-primary shrink-0" />
                 <span>{siteConfig.contact.address}</span>
               </div>
               <a
                 href={`tel:${siteConfig.contact.phone}`}
-                className="flex items-center gap-2.5 text-foreground/80 hover:text-primary transition-colors"
+                className="flex items-center gap-2.5 text-zinc-300 hover:text-white transition-colors"
               >
                 <Phone className="h-4 w-4 text-primary shrink-0" />
                 <span className="font-semibold">
@@ -51,7 +61,7 @@ export function Footer() {
               </a>
               <a
                 href={`mailto:${siteConfig.contact.email}`}
-                className="flex items-center gap-2.5 text-foreground/80 hover:text-primary transition-colors"
+                className="flex items-center gap-2.5 text-zinc-300 hover:text-white transition-colors"
               >
                 <Mail className="h-4 w-4 text-primary shrink-0" />
                 <span>{siteConfig.contact.email}</span>
@@ -59,7 +69,7 @@ export function Footer() {
             </div>
 
             <div className="pt-2">
-              <span className="block text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-2">
+              <span className="block text-[11px] font-bold uppercase tracking-wider text-zinc-500 mb-2">
                 Follow Us
               </span>
               <SocialLinks />
@@ -87,11 +97,11 @@ export function Footer() {
             />
 
             {/* Payment security assurance */}
-            <div className="rounded-xl border border-border bg-card p-3">
-              <span className="block text-[11px] font-bold text-foreground">
+            <div className="rounded-xl bg-zinc-900/60 p-3.5">
+              <span className="block text-[11px] font-bold text-zinc-200">
                 Guaranteed Safe Checkout
               </span>
-              <p className="text-[10px] text-muted-foreground mt-0.5">
+              <p className="text-[10px] text-zinc-400 mt-0.5">
                 We accept major international and local mobile payment options
                 with end-to-end encryption.
               </p>
@@ -101,34 +111,35 @@ export function Footer() {
       </div>
 
       {/* 4. Bottom Copyright & Payment Partners Bar */}
-      <div className="border-t border-border bg-muted/40 py-6">
+      <div className="bg-zinc-950 py-6">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 sm:flex-row sm:px-6 lg:px-8">
-          <p className="text-xs text-muted-foreground text-center sm:text-left">
+          <p className="text-xs text-zinc-400 text-center sm:text-left">
             © {new Date().getFullYear()}{' '}
-            <span className="font-bold text-foreground">MUNIAMART</span>. All
+            <span className="font-bold text-white">MUNIAMART</span>. All
             rights reserved. Built for modern high-performance shopping.
           </p>
 
           {/* Payment Badges */}
           <div className="flex flex-wrap items-center gap-2">
-            <span className="rounded-md border border-border bg-card px-2 py-1 text-[10px] font-black text-blue-600 shadow-2xs">
+            <span className="rounded-md bg-zinc-900 px-2.5 py-1 text-[10px] font-black text-blue-400 shadow-2xs">
               VISA
             </span>
-            <span className="rounded-md border border-border bg-card px-2 py-1 text-[10px] font-black text-destructive shadow-2xs">
+            <span className="rounded-md bg-zinc-900 px-2.5 py-1 text-[10px] font-black text-rose-400 shadow-2xs">
               MASTERCARD
             </span>
-            <span className="rounded-md border border-border bg-card px-2 py-1 text-[10px] font-black text-purple-600 shadow-2xs">
+            <span className="rounded-md bg-zinc-900 px-2.5 py-1 text-[10px] font-black text-purple-400 shadow-2xs">
               STRIPE
             </span>
-            <span className="rounded-md border border-border bg-card px-2 py-1 text-[10px] font-black text-pink-600 shadow-2xs">
+            <span className="rounded-md bg-zinc-900 px-2.5 py-1 text-[10px] font-black text-pink-400 shadow-2xs">
               bKash
             </span>
-            <span className="rounded-md border border-emerald-500/30 bg-emerald-500/10 px-2 py-1 text-[10px] font-bold text-emerald-600 dark:text-emerald-400 shadow-2xs">
+            <span className="rounded-md bg-emerald-500/10 px-2.5 py-1 text-[10px] font-bold text-emerald-400 shadow-2xs">
               SSL SECURE
             </span>
           </div>
         </div>
       </div>
-    </footer>
+      </footer>
+    </>
   );
 }

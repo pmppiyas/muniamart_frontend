@@ -31,6 +31,13 @@ export const authSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
+      .addMatcher(authApi.endpoints.login.matchFulfilled, (state, action) => {
+        if (action.payload.data.user) {
+          state.user = action.payload.data.user;
+          state.isAuthenticated = true;
+          state.status = 'authenticated';
+        }
+      })
       .addMatcher(authApi.endpoints.getMe.matchPending, (state) => {
         if (state.status === 'idle') {
           state.status = 'loading';
@@ -45,9 +52,11 @@ export const authSlice = createSlice({
         state.user = action.payload.data;
       })
       .addMatcher(authApi.endpoints.getMe.matchRejected, (state) => {
-        state.user = null;
-        state.isAuthenticated = false;
-        state.status = 'unauthenticated';
+        if (!state.isAuthenticated) {
+          state.user = null;
+          state.isAuthenticated = false;
+          state.status = 'unauthenticated';
+        }
       })
       .addMatcher(authApi.endpoints.logout.matchFulfilled, (state) => {
         state.user = null;

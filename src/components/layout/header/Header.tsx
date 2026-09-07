@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Heart } from 'lucide-react';
 import { TopNavbar } from './TopNavbar';
 import { CategoryNavbar } from './CategoryNavbar';
@@ -39,7 +40,12 @@ export function Header({
   user = null,
   onLogout,
 }: HeaderProps) {
+  const pathname = usePathname();
   const mounted = useMounted();
+
+  if (pathname?.startsWith('/admin')) {
+    return null;
+  }
   const reduxWishlistCount = useAppSelector(selectWishlistTotalCount);
   const displayWishlistCount = !mounted
     ? 0

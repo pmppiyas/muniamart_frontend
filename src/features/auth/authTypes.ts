@@ -4,6 +4,7 @@ export interface CustomerUser {
   email: string;
   phone?: string | null;
   photoUrl?: string | null;
+  role?: 'ADMIN' | 'SUPER_ADMIN' | 'CUSTOMER' | string;
   status: 'ACTIVE' | 'INACTIVE' | 'BLOCKED' | string;
   createdAt: string;
   _count?: {
@@ -43,6 +44,7 @@ export interface ApiResponse<T> {
 export interface LoginResponseData {
   accessToken: string;
   refreshToken: string;
+  user?: CustomerUser;
 }
 
 export type RegisterResponseData = CustomerUser;

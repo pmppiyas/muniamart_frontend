@@ -54,10 +54,26 @@ export function LoginForm() {
       if (response.success) {
         toast.success(response.message || 'Welcome back to MuniaMart!');
 
-        await triggerGetMe()
+        const userRes = await triggerGetMe()
           .unwrap()
-          .catch(() => {});
-        router.push(callbackUrl);
+          .catch(() => null);
+
+        const userRole = response.data?.user?.role || userRes?.data?.role;
+        const isAdmin = userRole === 'ADMIN' || userRole === 'SUPER_ADMIN';
+
+        let destination =
+          callbackUrl && callbackUrl !== '/'
+            ? callbackUrl
+            : isAdmin
+              ? '/admin/dashboard'
+              : '/';
+
+        // Customers must NEVER be redirected to /admin/* routes
+        if (!isAdmin && destination.startsWith('/admin')) {
+          destination = '/';
+        }
+
+        router.push(destination);
         router.refresh();
       } else {
         toast.error(response.message || 'Failed to sign in');

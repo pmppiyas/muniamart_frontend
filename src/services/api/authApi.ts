@@ -32,7 +32,7 @@ export const authApi = baseApi.injectEndpoints({
         url: '/customer/me',
         method: 'GET',
       }),
-      providesTags: ['Customer'],
+      providesTags: ['Customer', 'Auth'],
     }),
 
     logout: builder.mutation<ApiResponse<null>, void>({
