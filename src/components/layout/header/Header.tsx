@@ -42,21 +42,17 @@ export function Header({
 }: HeaderProps) {
   const pathname = usePathname();
   const mounted = useMounted();
-
-  if (pathname?.startsWith('/admin')) {
-    return null;
-  }
   const reduxWishlistCount = useAppSelector(selectWishlistTotalCount);
+  const reduxUser = useAppSelector(selectCurrentUser);
+  const [logoutMutation] = useLogoutMutation();
+
   const displayWishlistCount = !mounted
     ? 0
     : wishlistCount !== undefined
       ? wishlistCount
       : reduxWishlistCount;
 
-  const reduxUser = useAppSelector(selectCurrentUser);
   const activeUser = user !== undefined && user !== null ? user : reduxUser;
-
-  const [logoutMutation] = useLogoutMutation();
 
   const handleLogout = async () => {
     if (onLogout) {
@@ -70,6 +66,10 @@ export function Header({
       toast.success('Signed out successfully');
     }
   };
+
+  if (pathname?.startsWith('/admin')) {
+    return null;
+  }
 
   return (
     <header className="sticky top-0 z-40 w-full bg-background shadow-xs">

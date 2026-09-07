@@ -281,7 +281,7 @@ export function AdminSidebar({
       {/* Desktop Sidebar */}
       <aside
         className={cn(
-          'hidden md:flex flex-col fixed inset-y-0 left-0 z-30 border-r border-border bg-card transition-all duration-300 ease-in-out',
+          'hidden md:flex flex-col sticky top-0 h-screen z-30 border-r border-border bg-card transition-all duration-300 ease-in-out shrink-0 relative',
           isCollapsed ? 'w-18' : 'w-64'
         )}
       >

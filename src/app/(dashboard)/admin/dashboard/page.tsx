@@ -24,6 +24,8 @@ import {
 import { useAppSelector } from '@/store/hooks';
 import { selectCurrentUser, selectIsSuperAdmin } from '@/features/auth/authSelectors';
 import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { AdminPageHeader } from '@/components/admin/AdminPageHeader';
 import { useCurrency } from '@/hooks/useCurrency';
 import { cn } from '@/lib/utils';
 
@@ -185,42 +187,41 @@ export default function AdminDashboardPage() {
 
   return (
     <div className="space-y-6 sm:space-y-8 pb-10">
-      {/* 1. Page Header & Actions */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-        <div>
-          <div className="flex items-center gap-2">
-            <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-foreground">
-              Dashboard Overview
-            </h1>
-            <span className="rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-extrabold text-primary">
-              {isSuperAdmin ? 'SUPER ADMIN' : 'ADMIN'}
-            </span>
-          </div>
-          <p className="mt-1 text-xs sm:text-sm text-muted-foreground">
+      {/* 1. Reusable Page Header & Actions */}
+      <AdminPageHeader
+        title="Dashboard Overview"
+        badge={
+          <Badge variant="default" className="text-[11px] font-extrabold uppercase tracking-wide">
+            {isSuperAdmin ? 'SUPER ADMIN' : 'ADMIN'}
+          </Badge>
+        }
+        description={
+          <>
             Welcome back, <span className="font-semibold text-foreground">{user?.name || 'Admin'}</span>. Here is your store’s real-time performance.
-          </p>
-        </div>
+          </>
+        }
+        actions={
+          <>
+            {/* Date Range Selector */}
+            <div className="inline-flex items-center gap-1.5 rounded-xl border border-border bg-card px-3 py-2 text-xs font-medium text-foreground shadow-2xs">
+              <Calendar className="h-3.5 w-3.5 text-muted-foreground" />
+              <span>{dateRange}</span>
+            </div>
 
-        <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
-          {/* Date Range Selector */}
-          <div className="inline-flex items-center gap-1.5 rounded-xl border border-border bg-card px-3 py-2 text-xs font-medium text-foreground shadow-2xs">
-            <Calendar className="h-3.5 w-3.5 text-muted-foreground" />
-            <span>{dateRange}</span>
-          </div>
+            <Button variant="outline" size="sm" className="rounded-xl text-xs font-semibold shadow-2xs">
+              <Download className="h-3.5 w-3.5 mr-1.5" />
+              Export Report
+            </Button>
 
-          <Button variant="outline" size="sm" className="rounded-xl text-xs font-semibold shadow-2xs">
-            <Download className="h-3.5 w-3.5 mr-1.5" />
-            Export Report
-          </Button>
-
-          <Button asChild size="sm" className="rounded-xl text-xs font-bold shadow-sm">
-            <Link href="/admin/products">
-              <Plus className="h-3.5 w-3.5 mr-1.5" />
-              Add Product
-            </Link>
-          </Button>
-        </div>
-      </div>
+            <Button asChild size="sm" className="rounded-xl text-xs font-bold shadow-sm">
+              <Link href="/admin/products">
+                <Plus className="h-3.5 w-3.5 mr-1.5" />
+                Add Product
+              </Link>
+            </Button>
+          </>
+        }
+      />
 
       {/* 2. Key Metrics KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">

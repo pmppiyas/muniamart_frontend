@@ -14,14 +14,13 @@ interface MobileNavProps {
 
 export function MobileNav({ user = null }: MobileNavProps) {
   const pathname = usePathname();
+  const [isSearchOpen, setIsSearchOpen] = React.useState(false);
+  const reduxUser = useAppSelector(selectCurrentUser);
+  const activeUser = user !== undefined && user !== null ? user : reduxUser;
 
   if (pathname?.startsWith('/admin')) {
     return null;
   }
-
-  const [isSearchOpen, setIsSearchOpen] = React.useState(false);
-  const reduxUser = useAppSelector(selectCurrentUser);
-  const activeUser = user !== undefined && user !== null ? user : reduxUser;
 
   return (
     <>

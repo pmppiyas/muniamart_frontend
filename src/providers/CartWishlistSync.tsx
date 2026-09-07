@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
-import { selectIsAuthenticated } from '@/features/auth/authSelectors';
+import { selectIsAuthenticated, selectIsAdmin } from '@/features/auth/authSelectors';
 import { clearCart } from '@/features/cart/cartSlice';
 import { clearWishlist } from '@/features/wishlist/wishlistSlice';
 import { useLazyGetCartQuery, useAddToCartMutation } from '@/services/api/cartApi';
@@ -14,6 +14,7 @@ const WISHLIST_STORAGE_KEY = 'muniamart_wishlist';
 export function CartWishlistSync() {
   const dispatch = useAppDispatch();
   const isAuthenticated = useAppSelector(selectIsAuthenticated);
+  const isAdmin = useAppSelector(selectIsAdmin);
   const prevAuthRef = React.useRef<boolean>(false);
   const hasMergedGuestItemsRef = React.useRef<boolean>(false);
 
@@ -23,7 +24,8 @@ export function CartWishlistSync() {
   const [addToWishlistApi] = useAddToWishlistMutation();
 
   React.useEffect(() => {
-    if (isAuthenticated) {
+    // Admins do not have customer carts/wishlists; only sync for regular customer sessions
+    if (isAuthenticated && !isAdmin) {
       const syncWithDatabase = async () => {
         try {
           // 1. Fetch server state (extraReducers will automatically hydrate Redux)
