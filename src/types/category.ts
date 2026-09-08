@@ -2,15 +2,19 @@ export interface Category {
   id: string;
   name: string;
   slug: string;
-  description?: string;
+  description?: string | null;
   parentId?: string | null;
   parent?: Category | null;
   children?: Category[];
-  createdAt: string;
-  updatedAt: string;
+  createdAt?: string;
+  updatedAt?: string;
 
   // UI presentation fields
-  icon?: string;
+  icon?: string | null;
   itemCount?: number;
-  imageUrl?: string;
+  imageUrl?: string | null;
+  _count?: {
+    products?: number;
+    children?: number;
+  };
 }

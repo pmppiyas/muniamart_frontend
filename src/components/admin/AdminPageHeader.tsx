@@ -15,6 +15,7 @@ export interface AdminPageHeaderProps {
   breadcrumbs?: BreadcrumbItem[];
   actions?: React.ReactNode;
   children?: React.ReactNode;
+  compact?: boolean;
   className?: string;
 }
 
@@ -25,10 +26,11 @@ export function AdminPageHeader({
   breadcrumbs,
   actions,
   children,
+  compact = false,
   className,
 }: AdminPageHeaderProps) {
   return (
-    <div className={cn('space-y-4', className)}>
+    <div className={cn(compact ? 'space-y-2' : 'space-y-3 sm:space-y-4', className)}>
       {/* Optional Breadcrumb Navigation */}
       {breadcrumbs && breadcrumbs.length > 0 && (
         <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-xs text-muted-foreground">
@@ -59,11 +61,17 @@ export function AdminPageHeader({
       )}
 
       {/* Main Header Row: Title & Actions */}
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <div className={cn(
+        'flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3',
+        compact && 'min-h-[44px]'
+      )}>
         {/* Left Side: Title, Badge, Description */}
-        <div className="space-y-1">
-          <div className="flex flex-wrap items-center gap-2.5">
-            <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-foreground">
+        <div className={cn(compact ? 'space-y-0.5' : 'space-y-1')}>
+          <div className="flex flex-wrap items-center gap-2">
+            <h1 className={cn(
+              'font-bold tracking-tight text-foreground',
+              compact ? 'text-lg sm:text-xl' : 'text-xl sm:text-2xl'
+            )}>
               {title}
             </h1>
             {badge && (
@@ -73,7 +81,7 @@ export function AdminPageHeader({
             )}
           </div>
           {description && (
-            <p className="text-xs sm:text-sm text-muted-foreground max-w-3xl leading-relaxed">
+            <p className="text-xs text-muted-foreground max-w-2xl leading-relaxed">
               {description}
             </p>
           )}
@@ -81,14 +89,14 @@ export function AdminPageHeader({
 
         {/* Right Side: Action Buttons */}
         {actions && (
-          <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 shrink-0">
+          <div className="flex flex-wrap items-center gap-2 shrink-0">
             {actions}
           </div>
         )}
       </div>
 
       {/* Optional Children (Filter bars, search bars, extra controls) */}
-      {children && <div className="pt-1">{children}</div>}
+      {children && <div>{children}</div>}
     </div>
   );
 }

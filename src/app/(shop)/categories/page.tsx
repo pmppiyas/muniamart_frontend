@@ -52,6 +52,68 @@ export default async function AllCategoriesPage() {
             <CategoryCard key={category.id} category={category} />
           ))}
         </div>
+
+        {/* Detailed Department Hierarchy Breakdown */}
+        <div className="pt-8 border-t border-border space-y-6">
+          <div className="space-y-1">
+            <h2 className="text-xl font-bold tracking-tight text-foreground">
+              Department Hierarchy & Subcategories
+            </h2>
+            <p className="text-xs text-muted-foreground">
+              Directly jump to specific sub-departments and specialized product categories.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {categories.map((dept) => (
+              <div
+                key={dept.id}
+                className="rounded-2xl border border-border bg-card p-5 space-y-4 shadow-2xs hover:border-primary/40 transition-colors"
+              >
+                <div className="flex items-center justify-between">
+                  <Link
+                    href={`/categories/${dept.slug}`}
+                    className="group flex items-center gap-2.5 font-bold text-base text-foreground hover:text-primary transition-colors"
+                  >
+                    <span>{dept.name}</span>
+                    <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
+                  </Link>
+                  <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-primary/10 text-primary">
+                    {dept.itemCount ? `${dept.itemCount} items` : 'Explore'}
+                  </span>
+                </div>
+
+                {dept.children && dept.children.length > 0 ? (
+                  <div className="space-y-1.5 pt-1 border-t border-border/60">
+                    <p className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">
+                      Subcategories ({dept.children.length})
+                    </p>
+                    <div className="flex flex-wrap gap-1.5 pt-1">
+                      {dept.children.map((sub) => (
+                        <Link
+                          key={sub.id}
+                          href={`/categories/${dept.slug}?sub=${sub.slug}`}
+                          className="inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-lg bg-muted/60 hover:bg-primary/10 hover:text-primary transition-colors text-foreground/85 border border-border/50"
+                        >
+                          <span>{sub.name}</span>
+                          {sub.itemCount ? (
+                            <span className="text-[10px] text-muted-foreground">
+                              ({sub.itemCount})
+                            </span>
+                          ) : null}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <p className="text-xs text-muted-foreground italic pt-1 border-t border-border/60">
+                    Direct department items
+                  </p>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

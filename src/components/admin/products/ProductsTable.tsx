@@ -48,7 +48,7 @@ export function ProductsTable({
   onPageChange,
 }: ProductsTableProps) {
   const currentPage = meta?.page || 1;
-  const limit = meta?.limit || 30;
+  const limit = meta?.limit || 15;
   const total = meta?.total ?? products.length;
   const totalPage = meta?.totalPage || Math.max(1, Math.ceil(total / limit));
 

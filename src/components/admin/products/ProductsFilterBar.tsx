@@ -65,7 +65,9 @@ export function ProductsFilterBar({
         <div className="flex flex-wrap items-center gap-2">
           {/* Category Filter */}
           <div className="flex items-center gap-1.5">
-            <span className="text-xs text-muted-foreground hidden sm:inline">Category:</span>
+            <span className="text-xs text-muted-foreground hidden sm:inline">
+              Category:
+            </span>
             <select
               value={selectedCategory}
               onChange={(e) => onCategoryChange(e.target.value)}
@@ -82,7 +84,9 @@ export function ProductsFilterBar({
 
           {/* Stock Filter */}
           <div className="flex items-center gap-1.5">
-            <span className="text-xs text-muted-foreground hidden sm:inline">Stock:</span>
+            <span className="text-xs text-muted-foreground hidden sm:inline">
+              Stock:
+            </span>
             <select
               value={selectedStockStatus}
               onChange={(e) => onStockStatusChange(e.target.value)}
@@ -97,7 +101,9 @@ export function ProductsFilterBar({
 
           {/* Status Filter */}
           <div className="flex items-center gap-1.5">
-            <span className="text-xs text-muted-foreground hidden sm:inline">Status:</span>
+            <span className="text-xs text-muted-foreground hidden sm:inline">
+              Status:
+            </span>
             <select
               value={selectedStatus}
               onChange={(e) => onStatusChange(e.target.value)}

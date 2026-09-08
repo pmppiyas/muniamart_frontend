@@ -18,7 +18,7 @@ import { Product } from '@/types/product';
 export default function AdminProductsPage() {
   // 1. Pagination & Filter States
   const [page, setPage] = React.useState(1);
-  const limit = 30; // 30 items per page as requested
+  const limit = 15; // 15 items per page as requested
 
   const [searchQuery, setSearchQuery] = React.useState('');
   const [debouncedSearch, setDebouncedSearch] = React.useState('');
@@ -138,7 +138,7 @@ export default function AdminProductsPage() {
   };
 
   return (
-    <div className="space-y-6 pb-12">
+    <div className="space-y-3.5 pb-12">
       {/* Reusable Header with Action Buttons */}
       <ProductsHeader
         totalCount={meta?.total ?? products.length}

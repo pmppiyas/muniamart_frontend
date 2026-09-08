@@ -224,28 +224,28 @@ export default function AdminDashboardPage() {
       />
 
       {/* 2. Key Metrics KPI Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4">
         {stats.map((stat) => {
           const Icon = stat.icon;
           return (
             <div
               key={stat.title}
-              className="group relative overflow-hidden rounded-2xl border border-border bg-card p-5 shadow-xs transition-all hover:shadow-md hover:border-primary/40"
+              className="group relative overflow-hidden rounded-2xl border border-border bg-card p-4 shadow-2xs transition-all hover:shadow-xs hover:border-primary/40"
             >
               <div className="flex items-center justify-between">
-                <span className="text-xs font-medium text-muted-foreground">
+                <span className="text-[11px] sm:text-xs font-medium text-muted-foreground">
                   {stat.title}
                 </span>
-                <div className={cn('flex h-9 w-9 items-center justify-center rounded-xl', stat.iconColor)}>
-                  <Icon className="h-4 w-4" />
+                <div className={cn('flex h-8 w-8 items-center justify-center rounded-xl', stat.iconColor)}>
+                  <Icon className="h-3.5 w-3.5" />
                 </div>
               </div>
 
-              <div className="mt-3">
-                <div className="text-2xl sm:text-3xl font-black text-foreground tracking-tight">
+              <div className="mt-2.5">
+                <div className="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight">
                   {stat.value}
                 </div>
-                <div className="mt-1.5 flex items-center gap-1.5 text-xs">
+                <div className="mt-1 flex items-center gap-1.5 text-[11px]">
                   <span
                     className={cn(
                       'inline-flex items-center font-bold',
@@ -259,7 +259,7 @@ export default function AdminDashboardPage() {
                     )}
                     {stat.change}
                   </span>
-                  <span className="text-muted-foreground">{stat.subtext}</span>
+                  <span className="text-muted-foreground text-[10.5px] truncate">{stat.subtext}</span>
                 </div>
               </div>
             </div>

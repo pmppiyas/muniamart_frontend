@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { toast } from 'sonner';
-import { Loader2 } from 'lucide-react';
+import { Loader2, UploadCloud, X, Image as ImageIcon } from 'lucide-react';
 import { Modal } from '@/components/ui/modal';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -35,6 +35,10 @@ export function ProductEditModal({
     description: '',
   });
 
+  const [selectedFile, setSelectedFile] = React.useState<File | null>(null);
+  const [previewUrl, setPreviewUrl] = React.useState<string | null>(null);
+  const fileInputRef = React.useRef<HTMLInputElement | null>(null);
+
   React.useEffect(() => {
     if (product) {
       setFormData({
@@ -46,8 +50,30 @@ export function ProductEditModal({
         photoUrl: product.photoUrl || '',
         description: product.description || '',
       });
+      setSelectedFile(null);
+      setPreviewUrl(null);
     }
   }, [product]);
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setSelectedFile(file);
+      const objectUrl = URL.createObjectURL(file);
+      setPreviewUrl(objectUrl);
+    }
+  };
+
+  const handleRemoveFile = () => {
+    setSelectedFile(null);
+    if (previewUrl) {
+      URL.revokeObjectURL(previewUrl);
+      setPreviewUrl(null);
+    }
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
+    }
+  };
 
   if (!product) return null;
 
@@ -67,20 +93,31 @@ export function ProductEditModal({
     }
 
     try {
+      const data = new FormData();
+      data.append('name', formData.name.trim());
+      data.append('price', String(priceNum));
+      data.append('stock', String(stockNum));
+      if (formData.categoryId) {
+        data.append('categoryId', formData.categoryId);
+      }
+      data.append('status', formData.status);
+      if (formData.description.trim()) {
+        data.append('description', formData.description.trim());
+      }
+
+      if (selectedFile) {
+        data.append('photo', selectedFile);
+      } else if (formData.photoUrl.trim()) {
+        data.append('photoUrl', formData.photoUrl.trim());
+      }
+
       await updateProduct({
         id: product.id,
-        data: {
-          name: formData.name.trim(),
-          price: priceNum,
-          stock: stockNum,
-          categoryId: formData.categoryId || undefined,
-          status: formData.status,
-          photoUrl: formData.photoUrl.trim() || undefined,
-          description: formData.description.trim() || undefined,
-        },
+        data,
       }).unwrap();
 
       toast.success(`"${formData.name}" updated successfully!`);
+      handleRemoveFile();
       onClose();
     } catch (err: any) {
       toast.error(err?.data?.message || 'Failed to update product');
@@ -211,16 +248,69 @@ export function ProductEditModal({
           </div>
         </div>
 
-        {/* Photo URL */}
+        {/* Product Image (Upload to Cloudinary or URL) */}
         <div className="space-y-1.5">
           <label className="text-xs font-semibold text-foreground">
-            Image URL
+            Product Image (Cloudinary Upload)
           </label>
-          <Input
-            value={formData.photoUrl}
-            onChange={(e) => setFormData({ ...formData, photoUrl: e.target.value })}
-            placeholder="https://example.com/image.jpg"
-          />
+
+          <div className="space-y-2">
+            {previewUrl || formData.photoUrl ? (
+              <div className="relative group w-full h-36 rounded-lg border border-border bg-muted/30 overflow-hidden flex items-center justify-center">
+                <img
+                  src={previewUrl || formData.photoUrl}
+                  alt="Product Preview"
+                  className="w-full h-full object-contain p-2"
+                />
+                <button
+                  type="button"
+                  onClick={() => {
+                    handleRemoveFile();
+                    setFormData({ ...formData, photoUrl: '' });
+                  }}
+                  className="absolute top-2 right-2 p-1 rounded-full bg-background/80 hover:bg-destructive hover:text-destructive-foreground text-foreground/80 shadow-xs backdrop-blur-xs transition-colors cursor-pointer"
+                  title="Remove Image"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              </div>
+            ) : (
+              <div
+                onClick={() => fileInputRef.current?.click()}
+                className="flex flex-col items-center justify-center w-full h-28 border-2 border-dashed border-border hover:border-primary/50 bg-muted/20 hover:bg-muted/40 rounded-lg cursor-pointer transition-colors px-4 text-center"
+              >
+                <div className="p-2 rounded-full bg-primary/10 text-primary mb-1">
+                  <UploadCloud className="h-5 w-5" />
+                </div>
+                <p className="text-xs font-medium text-foreground">
+                  Click to replace/upload image
+                </p>
+                <p className="text-[10px] text-muted-foreground mt-0.5">
+                  PNG, JPG, WEBP up to 5MB (Uploaded to Cloudinary)
+                </p>
+              </div>
+            )}
+
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="image/*"
+              className="hidden"
+              onChange={handleFileChange}
+            />
+
+            {!previewUrl && (
+              <div className="relative flex items-center gap-2 pt-1">
+                <span className="text-[11px] text-muted-foreground whitespace-nowrap">Or Image URL:</span>
+                <Input
+                  value={formData.photoUrl}
+                  onChange={(e) => setFormData({ ...formData, photoUrl: e.target.value })}
+                  placeholder="https://example.com/image.jpg"
+                  className="h-8 text-xs"
+                />
+              </div>
+            )}
+          </div>
         </div>
 
         {/* Description */}

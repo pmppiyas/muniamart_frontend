@@ -39,7 +39,7 @@ export const productApi = baseApi.injectEndpoints({
       query: (params) => ({
         url: '/product',
         method: 'GET',
-        params: params || { page: 1, limit: 30 },
+        params: params || { page: 1, limit: 15 },
       }),
       providesTags: ['Product'],
     }),
@@ -52,7 +52,7 @@ export const productApi = baseApi.injectEndpoints({
       providesTags: (_result, _error, id) => [{ type: 'Product', id }],
     }),
 
-    createProduct: builder.mutation<ApiResponse<Product>, CreateProductPayload>({
+    createProduct: builder.mutation<ApiResponse<Product>, CreateProductPayload | FormData>({
       query: (body) => ({
         url: '/product',
         method: 'POST',
@@ -63,7 +63,7 @@ export const productApi = baseApi.injectEndpoints({
 
     updateProduct: builder.mutation<
       ApiResponse<Product>,
-      { id: string; data: UpdateProductPayload }
+      { id: string; data: UpdateProductPayload | FormData }
     >({
       query: ({ id, data }) => ({
         url: `/product/${id}`,

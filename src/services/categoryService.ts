@@ -45,7 +45,11 @@ export async function getCategoriesFromDb(): Promise<Category[]> {
 
       return json.data.map((dbCat: Category) => {
         const mockMatch = mockCategoryMap.get(dbCat.id) || mockData.categories.find(c => c.slug === dbCat.slug);
-        const realCount = catCountMap.get(dbCat.id) || catCountMap.get(dbCat.slug) || 0;
+        const realCount =
+          catCountMap.get(dbCat.id) ||
+          catCountMap.get(dbCat.slug) ||
+          dbCat._count?.products ||
+          0;
 
         return {
           ...dbCat,
@@ -55,7 +59,10 @@ export async function getCategoriesFromDb(): Promise<Category[]> {
           itemCount: realCount,
           children: (dbCat.children || []).map((child) => {
             const mockChild = mockMatch?.children?.find((c) => c.slug === child.slug);
-            const realSubCount = subCountMap.get(child.slug) || 0;
+            const realSubCount =
+              subCountMap.get(child.slug) ||
+              child._count?.products ||
+              0;
 
             return {
               ...child,

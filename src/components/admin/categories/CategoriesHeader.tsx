@@ -1,31 +1,32 @@
 'use client';
 
+import * as React from 'react';
 import { Plus, RefreshCw, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 
-interface ProductsHeaderProps {
+interface CategoriesHeaderProps {
   totalCount: number;
   isFetching: boolean;
   onRefresh: () => void;
   onExport: () => void;
-  onAddProduct: () => void;
+  onAddCategory: () => void;
 }
 
-export function ProductsHeader({
+export function CategoriesHeader({
   totalCount,
   isFetching,
   onRefresh,
   onExport,
-  onAddProduct,
-}: ProductsHeaderProps) {
+  onAddCategory,
+}: CategoriesHeaderProps) {
   return (
     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 min-h-11 py-0.5">
       {/* Left: Heading + Total Count Badge + Subtitle */}
       <div className="space-y-0.5">
         <div className="flex items-center gap-2.5">
           <h1 className="text-lg sm:text-xl font-bold tracking-tight text-foreground">
-            Products
+            Categories
           </h1>
           <Badge
             variant="secondary"
@@ -35,7 +36,7 @@ export function ProductsHeader({
           </Badge>
         </div>
         <p className="text-[11px] sm:text-xs text-muted-foreground">
-          Manage and organize your store catalog, pricing and stock inventory
+          Manage hierarchical store catalog, parent categories and subcategories
         </p>
       </div>
 
@@ -47,7 +48,7 @@ export function ProductsHeader({
           onClick={onRefresh}
           disabled={isFetching}
           className="h-8.5 rounded-xl px-2.5 text-xs font-semibold shadow-2xs cursor-pointer"
-          title="Refresh Products"
+          title="Refresh Categories"
         >
           <RefreshCw
             className={`h-3.5 w-3.5 mr-1.5 ${isFetching ? 'animate-spin' : ''}`}
@@ -68,11 +69,11 @@ export function ProductsHeader({
 
         <Button
           size="sm"
-          onClick={onAddProduct}
+          onClick={onAddCategory}
           className="h-8.5 rounded-xl px-3 text-xs font-bold shadow-sm cursor-pointer"
         >
           <Plus className="h-3.5 w-3.5 mr-1.5" />
-          Add Product
+          Add Category
         </Button>
       </div>
     </div>
