@@ -37,7 +37,6 @@ export function AdminHeader({ onOpenMobile, isCollapsed }: AdminHeaderProps) {
   const userMenuRef = React.useRef<HTMLDivElement>(null);
   const notifRef = React.useRef<HTMLDivElement>(null);
 
-  // Close menus on outside click
   React.useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (userMenuRef.current && !userMenuRef.current.contains(event.target as Node)) {
@@ -56,7 +55,6 @@ export function AdminHeader({ onOpenMobile, isCollapsed }: AdminHeaderProps) {
     router.replace('/auth/login?from=/admin/dashboard');
   };
 
-  // Generate breadcrumb items from pathname
   const pathSegments = pathname.split('/').filter(Boolean);
   const breadcrumbName =
     pathSegments[pathSegments.length - 1]
@@ -67,7 +65,7 @@ export function AdminHeader({ onOpenMobile, isCollapsed }: AdminHeaderProps) {
   return (
     <header
       className={cn(
-        'sticky top-0 z-20 flex h-16 w-full items-center justify-between border-b border-border bg-card/80 px-4 backdrop-blur-md transition-all duration-300 sm:px-6'
+        'sticky top-0 z-20 flex h-16 shrink-0 w-full items-center justify-between border-b border-border bg-card/80 px-4 backdrop-blur-md transition-all duration-300 sm:px-6'
       )}
     >
       {/* Left: Mobile Toggle & Breadcrumbs */}

@@ -27,7 +27,6 @@ export function ProductReviews({
 
   const totalReviews = reviewList.length > 0 ? reviewList.length : reviewsCount;
 
-  // Calculate rating breakdown distribution
   const ratingDistribution = React.useMemo(() => {
     const counts: Record<number, number> = { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 };
     if (reviewList.length > 0) {

@@ -46,7 +46,9 @@ export function OrderSuccessReceipt({ orderData }: OrderSuccessReceiptProps) {
           <div>
             <p className="text-xs text-muted-foreground">Order Reference Number</p>
             <p className="text-lg font-black text-foreground uppercase tracking-wider">
-              {orderData.orderId}
+              {orderData.orderId.toUpperCase().startsWith('ORD-')
+                ? orderData.orderId.toUpperCase()
+                : `ORD-${orderData.orderId}`}
             </p>
           </div>
           <div className="text-left sm:text-right">

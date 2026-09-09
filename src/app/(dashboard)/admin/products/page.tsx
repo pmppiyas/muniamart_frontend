@@ -16,9 +16,8 @@ import { useGetAllCategoriesQuery } from '@/services/api/categoryApi';
 import { Product } from '@/types/product';
 
 export default function AdminProductsPage() {
-  // 1. Pagination & Filter States
   const [page, setPage] = React.useState(1);
-  const limit = 15; // 15 items per page as requested
+  const limit = 15;
 
   const [searchQuery, setSearchQuery] = React.useState('');
   const [debouncedSearch, setDebouncedSearch] = React.useState('');

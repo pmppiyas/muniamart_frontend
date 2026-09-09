@@ -68,7 +68,6 @@ export function CategoryEditModal({
     }
   };
 
-  // Build eligible parents: exclude category itself and its descendants to prevent circular loops!
   const eligibleParentOptions = React.useMemo(() => {
     if (!category) return [];
 

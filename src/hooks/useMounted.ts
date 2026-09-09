@@ -11,7 +11,7 @@ const emptySubscribe = () => () => {};
 export function useMounted(): boolean {
   return React.useSyncExternalStore(
     emptySubscribe,
-    () => true,  // Client snapshot
-    () => false // Server snapshot
+    () => true,
+    () => false
   );
 }

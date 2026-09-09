@@ -13,7 +13,6 @@ export function ProductSpecifications({
   product,
   className,
 }: ProductSpecificationsProps) {
-  // Merge default specifications with any custom specs
   const specs: Record<string, string> = {
     SKU: product.sku,
     Brand: product.brand || 'MUNIAMART Certified',

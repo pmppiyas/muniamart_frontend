@@ -53,7 +53,6 @@ export function CategoriesTable({
   onDelete,
   onAddSubcategory,
 }: CategoriesTableProps) {
-  // Flatten tree according to expanded state and filters
   const flattenedItems = React.useMemo(() => {
     const items: FlattenedCategoryItem[] = [];
     const query = searchQuery.trim().toLowerCase();
@@ -77,7 +76,6 @@ export function CategoriesTable({
         if (!matchesSearch(cat)) continue;
 
         const hasChildren = Boolean(cat.children && cat.children.length > 0);
-        // Force expand if searching and children match
         const isExpanded = query
           ? true
           : expandedIds.has(cat.id);
@@ -125,7 +123,6 @@ export function CategoriesTable({
     return items;
   }, [categories, searchQuery, hierarchyFilter, expandedIds]);
 
-  // Statistics
   const stats = React.useMemo(() => {
     let roots = 0;
     let subs = 0;

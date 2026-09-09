@@ -2,7 +2,6 @@ import { Category } from '@/types/category';
 import mockData from '@/data/mockData.json';
 import { env } from '@/config/env';
 
-// Compute accurate real product counts per category and subcategory from product catalog
 function getRealCatalogCounts() {
   const catCountMap = new Map<string, number>();
   const subCountMap = new Map<string, number>();

@@ -43,7 +43,6 @@ export interface Product {
   createdAt: string;
   updatedAt: string;
 
-  // UI presentation & marketing fields
   brand?: string;
   originalPrice?: number;
   rating?: number;
@@ -53,7 +52,6 @@ export interface Product {
   isBestSeller?: boolean;
   discountPercent?: number;
 
-  // Detail specifications & rich content
   features?: string[];
   specifications?: Record<string, string>;
   variants?: ProductVariant[];

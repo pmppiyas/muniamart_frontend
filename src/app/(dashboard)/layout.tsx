@@ -16,10 +16,8 @@ export default function DashboardLayout({
 
   return (
     <AdminGuard>
-      <div className="min-h-screen bg-background text-foreground flex justify-center w-full">
-        {/* max-w-7xl Centered Dashboard Container */}
-        <div className="mx-auto max-w-7xl w-full flex min-h-screen border-x border-border/40">
-          {/* Responsive Admin Sidebar */}
+      <div className="h-screen bg-background text-foreground flex justify-center w-full overflow-hidden">
+        <div className="mx-auto max-w-7xl w-full flex h-screen border-x border-border/40 overflow-hidden">
           <AdminSidebar
             isCollapsed={isCollapsed}
             onToggleCollapse={() => setIsCollapsed((prev) => !prev)}
@@ -27,15 +25,12 @@ export default function DashboardLayout({
             onCloseMobile={() => setIsMobileOpen(false)}
           />
 
-          {/* Main Content Area */}
-          <div className="flex flex-1 flex-col min-w-0 transition-all duration-300 ease-in-out">
-            {/* Admin Header */}
+          <div className="flex flex-1 flex-col min-w-0 h-screen overflow-hidden transition-all duration-300 ease-in-out">
             <AdminHeader
               onOpenMobile={() => setIsMobileOpen(true)}
               isCollapsed={isCollapsed}
             />
 
-            {/* Dynamic Page Content */}
             <main className="flex-1 p-4 sm:p-6 lg:p-8 overflow-y-auto">
               {children}
             </main>

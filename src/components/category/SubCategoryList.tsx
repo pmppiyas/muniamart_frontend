@@ -24,7 +24,6 @@ export function SubCategoryList({
   className,
   products = [],
 }: SubCategoryListProps) {
-  // Real product counts per subcategory
   const subcategoryCounts = React.useMemo(() => {
     const map = new Map<string, number>();
     products.forEach((p) => {

@@ -38,10 +38,8 @@ export function useCart() {
 
   const addItem = React.useCallback(
     async (item: Omit<CartItem, 'id'> & { id?: string }) => {
-      // 1. Instant optimistic update in Redux
       dispatch(addToCartRedux(item));
 
-      // 2. If authenticated, persist directly to PostgreSQL database
       if (isAuthenticated) {
         try {
           await addToCartApi({
@@ -59,10 +57,8 @@ export function useCart() {
 
   const updateItemQuantity = React.useCallback(
     async (id: string, quantity: number) => {
-      // 1. Instant update in Redux
       dispatch(updateQuantityRedux({ id, quantity }));
 
-      // 2. If authenticated, persist to database
       if (isAuthenticated) {
         try {
           await updateCartItemQuantityApi({ id, quantity }).unwrap();
@@ -76,10 +72,8 @@ export function useCart() {
 
   const removeItem = React.useCallback(
     async (id: string) => {
-      // 1. Instant update in Redux
       dispatch(removeFromCartRedux(id));
 
-      // 2. If authenticated, persist to database
       if (isAuthenticated) {
         try {
           await removeCartItemApi(id).unwrap();
@@ -92,10 +86,8 @@ export function useCart() {
   );
 
   const clearAll = React.useCallback(async () => {
-    // 1. Instant update in Redux
     dispatch(clearCartRedux());
 
-    // 2. If authenticated, persist to database
     if (isAuthenticated) {
       try {
         await clearCartApi().unwrap();

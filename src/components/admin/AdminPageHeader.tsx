@@ -101,5 +101,4 @@ export function AdminPageHeader({
   );
 }
 
-// Re-export as DashboardPageHeader for semantic convenience
 export const DashboardPageHeader = AdminPageHeader;

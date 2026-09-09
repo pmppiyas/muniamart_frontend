@@ -42,14 +42,12 @@ export function CategoryPageContent({
 
   const subQuery = searchParams.get('sub');
 
-  // Find matching subcategory object
   const activeSubcategory = React.useMemo(() => {
     return findMatchingSubcategory(category.children, subQuery);
   }, [category.children, subQuery]);
 
   const selectedSubcategorySlug = activeSubcategory?.slug || null;
 
-  // Filter products for this subcategory to pass accurate count to Hero
   const subcategoryFilteredCount = React.useMemo(() => {
     if (!activeSubcategory) return categoryProducts.length;
     return categoryProducts.filter((p) => {
@@ -66,7 +64,6 @@ export function CategoryPageContent({
   const handleSelectSubcategory = (slug: string | null) => {
     const params = new URLSearchParams(searchParams.toString());
     if (slug) {
-      // Find matching subcategory to get clean slug
       const targetSub = category.children?.find(
         (c) =>
           c.slug.toLowerCase() === slug.toLowerCase() ||

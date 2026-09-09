@@ -32,7 +32,6 @@ export function ProductToolbar({
 }: ProductToolbarProps) {
   const { formatPrice } = useCurrency();
 
-  // Count active filter criteria
   const activeFiltersCount =
     filters.categories.length +
     filters.brands.length +

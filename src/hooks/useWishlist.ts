@@ -42,10 +42,8 @@ export function useWishlist() {
 
   const toggleItem = React.useCallback(
     async (item: Omit<WishlistItem, 'addedAt' | 'id'> & { id?: string; addedAt?: string }) => {
-      // 1. Instant optimistic update in Redux
       dispatch(toggleWishlistRedux(item));
 
-      // 2. If authenticated, persist to PostgreSQL database
       if (isAuthenticated) {
         try {
           await toggleWishlistApi({ productId: item.productId }).unwrap();
@@ -59,10 +57,8 @@ export function useWishlist() {
 
   const removeItem = React.useCallback(
     async (productId: string) => {
-      // 1. Instant update in Redux
       dispatch(removeFromWishlistRedux(productId));
 
-      // 2. If authenticated, persist to database
       if (isAuthenticated) {
         try {
           await removeFromWishlistApi(productId).unwrap();
@@ -75,10 +71,8 @@ export function useWishlist() {
   );
 
   const clearAll = React.useCallback(async () => {
-    // 1. Instant update in Redux
     dispatch(clearWishlistRedux());
 
-    // 2. If authenticated, persist to database
     if (isAuthenticated) {
       try {
         await clearWishlistApi().unwrap();

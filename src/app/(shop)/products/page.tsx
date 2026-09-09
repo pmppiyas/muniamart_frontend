@@ -29,7 +29,6 @@ function ProductsContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
 
-  // Fetch live products and categories from database
   const { data: dbProductsRes, isLoading: isProductsLoading } = useGetAllProductsQuery();
   const { data: dbCategoriesRes } = useGetAllCategoriesQuery();
 
@@ -89,7 +88,6 @@ function ProductsContent() {
     return mockData.categories as Category[];
   }, [dbCategoriesRes]);
 
-  // Calculate distinct available brands and counts
   const availableBrands = React.useMemo(() => {
     const brandMap = new Map<string, number>();
     allProducts.forEach((p) => {
@@ -103,7 +101,6 @@ function ProductsContent() {
       .sort((a, b) => b.count - a.count);
   }, [allProducts]);
 
-  // Real product counts per category
   const categoriesWithRealCounts = React.useMemo(() => {
     const counts = new Map<string, number>();
     allProducts.forEach((p) => {
@@ -125,7 +122,6 @@ function ProductsContent() {
   const sortParam = searchParams.get('sort');
   const isNewestPage = sortParam === 'newest';
 
-  // Initial state derived from searchParams at mount time
   const [filters, setFilters] = React.useState<ProductFilterState>(() => {
     const categoryParam = searchParams.get('category');
     const qParam = searchParams.get('q');
@@ -139,7 +135,6 @@ function ProductsContent() {
     };
   });
 
-  // Re-sync filters when navigation or searchParams change (e.g. clicking Shop vs Deals vs New Arrivals)
   React.useEffect(() => {
     const categoryParam = searchParams.get('category');
     const qParam = searchParams.get('q');
@@ -158,11 +153,9 @@ function ProductsContent() {
   const [currentPage, setCurrentPage] = React.useState(1);
   const [isMobileFilterOpen, setIsMobileFilterOpen] = React.useState(false);
 
-  // Filter & Sort Logic
   const filteredProducts = React.useMemo(() => {
     let result = [...allProducts];
 
-    // 0. Deals Only Filter
     if (isDealPage) {
       result = result.filter(
         (p) =>
@@ -171,7 +164,6 @@ function ProductsContent() {
       );
     }
 
-    // 1. Search Query
     if (filters.search && filters.search.trim()) {
       const q = filters.search.toLowerCase().trim();
       result = result.filter(
@@ -183,7 +175,6 @@ function ProductsContent() {
       );
     }
 
-    // 2. Categories
     if (filters.categories.length > 0) {
       result = result.filter(
         (p) =>
@@ -192,27 +183,22 @@ function ProductsContent() {
       );
     }
 
-    // 3. Brands
     if (filters.brands.length > 0) {
       result = result.filter((p) => p.brand && filters.brands.includes(p.brand));
     }
 
-    // 4. Price Range
     result = result.filter(
       (p) => p.price >= filters.priceRange[0] && p.price <= filters.priceRange[1]
     );
 
-    // 5. Min Rating
     if (filters.minRating > 0) {
       result = result.filter((p) => (p.rating || 0) >= filters.minRating);
     }
 
-    // 6. In Stock Only
     if (filters.inStockOnly) {
       result = result.filter((p) => p.stock > 0);
     }
 
-    // 7. Sorting
     switch (filters.sortBy) {
       case 'price-asc':
         result.sort((a, b) => a.price - b.price);
@@ -238,7 +224,6 @@ function ProductsContent() {
     return result;
   }, [allProducts, filters]);
 
-  // Pagination Slice
   const totalPages = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE);
   const paginatedProducts = React.useMemo(() => {
     const start = (currentPage - 1) * ITEMS_PER_PAGE;

@@ -4,7 +4,6 @@ export type DeliveryMethod = 'standard' | 'express';
 export type PaymentMethod = 'cod' | 'bkash' | 'card';
 
 export const checkoutFormSchema = z.object({
-  // Contact & Personal
   fullName: z
     .string()
     .min(2, 'Full name must be at least 2 characters')
@@ -17,7 +16,6 @@ export const checkoutFormSchema = z.object({
     .min(10, 'Please enter a valid phone number (at least 10 digits)')
     .regex(/^[\d+\-\s()]+$/, 'Invalid phone number format'),
 
-  // Shipping Address
   streetAddress: z
     .string()
     .min(5, 'Street address must be at least 5 characters'),
@@ -33,7 +31,6 @@ export const checkoutFormSchema = z.object({
     .min(3, 'Postal/ZIP code is required'),
   deliveryNotes: z.string().optional(),
 
-  // Delivery & Payment choices
   deliveryMethod: z.enum(['standard', 'express']),
   paymentMethod: z.enum(['cod', 'bkash', 'card']),
 });

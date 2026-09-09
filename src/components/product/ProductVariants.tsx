@@ -17,7 +17,6 @@ export function ProductVariants({
   onSelectVariant,
   className,
 }: ProductVariantsProps) {
-  // Group variants by type (color, size, storage, style) - Hook called before any early return
   const groupedVariants = React.useMemo(() => {
     const groups: Record<string, ProductVariant[]> = {};
     variants.forEach((variant) => {

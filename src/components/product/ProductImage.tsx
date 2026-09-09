@@ -38,7 +38,7 @@ export function ProductImage({
           alt={alt}
           fill
           sizes={sizes}
-          className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
+          className="object-cover object-center"
         />
       ) : (
         <div className="flex h-full w-full items-center justify-center text-xs text-muted-foreground">

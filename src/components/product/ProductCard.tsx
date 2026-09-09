@@ -95,7 +95,6 @@ export function ProductCard({
 
   const productHref = `/products/${product.slug || product.id}`;
 
-  // 1. LIST VIEW MODE
   if (viewMode === 'list') {
     return (
       <div
@@ -116,7 +115,7 @@ export function ProductCard({
               alt={product.name}
               fill
               sizes="(max-width: 640px) 100vw, 150px"
-              className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
+              className="object-cover object-center"
             />
           ) : (
             <Package className="h-10 w-10 text-muted-foreground" />
@@ -136,7 +135,7 @@ export function ProductCard({
           <div>
             <Link
               href={productHref}
-              className="block text-base sm:text-lg font-bold text-foreground hover:text-primary transition-colors line-clamp-2"
+              className="block text-base sm:text-lg font-bold text-foreground group-hover:text-primary transition-colors line-clamp-2"
               title={product.name}
             >
               {product.name}
@@ -201,7 +200,6 @@ export function ProductCard({
     );
   }
 
-  // 2. GRID VIEW MODE (Clean, simple, matching reference design)
   return (
     <div
       className={cn(
@@ -222,7 +220,7 @@ export function ProductCard({
               alt={product.name}
               fill
               sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-              className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
+              className="object-cover object-center"
             />
           ) : (
             <div className="flex h-full w-full items-center justify-center text-muted-foreground">
@@ -267,7 +265,7 @@ export function ProductCard({
           {/* Title */}
           <Link
             href={productHref}
-            className="block font-semibold text-xs sm:text-sm text-foreground hover:text-primary transition-colors line-clamp-1 leading-snug"
+            className="block font-semibold text-xs sm:text-sm text-foreground group-hover:text-primary transition-colors line-clamp-1 leading-snug"
             title={product.name}
           >
             {product.name}

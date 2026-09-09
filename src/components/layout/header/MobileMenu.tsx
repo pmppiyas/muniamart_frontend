@@ -22,7 +22,6 @@ export function MobileMenu({ className }: MobileMenuProps) {
     null
   );
 
-  // Fetch live categories from database
   const { data: categoriesRes } = useGetAllCategoriesQuery();
   const dbCategories = categoriesRes?.data;
 

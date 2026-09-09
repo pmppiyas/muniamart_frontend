@@ -103,7 +103,6 @@ export function ProductCreateModal({
       await createProduct(data).unwrap();
 
       toast.success(`Product "${formData.name}" created successfully!`);
-      // Reset form
       setFormData({
         name: '',
         sku: '',

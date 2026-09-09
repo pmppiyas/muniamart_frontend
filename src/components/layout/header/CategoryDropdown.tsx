@@ -16,11 +16,9 @@ export function CategoryDropdown({ className }: CategoryDropdownProps) {
   const [isOpen, setIsOpen] = React.useState(false);
   const containerRef = React.useRef<HTMLDivElement>(null);
 
-  // Fetch live categories from PostgreSQL database
   const { data: categoriesRes } = useGetAllCategoriesQuery();
   const dbCategories = categoriesRes?.data;
 
-  // Format categories list with database data, fallback to siteConfig if API is loading
   const categoriesList = React.useMemo(() => {
     if (Array.isArray(dbCategories) && dbCategories.length > 0) {
       return dbCategories.map((c) => ({

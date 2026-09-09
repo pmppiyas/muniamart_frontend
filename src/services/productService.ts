@@ -39,7 +39,6 @@ function normalizeProduct(dbProduct: any, mockMap: Map<string, any>): Product {
     subcategorySlug: dbProduct.subcategorySlug || mock.subcategorySlug,
     createdAt: dbProduct.createdAt || mock.createdAt || new Date().toISOString(),
     updatedAt: dbProduct.updatedAt || mock.updatedAt || new Date().toISOString(),
-    // Keep marketing & detail specs
     brand: mock.brand || dbProduct.brand || 'Muniamart',
     rating: mock.rating ?? 4.8,
     reviewsCount: mock.reviewsCount ?? 120,

@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       `Explore high quality ${category.name} with fast delivery and guaranteed authenticity at MUNIAMART.`,
     openGraph: {
       title: `${category.name} | MUNIAMART`,
-      description: category.description,
+      description: category.description || undefined,
       images: category.imageUrl ? [{ url: category.imageUrl }] : [],
     },
   };

@@ -36,7 +36,6 @@ export default function AdminDashboardPage() {
 
   const [dateRange, setDateRange] = React.useState('Last 30 Days');
 
-  // KPI Metrics data
   const stats = [
     {
       title: 'Total Revenue',
@@ -76,7 +75,6 @@ export default function AdminDashboardPage() {
     },
   ];
 
-  // Recent Orders data
   const recentOrders = [
     {
       id: 'ORD-9824',
@@ -140,7 +138,6 @@ export default function AdminDashboardPage() {
     },
   ];
 
-  // Weekly sales distribution simulation
   const weeklySales = [
     { day: 'Mon', amount: 145000, height: '48%' },
     { day: 'Tue', amount: 198000, height: '62%' },
@@ -162,8 +159,8 @@ export default function AdminDashboardPage() {
         );
       case 'CONFIRMED':
         return (
-          <span className="inline-flex items-center gap-1 rounded-full bg-blue-500/10 px-2.5 py-0.5 text-xs font-semibold text-blue-600 dark:text-blue-400">
-            <Truck className="h-3 w-3" />
+          <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 px-2.5 py-0.5 text-xs font-semibold text-emerald-600 dark:text-emerald-400">
+            <CheckCircle2 className="h-3 w-3" />
             Confirmed
           </span>
         );

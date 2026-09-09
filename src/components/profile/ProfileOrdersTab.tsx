@@ -2,52 +2,97 @@
 
 import * as React from 'react';
 import Link from 'next/link';
-import { Package, Clock, ShoppingBag, ArrowRight, AlertCircle, RefreshCw } from 'lucide-react';
+import { Package, Clock, ShoppingBag, ArrowRight, AlertCircle, RefreshCw, MapPin } from 'lucide-react';
 import { useGetMyOrdersQuery } from '@/services/api/orderApi';
 import { Order, OrderStatus } from '@/types/order';
 import { useCurrency } from '@/hooks/useCurrency';
 import { cn } from '@/lib/utils';
 
 const STATUS_CONFIG: Record<
-  OrderStatus,
-  { label: string; color: string; bg: string; border: string }
+  string,
+  { label: string; color: string; bg: string; border: string; dot: string }
 > = {
+  CONFIRMED: {
+    label: 'Confirmed',
+    color: 'text-emerald-700 dark:text-emerald-300',
+    bg: 'bg-emerald-500/15 dark:bg-emerald-500/20',
+    border: 'border-emerald-500/30 dark:border-emerald-500/40',
+    dot: 'bg-emerald-500',
+  },
+  PAID: {
+    label: 'Paid',
+    color: 'text-emerald-600 dark:text-emerald-400',
+    bg: 'bg-emerald-500/10',
+    border: 'border-emerald-500/20',
+    dot: 'bg-emerald-500',
+  },
   PENDING: {
     label: 'Pending',
     color: 'text-amber-600 dark:text-amber-400',
     bg: 'bg-amber-500/10',
     border: 'border-amber-500/20',
+    dot: 'bg-amber-500',
   },
   PROCESSING: {
     label: 'Processing',
     color: 'text-blue-600 dark:text-blue-400',
     bg: 'bg-blue-500/10',
     border: 'border-blue-500/20',
+    dot: 'bg-blue-500',
+  },
+  DELIVERY_IN_PROGRESS: {
+    label: 'Out for Delivery',
+    color: 'text-sky-600 dark:text-sky-400',
+    bg: 'bg-sky-500/10',
+    border: 'border-sky-500/20',
+    dot: 'bg-sky-500',
   },
   SHIPPED: {
     label: 'Shipped',
     color: 'text-indigo-600 dark:text-indigo-400',
     bg: 'bg-indigo-500/10',
     border: 'border-indigo-500/20',
+    dot: 'bg-indigo-500',
   },
   DELIVERED: {
     label: 'Delivered',
-    color: 'text-emerald-600 dark:text-emerald-400',
-    bg: 'bg-emerald-500/10',
-    border: 'border-emerald-500/20',
+    color: 'text-emerald-700 dark:text-emerald-300',
+    bg: 'bg-emerald-500/15 dark:bg-emerald-500/20',
+    border: 'border-emerald-500/30 dark:border-emerald-500/40',
+    dot: 'bg-emerald-500',
   },
   CANCELLED: {
     label: 'Cancelled',
     color: 'text-rose-600 dark:text-rose-400',
     bg: 'bg-rose-500/10',
     border: 'border-rose-500/20',
+    dot: 'bg-rose-500',
+  },
+  CANCELED: {
+    label: 'Cancelled',
+    color: 'text-rose-600 dark:text-rose-400',
+    bg: 'bg-rose-500/10',
+    border: 'border-rose-500/20',
+    dot: 'bg-rose-500',
   },
 };
 
 export function ProfileOrdersTab() {
   const { data: ordersResponse, isLoading, isError, refetch } = useGetMyOrdersQuery();
   const { formatPrice } = useCurrency();
-  const orders: Order[] = (ordersResponse?.data as unknown as Order[]) || [];
+  const rawOrders: Order[] = (ordersResponse?.data as unknown as Order[]) || [];
+
+  const orders = React.useMemo(() => {
+    return [...rawOrders].sort((a, b) => {
+      const timeA = a.createdAt ? new Date(a.createdAt).getTime() : 0;
+      const timeB = b.createdAt ? new Date(b.createdAt).getTime() : 0;
+      if (timeB !== timeA) return timeB - timeA;
+
+      const numA = parseInt(a.id.replace(/\D/g, ''), 10) || 0;
+      const numB = parseInt(b.id.replace(/\D/g, ''), 10) || 0;
+      return numB - numA;
+    });
+  }, [rawOrders]);
 
   if (isLoading) {
     return (
@@ -121,11 +166,21 @@ export function ProfileOrdersTab() {
 
       <div className="space-y-4">
         {orders.map((order) => {
-          const status = STATUS_CONFIG[order.status] || {
-            label: order.status,
-            color: 'text-foreground',
-            bg: 'bg-muted',
-            border: 'border-border',
+          const rawStatus = (order.status || '').toUpperCase().trim();
+          const status = STATUS_CONFIG[rawStatus] || {
+            label: order.status || 'Pending',
+            color: rawStatus === 'CONFIRMED' || rawStatus === 'CONFIRM'
+              ? 'text-emerald-700 dark:text-emerald-300'
+              : 'text-foreground',
+            bg: rawStatus === 'CONFIRMED' || rawStatus === 'CONFIRM'
+              ? 'bg-emerald-500/15 dark:bg-emerald-500/20'
+              : 'bg-muted',
+            border: rawStatus === 'CONFIRMED' || rawStatus === 'CONFIRM'
+              ? 'border-emerald-500/30 dark:border-emerald-500/40'
+              : 'border-border',
+            dot: rawStatus === 'CONFIRMED' || rawStatus === 'CONFIRM'
+              ? 'bg-emerald-500'
+              : 'bg-muted-foreground',
           };
 
           const orderDate = order.createdAt
@@ -150,7 +205,9 @@ export function ProfileOrdersTab() {
                   <div>
                     <div className="flex items-center gap-2">
                       <span className="text-xs font-black text-foreground">
-                        Order #{order.id.slice(-8).toUpperCase()}
+                        {order.id.toUpperCase().startsWith('ORD-')
+                          ? order.id.toUpperCase()
+                          : `ORD-${order.id}`}
                       </span>
                     </div>
                     <span className="flex items-center gap-1 text-[11px] text-muted-foreground">
@@ -163,12 +220,13 @@ export function ProfileOrdersTab() {
                 <div className="flex items-center gap-3">
                   <span
                     className={cn(
-                      'inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-bold capitalize',
+                      'inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-xs font-bold capitalize',
                       status.bg,
                       status.color,
                       status.border
                     )}
                   >
+                    <span className={cn('h-1.5 w-1.5 rounded-full', status.dot)} />
                     {status.label}
                   </span>
                   <span className="text-sm font-black text-foreground">
@@ -198,6 +256,32 @@ export function ProfileOrdersTab() {
                   </div>
                 ))}
               </div>
+
+              {/* Shipping Address Footer */}
+              {order.address && (
+                <div className="mt-3 pt-3 border-t border-border/50 flex flex-wrap items-center justify-between gap-2 text-[11px] text-muted-foreground">
+                  <div className="flex items-center gap-1.5 min-w-0">
+                    <MapPin className="h-3.5 w-3.5 text-primary shrink-0" />
+                    <span className="truncate">
+                      <strong className="text-foreground font-semibold">{order.address.fullName}</strong>
+                      {' · '}
+                      {order.address.streetAddress}
+                      {order.address.apartment ? `, ${order.address.apartment}` : ''}
+                      {', '}{order.address.city}, {order.address.state} - {order.address.postalCode}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2 shrink-0">
+                    {order.address.phone && (
+                      <span className="font-mono text-foreground/80">{order.address.phone}</span>
+                    )}
+                    {order.address.paymentMethod && (
+                      <span className="rounded-md bg-muted px-1.5 py-0.5 font-bold uppercase text-[9px] tracking-wider text-muted-foreground">
+                        {order.address.paymentMethod}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              )}
             </div>
           );
         })}

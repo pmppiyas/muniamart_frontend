@@ -23,7 +23,6 @@ export function ProductGrid({
   onToggleWishlist,
   className,
 }: ProductGridProps) {
-  // Empty State
   if (!products || products.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center rounded-3xl border border-dashed border-border bg-card/50 p-12 text-center min-h-[380px]">

@@ -9,7 +9,6 @@ export interface Category {
   createdAt?: string;
   updatedAt?: string;
 
-  // UI presentation fields
   icon?: string | null;
   itemCount?: number;
   imageUrl?: string | null;

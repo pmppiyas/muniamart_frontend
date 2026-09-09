@@ -78,7 +78,7 @@ export function SubCategoryCard({
             alt={subcategory.name}
             fill
             sizes="48px"
-            className="object-cover transition-transform duration-300 group-hover:scale-110"
+            className="object-cover"
           />
         ) : (
           <IconComponent className="h-5 w-5 text-primary" />

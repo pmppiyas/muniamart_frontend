@@ -128,7 +128,6 @@ export function CurrencySwitcher({
     );
   }
 
-  // Default: Header variant (placed right next to theme toggle or wishlist)
   return (
     <div className={cn('relative', className)} ref={containerRef}>
       <button

@@ -61,12 +61,10 @@ export function CheckoutForm({
 
   const selectedPaymentMethod = watch('paymentMethod');
 
-  // Sync delivery method with form
   React.useEffect(() => {
     setValue('deliveryMethod', deliveryMethod);
   }, [deliveryMethod, setValue]);
 
-  // If user state hydrates, prefill form
   React.useEffect(() => {
     if (user) {
       if (user.name) setValue('fullName', user.name);

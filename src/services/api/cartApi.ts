@@ -36,7 +36,7 @@ export interface AddToCartPayload {
 }
 
 export interface UpdateCartItemPayload {
-  id: string; // cartItemId
+  id: string;
   quantity: number;
 }
 

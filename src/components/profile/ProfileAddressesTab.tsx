@@ -37,15 +37,12 @@ export function ProfileAddressesTab() {
         if (saved) {
           return JSON.parse(saved);
         }
-      } catch {
-        // fallback
-      }
+      } catch {}
     }
     return [DEFAULT_INITIAL_ADDRESS];
   });
   const [isAddingNew, setIsAddingNew] = React.useState(false);
 
-  // Form State
   const [title, setTitle] = React.useState('Home');
   const [recipientName, setRecipientName] = React.useState('');
   const [phone, setPhone] = React.useState('');
@@ -57,9 +54,7 @@ export function ProfileAddressesTab() {
     setAddresses(newAddrs);
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(newAddrs));
-    } catch {
-      // ignore
-    }
+    } catch {}
   };
 
   const handleSetDefault = (id: string) => {
@@ -77,7 +72,6 @@ export function ProfileAddressesTab() {
       return;
     }
     const updated = addresses.filter((a) => a.id !== id);
-    // If we deleted the default, set the first remaining as default
     if (!updated.some((a) => a.isDefault) && updated.length > 0) {
       updated[0].isDefault = true;
     }
@@ -107,7 +101,6 @@ export function ProfileAddressesTab() {
     saveAddresses(updated);
     toast.success('New delivery address added');
 
-    // Reset Form
     setTitle('Home');
     setRecipientName('');
     setPhone('');

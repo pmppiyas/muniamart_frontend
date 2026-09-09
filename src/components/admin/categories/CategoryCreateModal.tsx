@@ -70,7 +70,6 @@ export function CategoryCreateModal({
     }
   };
 
-  // Flatten categories for dropdown selector
   const flatCategoryOptions = React.useMemo(() => {
     const list: { id: string; name: string; level: number }[] = [];
 

@@ -38,12 +38,6 @@ export default async function AllCategoriesPage() {
             <LayoutGrid className="h-4 w-4" />
             <span>Explore MUNIAMART</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl font-black tracking-tight text-foreground">
-            All Shopping Departments
-          </h1>
-          <p className="text-xs sm:text-sm text-muted-foreground max-w-2xl">
-            Browse our diverse product catalog organized into verified departments to make your shopping journey seamless and effortless.
-          </p>
         </div>
 
         {/* Categories Grid */}
@@ -60,7 +54,8 @@ export default async function AllCategoriesPage() {
               Department Hierarchy & Subcategories
             </h2>
             <p className="text-xs text-muted-foreground">
-              Directly jump to specific sub-departments and specialized product categories.
+              Directly jump to specific sub-departments and specialized product
+              categories.
             </p>
           </div>
 

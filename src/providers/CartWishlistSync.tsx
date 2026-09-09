@@ -24,11 +24,9 @@ export function CartWishlistSync() {
   const [addToWishlistApi] = useAddToWishlistMutation();
 
   React.useEffect(() => {
-    // Admins do not have customer carts/wishlists; only sync for regular customer sessions
     if (isAuthenticated && !isAdmin) {
       const syncWithDatabase = async () => {
         try {
-          // 1. Fetch server state (extraReducers will automatically hydrate Redux)
           const [cartRes, wishlistRes] = await Promise.all([
             fetchCart().unwrap().catch((e) => {
               console.warn('Could not fetch cart from server:', e);
@@ -40,7 +38,6 @@ export function CartWishlistSync() {
             }),
           ]);
 
-          // 2. On first authentication, if server has no items but user had guest items, merge them!
           if (!hasMergedGuestItemsRef.current) {
             hasMergedGuestItemsRef.current = true;
 
@@ -60,9 +57,7 @@ export function CartWishlistSync() {
                     }
                   }
                 }
-              } catch {
-                // ignore JSON parse error
-              }
+              } catch {}
             }
 
             const serverWishlistCount = wishlistRes?.data?.items?.length ?? 0;
@@ -79,9 +74,7 @@ export function CartWishlistSync() {
                     }
                   }
                 }
-              } catch {
-                // ignore JSON parse error
-              }
+              } catch {}
             }
           }
         } catch (err) {
@@ -91,16 +84,13 @@ export function CartWishlistSync() {
 
       syncWithDatabase();
     } else if (prevAuthRef.current && !isAuthenticated) {
-      // User just logged out: clear private cart & wishlist
       hasMergedGuestItemsRef.current = false;
       dispatch(clearCart());
       dispatch(clearWishlist());
       try {
         localStorage.removeItem(CART_STORAGE_KEY);
         localStorage.removeItem(WISHLIST_STORAGE_KEY);
-      } catch {
-        // ignore
-      }
+      } catch {}
     }
 
     prevAuthRef.current = isAuthenticated;

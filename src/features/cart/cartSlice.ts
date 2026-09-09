@@ -34,7 +34,16 @@ export const cartSlice = createSlice({
         itemPayload.id ||
         generateCartItemId(itemPayload.productId, itemPayload.selectedVariants);
 
-      const existingIndex = state.items.findIndex((i) => i.id === compositeId);
+      const existingIndex = state.items.findIndex((i) => {
+        if (i.id === compositeId) return true;
+        if (i.productId === itemPayload.productId) {
+          const v1 = JSON.stringify(i.selectedVariants || {});
+          const v2 = JSON.stringify(itemPayload.selectedVariants || {});
+          return v1 === v2;
+        }
+        return false;
+      });
+
       const quantityToAdd = itemPayload.quantity || 1;
 
       if (existingIndex > -1) {
@@ -54,7 +63,9 @@ export const cartSlice = createSlice({
     },
 
     removeFromCart: (state, action: PayloadAction<string>) => {
-      state.items = state.items.filter((i) => i.id !== action.payload);
+      state.items = state.items.filter(
+        (i) => i.id !== action.payload && i.productId !== action.payload
+      );
       if (state.items.length === 0) {
         state.coupon = null;
       }
@@ -65,7 +76,7 @@ export const cartSlice = createSlice({
       action: PayloadAction<{ id: string; quantity: number }>
     ) => {
       const { id, quantity } = action.payload;
-      const item = state.items.find((i) => i.id === id);
+      const item = state.items.find((i) => i.id === id || i.productId === id);
       if (item) {
         item.quantity = Math.max(1, Math.min(item.stock, quantity));
       }

@@ -36,14 +36,12 @@ export function ContactForm() {
 
     setIsSubmitting(true);
 
-    // Simulate API submission latency
     await new Promise((resolve) => setTimeout(resolve, 800));
 
     setIsSubmitting(false);
     setIsSubmitted(true);
     toast.success('Message sent! Our support team will get back to you within 2 hours.');
 
-    // Reset Form
     setName('');
     setEmail('');
     setPhone('');

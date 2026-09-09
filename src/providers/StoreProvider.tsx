@@ -13,7 +13,6 @@ const WISHLIST_STORAGE_KEY = 'muniamart_wishlist';
 
 function StorePersistenceInitializer({ children }: { children: React.ReactNode }) {
   React.useEffect(() => {
-    // 1. Rehydrate on client mount
     try {
       const savedCart = localStorage.getItem(CART_STORAGE_KEY);
       if (savedCart) {
@@ -32,7 +31,6 @@ function StorePersistenceInitializer({ children }: { children: React.ReactNode }
       console.warn('Failed to load wishlist from localStorage', e);
     }
 
-    // 2. Subscribe to store changes and persist to localStorage
     let prevCartState = store.getState().cart;
     let prevWishlistState = store.getState().wishlist;
 

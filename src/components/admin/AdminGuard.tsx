@@ -42,7 +42,6 @@ export function AdminGuard({ children }: AdminGuardProps) {
     }
   }, [isLoading, isAuthenticated, router]);
 
-  // 1. Loading State
   if (isLoading) {
     return (
       <div className="min-h-screen w-full flex flex-col items-center justify-center bg-background p-4">
@@ -56,7 +55,6 @@ export function AdminGuard({ children }: AdminGuardProps) {
     );
   }
 
-  // 2. Unauthenticated State (Waiting for redirect)
   if (!isAuthenticated) {
     return (
       <div className="min-h-screen w-full flex flex-col items-center justify-center bg-background p-4">
@@ -66,7 +64,6 @@ export function AdminGuard({ children }: AdminGuardProps) {
     );
   }
 
-  // 3. Unauthorized / Forbidden State (Authenticated as Customer, not ADMIN or SUPER_ADMIN)
   if (!isAdmin) {
     return (
       <div className="min-h-screen w-full flex items-center justify-center bg-background p-4">
@@ -114,6 +111,5 @@ export function AdminGuard({ children }: AdminGuardProps) {
     );
   }
 
-  // 4. Authorized State (ADMIN or SUPER_ADMIN)
   return <>{children}</>;
 }

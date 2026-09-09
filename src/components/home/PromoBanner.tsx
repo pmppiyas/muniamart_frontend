@@ -11,7 +11,6 @@ interface PromoBannerProps {
 }
 
 export function PromoBanner({ banner }: PromoBannerProps) {
-  // Simple countdown timer for flash deals
   const [timeLeft, setTimeLeft] = React.useState({
     hours: 18,
     minutes: 45,

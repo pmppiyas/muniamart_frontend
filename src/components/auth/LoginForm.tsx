@@ -68,7 +68,6 @@ export function LoginForm() {
               ? '/admin/dashboard'
               : '/';
 
-        // Customers must NEVER be redirected to /admin/* routes
         if (!isAdmin && destination.startsWith('/admin')) {
           destination = '/';
         }

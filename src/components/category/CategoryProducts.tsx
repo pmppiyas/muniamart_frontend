@@ -28,7 +28,6 @@ export function CategoryProducts({
   onSelectSubcategory,
   className,
 }: CategoryProductsProps) {
-  // Filter state
   const [filters, setFilters] = React.useState<ProductFilterState>({
     categories: [],
     brands: [],
@@ -42,7 +41,6 @@ export function CategoryProducts({
   const [currentPage, setCurrentPage] = React.useState(1);
   const [isMobileFilterOpen, setIsMobileFilterOpen] = React.useState(false);
 
-  // Available brands in this category
   const availableBrands = React.useMemo(() => {
     const brandMap = new Map<string, number>();
     initialProducts.forEach((p) => {
@@ -56,7 +54,6 @@ export function CategoryProducts({
       .sort((a, b) => b.count - a.count);
   }, [initialProducts]);
 
-  // Real product counts per subcategory
   const subcategoryCounts = React.useMemo(() => {
     const map = new Map<string, number>();
     initialProducts.forEach((p) => {
@@ -67,11 +64,9 @@ export function CategoryProducts({
     return map;
   }, [initialProducts]);
 
-  // Filtering & Sorting Logic
   const filteredProducts = React.useMemo(() => {
     let result = [...initialProducts];
 
-    // 1. Subcategory filter
     if (selectedSubcategory) {
       const activeChild = category.children?.find(
         (c) =>
@@ -96,27 +91,22 @@ export function CategoryProducts({
       });
     }
 
-    // 2. Brands
     if (filters.brands.length > 0) {
       result = result.filter((p) => p.brand && filters.brands.includes(p.brand));
     }
 
-    // 3. Price Range
     result = result.filter(
       (p) => p.price >= filters.priceRange[0] && p.price <= filters.priceRange[1]
     );
 
-    // 4. Rating
     if (filters.minRating > 0) {
       result = result.filter((p) => (p.rating || 0) >= filters.minRating);
     }
 
-    // 5. In Stock Only
     if (filters.inStockOnly) {
       result = result.filter((p) => p.stock > 0);
     }
 
-    // 6. Sorting
     switch (filters.sortBy) {
       case 'price-asc':
         result.sort((a, b) => a.price - b.price);
@@ -142,7 +132,6 @@ export function CategoryProducts({
     return result;
   }, [initialProducts, selectedSubcategory, filters]);
 
-  // Pagination Slice
   const totalPages = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE);
   const paginatedProducts = React.useMemo(() => {
     const start = (currentPage - 1) * ITEMS_PER_PAGE;
