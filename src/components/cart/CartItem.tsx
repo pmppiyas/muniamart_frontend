@@ -8,7 +8,6 @@ import { CartItemPrice } from './CartItemPrice';
 import { CartQuantitySelector } from './CartQuantitySelector';
 import { CartItemActions } from './CartItemActions';
 import { useCart } from '@/hooks/useCart';
-import { useWishlist } from '@/hooks/useWishlist';
 import { cn } from '@/lib/utils';
 import { toast } from 'sonner';
 
@@ -19,7 +18,6 @@ interface CartItemProps {
 
 export function CartItem({ item, className }: CartItemProps) {
   const { updateItemQuantity, removeItem } = useCart();
-  const { toggleItem } = useWishlist();
   const productHref = item.slug ? `/products/${item.slug}` : `/products/${item.productId}`;
 
   const handleQuantityChange = async (newQty: number) => {
@@ -31,27 +29,10 @@ export function CartItem({ item, className }: CartItemProps) {
     toast.info(`Removed "${item.name}" from your cart.`);
   };
 
-  const handleMoveToWishlist = async () => {
-    await toggleItem({
-      productId: item.productId,
-      name: item.name,
-      slug: item.slug,
-      sku: item.sku,
-      price: item.price,
-      originalPrice: item.originalPrice,
-      photoUrl: item.photoUrl,
-      category: item.category,
-      brand: item.brand,
-      stock: item.stock,
-    });
-    await removeItem(item.id);
-    toast.success(`Moved "${item.name}" to your wishlist!`);
-  };
-
   return (
     <div
       className={cn(
-        'group relative flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6 rounded-2xl border border-border bg-card p-4 sm:p-5 shadow-2xs transition-all hover:border-primary/40',
+        'group relative flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6 rounded-2xl border border-border bg-card p-4 sm:p-5 shadow-2xs transition-all hover:border-border/80 hover:shadow-xs',
         className
       )}
     >
@@ -94,9 +75,8 @@ export function CartItem({ item, className }: CartItemProps) {
           />
         </div>
 
-        {/* Quick Actions (Save for later, Delete) */}
+        {/* Quick Actions (Delete) */}
         <CartItemActions
-          onMoveToWishlist={handleMoveToWishlist}
           onRemove={handleRemove}
         />
       </div>

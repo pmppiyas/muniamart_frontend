@@ -16,7 +16,7 @@ export const authApi = baseApi.injectEndpoints({
         method: 'POST',
         body: credentials,
       }),
-      invalidatesTags: ['Auth', 'Customer', 'Cart', 'Wishlist'],
+      invalidatesTags: ['Auth', 'Customer', 'Cart'],
     }),
 
     register: builder.mutation<ApiResponse<RegisterResponseData>, RegisterRequest>({
@@ -40,7 +40,7 @@ export const authApi = baseApi.injectEndpoints({
         url: '/auth/logout',
         method: 'POST',
       }),
-      invalidatesTags: ['Auth', 'Customer', 'Cart', 'Wishlist'],
+      invalidatesTags: ['Auth', 'Customer', 'Cart'],
     }),
   }),
   overrideExisting: false,

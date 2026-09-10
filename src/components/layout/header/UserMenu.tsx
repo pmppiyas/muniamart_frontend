@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import Link from 'next/link';
-import { User, Package, MapPin, Heart, LogIn, LogOut, ChevronDown, LayoutDashboard } from 'lucide-react';
+import { User, Package, MapPin, LogIn, LogOut, ChevronDown, LayoutDashboard } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface UserMenuProps {
@@ -121,14 +121,6 @@ export function UserMenu({ className, user = null, onLogout }: UserMenuProps) {
             >
               <Package className="h-4 w-4 text-muted-foreground" />
               My Orders & Tracking
-            </Link>
-            <Link
-              href="/wishlist"
-              onClick={() => setIsOpen(false)}
-              className="flex items-center gap-2.5 rounded-lg px-3 py-2 text-xs font-medium text-foreground hover:bg-muted transition-colors"
-            >
-              <Heart className="h-4 w-4 text-muted-foreground" />
-              Wishlist
             </Link>
             <Link
               href="/profile?tab=addresses"

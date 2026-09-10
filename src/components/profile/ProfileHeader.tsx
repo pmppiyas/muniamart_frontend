@@ -9,13 +9,11 @@ import {
   Calendar,
   ShieldCheck,
   Package,
-  Heart,
   ShoppingCart,
   CheckCircle2,
 } from 'lucide-react';
 import { CustomerUser } from '@/features/auth/authTypes';
 import { useAppSelector } from '@/store/hooks';
-import { selectWishlistTotalCount } from '@/features/wishlist/wishlistSelectors';
 import { selectCartTotalQuantity } from '@/features/cart/cartSelectors';
 
 interface ProfileHeaderProps {
@@ -24,7 +22,6 @@ interface ProfileHeaderProps {
 }
 
 export function ProfileHeader({ user, totalOrders = 0 }: ProfileHeaderProps) {
-  const wishlistCount = useAppSelector(selectWishlistTotalCount);
   const cartCount = useAppSelector(selectCartTotalQuantity);
 
   const formattedDate = React.useMemo(() => {
@@ -115,19 +112,6 @@ export function ProfileHeader({ user, totalOrders = 0 }: ProfileHeaderProps) {
               {totalOrders}
             </span>
           </div>
-
-          <Link
-            href="/wishlist"
-            className="flex flex-col items-center justify-center rounded-2xl border border-border bg-muted/40 p-3 sm:px-4 text-center hover:border-primary/40 hover:bg-muted/70 transition-colors min-w-[80px]"
-          >
-            <div className="flex items-center gap-1 text-muted-foreground">
-              <Heart className="h-3.5 w-3.5 text-rose-500" />
-              <span className="text-[10px] font-bold uppercase tracking-wider">Wishlist</span>
-            </div>
-            <span className="text-lg sm:text-xl font-black text-foreground mt-0.5">
-              {wishlistCount}
-            </span>
-          </Link>
 
           <Link
             href="/cart"

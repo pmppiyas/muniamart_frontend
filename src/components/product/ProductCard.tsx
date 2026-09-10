@@ -3,9 +3,8 @@
 import * as React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Heart, ShoppingCart, Package } from 'lucide-react';
+import { ShoppingCart, Package } from 'lucide-react';
 import { Product, ViewMode } from '@/types/product';
-import { useWishlist } from '@/hooks/useWishlist';
 import { useCart } from '@/hooks/useCart';
 import { useCurrency } from '@/hooks/useCurrency';
 import { toast } from 'sonner';
@@ -16,7 +15,6 @@ interface ProductCardProps {
   viewMode?: ViewMode;
   className?: string;
   onAddToCart?: (product: Product) => void;
-  onToggleWishlist?: (product: Product) => void;
 }
 
 export function ProductCard({
@@ -24,12 +22,9 @@ export function ProductCard({
   viewMode = 'grid',
   className,
   onAddToCart,
-  onToggleWishlist,
 }: ProductCardProps) {
-  const { isInWishlist, toggleItem } = useWishlist();
   const { addItem } = useCart();
   const { formatPrice } = useCurrency();
-  const isWishlisted = isInWishlist(product.id);
 
   const isOutOfStock = product.stock <= 0;
   const hasDiscount = Boolean(
@@ -38,34 +33,6 @@ export function ProductCard({
   const savings = hasDiscount
     ? (product.originalPrice as number) - product.price
     : 0;
-
-  const handleWishlistClick = async (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (onToggleWishlist) {
-      onToggleWishlist(product);
-    } else {
-      await toggleItem({
-        productId: product.id,
-        name: product.name,
-        slug: product.slug,
-        sku: product.sku,
-        price: product.price,
-        originalPrice: product.originalPrice,
-        photoUrl: product.photoUrl,
-        category: product.category?.name,
-        brand: product.brand,
-        stock: product.stock,
-        rating: product.rating,
-        reviewsCount: product.reviewsCount,
-      });
-      if (!isWishlisted) {
-        toast.success(`Added "${product.name}" to your wishlist!`);
-      } else {
-        toast.info(`Removed "${product.name}" from your wishlist.`);
-      }
-    }
-  };
 
   const handleAddToCart = async (e: React.MouseEvent) => {
     e.preventDefault();
@@ -167,18 +134,6 @@ export function ProductCard({
 
         {/* Right: Actions */}
         <div className="flex sm:flex-col items-center sm:items-end justify-between sm:justify-center border-t sm:border-t-0 sm:border-l border-border pt-3 sm:pt-0 sm:pl-6 gap-3 shrink-0">
-          <button
-            type="button"
-            onClick={handleWishlistClick}
-            aria-label={isWishlisted ? 'Remove from wishlist' : 'Add to wishlist'}
-            className={cn(
-              'flex h-10 w-10 items-center justify-center rounded-full border border-border/80 bg-background text-muted-foreground shadow-2xs transition-all hover:scale-105 active:scale-95 cursor-pointer',
-              isWishlisted && 'text-destructive bg-destructive/10 border-destructive/20'
-            )}
-          >
-            <Heart className={cn('h-4 w-4', isWishlisted && 'fill-destructive')} />
-          </button>
-
           <div className="flex items-center gap-2">
             <Link
               href={productHref}
@@ -237,26 +192,6 @@ export function ProductCard({
             </div>
           )}
         </Link>
-
-        {/* Wishlist Button - Top Right */}
-        <button
-          type="button"
-          onClick={handleWishlistClick}
-          aria-label={isWishlisted ? 'Remove from wishlist' : 'Add to wishlist'}
-          suppressHydrationWarning
-          className={cn(
-            'absolute right-1.5 top-1.5 z-20 flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-background/90 backdrop-blur-xs text-muted-foreground shadow-2xs transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer',
-            isWishlisted
-              ? 'text-destructive bg-destructive/10'
-              : 'hover:text-destructive hover:bg-background'
-          )}
-        >
-          <Heart
-            className={cn('h-3.5 w-3.5 sm:h-4 sm:w-4 transition-colors', {
-              'fill-destructive text-destructive': isWishlisted,
-            })}
-          />
-        </button>
       </div>
 
       {/* Product Information */}

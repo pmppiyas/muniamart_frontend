@@ -4,7 +4,6 @@ import * as React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import {
-  Heart,
   ShoppingBag,
   Zap,
   Truck,
@@ -19,7 +18,6 @@ import { ProductRating } from './ProductRating';
 import { ProductVariants } from './ProductVariants';
 import { QuantitySelector } from './QuantitySelector';
 import { useCart } from '@/hooks/useCart';
-import { useWishlist } from '@/hooks/useWishlist';
 import { useCurrency } from '@/hooks/useCurrency';
 import { cn } from '@/lib/utils';
 
@@ -27,7 +25,6 @@ interface ProductInfoProps {
   product: Product;
   onAddToCart?: (product: Product, quantity: number, variants: Record<string, string>) => void;
   onBuyNow?: (product: Product, quantity: number, variants: Record<string, string>) => void;
-  onToggleWishlist?: (product: Product) => void;
   className?: string;
 }
 
@@ -35,14 +32,11 @@ export function ProductInfo({
   product,
   onAddToCart,
   onBuyNow,
-  onToggleWishlist,
   className,
 }: ProductInfoProps) {
   const router = useRouter();
   const { addItem } = useCart();
-  const { isInWishlist, toggleItem } = useWishlist();
   const { formatPrice } = useCurrency();
-  const isWishlisted = isInWishlist(product.id);
   const [quantity, setQuantity] = React.useState(1);
   const [selectedVariants, setSelectedVariants] = React.useState<Record<string, string>>({});
 
@@ -103,32 +97,6 @@ export function ProductInfo({
         description: `${quantity}x ${product.name}`,
       });
       router.push('/cart');
-    }
-  };
-
-  const handleToggleWishlist = async () => {
-    if (onToggleWishlist) {
-      onToggleWishlist(product);
-    } else {
-      await toggleItem({
-        productId: product.id,
-        name: product.name,
-        slug: product.slug,
-        sku: product.sku,
-        price: product.price,
-        originalPrice: product.originalPrice,
-        photoUrl: product.photoUrl,
-        category: product.category?.name,
-        brand: product.brand,
-        stock: product.stock,
-        rating: product.rating,
-        reviewsCount: product.reviewsCount,
-      });
-      if (!isWishlisted) {
-        toast.success(`Added "${product.name}" to your wishlist!`);
-      } else {
-        toast.info(`Removed "${product.name}" from your wishlist.`);
-      }
     }
   };
 
@@ -265,59 +233,28 @@ export function ProductInfo({
           />
         </div>
 
-        {/* Action Buttons: Add to Cart, Buy Now, Wishlist */}
+        {/* Action Buttons: Add to Cart, Buy Now */}
         <div className="flex flex-col sm:flex-row items-stretch gap-3 pt-2">
-          {/* Mobile Row 1: Add to Cart + Wishlist */}
-          <div className="flex items-center gap-3 w-full sm:w-auto sm:flex-1 sm:contents">
-            {/* Add to Cart */}
-            <button
-              type="button"
-              disabled={isOutOfStock}
-              onClick={handleAddToCart}
-              className="flex-1 flex h-12 min-h-12 shrink-0 items-center justify-center gap-2 rounded-xl bg-primary px-6 text-sm font-bold text-primary-foreground shadow-sm hover:bg-primary-hover active:scale-98 disabled:opacity-50 disabled:cursor-not-allowed transition-all cursor-pointer"
-            >
-              <ShoppingBag className="h-4 w-4" />
-              <span>Add to Cart</span>
-            </button>
+          {/* Add to Cart */}
+          <button
+            type="button"
+            disabled={isOutOfStock}
+            onClick={handleAddToCart}
+            className="flex-1 flex h-12 min-h-12 shrink-0 items-center justify-center gap-2 rounded-xl bg-primary px-6 text-sm font-bold text-primary-foreground shadow-sm hover:bg-primary-hover active:scale-98 disabled:opacity-50 disabled:cursor-not-allowed transition-all cursor-pointer"
+          >
+            <ShoppingBag className="h-4 w-4" />
+            <span>Add to Cart</span>
+          </button>
 
-            {/* Wishlist Button (Mobile: beside Add to Cart) */}
-            <button
-              type="button"
-              onClick={handleToggleWishlist}
-              aria-label={isWishlisted ? 'Remove from wishlist' : 'Add to wishlist'}
-              suppressHydrationWarning
-              className={cn(
-                'sm:hidden flex h-12 min-h-12 w-12 min-w-12 items-center justify-center rounded-xl border border-border bg-card text-muted-foreground shadow-2xs hover:border-primary hover:text-destructive active:scale-95 transition-all cursor-pointer shrink-0',
-                isWishlisted && 'text-destructive bg-destructive/10 border-destructive/20'
-              )}
-            >
-              <Heart className={cn('h-5 w-5', isWishlisted && 'fill-destructive')} />
-            </button>
-          </div>
-
-          {/* Buy Now (Full width & matching h-12 on mobile, flex-1 on desktop) */}
+          {/* Buy Now */}
           <button
             type="button"
             disabled={isOutOfStock}
             onClick={handleBuyNow}
-            className="w-full sm:flex-1 flex h-12 min-h-12 shrink-0 items-center justify-center gap-2 rounded-xl bg-amber-500 px-6 text-sm font-bold text-white shadow-sm hover:bg-amber-600 active:scale-98 disabled:opacity-50 disabled:cursor-not-allowed transition-all cursor-pointer"
+            className="flex-1 flex h-12 min-h-12 shrink-0 items-center justify-center gap-2 rounded-xl bg-amber-500 px-6 text-sm font-bold text-white shadow-sm hover:bg-amber-600 active:scale-98 disabled:opacity-50 disabled:cursor-not-allowed transition-all cursor-pointer"
           >
             <Zap className="h-4 w-4 fill-current" />
             <span>Buy Now</span>
-          </button>
-
-          {/* Wishlist Button (Desktop: at end of row) */}
-          <button
-            type="button"
-            onClick={handleToggleWishlist}
-            aria-label={isWishlisted ? 'Remove from wishlist' : 'Add to wishlist'}
-            suppressHydrationWarning
-            className={cn(
-              'hidden sm:flex h-12 min-h-12 w-12 min-w-12 items-center justify-center rounded-xl border border-border bg-card text-muted-foreground shadow-2xs hover:border-primary hover:text-destructive active:scale-95 transition-all cursor-pointer shrink-0',
-              isWishlisted && 'text-destructive bg-destructive/10 border-destructive/20'
-            )}
-          >
-            <Heart className={cn('h-5 w-5', isWishlisted && 'fill-destructive')} />
           </button>
         </div>
       </div>

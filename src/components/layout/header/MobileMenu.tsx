@@ -211,13 +211,6 @@ export function MobileMenu({ className }: MobileMenuProps) {
                 Shopping Cart
               </Link>
               <Link
-                href="/wishlist"
-                onClick={() => setIsOpen(false)}
-                className="block rounded-xl px-3 py-2.5 hover:bg-muted transition-colors"
-              >
-                My Wishlist
-              </Link>
-              <Link
                 href="/profile"
                 onClick={() => setIsOpen(false)}
                 className="block rounded-xl px-3 py-2.5 hover:bg-muted transition-colors"

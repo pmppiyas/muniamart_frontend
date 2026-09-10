@@ -31,7 +31,7 @@ export function CartItemInfo({ item, className }: CartItemInfoProps) {
       {/* Product Title */}
       <Link
         href={productHref}
-        className="block text-sm sm:text-base font-bold text-foreground hover:text-primary transition-colors line-clamp-2 leading-snug"
+        className="block text-sm sm:text-base font-bold text-foreground hover:underline transition-colors line-clamp-2 leading-snug"
       >
         {item.name}
       </Link>

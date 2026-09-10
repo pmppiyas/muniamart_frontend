@@ -3,7 +3,6 @@
 import * as React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Heart } from 'lucide-react';
 import { TopNavbar } from './TopNavbar';
 import { CategoryNavbar } from './CategoryNavbar';
 import { Logo } from './Logo';
@@ -16,7 +15,6 @@ import { ThemeToggle } from '@/components/common/ThemeToggle';
 import { CurrencySwitcher } from '@/components/common/CurrencySwitcher';
 import { useMounted } from '@/hooks/useMounted';
 import { useAppSelector } from '@/store/hooks';
-import { selectWishlistTotalCount } from '@/features/wishlist/wishlistSelectors';
 import { selectCurrentUser } from '@/features/auth/authSelectors';
 import { useLogoutMutation } from '@/services/api/authApi';
 import { toast } from 'sonner';
@@ -24,7 +22,6 @@ import { toast } from 'sonner';
 interface HeaderProps {
   cartCount?: number;
   cartTotal?: number;
-  wishlistCount?: number;
   user?: {
     name?: string;
     email?: string;
@@ -36,21 +33,13 @@ interface HeaderProps {
 export function Header({
   cartCount,
   cartTotal,
-  wishlistCount,
   user = null,
   onLogout,
 }: HeaderProps) {
   const pathname = usePathname();
   const mounted = useMounted();
-  const reduxWishlistCount = useAppSelector(selectWishlistTotalCount);
   const reduxUser = useAppSelector(selectCurrentUser);
   const [logoutMutation] = useLogoutMutation();
-
-  const displayWishlistCount = !mounted
-    ? 0
-    : wishlistCount !== undefined
-      ? wishlistCount
-      : reduxWishlistCount;
 
   const activeUser = user !== undefined && user !== null ? user : reduxUser;
 
@@ -97,20 +86,6 @@ export function Header({
             <div className="hidden md:block">
               <ThemeToggle />
             </div>
-
-            {/* Wishlist Button */}
-            <Link
-              href="/wishlist"
-              className="group relative flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-xl border border-border bg-card text-foreground shadow-xs transition-all hover:border-primary hover:text-primary active:scale-95 cursor-pointer"
-              aria-label={`Wishlist with ${displayWishlistCount} items`}
-            >
-              <Heart className="h-4 w-4 transition-transform group-hover:scale-110" />
-              {displayWishlistCount > 0 && (
-                <span className="absolute -top-1.5 -right-1.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-destructive px-1 text-[10px] font-bold text-destructive-foreground shadow-xs">
-                  {displayWishlistCount > 99 ? '99+' : displayWishlistCount}
-                </span>
-              )}
-            </Link>
 
             {/* Cart Button */}
             <CartButton count={cartCount} total={cartTotal} />

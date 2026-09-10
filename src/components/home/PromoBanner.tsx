@@ -36,9 +36,9 @@ export function PromoBanner({ banner }: PromoBannerProps) {
   if (!banner) return null;
 
   return (
-    <section className="py-8 sm:py-12 bg-background">
+    <section className="py-4 sm:py-6 lg:py-8 bg-background">
       <div className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-4 sm:p-10 lg:p-12 shadow-sm group">
+        <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-4 sm:p-6 lg:p-8 shadow-sm group">
           {/* Background Image Container with High Visibility & Crisp Contrast */}
           <div className="absolute inset-0 z-0">
             <Image
@@ -53,10 +53,10 @@ export function PromoBanner({ banner }: PromoBannerProps) {
           </div>
 
           {/* Banner Content */}
-          <div className="relative z-10 max-w-2xl space-y-4">
-            <div className="flex flex-wrap items-center gap-3">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 px-3 py-1 text-xs font-black uppercase tracking-wider text-amber-600 dark:text-amber-400">
-                <Flame className="h-3.5 w-3.5 fill-current animate-pulse" />
+          <div className="relative z-10 max-w-xl space-y-2.5 sm:space-y-3">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 px-2.5 py-0.5 text-[11px] sm:text-xs font-black uppercase tracking-wider text-amber-600 dark:text-amber-400">
+                <Flame className="h-3 w-3 fill-current animate-pulse" />
                 {banner.badge}
               </span>
               <span className="text-xs font-extrabold uppercase tracking-wider text-primary">
@@ -64,16 +64,16 @@ export function PromoBanner({ banner }: PromoBannerProps) {
               </span>
             </div>
 
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-foreground leading-tight">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-black tracking-tight text-foreground leading-tight">
               {banner.title}
             </h2>
 
-            <p className="text-xs sm:text-sm text-foreground/70 leading-relaxed max-w-xl">
+            <p className="text-xs sm:text-sm text-foreground/75 leading-relaxed max-w-lg line-clamp-2">
               {banner.subtitle}
             </p>
 
             {/* Countdown timer */}
-            <div className="pt-2 flex items-center gap-2">
+            <div className="pt-1 flex items-center gap-2">
               <span className="flex items-center gap-1 text-xs font-bold text-muted-foreground">
                 <Clock className="h-3.5 w-3.5 text-amber-500" />
                 <span>Ends In:</span>
@@ -86,7 +86,7 @@ export function PromoBanner({ banner }: PromoBannerProps) {
                 ].map((unit) => (
                   <div
                     key={unit.label}
-                    className="flex items-center gap-0.5 rounded-lg border border-border bg-background/90 px-2 py-1 shadow-2xs"
+                    className="flex items-center gap-0.5 rounded-lg border border-border bg-background/90 px-2 py-0.5 shadow-2xs"
                   >
                     <span className="font-mono text-xs font-bold text-foreground">
                       {String(unit.val).padStart(2, '0')}
@@ -99,10 +99,10 @@ export function PromoBanner({ banner }: PromoBannerProps) {
               </div>
             </div>
 
-            <div className="pt-3">
+            <div className="pt-1.5">
               <Link
                 href={banner.buttonLink}
-                className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-primary px-6 text-xs sm:text-sm font-bold text-primary-foreground shadow-sm hover:bg-primary-hover active:scale-95 transition-all"
+                className="inline-flex h-9 sm:h-10 items-center justify-center gap-2 rounded-xl bg-primary px-5 text-xs sm:text-sm font-bold text-primary-foreground shadow-sm hover:bg-primary-hover active:scale-95 transition-all"
               >
                 <span>{banner.buttonText}</span>
                 <ArrowRight className="h-4 w-4" />

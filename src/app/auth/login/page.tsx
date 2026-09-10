@@ -5,7 +5,7 @@ import { LoginForm } from '@/components/auth/LoginForm';
 
 export const metadata: Metadata = {
   title: 'Sign In | MUNIAMART',
-  description: 'Sign in to your MuniaMart account to manage orders, wishlist, and profile.',
+  description: 'Sign in to your MuniaMart account to manage orders and profile.',
 };
 
 export default function LoginPage() {

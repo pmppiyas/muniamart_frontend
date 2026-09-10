@@ -11,7 +11,6 @@ interface ProductGridProps {
   viewMode?: ViewMode;
   onResetFilters?: () => void;
   onAddToCart?: (product: Product) => void;
-  onToggleWishlist?: (product: Product) => void;
   className?: string;
 }
 
@@ -20,7 +19,6 @@ export function ProductGrid({
   viewMode = 'grid',
   onResetFilters,
   onAddToCart,
-  onToggleWishlist,
   className,
 }: ProductGridProps) {
   if (!products || products.length === 0) {
@@ -58,7 +56,6 @@ export function ProductGrid({
             product={product}
             viewMode="list"
             onAddToCart={onAddToCart}
-            onToggleWishlist={onToggleWishlist}
           />
         ))}
       </div>
@@ -78,7 +75,6 @@ export function ProductGrid({
           product={product}
           viewMode="grid"
           onAddToCart={onAddToCart}
-          onToggleWishlist={onToggleWishlist}
         />
       ))}
     </div>
