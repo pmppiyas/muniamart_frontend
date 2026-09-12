@@ -58,7 +58,6 @@ export function SearchBar({ className, autoFocus = false, onSearchSubmit }: Sear
         className
       )}
     >
-      {/* Category Dropdown Selector */}
       <div className="relative hidden border-r border-border sm:block" ref={dropdownRef}>
         <button
           type="button"
@@ -113,7 +112,6 @@ export function SearchBar({ className, autoFocus = false, onSearchSubmit }: Sear
         )}
       </div>
 
-      {/* Input */}
       <div className="relative flex flex-1 items-center">
         <input
           type="text"
@@ -134,7 +132,6 @@ export function SearchBar({ className, autoFocus = false, onSearchSubmit }: Sear
         )}
       </div>
 
-      {/* Search Submit Button */}
       <button
         type="submit"
         aria-label="Search"

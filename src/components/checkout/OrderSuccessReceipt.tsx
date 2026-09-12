@@ -23,7 +23,6 @@ export function OrderSuccessReceipt({ orderData }: OrderSuccessReceiptProps) {
 
   return (
     <div className="mx-auto max-w-3xl space-y-8 py-8 px-4 sm:px-6">
-      {/* Top Banner */}
       <div className="text-center space-y-3">
         <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 ring-8 ring-emerald-500/5">
           <CheckCircle2 className="h-10 w-10" />
@@ -39,9 +38,7 @@ export function OrderSuccessReceipt({ orderData }: OrderSuccessReceiptProps) {
         </p>
       </div>
 
-      {/* Receipt Card */}
       <div className="rounded-3xl border border-border bg-card p-6 sm:p-8 shadow-sm space-y-6">
-        {/* Order Meta Header */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-border pb-6">
           <div>
             <p className="text-xs text-muted-foreground">Order Reference Number</p>
@@ -63,7 +60,6 @@ export function OrderSuccessReceipt({ orderData }: OrderSuccessReceiptProps) {
           </div>
         </div>
 
-        {/* Shipping & Payment summary */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 border-b border-border pb-6 text-xs">
           <div className="space-y-1.5">
             <div className="flex items-center gap-1.5 font-bold text-foreground">
@@ -102,7 +98,6 @@ export function OrderSuccessReceipt({ orderData }: OrderSuccessReceiptProps) {
           </div>
         </div>
 
-        {/* Ordered Items */}
         <div className="space-y-4">
           <h3 className="text-sm font-bold text-foreground">Order Items</h3>
           <div className="divide-y divide-border/60">
@@ -144,7 +139,6 @@ export function OrderSuccessReceipt({ orderData }: OrderSuccessReceiptProps) {
           </div>
         </div>
 
-        {/* Total Amount Due */}
         <div className="flex items-baseline justify-between border-t border-border pt-4">
           <span className="text-sm font-bold text-foreground">Grand Total</span>
           <span className="text-2xl font-black text-foreground">
@@ -153,7 +147,6 @@ export function OrderSuccessReceipt({ orderData }: OrderSuccessReceiptProps) {
         </div>
       </div>
 
-      {/* Next Actions */}
       <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
         <Link
           href="/products"

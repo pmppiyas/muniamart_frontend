@@ -38,7 +38,6 @@ export function ProductSection({
   return (
     <section className={cn('py-8 sm:py-12', className)}>
       <div className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
-        {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-border pb-4 mb-6">
           <div className="space-y-1">
             {badge && (
@@ -72,7 +71,6 @@ export function ProductSection({
           )}
         </div>
 
-        {/* Content / Grid */}
         {children ? (
           children
         ) : (

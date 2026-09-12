@@ -49,10 +49,8 @@ export function ProductSkeleton({
           key={i}
           className="flex flex-col rounded-2xl border border-border bg-card p-3 space-y-3"
         >
-          {/* Media placeholder */}
           <div className="aspect-square w-full rounded-xl bg-muted" />
 
-          {/* Details placeholder */}
           <div className="space-y-2 pt-1">
             <div className="flex justify-between items-center">
               <div className="h-3 w-16 rounded-md bg-muted" />
@@ -62,7 +60,6 @@ export function ProductSkeleton({
             <div className="h-4 w-3/4 rounded-md bg-muted" />
           </div>
 
-          {/* Price & CTA */}
           <div className="pt-2 space-y-2">
             <div className="h-5 w-20 rounded-md bg-muted" />
             <div className="h-9 w-full rounded-xl bg-muted" />

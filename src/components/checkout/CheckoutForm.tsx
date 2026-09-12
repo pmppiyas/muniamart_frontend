@@ -75,7 +75,6 @@ export function CheckoutForm({
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
-      {/* 1. Customer / Contact Information */}
       <div className="rounded-3xl border border-border bg-card p-6 shadow-sm space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border pb-3">
           <div className="flex items-center gap-2">
@@ -148,7 +147,6 @@ export function CheckoutForm({
         </div>
       </div>
 
-      {/* 2. Shipping Address */}
       <div className="rounded-3xl border border-border bg-card p-6 shadow-sm space-y-4">
         <div className="flex items-center gap-2 border-b border-border pb-3">
           <span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground">
@@ -244,7 +242,6 @@ export function CheckoutForm({
         </div>
       </div>
 
-      {/* 3. Shipping Method */}
       <div className="rounded-3xl border border-border bg-card p-6 shadow-sm">
         <DeliveryOptions
           selectedMethod={deliveryMethod}
@@ -254,7 +251,6 @@ export function CheckoutForm({
         />
       </div>
 
-      {/* 4. Payment Method */}
       <div className="rounded-3xl border border-border bg-card p-6 shadow-sm">
         <PaymentMethodSelector
           selectedMethod={selectedPaymentMethod}
@@ -262,7 +258,6 @@ export function CheckoutForm({
         />
       </div>
 
-      {/* Submit Button */}
       <div className="pt-2">
         <button
           type="submit"

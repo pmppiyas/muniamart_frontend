@@ -87,7 +87,6 @@ function ProfileContent() {
   return (
     <div className="min-h-screen bg-background py-6 sm:py-8">
       <div className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8 space-y-6 sm:space-y-8">
-        {/* Breadcrumb Navigation */}
         <nav
           aria-label="Breadcrumb"
           className="flex items-center gap-1.5 text-xs text-muted-foreground"
@@ -107,12 +106,9 @@ function ProfileContent() {
           </span>
         </nav>
 
-        {/* Profile Header */}
         <ProfileHeader user={activeUser} totalOrders={totalOrders} />
 
-        {/* Main Tabs Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
-          {/* Left Sidebar Tabs (Desktop) */}
           <aside className="lg:col-span-4 rounded-3xl border border-border bg-card p-3 sm:p-4 shadow-xs">
             <div className="px-3 py-2 border-b border-border/70 mb-2">
               <h2 className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
@@ -120,7 +116,6 @@ function ProfileContent() {
               </h2>
             </div>
 
-            {/* Desktop vertical tab list */}
             <nav className="hidden lg:flex flex-col space-y-1">
               {TABS.map((tab) => {
                 const Icon = tab.icon;
@@ -179,7 +174,6 @@ function ProfileContent() {
               })}
             </nav>
 
-            {/* Mobile horizontal scrollable tabs */}
             <div className="flex lg:hidden overflow-x-auto gap-2 py-1 scrollbar-none">
               {TABS.map((tab) => {
                 const Icon = tab.icon;
@@ -205,7 +199,6 @@ function ProfileContent() {
             </div>
           </aside>
 
-          {/* Right Main Content Area (lg:col-span-8) */}
           <main className="lg:col-span-8 space-y-6">
             {activeTab === 'info' && (
               <ProfileInfoTab

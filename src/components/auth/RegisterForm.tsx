@@ -103,7 +103,6 @@ export function RegisterForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" noValidate>
-      {/* Name field */}
       <div className="space-y-1.5">
         <label
           htmlFor="reg-name"
@@ -132,7 +131,6 @@ export function RegisterForm() {
         )}
       </div>
 
-      {/* Email field */}
       <div className="space-y-1.5">
         <label
           htmlFor="reg-email"
@@ -161,7 +159,6 @@ export function RegisterForm() {
         )}
       </div>
 
-      {/* Phone field (optional) */}
       <div className="space-y-1.5">
         <div className="flex items-center justify-between">
           <label
@@ -193,7 +190,6 @@ export function RegisterForm() {
         )}
       </div>
 
-      {/* Password field */}
       <div className="space-y-1.5">
         <label
           htmlFor="reg-password"
@@ -221,7 +217,6 @@ export function RegisterForm() {
         )}
       </div>
 
-      {/* Confirm Password field */}
       <div className="space-y-1.5">
         <label
           htmlFor="reg-confirm-password"
@@ -252,7 +247,6 @@ export function RegisterForm() {
         )}
       </div>
 
-      {/* Submit button */}
       <button
         type="submit"
         disabled={isLoading}
@@ -271,7 +265,6 @@ export function RegisterForm() {
         )}
       </button>
 
-      {/* Login Link */}
       <div className="pt-4 border-t border-border text-center text-xs text-muted-foreground">
         Already have an account?{' '}
         <Link

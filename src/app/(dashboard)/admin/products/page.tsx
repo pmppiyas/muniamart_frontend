@@ -14,6 +14,7 @@ import {
 import { useGetAllProductsQuery } from '@/services/api/productApi';
 import { useGetAllCategoriesQuery } from '@/services/api/categoryApi';
 import { Product } from '@/types/product';
+import { AdminPermissionGuard } from '@/components/admin/AdminPermissionGuard';
 
 export default function AdminProductsPage() {
   const [page, setPage] = React.useState(1);
@@ -137,76 +138,74 @@ export default function AdminProductsPage() {
   };
 
   return (
-    <div className="space-y-3.5 pb-12">
-      {/* Reusable Header with Action Buttons and Metric Cards */}
-      <ProductsHeader
-        totalCount={meta?.total ?? products.length}
-        products={products}
-        isFetching={isFetching}
-        onRefresh={() => refetch()}
-        onExport={handleExportCSV}
-        onAddProduct={() => setIsCreateModalOpen(true)}
-      />
+    <AdminPermissionGuard requiredPermission="MANAGE_PRODUCTS" moduleName="Products">
+      <div className="space-y-3.5 pb-12">
+        <ProductsHeader
+          totalCount={meta?.total ?? products.length}
+          products={products}
+          isFetching={isFetching}
+          onRefresh={() => refetch()}
+          onExport={handleExportCSV}
+          onAddProduct={() => setIsCreateModalOpen(true)}
+        />
 
-      {/* Backend Filter and Search Bar */}
-      <ProductsFilterBar
-        searchQuery={searchQuery}
-        onSearchChange={setSearchQuery}
-        selectedCategory={selectedCategory}
-        onCategoryChange={handleCategoryChange}
-        categories={categories}
-        selectedStockStatus={selectedStockStatus}
-        onStockStatusChange={handleStockStatusChange}
-        selectedStatus={selectedStatus}
-        onStatusChange={handleStatusChange}
-        onReset={handleClearFilters}
-        hasActiveFilters={hasActiveFilters}
-      />
+        <ProductsFilterBar
+          searchQuery={searchQuery}
+          onSearchChange={setSearchQuery}
+          selectedCategory={selectedCategory}
+          onCategoryChange={handleCategoryChange}
+          categories={categories}
+          selectedStockStatus={selectedStockStatus}
+          onStockStatusChange={handleStockStatusChange}
+          selectedStatus={selectedStatus}
+          onStatusChange={handleStatusChange}
+          onReset={handleClearFilters}
+          hasActiveFilters={hasActiveFilters}
+        />
 
-      {/* Products Table with Server Pagination & Meta */}
-      <ProductsTable
-        products={products}
-        meta={meta}
-        isLoading={isLoading}
-        isFetching={isFetching}
-        error={error}
-        onRetry={() => refetch()}
-        isFiltering={hasActiveFilters}
-        onClearFilters={handleClearFilters}
-        onAddProduct={() => setIsCreateModalOpen(true)}
-        onView={setSelectedProductForView}
-        onEdit={setSelectedProductForEdit}
-        onDelete={setSelectedProductForDelete}
-        onPageChange={setPage}
-      />
+        <ProductsTable
+          products={products}
+          meta={meta}
+          isLoading={isLoading}
+          isFetching={isFetching}
+          error={error}
+          onRetry={() => refetch()}
+          isFiltering={hasActiveFilters}
+          onClearFilters={handleClearFilters}
+          onAddProduct={() => setIsCreateModalOpen(true)}
+          onView={setSelectedProductForView}
+          onEdit={setSelectedProductForEdit}
+          onDelete={setSelectedProductForDelete}
+          onPageChange={setPage}
+        />
 
-      {/* Modals & Dialogs */}
-      <ProductViewModal
-        product={selectedProductForView}
-        isOpen={!!selectedProductForView}
-        onClose={() => setSelectedProductForView(null)}
-        onEdit={(prod) => {
-          setSelectedProductForView(null);
-          setSelectedProductForEdit(prod);
-        }}
-      />
+        <ProductViewModal
+          product={selectedProductForView}
+          isOpen={!!selectedProductForView}
+          onClose={() => setSelectedProductForView(null)}
+          onEdit={(prod) => {
+            setSelectedProductForView(null);
+            setSelectedProductForEdit(prod);
+          }}
+        />
 
-      <ProductEditModal
-        product={selectedProductForEdit}
-        isOpen={!!selectedProductForEdit}
-        onClose={() => setSelectedProductForEdit(null)}
-      />
+        <ProductEditModal
+          product={selectedProductForEdit}
+          isOpen={!!selectedProductForEdit}
+          onClose={() => setSelectedProductForEdit(null)}
+        />
 
-      <ProductDeleteDialog
-        product={selectedProductForDelete}
-        isOpen={!!selectedProductForDelete}
-        onClose={() => setSelectedProductForDelete(null)}
-      />
+        <ProductDeleteDialog
+          product={selectedProductForDelete}
+          isOpen={!!selectedProductForDelete}
+          onClose={() => setSelectedProductForDelete(null)}
+        />
 
-      <ProductCreateModal
-        isOpen={isCreateModalOpen}
-        onClose={() => setIsCreateModalOpen(false)}
-      />
-    </div>
+        <ProductCreateModal
+          isOpen={isCreateModalOpen}
+          onClose={() => setIsCreateModalOpen(false)}
+        />
+      </div>
+    </AdminPermissionGuard>
   );
 }

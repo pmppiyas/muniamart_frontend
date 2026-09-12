@@ -39,7 +39,6 @@ export function PromoBanner({ banner }: PromoBannerProps) {
     <section className="py-4 sm:py-6 lg:py-8 bg-background">
       <div className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
         <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-4 sm:p-6 lg:p-8 shadow-sm group">
-          {/* Background Image Container with High Visibility & Crisp Contrast */}
           <div className="absolute inset-0 z-0">
             <Image
               src={banner.imageUrl}
@@ -52,7 +51,6 @@ export function PromoBanner({ banner }: PromoBannerProps) {
             <div className="absolute inset-0 bg-gradient-to-t from-card/80 via-transparent to-transparent sm:hidden" />
           </div>
 
-          {/* Banner Content */}
           <div className="relative z-10 max-w-xl space-y-2.5 sm:space-y-3">
             <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
               <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 px-2.5 py-0.5 text-[11px] sm:text-xs font-black uppercase tracking-wider text-amber-600 dark:text-amber-400">
@@ -72,7 +70,6 @@ export function PromoBanner({ banner }: PromoBannerProps) {
               {banner.subtitle}
             </p>
 
-            {/* Countdown timer */}
             <div className="pt-1 flex items-center gap-2">
               <span className="flex items-center gap-1 text-xs font-bold text-muted-foreground">
                 <Clock className="h-3.5 w-3.5 text-amber-500" />

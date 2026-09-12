@@ -161,7 +161,6 @@ export function ProductEditModal({
       }
     >
       <form id="edit-product-form" onSubmit={handleSubmit} className="space-y-4">
-        {/* Product Name */}
         <div className="space-y-1.5">
           <label className="text-xs font-semibold text-foreground">
             Product Name <span className="text-destructive">*</span>
@@ -174,7 +173,6 @@ export function ProductEditModal({
           />
         </div>
 
-        {/* Pricing & Stock Row */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="space-y-1.5">
             <label className="text-xs font-semibold text-foreground">
@@ -206,7 +204,6 @@ export function ProductEditModal({
           </div>
         </div>
 
-        {/* Category & Status Row */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="space-y-1.5">
             <label className="text-xs font-semibold text-foreground">
@@ -248,7 +245,6 @@ export function ProductEditModal({
           </div>
         </div>
 
-        {/* Product Image (Upload to Cloudinary or URL) */}
         <div className="space-y-1.5">
           <label className="text-xs font-semibold text-foreground">
             Product Image (Cloudinary Upload)
@@ -313,7 +309,6 @@ export function ProductEditModal({
           </div>
         </div>
 
-        {/* Description */}
         <div className="space-y-1.5">
           <label className="text-xs font-semibold text-foreground">
             Description

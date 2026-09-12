@@ -49,7 +49,6 @@ export function ProductVariants({
               )}
             </div>
 
-            {/* Color Swatches */}
             {type === 'color' ? (
               <div className="flex flex-wrap items-center gap-2.5">
                 {items.map((item) => {

@@ -107,17 +107,14 @@ export function CategoryNavbar() {
   return (
     <div className="hidden md:block bg-background">
       <div className="mx-auto flex h-12 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        {/* Left: All Categories Dropdown */}
         <div className="flex items-center gap-6">
           <CategoryDropdown />
 
-          {/* Navigation Links with searchParams awareness */}
           <React.Suspense fallback={<CategoryNavLinksFallback />}>
             <CategoryNavLinks />
           </React.Suspense>
         </div>
 
-        {/* Right: Quick Support */}
         <div className="hidden xl:flex items-center gap-2 text-xs font-semibold text-muted-foreground">
           <Headphones className="h-4 w-4 text-primary" />
           <span>Support 24/7:</span>

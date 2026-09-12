@@ -212,7 +212,6 @@ export function CategoriesTable({
             </Table>
           </div>
 
-          {/* Footer with Tree Statistics */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-border px-4 py-3 text-xs text-muted-foreground">
             <div>
               Showing <strong className="text-foreground">{flattenedItems.length}</strong> of{' '}

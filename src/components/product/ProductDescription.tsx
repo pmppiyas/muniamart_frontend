@@ -13,7 +13,6 @@ interface ProductDescriptionProps {
 export function ProductDescription({ product, className }: ProductDescriptionProps) {
   return (
     <div className={cn('space-y-8', className)}>
-      {/* Overview */}
       <div className="space-y-4">
         <h3 className="text-lg font-bold text-foreground">Product Overview</h3>
         <p className="text-sm leading-relaxed text-muted-foreground">
@@ -22,7 +21,6 @@ export function ProductDescription({ product, className }: ProductDescriptionPro
         </p>
       </div>
 
-      {/* Highlights Grid */}
       {product.features && product.features.length > 0 && (
         <div className="space-y-4">
           <div className="flex items-center gap-2">
@@ -48,7 +46,6 @@ export function ProductDescription({ product, className }: ProductDescriptionPro
         </div>
       )}
 
-      {/* Quality & Craftsmanship Assurance */}
       <div className="rounded-3xl border border-border bg-gradient-to-br from-primary/5 via-card to-card p-6 space-y-3">
         <div className="flex items-center gap-2 text-primary font-bold text-sm">
           <Award className="h-5 w-5" />

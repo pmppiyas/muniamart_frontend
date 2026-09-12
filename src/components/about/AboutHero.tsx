@@ -33,7 +33,6 @@ const STATS = [
 export function AboutHero() {
   return (
     <section className="relative overflow-hidden rounded-3xl border border-border bg-gradient-to-b from-card via-card to-muted/30 p-6 sm:p-10 lg:p-14 shadow-xs">
-      {/* Decorative background glow */}
       <div className="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-blue-500/10 blur-3xl" />
 
@@ -55,7 +54,6 @@ export function AboutHero() {
         </p>
       </div>
 
-      {/* Live Impact Stats Grid */}
       <div className="relative z-10 mt-10 sm:mt-12 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
         {STATS.map((stat) => {
           const Icon = stat.icon;

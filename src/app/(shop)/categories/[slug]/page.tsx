@@ -54,7 +54,6 @@ export default async function CategoryDetailPage({ params }: PageProps) {
   return (
     <div className="py-6 sm:py-8 lg:py-10 bg-background min-h-screen">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-6">
-        {/* Category Hero, Subcategories, Products, and dynamic breadcrumb */}
         <React.Suspense fallback={<div className="min-h-[400px] animate-pulse rounded-3xl bg-muted/40" />}>
           <CategoryPageContent
             category={category}

@@ -68,9 +68,7 @@ export function AdminHeader({ onOpenMobile, isCollapsed }: AdminHeaderProps) {
         'sticky top-0 z-20 flex h-16 shrink-0 w-full items-center justify-between border-b border-border bg-card/80 px-4 backdrop-blur-md transition-all duration-300 sm:px-6'
       )}
     >
-      {/* Left: Mobile Toggle & Breadcrumbs */}
       <div className="flex items-center gap-3">
-        {/* Mobile menu trigger */}
         <button
           type="button"
           onClick={onOpenMobile}
@@ -80,7 +78,6 @@ export function AdminHeader({ onOpenMobile, isCollapsed }: AdminHeaderProps) {
           <Menu className="h-4 w-4" />
         </button>
 
-        {/* Breadcrumb Trail */}
         <div className="flex items-center gap-2 text-xs font-medium">
           <Link
             href="/admin/dashboard"
@@ -93,7 +90,6 @@ export function AdminHeader({ onOpenMobile, isCollapsed }: AdminHeaderProps) {
         </div>
       </div>
 
-      {/* Center: Search Bar (Desktop) */}
       <div className="hidden lg:flex items-center flex-1 max-w-md mx-6">
         <div className="relative w-full">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
@@ -108,9 +104,7 @@ export function AdminHeader({ onOpenMobile, isCollapsed }: AdminHeaderProps) {
         </div>
       </div>
 
-      {/* Right: Actions, Store Link, Notifications, Theme, Profile */}
       <div className="flex items-center gap-2 sm:gap-2.5">
-        {/* View Store button */}
         <Link
           href="/"
           target="_blank"
@@ -122,7 +116,6 @@ export function AdminHeader({ onOpenMobile, isCollapsed }: AdminHeaderProps) {
           <span>Live Store</span>
         </Link>
 
-        {/* Notifications Dropdown */}
         <div className="relative" ref={notifRef}>
           <button
             type="button"
@@ -166,10 +159,8 @@ export function AdminHeader({ onOpenMobile, isCollapsed }: AdminHeaderProps) {
           )}
         </div>
 
-        {/* Theme Toggle */}
         <ThemeToggle />
 
-        {/* User Profile Dropdown */}
         <div className="relative" ref={userMenuRef}>
           <button
             type="button"

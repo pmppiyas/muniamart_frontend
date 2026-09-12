@@ -244,7 +244,6 @@ function ProductsContent() {
   return (
     <div className="py-6 sm:py-8 lg:py-10 bg-background min-h-screen">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-6">
-        {/* Breadcrumb Navigation */}
         <nav
           aria-label="Breadcrumb"
           className="flex items-center gap-1.5 text-xs text-muted-foreground"
@@ -295,7 +294,6 @@ function ProductsContent() {
           )}
         </nav>
 
-        {/* Page Header */}
         <div className="border-b border-border pb-5">
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-foreground">
             {isDealPage
@@ -313,9 +311,7 @@ function ProductsContent() {
           </p>
         </div>
 
-        {/* Main Layout Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Left Sidebar: Desktop Filters (lg:col-span-3) */}
           <div className="hidden lg:flex lg:flex-col lg:col-span-3 rounded-2xl border border-border bg-card shadow-2xs sticky top-[176px] h-[calc(100vh-196px)] max-h-[calc(100vh-196px)] overflow-hidden">
             <ProductFilter
               categories={categoriesWithRealCounts}
@@ -326,9 +322,7 @@ function ProductsContent() {
             />
           </div>
 
-          {/* Right Area: Toolbar, Product Grid, and Pagination (lg:col-span-9) */}
           <div className="lg:col-span-9 space-y-5">
-            {/* Toolbar */}
             <ProductToolbar
               totalCount={allProducts.length}
               filteredCount={filteredProducts.length}
@@ -340,14 +334,12 @@ function ProductsContent() {
               onOpenMobileFilters={() => setIsMobileFilterOpen(true)}
             />
 
-            {/* Product Grid */}
             <ProductGrid
               products={paginatedProducts}
               viewMode={viewMode}
               onResetFilters={handleResetFilters}
             />
 
-            {/* Pagination Controls */}
             {totalPages > 1 && (
               <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-border pt-6 mt-8">
                 <p className="text-xs text-muted-foreground">
@@ -405,16 +397,13 @@ function ProductsContent() {
         </div>
       </div>
 
-      {/* Mobile Filter Drawer / Modal */}
       {isMobileFilterOpen && (
         <div className="fixed inset-0 z-50 flex lg:hidden">
-          {/* Backdrop */}
           <div
             className="fixed inset-0 bg-black/60 backdrop-blur-xs animate-in fade-in duration-200"
             onClick={() => setIsMobileFilterOpen(false)}
           />
 
-          {/* Drawer Panel */}
           <div className="relative z-50 ml-auto flex h-full w-full max-w-xs flex-col bg-background text-foreground shadow-2xl p-5 overflow-y-auto animate-in slide-in-from-right duration-300">
             <div className="flex items-center justify-between border-b border-border pb-3 mb-4">
               <h2 className="text-base font-bold text-foreground">Filter Products</h2>

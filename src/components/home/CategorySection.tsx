@@ -16,7 +16,6 @@ export function CategorySection({ categories = [] }: CategorySectionProps) {
   return (
     <section className="py-8 sm:py-12 border-b border-border bg-background">
       <div className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
-        {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
           <Link
             href="/categories"
@@ -31,7 +30,6 @@ export function CategorySection({ categories = [] }: CategorySectionProps) {
           </Link>
         </div>
 
-        {/* Categories Grid */}
         <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-6">
           {categories.map((category) => (
             <CategoryCard key={category.id} category={category} />

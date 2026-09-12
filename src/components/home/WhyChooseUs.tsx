@@ -29,11 +29,9 @@ export function WhyChooseUs({ features = [] }: WhyChooseUsProps) {
 
   return (
     <section className="relative overflow-hidden py-6 sm:py-8 bg-gradient-to-b from-primary/[0.03] via-background to-muted/20 border-y border-border/80">
-      {/* Subtle ambient gradient glow in background */}
       <div className="pointer-events-none absolute -top-20 left-1/2 -translate-x-1/2 h-36 w-3/4 max-w-2xl bg-gradient-to-r from-primary/10 via-blue-500/10 to-indigo-500/10 blur-3xl opacity-60" />
 
       <div className="relative mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
-        {/* Compact Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-5 sm:mb-6 space-y-1 sm:space-y-1.5">
           <span className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-primary/15 via-blue-500/10 to-primary/5 border border-primary/20 px-2.5 py-0.5 text-[10px] sm:text-xs font-bold uppercase tracking-wider text-primary shadow-2xs">
             <Sparkles className="h-3 w-3" />
@@ -51,7 +49,6 @@ export function WhyChooseUs({ features = [] }: WhyChooseUsProps) {
           </p>
         </div>
 
-        {/* Square Feature Boxes with Gradients (No Hover Effect) */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5 max-w-5xl mx-auto">
           {features.map((feature) => {
             const IconComponent = (feature.icon && iconMap[feature.icon]) || ShieldCheck;
@@ -61,17 +58,14 @@ export function WhyChooseUs({ features = [] }: WhyChooseUsProps) {
                 key={feature.id}
                 className="relative flex flex-col items-center justify-center text-center aspect-square rounded-2xl border border-border/80 bg-gradient-to-br from-card via-card to-accent/25 p-3.5 sm:p-4 shadow-2xs"
               >
-                {/* Compact Gradient Icon */}
                 <div className="flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary/15 via-blue-500/10 to-indigo-500/15 text-primary border border-primary/20 shadow-2xs mb-2 sm:mb-2.5">
                   <IconComponent className="h-5 w-5 sm:h-6 sm:w-6" />
                 </div>
 
-                {/* Title */}
                 <h3 className="text-xs sm:text-sm font-bold text-foreground leading-tight mb-1 sm:mb-1.5">
                   {feature.title}
                 </h3>
 
-                {/* Description */}
                 <p className="text-[10px] sm:text-xs text-muted-foreground leading-relaxed line-clamp-2 sm:line-clamp-3 max-w-[200px]">
                   {feature.description}
                 </p>

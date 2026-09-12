@@ -87,7 +87,6 @@ export function ContactForm() {
       ) : (
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {/* Full Name */}
             <div className="space-y-1.5">
               <label htmlFor="contact-name" className="text-xs font-bold text-foreground flex items-center gap-1.5">
                 <User className="h-3.5 w-3.5 text-primary" />
@@ -104,7 +103,6 @@ export function ContactForm() {
               />
             </div>
 
-            {/* Email Address */}
             <div className="space-y-1.5">
               <label htmlFor="contact-email" className="text-xs font-bold text-foreground flex items-center gap-1.5">
                 <Mail className="h-3.5 w-3.5 text-primary" />
@@ -123,7 +121,6 @@ export function ContactForm() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {/* Phone Number */}
             <div className="space-y-1.5">
               <label htmlFor="contact-phone" className="text-xs font-bold text-foreground flex items-center gap-1.5">
                 <Phone className="h-3.5 w-3.5 text-primary" />
@@ -139,7 +136,6 @@ export function ContactForm() {
               />
             </div>
 
-            {/* Inquiry Subject */}
             <div className="space-y-1.5">
               <label htmlFor="contact-subject" className="text-xs font-bold text-foreground flex items-center gap-1.5">
                 <Tag className="h-3.5 w-3.5 text-primary" />
@@ -160,7 +156,6 @@ export function ContactForm() {
             </div>
           </div>
 
-          {/* Optional Order Number */}
           {isOrderRelated && (
             <div className="space-y-1.5 animate-in fade-in">
               <label htmlFor="contact-order" className="text-xs font-bold text-foreground flex items-center gap-1.5">
@@ -178,7 +173,6 @@ export function ContactForm() {
             </div>
           )}
 
-          {/* Detailed Message */}
           <div className="space-y-1.5">
             <div className="flex items-center justify-between text-xs font-bold text-foreground">
               <span>Your Message *</span>
@@ -195,7 +189,6 @@ export function ContactForm() {
             />
           </div>
 
-          {/* Submit Button */}
           <div className="pt-2">
             <button
               type="submit"

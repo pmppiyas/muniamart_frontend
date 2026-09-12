@@ -66,9 +66,7 @@ export function ProductViewModal({
       }
     >
       <div className="space-y-6">
-        {/* Top Product Hero: Image + Primary Details */}
         <div className="flex flex-col sm:flex-row gap-5 items-start">
-          {/* Image */}
           <div className="relative h-44 w-44 sm:h-48 sm:w-48 shrink-0 overflow-hidden rounded-xl border border-border bg-muted/30">
             {product.photoUrl ? (
               <Image
@@ -85,7 +83,6 @@ export function ProductViewModal({
             )}
           </div>
 
-          {/* Key Info */}
           <div className="flex-1 space-y-3">
             <div>
               <div className="flex items-center gap-2">
@@ -118,7 +115,6 @@ export function ProductViewModal({
               </p>
             </div>
 
-            {/* Price & Stock Stats */}
             <div className="grid grid-cols-2 gap-3 pt-2">
               <div className="rounded-xl border border-border/80 bg-background/50 p-3">
                 <span className="text-[11px] font-medium text-muted-foreground">Price</span>
@@ -137,7 +133,6 @@ export function ProductViewModal({
           </div>
         </div>
 
-        {/* Description */}
         {product.description && (
           <div className="space-y-1.5 rounded-xl border border-border/60 bg-muted/20 p-4">
             <h4 className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
@@ -149,7 +144,6 @@ export function ProductViewModal({
           </div>
         )}
 
-        {/* Metadata Details */}
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs">
           <div className="rounded-lg border border-border/60 p-3">
             <span className="text-muted-foreground text-[11px] block">Created At</span>

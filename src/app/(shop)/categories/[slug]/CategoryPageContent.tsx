@@ -79,7 +79,6 @@ export function CategoryPageContent({
 
   return (
     <div className="space-y-6 sm:space-y-8">
-      {/* Dynamic Breadcrumb Navigation */}
       <nav
         aria-label="Breadcrumb"
         className="flex items-center gap-1.5 text-xs text-muted-foreground flex-wrap"
@@ -119,14 +118,12 @@ export function CategoryPageContent({
         )}
       </nav>
 
-      {/* 1. Category Hero Banner */}
       <CategoryHero
         category={category}
         totalProducts={subcategoryFilteredCount}
         activeSubcategory={activeSubcategory}
       />
 
-      {/* 2. Subcategories Carousel / Grid */}
       {category.children && category.children.length > 0 && (
         <SubCategoryList
           subcategories={category.children}
@@ -137,7 +134,6 @@ export function CategoryPageContent({
         />
       )}
 
-      {/* 3. Products Section with Toolbar, Filters, Grid, and Pagination */}
       <CategoryProducts
         category={category}
         initialProducts={categoryProducts}

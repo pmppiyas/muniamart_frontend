@@ -119,7 +119,6 @@ export function ProductsHeader({
         }
       />
 
-      {/* Shared Soft Colorful Metrics Row */}
       <AdminStatsGroup stats={stats} />
     </div>
   );

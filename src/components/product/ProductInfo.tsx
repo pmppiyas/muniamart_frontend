@@ -110,7 +110,6 @@ export function ProductInfo({
 
   return (
     <div className={cn('flex flex-col space-y-6', className)}>
-      {/* Category, Brand, SKU */}
       <div className="space-y-1.5 border-b border-border pb-4">
         <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
           {product.category && (
@@ -135,7 +134,6 @@ export function ProductInfo({
           {product.name}
         </h1>
 
-        {/* Rating and Reviews Anchor */}
         <div className="flex items-center gap-3 pt-1">
           <ProductRating
             rating={product.rating}
@@ -154,7 +152,6 @@ export function ProductInfo({
         </div>
       </div>
 
-      {/* Pricing & Stock Status */}
       <div className="flex flex-wrap items-baseline justify-between gap-4 border-b border-border pb-5">
         <div>
           <ProductPrice
@@ -169,7 +166,6 @@ export function ProductInfo({
           </p>
         </div>
 
-        {/* Stock Status Badge */}
         <div>
           {isOutOfStock ? (
             <span className="inline-flex items-center gap-1.5 rounded-full bg-destructive/10 border border-destructive/20 px-3 py-1 text-xs font-bold text-destructive">
@@ -188,7 +184,6 @@ export function ProductInfo({
         </div>
       </div>
 
-      {/* Short Description & Bullet Highlights */}
       <div className="space-y-3">
         {product.description && (
           <p className="text-sm text-muted-foreground leading-relaxed">
@@ -208,7 +203,6 @@ export function ProductInfo({
         )}
       </div>
 
-      {/* Product Variants (Color, Size, etc.) */}
       {product.variants && product.variants.length > 0 && (
         <div className="border-t border-border pt-4">
           <ProductVariants
@@ -219,7 +213,6 @@ export function ProductInfo({
         </div>
       )}
 
-      {/* Quantity & CTA Buttons */}
       <div className="space-y-4 border-t border-border pt-5">
         <div className="flex items-center gap-4">
           <span className="text-xs font-bold uppercase tracking-wider text-foreground">
@@ -233,9 +226,7 @@ export function ProductInfo({
           />
         </div>
 
-        {/* Action Buttons: Add to Cart, Buy Now */}
         <div className="flex flex-col sm:flex-row items-stretch gap-3 pt-2">
-          {/* Add to Cart */}
           <button
             type="button"
             disabled={isOutOfStock}
@@ -246,7 +237,6 @@ export function ProductInfo({
             <span>Add to Cart</span>
           </button>
 
-          {/* Buy Now */}
           <button
             type="button"
             disabled={isOutOfStock}
@@ -259,7 +249,6 @@ export function ProductInfo({
         </div>
       </div>
 
-      {/* Assurance / Trust Pillars */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 rounded-2xl border border-border bg-muted/20 p-4">
         <div className="flex items-center gap-2.5">
           <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/10 text-primary shrink-0">

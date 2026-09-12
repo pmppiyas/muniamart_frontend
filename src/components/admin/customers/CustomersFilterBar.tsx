@@ -31,7 +31,6 @@ export function CustomersFilterBar({
 }: CustomersFilterBarProps) {
   return (
     <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 rounded-xl border border-border bg-card p-3 shadow-xs">
-      {/* Left: Search Bar */}
       <div className="relative flex-1 min-w-[240px]">
         <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
         <Input
@@ -52,7 +51,6 @@ export function CustomersFilterBar({
         )}
       </div>
 
-      {/* Right: Status Filter & Reset */}
       <div className="flex items-center gap-2 shrink-0">
         <div className="flex items-center gap-1.5 bg-muted/60 p-1 rounded-lg border border-border/50">
           <Filter className="h-3.5 w-3.5 text-muted-foreground ml-1 hidden sm:inline" />

@@ -21,7 +21,6 @@ export function PaymentMethodSelector({
       </label>
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-        {/* Cash on Delivery */}
         <div
           onClick={() => onSelect('cod')}
           className={cn(
@@ -48,7 +47,6 @@ export function PaymentMethodSelector({
           <p className="text-[10px] text-muted-foreground mt-0.5">Pay upon delivery</p>
         </div>
 
-        {/* bKash / Mobile Banking */}
         <div
           onClick={() => onSelect('bkash')}
           className={cn(
@@ -75,7 +73,6 @@ export function PaymentMethodSelector({
           <p className="text-[10px] text-muted-foreground mt-0.5">Redirect to bKash</p>
         </div>
 
-        {/* Credit / Debit Card via Stripe */}
         <div
           onClick={() => onSelect('card')}
           className={cn(
@@ -103,7 +100,6 @@ export function PaymentMethodSelector({
         </div>
       </div>
 
-      {/* Info messages */}
       {selectedMethod === 'cod' && (
         <div className="rounded-2xl border border-border/80 bg-muted/30 p-3.5 text-xs text-muted-foreground flex items-center gap-2">
           <Banknote className="h-4 w-4 text-primary shrink-0" />

@@ -70,7 +70,6 @@ export function SubCategoryCard({
         className
       )}
     >
-      {/* Icon / Mini Image */}
       <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-xl bg-muted/60 flex items-center justify-center">
         {subcategory.imageUrl ? (
           <Image
@@ -85,7 +84,6 @@ export function SubCategoryCard({
         )}
       </div>
 
-      {/* Details */}
       <div className="flex-1 min-w-0">
         <h3
           className={cn(

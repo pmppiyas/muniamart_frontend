@@ -28,7 +28,6 @@ export function ProfileSecurityTab({ user }: ProfileSecurityTabProps) {
 
   return (
     <div className="space-y-6">
-      {/* Account Security Overview */}
       <div className="rounded-3xl border border-border bg-card p-5 sm:p-7 shadow-xs">
         <div className="border-b border-border pb-4 mb-6">
           <h2 className="text-lg font-bold text-foreground">Security & Login</h2>
@@ -38,7 +37,6 @@ export function ProfileSecurityTab({ user }: ProfileSecurityTabProps) {
         </div>
 
         <div className="space-y-5 max-w-2xl">
-          {/* Security status card */}
           <div className="flex items-center gap-3 rounded-2xl border border-emerald-500/20 bg-emerald-500/5 p-4">
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
               <ShieldCheck className="h-5 w-5" />
@@ -51,7 +49,6 @@ export function ProfileSecurityTab({ user }: ProfileSecurityTabProps) {
             </div>
           </div>
 
-          {/* Password Section */}
           <div className="rounded-2xl border border-border bg-muted/20 p-4 sm:p-5 space-y-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2.5">
@@ -77,7 +74,6 @@ export function ProfileSecurityTab({ user }: ProfileSecurityTabProps) {
             </div>
           </div>
 
-          {/* Active Session Info */}
           <div className="rounded-2xl border border-border bg-muted/20 p-4 sm:p-5 space-y-3">
             <h3 className="text-xs font-bold text-foreground flex items-center gap-2">
               <Globe className="h-4 w-4 text-primary" />
@@ -97,7 +93,6 @@ export function ProfileSecurityTab({ user }: ProfileSecurityTabProps) {
         </div>
       </div>
 
-      {/* Sign Out Card */}
       <div className="rounded-3xl border border-destructive/20 bg-destructive/5 p-5 sm:p-7 shadow-xs">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>

@@ -68,7 +68,6 @@ export function ReviewForm({
         </p>
       </div>
 
-      {/* Star Rating Picker */}
       <div className="space-y-1.5 pt-1">
         <span className="text-xs font-bold uppercase tracking-wider text-foreground">
           Overall Rating:
@@ -104,7 +103,6 @@ export function ReviewForm({
         </div>
       </div>
 
-      {/* Name Input */}
       <div className="space-y-1">
         <label className="text-xs font-semibold text-foreground">Your Name *</label>
         <input
@@ -117,7 +115,6 @@ export function ReviewForm({
         />
       </div>
 
-      {/* Headline Input */}
       <div className="space-y-1">
         <label className="text-xs font-semibold text-foreground">
           Review Headline
@@ -131,7 +128,6 @@ export function ReviewForm({
         />
       </div>
 
-      {/* Comment Textarea */}
       <div className="space-y-1">
         <label className="text-xs font-semibold text-foreground">
           Detailed Review *
@@ -146,7 +142,6 @@ export function ReviewForm({
         />
       </div>
 
-      {/* Submit / Cancel Buttons */}
       <div className="flex items-center gap-3 pt-2">
         <button
           type="submit"

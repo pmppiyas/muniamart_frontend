@@ -40,7 +40,6 @@ export function CartSummary({ className, onCheckout }: CartSummaryProps) {
     >
       <h2 className="text-base font-bold text-foreground">Order Summary</h2>
 
-      {/* Free Shipping Progress Indicator */}
       <div className="space-y-2 rounded-2xl bg-muted/40 p-3.5 border border-border/60">
         <div className="flex items-center justify-between text-xs">
           <div className="flex items-center gap-1.5 font-bold text-foreground">
@@ -68,7 +67,6 @@ export function CartSummary({ className, onCheckout }: CartSummaryProps) {
         </div>
       </div>
 
-      {/* Breakdown Calculations */}
       <div className="space-y-3 border-t border-border pt-4 text-xs">
         <div className="flex justify-between text-muted-foreground">
           <span>Subtotal</span>
@@ -106,7 +104,6 @@ export function CartSummary({ className, onCheckout }: CartSummaryProps) {
         </div>
       </div>
 
-      {/* Checkout Action Button */}
       <div className="pt-2">
         {onCheckout ? (
           <button
@@ -130,7 +127,6 @@ export function CartSummary({ className, onCheckout }: CartSummaryProps) {
         )}
       </div>
 
-      {/* Trust Badge */}
       <div className="flex items-center justify-center gap-2 text-[11px] text-muted-foreground pt-1">
         <ShieldCheck className="h-4 w-4 text-emerald-500" />
         <span>Safe &amp; Encrypted 256-Bit Checkout</span>

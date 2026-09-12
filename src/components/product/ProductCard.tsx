@@ -70,7 +70,6 @@ export function ProductCard({
           className
         )}
       >
-        {/* Left: Image Container */}
         <Link
           href={productHref}
           className="relative h-44 w-full sm:h-36 sm:w-36 shrink-0 overflow-hidden rounded-2xl bg-muted/20 flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-primary cursor-pointer"
@@ -97,7 +96,6 @@ export function ProductCard({
           )}
         </Link>
 
-        {/* Center: Info */}
         <div className="flex flex-1 flex-col justify-between space-y-2">
           <div>
             <Link
@@ -132,7 +130,6 @@ export function ProductCard({
           </div>
         </div>
 
-        {/* Right: Actions */}
         <div className="flex sm:flex-col items-center sm:items-end justify-between sm:justify-center border-t sm:border-t-0 sm:border-l border-border pt-3 sm:pt-0 sm:pl-6 gap-3 shrink-0">
           <div className="flex items-center gap-2">
             <Link
@@ -162,7 +159,6 @@ export function ProductCard({
         className
       )}
     >
-      {/* Top Media Image Container */}
       <div className="relative aspect-square w-full overflow-hidden rounded-xl bg-muted/15 flex items-center justify-center">
         <Link
           href={productHref}
@@ -183,7 +179,6 @@ export function ProductCard({
             </div>
           )}
 
-          {/* Out of Stock Overlay */}
           {isOutOfStock && (
             <div className="absolute inset-0 z-10 flex items-center justify-center bg-background/80 backdrop-blur-2xs">
               <span className="rounded-lg bg-zinc-900 px-2.5 py-0.5 text-xs font-bold text-white shadow-xs">
@@ -194,10 +189,8 @@ export function ProductCard({
         </Link>
       </div>
 
-      {/* Product Information */}
       <div className="mt-2 flex flex-1 flex-col justify-between px-0.5">
         <div>
-          {/* Title */}
           <Link
             href={productHref}
             className="block font-semibold text-xs sm:text-sm text-foreground group-hover:text-primary transition-colors line-clamp-1 leading-snug"
@@ -206,13 +199,11 @@ export function ProductCard({
             {product.name}
           </Link>
 
-          {/* Price */}
           <div className="mt-1 space-y-0.5">
             <div className="text-sm sm:text-base font-bold text-foreground tracking-tight">
               {formatPrice(product.price)}
             </div>
 
-            {/* Discount row: original strikethrough + green savings badge */}
             {hasDiscount ? (
               <div className="flex items-center gap-1.5 pt-0.5">
                 <span className="text-[11px] sm:text-xs text-muted-foreground line-through font-medium">
@@ -232,7 +223,6 @@ export function ProductCard({
           </div>
         </div>
 
-        {/* Bottom Action Row: Shop Now (Primary on hover) + Cart Icon Button */}
         <div className="mt-2.5 sm:mt-3 flex items-center gap-1.5">
           <Link
             href={productHref}

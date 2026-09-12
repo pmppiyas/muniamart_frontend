@@ -168,7 +168,6 @@ export function CategoryCreateModal({
         onSubmit={handleSubmit}
         className="space-y-4"
       >
-        {/* Category Name */}
         <div className="space-y-1.5">
           <label className="text-xs font-semibold text-foreground">
             Category Name <span className="text-destructive">*</span>
@@ -183,7 +182,6 @@ export function CategoryCreateModal({
           />
         </div>
 
-        {/* Parent Category Hierarchy Selector */}
         <div className="space-y-1.5">
           <label className="text-xs font-semibold text-foreground flex items-center gap-1.5">
             <FolderTree className="h-3.5 w-3.5 text-primary" />
@@ -214,7 +212,6 @@ export function CategoryCreateModal({
           </p>
         </div>
 
-        {/* Icon Key / Emoji */}
         <div className="space-y-1.5">
           <label className="text-xs font-semibold text-foreground">
             Icon Key / Emoji (Optional)
@@ -228,7 +225,6 @@ export function CategoryCreateModal({
           />
         </div>
 
-        {/* Cloudinary Image Upload */}
         <div className="space-y-1.5">
           <label className="text-xs font-semibold text-foreground">
             Category Banner / Photo (Cloudinary Upload)
@@ -278,7 +274,6 @@ export function CategoryCreateModal({
           </div>
         </div>
 
-        {/* Description */}
         <div className="space-y-1.5">
           <label className="text-xs font-semibold text-foreground">
             Description

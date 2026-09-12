@@ -45,7 +45,6 @@ export function ProductDetailTabs({ product, className }: ProductDetailTabsProps
 
   return (
     <div className={cn('border-t border-border pt-8', className)}>
-      {/* Tab Navigation */}
       <div className="flex items-center gap-2 overflow-x-auto border-b border-border pb-px">
         {tabs.map((tab) => {
           const isActive = activeTab === tab.id;
@@ -83,23 +82,19 @@ export function ProductDetailTabs({ product, className }: ProductDetailTabsProps
         })}
       </div>
 
-      {/* Tab Panels */}
       <div className="pt-6 sm:pt-8">
-        {/* 1. Description */}
         {activeTab === 'description' && (
           <div className="animate-in fade-in duration-200">
             <ProductDescription product={product} />
           </div>
         )}
 
-        {/* 2. Specifications */}
         {activeTab === 'specifications' && (
           <div className="animate-in fade-in duration-200 max-w-3xl">
             <ProductSpecifications product={product} />
           </div>
         )}
 
-        {/* 3. Shipping & Returns */}
         {activeTab === 'shipping' && (
           <div className="animate-in fade-in duration-200 max-w-4xl space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -143,7 +138,6 @@ export function ProductDetailTabs({ product, className }: ProductDetailTabsProps
           </div>
         )}
 
-        {/* 4. Customer Reviews */}
         {activeTab === 'reviews' && (
           <div className="animate-in fade-in duration-200">
             <ProductReviews

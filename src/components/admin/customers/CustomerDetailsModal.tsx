@@ -114,7 +114,6 @@ export function CustomerDetailsModal({
         </div>
       ) : (
         <div className="space-y-6">
-          {/* Top Profile Card */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 rounded-xl bg-muted/40 border border-border">
             <div className="flex items-center gap-3.5">
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-bold text-lg border border-primary/20">
@@ -174,7 +173,6 @@ export function CustomerDetailsModal({
             </div>
           </div>
 
-          {/* Status-wise Order Breakdown Cards */}
           <div>
             <div className="flex items-center justify-between mb-2.5">
               <h4 className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
@@ -248,7 +246,6 @@ export function CustomerDetailsModal({
             </div>
           </div>
 
-          {/* Recent Orders List */}
           <div>
             <div className="flex items-center justify-between mb-2.5">
               <h4 className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
@@ -308,7 +305,6 @@ export function CustomerDetailsModal({
             )}
           </div>
 
-          {/* Addresses */}
           {customer.addresses && customer.addresses.length > 0 && (
             <div>
               <h4 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2.5">

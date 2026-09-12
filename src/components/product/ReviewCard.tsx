@@ -19,7 +19,6 @@ export function ReviewCard({ review, className }: ReviewCardProps) {
         className
       )}
     >
-      {/* Author Header */}
       <div className="flex items-center justify-between gap-3">
         <div className="flex items-center gap-3">
           {review.avatar ? (
@@ -54,7 +53,6 @@ export function ReviewCard({ review, className }: ReviewCardProps) {
           </div>
         </div>
 
-        {/* Stars */}
         <div className="flex items-center text-amber-500">
           {Array.from({ length: 5 }).map((_, i) => (
             <Star
@@ -68,7 +66,6 @@ export function ReviewCard({ review, className }: ReviewCardProps) {
         </div>
       </div>
 
-      {/* Review Content */}
       <div className="space-y-1">
         {review.title && (
           <h4 className="text-xs font-bold text-foreground">{review.title}</h4>

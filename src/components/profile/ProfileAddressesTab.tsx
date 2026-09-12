@@ -131,7 +131,6 @@ export function ProfileAddressesTab() {
         )}
       </div>
 
-      {/* Add New Address Form Modal/Collapse */}
       {isAddingNew && (
         <form onSubmit={handleCreateAddress} className="rounded-2xl border border-primary/30 bg-primary/5 p-4 sm:p-6 mb-6 space-y-4">
           <div className="flex items-center justify-between border-b border-primary/10 pb-3">
@@ -226,7 +225,6 @@ export function ProfileAddressesTab() {
         </form>
       )}
 
-      {/* Address Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {addresses.map((addr) => (
           <div

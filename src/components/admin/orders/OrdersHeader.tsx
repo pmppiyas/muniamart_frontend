@@ -123,7 +123,6 @@ export function OrdersHeader({
 
   return (
     <div className="space-y-4">
-      {/* Reusable AdminPageHeader with Breadcrumbs, Badge, and Action Buttons */}
       <AdminPageHeader
         title="Orders"
         description="Monitor incoming orders, track customer shipments, and manage fulfillment workflow."
@@ -163,10 +162,8 @@ export function OrdersHeader({
         }
       />
 
-      {/* Shared Soft Colorful Metrics Row */}
       <AdminStatsGroup stats={stats} />
 
-      {/* Interactive Status Filter Bar */}
       <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
         {statusTabs.map((tab) => {
           const isActive = selectedStatus === tab.id;

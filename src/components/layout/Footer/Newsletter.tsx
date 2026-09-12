@@ -37,7 +37,6 @@ export function Newsletter({ className }: NewsletterProps) {
       )}
     >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-        {/* Left copy */}
         <div className="lg:col-span-7 space-y-2 text-left">
           <div className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-bold text-primary">
             <Mail className="h-3.5 w-3.5" />
@@ -51,7 +50,6 @@ export function Newsletter({ className }: NewsletterProps) {
           </p>
         </div>
 
-        {/* Right form */}
         <div className="lg:col-span-5">
           {isSubscribed ? (
             <div className="flex items-center gap-3 rounded-2xl bg-emerald-500/10 p-4 text-emerald-800 dark:text-emerald-200 animate-in fade-in zoom-in-95">

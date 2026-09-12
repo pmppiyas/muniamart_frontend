@@ -10,9 +10,9 @@ import {
 } from '@/components/admin/orders';
 import { useGetAllOrdersQuery } from '@/services/api/orderApi';
 import { Order } from '@/types/order';
+import { AdminPermissionGuard } from '@/components/admin/AdminPermissionGuard';
 
 export default function AdminOrdersPage() {
-  // 1. Filter & Pagination States
   const [page, setPage] = React.useState(1);
   const limit = 15;
 
@@ -21,7 +21,6 @@ export default function AdminOrdersPage() {
   const [selectedStatus, setSelectedStatus] = React.useState('ALL');
   const [dateFilter, setDateFilter] = React.useState('ALL');
 
-  // Debounce search
   React.useEffect(() => {
     const timer = setTimeout(() => {
       setDebouncedSearch(searchQuery.trim());
@@ -30,7 +29,6 @@ export default function AdminOrdersPage() {
     return () => clearTimeout(timer);
   }, [searchQuery]);
 
-  // Calculate date range from dateFilter
   const { startDate, endDate } = React.useMemo(() => {
     const now = new Date();
     if (dateFilter === 'TODAY') {
@@ -48,7 +46,6 @@ export default function AdminOrdersPage() {
     return { startDate: undefined, endDate: undefined };
   }, [dateFilter]);
 
-  // Fetch orders from backend
   const {
     data: ordersResponse,
     isLoading,
@@ -69,7 +66,6 @@ export default function AdminOrdersPage() {
   const totalPage = meta?.totalPage ?? Math.ceil(totalCount / limit);
   const metrics = meta?.metrics;
 
-  // Handlers
   const handleStatusChange = (status: string) => {
     setSelectedStatus(status);
     setPage(1);
@@ -94,11 +90,9 @@ export default function AdminOrdersPage() {
     dateFilter !== 'ALL'
   );
 
-  // Delete modal state
   const [selectedOrderForDelete, setSelectedOrderForDelete] =
     React.useState<Order | null>(null);
 
-  // CSV Export
   const handleExportCSV = () => {
     if (orders.length === 0) {
       toast.info('No orders available to export');
@@ -156,50 +150,48 @@ export default function AdminOrdersPage() {
   };
 
   return (
-    <div className="space-y-4">
-      {/* 1. Header with Title, Count, Quick Metrics, and Actions */}
-      <OrdersHeader
-        totalCount={totalCount}
-        metrics={metrics}
-        selectedStatus={selectedStatus}
-        onStatusSelect={handleStatusChange}
-        isFetching={isFetching}
-        onRefresh={() => refetch()}
-        onExport={handleExportCSV}
-      />
+    <AdminPermissionGuard requiredPermission="MANAGE_ORDERS" moduleName="Orders">
+      <div className="space-y-4">
+        <OrdersHeader
+          totalCount={totalCount}
+          metrics={metrics}
+          selectedStatus={selectedStatus}
+          onStatusSelect={handleStatusChange}
+          isFetching={isFetching}
+          onRefresh={() => refetch()}
+          onExport={handleExportCSV}
+        />
 
-      {/* 2. Filter Bar (Search + Status + Timeframe) */}
-      <OrdersFilterBar
-        searchQuery={searchQuery}
-        onSearchChange={setSearchQuery}
-        selectedStatus={selectedStatus}
-        onStatusChange={handleStatusChange}
-        dateFilter={dateFilter}
-        onDateFilterChange={handleDateFilterChange}
-        onReset={handleClearFilters}
-        hasActiveFilters={hasActiveFilters}
-      />
+        <OrdersFilterBar
+          searchQuery={searchQuery}
+          onSearchChange={setSearchQuery}
+          selectedStatus={selectedStatus}
+          onStatusChange={handleStatusChange}
+          dateFilter={dateFilter}
+          onDateFilterChange={handleDateFilterChange}
+          onReset={handleClearFilters}
+          hasActiveFilters={hasActiveFilters}
+        />
 
-      {/* 3. Orders Table */}
-      <OrdersTable
-        orders={orders}
-        isLoading={isLoading}
-        page={page}
-        totalPage={totalPage}
-        totalOrders={totalCount}
-        limit={limit}
-        onPageChange={setPage}
-        onDeleteClick={(order) => setSelectedOrderForDelete(order)}
-        isFiltering={hasActiveFilters}
-        onClearFilters={handleClearFilters}
-      />
+        <OrdersTable
+          orders={orders}
+          isLoading={isLoading}
+          page={page}
+          totalPage={totalPage}
+          totalOrders={totalCount}
+          limit={limit}
+          onPageChange={setPage}
+          onDeleteClick={(order) => setSelectedOrderForDelete(order)}
+          isFiltering={hasActiveFilters}
+          onClearFilters={handleClearFilters}
+        />
 
-      {/* 4. Delete Confirmation Dialog */}
-      <OrderDeleteDialog
-        order={selectedOrderForDelete}
-        isOpen={Boolean(selectedOrderForDelete)}
-        onClose={() => setSelectedOrderForDelete(null)}
-      />
-    </div>
+        <OrderDeleteDialog
+          order={selectedOrderForDelete}
+          isOpen={Boolean(selectedOrderForDelete)}
+          onClose={() => setSelectedOrderForDelete(null)}
+        />
+      </div>
+    </AdminPermissionGuard>
   );
 }

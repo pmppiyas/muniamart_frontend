@@ -37,7 +37,6 @@ export function ProductGallery({
 
   return (
     <div className={cn('flex flex-col gap-4', className)}>
-      {/* Main Image Container */}
       <div className="group relative aspect-square w-full overflow-hidden rounded-3xl border border-border bg-card shadow-xs">
         <Image
           src={displayImages[selectedIndex]}
@@ -48,7 +47,6 @@ export function ProductGallery({
           className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
         />
 
-        {/* Badges Stack */}
         <div className="absolute left-4 top-4 z-10 flex flex-col gap-2 pointer-events-none">
           {discountPercent && discountPercent > 0 ? (
             <span className="rounded-lg bg-destructive px-2.5 py-1 text-xs font-black uppercase tracking-wider text-destructive-foreground shadow-sm">
@@ -69,7 +67,6 @@ export function ProductGallery({
           )}
         </div>
 
-        {/* Out of stock overlay */}
         {isOutOfStock && (
           <div className="absolute inset-0 z-20 flex items-center justify-center bg-background/80 backdrop-blur-2xs">
             <span className="rounded-xl bg-zinc-900 px-4 py-2 text-sm font-bold text-white shadow-md">
@@ -78,7 +75,6 @@ export function ProductGallery({
           </div>
         )}
 
-        {/* Prev / Next Arrows */}
         {displayImages.length > 1 && (
           <>
             <button
@@ -101,7 +97,6 @@ export function ProductGallery({
         )}
       </div>
 
-      {/* Thumbnail Strips */}
       {displayImages.length > 1 && (
         <div className="flex items-center gap-3 overflow-x-auto pb-1">
           {displayImages.map((imgUrl, index) => {

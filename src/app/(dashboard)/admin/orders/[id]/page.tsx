@@ -177,7 +177,6 @@ export default function AdminOrderViewPage() {
 
   return (
     <div className="space-y-6 pb-12">
-      {/* Top Breadcrumb / Action Bar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-border/80 pb-4">
         <div className="flex items-center gap-3">
           <Button
@@ -227,7 +226,6 @@ export default function AdminOrderViewPage() {
           </div>
         </div>
 
-        {/* Action Buttons: Edit (Full Page) & Print */}
         <div className="flex items-center gap-2 shrink-0">
           <Button
             variant="outline"
@@ -240,7 +238,6 @@ export default function AdminOrderViewPage() {
             Print Invoice
           </Button>
 
-          {/* EDIT BUTTON (FULL PAGE) */}
           <Button
             asChild
             size="sm"
@@ -254,7 +251,6 @@ export default function AdminOrderViewPage() {
         </div>
       </div>
 
-      {/* Visual Tracking Stepper Card */}
       <div className="rounded-3xl border border-border/80 bg-card p-5 sm:p-6 shadow-2xs">
         <div className="flex items-center justify-between border-b border-border/60 pb-3 mb-5">
           <div className="flex items-center gap-2">
@@ -327,11 +323,8 @@ export default function AdminOrderViewPage() {
         )}
       </div>
 
-      {/* Main Grid Content */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-        {/* Left 8 Cols: Ordered Items & Financial Details */}
         <div className="lg:col-span-8 space-y-6">
-          {/* Order Items Table Card */}
           <div className="rounded-3xl border border-border/80 bg-card overflow-hidden shadow-2xs">
             <div className="px-5 py-4 border-b border-border/80 flex items-center justify-between">
               <div className="flex items-center gap-2">
@@ -397,7 +390,6 @@ export default function AdminOrderViewPage() {
               ))}
             </div>
 
-            {/* Financial Calculations Footer */}
             <div className="bg-muted/25 p-5 border-t border-border/80 space-y-2 text-xs">
               <div className="flex justify-between text-muted-foreground">
                 <span>Items Subtotal:</span>
@@ -420,7 +412,6 @@ export default function AdminOrderViewPage() {
             </div>
           </div>
 
-          {/* Payment Details Card */}
           <div className="rounded-3xl border border-border/80 bg-card p-5 shadow-2xs space-y-3">
             <div className="flex items-center gap-2 border-b border-border/60 pb-3">
               <CreditCard className="h-4 w-4 text-primary" />
@@ -463,9 +454,7 @@ export default function AdminOrderViewPage() {
           </div>
         </div>
 
-        {/* Right 4 Cols: Customer & Shipping Address */}
         <div className="lg:col-span-4 space-y-6">
-          {/* Customer Profile Card */}
           <div className="rounded-3xl border border-border/80 bg-card p-5 shadow-2xs space-y-3">
             <div className="flex items-center gap-2 border-b border-border/60 pb-3">
               <User className="h-4 w-4 text-primary" />
@@ -500,7 +489,6 @@ export default function AdminOrderViewPage() {
             </div>
           </div>
 
-          {/* Shipping Address Card (from new Address model) */}
           <div className="rounded-3xl border border-border/80 bg-card p-5 shadow-2xs space-y-3">
             <div className="flex items-center justify-between border-b border-border/60 pb-3">
               <div className="flex items-center gap-2">
@@ -559,7 +547,6 @@ export default function AdminOrderViewPage() {
             )}
           </div>
 
-          {/* Quick Status Updater */}
           <div className="rounded-3xl border border-border/80 bg-card p-5 shadow-2xs space-y-3">
             <div className="flex items-center gap-2 border-b border-border/60 pb-3">
               <ShieldCheck className="h-4 w-4 text-primary" />

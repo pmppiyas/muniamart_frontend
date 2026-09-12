@@ -54,7 +54,6 @@ export function ProfileInfoTab({ user }: ProfileInfoTabProps) {
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-5 max-w-2xl">
-        {/* Full Name */}
         <div className="space-y-1.5">
           <label htmlFor="profile-name" className="text-xs font-bold text-foreground flex items-center gap-1.5">
             <User className="h-3.5 w-3.5 text-primary" />
@@ -71,7 +70,6 @@ export function ProfileInfoTab({ user }: ProfileInfoTabProps) {
           />
         </div>
 
-        {/* Email (Read-only) */}
         <div className="space-y-1.5">
           <label htmlFor="profile-email" className="text-xs font-bold text-foreground flex items-center justify-between">
             <span className="flex items-center gap-1.5">
@@ -95,7 +93,6 @@ export function ProfileInfoTab({ user }: ProfileInfoTabProps) {
           </p>
         </div>
 
-        {/* Phone Number */}
         <div className="space-y-1.5">
           <label htmlFor="profile-phone" className="text-xs font-bold text-foreground flex items-center gap-1.5">
             <Phone className="h-3.5 w-3.5 text-primary" />
@@ -111,7 +108,6 @@ export function ProfileInfoTab({ user }: ProfileInfoTabProps) {
           />
         </div>
 
-        {/* Avatar Photo URL */}
         <div className="space-y-1.5">
           <label htmlFor="profile-avatar" className="text-xs font-bold text-foreground flex items-center gap-1.5">
             <ImageIcon className="h-3.5 w-3.5 text-primary" />
@@ -130,7 +126,6 @@ export function ProfileInfoTab({ user }: ProfileInfoTabProps) {
           </p>
         </div>
 
-        {/* Submit Actions */}
         <div className="pt-3 flex items-center gap-3">
           <button
             type="submit"

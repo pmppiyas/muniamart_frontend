@@ -67,9 +67,7 @@ export function ProductToolbar({
 
   return (
     <div className={cn('space-y-3', className)}>
-      {/* Top Bar */}
       <div className="flex items-center justify-between gap-2 rounded-2xl border border-border bg-card p-2 sm:p-3 shadow-2xs">
-        {/* Left: Product count & Mobile filter toggle */}
         <div className="flex items-center gap-2">
           <button
             type="button"
@@ -93,9 +91,7 @@ export function ProductToolbar({
           </p>
         </div>
 
-        {/* Right: Sort & Grid/List switcher */}
         <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
-          {/* Sort Dropdown */}
           <ProductSort
             currentSort={filters.sortBy}
             onSortChange={(sortBy: ProductSortOption) =>
@@ -103,7 +99,6 @@ export function ProductToolbar({
             }
           />
 
-          {/* View Mode Toggle (tablet/desktop) */}
           <div className="hidden sm:flex items-center rounded-xl border border-border bg-background p-0.5">
             <button
               type="button"
@@ -135,14 +130,12 @@ export function ProductToolbar({
         </div>
       </div>
 
-      {/* Active Filter Chips Bar (if any) */}
       {activeFiltersCount > 0 && (
         <div className="flex flex-wrap items-center gap-1.5 pt-1">
           <span className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground mr-1">
             Active:
           </span>
 
-          {/* Categories */}
           {filters.categories.map((cat) => (
             <span
               key={cat}
@@ -159,7 +152,6 @@ export function ProductToolbar({
             </span>
           ))}
 
-          {/* Brands */}
           {filters.brands.map((b) => (
             <span
               key={b}
@@ -176,7 +168,6 @@ export function ProductToolbar({
             </span>
           ))}
 
-          {/* Price Range */}
           {(filters.priceRange[0] > 0 || filters.priceRange[1] < 2000) && (
             <span className="inline-flex items-center gap-1 rounded-lg bg-primary/10 border border-primary/20 px-2 py-0.5 text-xs font-semibold text-primary">
               <span>
@@ -192,7 +183,6 @@ export function ProductToolbar({
             </span>
           )}
 
-          {/* Min Rating */}
           {filters.minRating > 0 && (
             <span className="inline-flex items-center gap-1 rounded-lg bg-primary/10 border border-primary/20 px-2 py-0.5 text-xs font-semibold text-primary">
               <span>{filters.minRating}+ Stars</span>
@@ -206,7 +196,6 @@ export function ProductToolbar({
             </span>
           )}
 
-          {/* In Stock */}
           {filters.inStockOnly && (
             <span className="inline-flex items-center gap-1 rounded-lg bg-primary/10 border border-primary/20 px-2 py-0.5 text-xs font-semibold text-primary">
               <span>In Stock Only</span>
@@ -220,7 +209,6 @@ export function ProductToolbar({
             </span>
           )}
 
-          {/* Reset All */}
           <button
             type="button"
             onClick={onResetFilters}

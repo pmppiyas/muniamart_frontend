@@ -174,7 +174,6 @@ export function CategoryProducts({
 
   const renderFilterSidebar = (isMobile = false) => (
     <aside className={cn('flex flex-col', isMobile ? 'space-y-6' : 'h-full')}>
-      {/* Header - Desktop only (mobile drawer already has its own header) */}
       {!isMobile && (
         <div className="flex items-center justify-between border-b border-border px-5 py-4 bg-card shrink-0 select-none">
           <div className="flex items-center gap-2">
@@ -195,14 +194,12 @@ export function CategoryProducts({
         </div>
       )}
 
-      {/* Filter Body */}
       <div
         className={cn(
           'space-y-6',
           !isMobile && 'flex-1 overflow-y-auto overscroll-contain p-5 pr-3'
         )}
       >
-        {/* 1. Subcategory Filter if children exist */}
         {category.children && category.children.length > 0 && (
           <div className="space-y-2">
             <h3 className="text-xs font-bold uppercase tracking-wider text-foreground">
@@ -257,7 +254,6 @@ export function CategoryProducts({
         </div>
       )}
 
-      {/* 2. Price Filter */}
       <PriceFilter
         priceRange={filters.priceRange}
         onPriceChange={(priceRange) => handleFilterChange({ ...filters, priceRange })}
@@ -265,7 +261,6 @@ export function CategoryProducts({
 
       <div className="border-t border-border" />
 
-      {/* 3. Brand Filter */}
       {availableBrands.length > 0 && (
         <>
           <BrandFilter
@@ -277,7 +272,6 @@ export function CategoryProducts({
         </>
       )}
 
-      {/* 4. Availability Filter */}
       <div className="space-y-2">
         <h3 className="text-xs font-bold uppercase tracking-wider text-foreground">
           Availability
@@ -297,14 +291,12 @@ export function CategoryProducts({
 
       <div className="border-t border-border" />
 
-      {/* 5. Rating Filter */}
       <RatingFilter
         minRating={filters.minRating}
         onRatingChange={(minRating) => handleFilterChange({ ...filters, minRating })}
       />
       </div>
 
-      {/* Mobile Drawer Close */}
       {isMobile && (
         <div className="pt-4 sticky bottom-0 bg-background border-t border-border pb-2">
           <button
@@ -323,14 +315,11 @@ export function CategoryProducts({
   return (
     <div className={cn('space-y-6', className)}>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        {/* Desktop Filter Sidebar (3 cols) */}
         <div className="hidden lg:flex lg:flex-col lg:col-span-3 rounded-2xl border border-border bg-card shadow-2xs sticky top-[176px] h-[calc(100vh-196px)] max-h-[calc(100vh-196px)] overflow-hidden">
           {renderFilterSidebar(false)}
         </div>
 
-        {/* Right Main Column (9 cols) */}
         <div className="lg:col-span-9 space-y-5">
-          {/* Product Toolbar */}
           <ProductToolbar
             totalCount={initialProducts.length}
             filteredCount={filteredProducts.length}
@@ -342,14 +331,12 @@ export function CategoryProducts({
             onOpenMobileFilters={() => setIsMobileFilterOpen(true)}
           />
 
-          {/* Product Grid / Empty State */}
           <ProductGrid
             products={paginatedProducts}
             viewMode={viewMode}
             onResetFilters={handleResetFilters}
           />
 
-          {/* Pagination Controls */}
           {totalPages > 1 && (
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-border pt-6 mt-8">
               <p className="text-xs text-muted-foreground">
@@ -406,7 +393,6 @@ export function CategoryProducts({
         </div>
       </div>
 
-      {/* Mobile Drawer */}
       {isMobileFilterOpen && (
         <div className="fixed inset-0 z-50 flex lg:hidden">
           <div

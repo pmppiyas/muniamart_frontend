@@ -10,9 +10,9 @@ import {
 } from '@/components/admin/payments';
 import { useGetAllPaymentsQuery } from '@/services/api/paymentApi';
 import { PaymentItem } from '@/types/payment';
+import { AdminPermissionGuard } from '@/components/admin/AdminPermissionGuard';
 
 export default function AdminPaymentsPage() {
-  // 1. Filter and Pagination States
   const [page, setPage] = React.useState(1);
   const limit = 15;
 
@@ -21,11 +21,9 @@ export default function AdminPaymentsPage() {
   const [selectedProvider, setSelectedProvider] = React.useState('ALL');
   const [selectedStatus, setSelectedStatus] = React.useState('ALL');
 
-  // Modal State
   const [selectedPaymentForDetails, setSelectedPaymentForDetails] =
     React.useState<PaymentItem | null>(null);
 
-  // Debounce search input by 300ms
   React.useEffect(() => {
     const timer = setTimeout(() => {
       setDebouncedSearch(searchQuery.trim());
@@ -34,7 +32,6 @@ export default function AdminPaymentsPage() {
     return () => clearTimeout(timer);
   }, [searchQuery]);
 
-  // Fetch payments from backend
   const {
     data: paymentsResponse,
     isLoading,
@@ -78,7 +75,6 @@ export default function AdminPaymentsPage() {
     selectedStatus !== 'ALL'
   );
 
-  // CSV Export
   const handleExportCSV = () => {
     if (payments.length === 0) {
       toast.info('No payment records to export');
@@ -134,48 +130,46 @@ export default function AdminPaymentsPage() {
   };
 
   return (
-    <div className="space-y-4">
-      {/* 1. Reusable Header with Breadcrumbs, Metrics Cards, and Actions */}
-      <PaymentsHeader
-        totalCount={totalCount}
-        metrics={metrics}
-        isFetching={isFetching}
-        onRefresh={() => refetch()}
-        onExport={handleExportCSV}
-      />
+    <AdminPermissionGuard requiredPermission="MANAGE_PAYMENTS" moduleName="Payments">
+      <div className="space-y-4">
+        <PaymentsHeader
+          totalCount={totalCount}
+          metrics={metrics}
+          isFetching={isFetching}
+          onRefresh={() => refetch()}
+          onExport={handleExportCSV}
+        />
 
-      {/* 2. Filter Bar (Search + Gateway + Status) */}
-      <PaymentsFilterBar
-        searchQuery={searchQuery}
-        onSearchChange={setSearchQuery}
-        selectedProvider={selectedProvider}
-        onProviderChange={handleProviderChange}
-        selectedStatus={selectedStatus}
-        onStatusChange={handleStatusChange}
-        onReset={handleClearFilters}
-        hasActiveFilters={hasActiveFilters}
-      />
+        <PaymentsFilterBar
+          searchQuery={searchQuery}
+          onSearchChange={setSearchQuery}
+          selectedProvider={selectedProvider}
+          onProviderChange={handleProviderChange}
+          selectedStatus={selectedStatus}
+          onStatusChange={handleStatusChange}
+          onReset={handleClearFilters}
+          hasActiveFilters={hasActiveFilters}
+        />
 
-      {/* 3. Payments Table */}
-      <PaymentsTable
-        payments={payments}
-        isLoading={isLoading}
-        page={page}
-        totalPage={totalPage}
-        totalPayments={totalCount}
-        limit={limit}
-        onPageChange={setPage}
-        onViewPayment={(p) => setSelectedPaymentForDetails(p)}
-        isFiltering={hasActiveFilters}
-        onClearFilters={handleClearFilters}
-      />
+        <PaymentsTable
+          payments={payments}
+          isLoading={isLoading}
+          page={page}
+          totalPage={totalPage}
+          totalPayments={totalCount}
+          limit={limit}
+          onPageChange={setPage}
+          onViewPayment={(p) => setSelectedPaymentForDetails(p)}
+          isFiltering={hasActiveFilters}
+          onClearFilters={handleClearFilters}
+        />
 
-      {/* 4. Payment Details Modal */}
-      <PaymentDetailsModal
-        payment={selectedPaymentForDetails}
-        isOpen={Boolean(selectedPaymentForDetails)}
-        onClose={() => setSelectedPaymentForDetails(null)}
-      />
-    </div>
+        <PaymentDetailsModal
+          payment={selectedPaymentForDetails}
+          isOpen={Boolean(selectedPaymentForDetails)}
+          onClose={() => setSelectedPaymentForDetails(null)}
+        />
+      </div>
+    </AdminPermissionGuard>
   );
 }

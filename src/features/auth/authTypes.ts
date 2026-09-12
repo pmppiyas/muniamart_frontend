@@ -6,6 +6,7 @@ export interface CustomerUser {
   photoUrl?: string | null;
   role?: 'ADMIN' | 'SUPER_ADMIN' | 'CUSTOMER' | string;
   status: 'ACTIVE' | 'INACTIVE' | 'BLOCKED' | string;
+  permissions?: string[];
   createdAt: string;
   _count?: {
     orders?: number;

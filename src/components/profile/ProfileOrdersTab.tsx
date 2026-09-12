@@ -196,7 +196,6 @@ export function ProfileOrdersTab() {
               key={order.id}
               className="rounded-2xl border border-border bg-muted/20 p-4 sm:p-5 hover:border-primary/40 transition-colors"
             >
-              {/* Top row: Order ID, Date, Status */}
               <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border/70 pb-3">
                 <div className="flex items-center gap-3">
                   <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/10 text-primary">
@@ -235,7 +234,6 @@ export function ProfileOrdersTab() {
                 </div>
               </div>
 
-              {/* Items Summary */}
               <div className="pt-3 space-y-2">
                 {order.items?.map((item) => (
                   <div
@@ -257,7 +255,6 @@ export function ProfileOrdersTab() {
                 ))}
               </div>
 
-              {/* Shipping Address Footer */}
               {order.address && (
                 <div className="mt-3 pt-3 border-t border-border/50 flex flex-wrap items-center justify-between gap-2 text-[11px] text-muted-foreground">
                   <div className="flex items-center gap-1.5 min-w-0">

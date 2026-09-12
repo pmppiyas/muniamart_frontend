@@ -16,7 +16,6 @@ export function AboutStory() {
   return (
     <section className="rounded-3xl border border-border bg-card p-6 sm:p-10 lg:p-12 shadow-xs">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-        {/* Left Column: Narrative */}
         <div className="lg:col-span-7 space-y-5">
           <div className="inline-flex items-center gap-2 rounded-full bg-amber-500/10 border border-amber-500/20 px-3 py-1 text-xs font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider">
             <span>Our Journey &amp; Mission</span>
@@ -40,7 +39,6 @@ export function AboutStory() {
             </p>
           </div>
 
-          {/* Checklist of commitments */}
           <div className="pt-2 space-y-2.5">
             {HIGHLIGHTS.map((item) => (
               <div key={item} className="flex items-start gap-2.5 text-xs sm:text-sm text-foreground/85">
@@ -51,7 +49,6 @@ export function AboutStory() {
           </div>
         </div>
 
-        {/* Right Column: Visual Showcase Card */}
         <div className="lg:col-span-5 relative">
           <div className="relative aspect-4/3 w-full overflow-hidden rounded-3xl border border-border shadow-md">
             <Image
@@ -63,7 +60,6 @@ export function AboutStory() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
 
-            {/* Bottom floating badge inside image */}
             <div className="absolute bottom-4 left-4 right-4 rounded-2xl border border-white/20 bg-black/60 backdrop-blur-md p-3.5 text-white flex items-center justify-between">
               <div className="flex items-center gap-2.5">
                 <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-primary text-white">
@@ -82,7 +78,6 @@ export function AboutStory() {
             </div>
           </div>
 
-          {/* Secondary Floating Feature Pill */}
           <div className="absolute -bottom-4 -left-4 hidden sm:flex items-center gap-2.5 rounded-2xl border border-border bg-card p-3 shadow-lg">
             <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
               <Truck className="h-4 w-4" />

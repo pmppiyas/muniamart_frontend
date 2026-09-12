@@ -55,7 +55,6 @@ export function SubCategoryList({
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3">
-        {/* "All" Card Option */}
         <button
           type="button"
           onClick={() => onSelectSubcategory(null)}
@@ -82,7 +81,6 @@ export function SubCategoryList({
           </div>
         </button>
 
-        {/* Subcategory Cards */}
         {subcategories.map((sub) => {
           const isSelected =
             !!selectedSubcategory &&

@@ -33,14 +33,12 @@ export function AdminPageHeader({
         className
       )}
     >
-      {/* Main Header Row: Title & Actions */}
       <div
         className={cn(
           'flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3',
           compact && 'min-h-11'
         )}
       >
-        {/* Left Side: Title, Badge, Description */}
         <div className={cn(compact ? 'space-y-0.5' : 'space-y-1')}>
           <div className="flex flex-wrap items-center gap-2">
             <h1
@@ -60,7 +58,6 @@ export function AdminPageHeader({
           )}
         </div>
 
-        {/* Right Side: Action Buttons */}
         {actions && (
           <div className="flex flex-wrap items-center gap-2 shrink-0">
             {actions}

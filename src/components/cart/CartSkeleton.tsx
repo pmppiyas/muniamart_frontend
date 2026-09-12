@@ -10,7 +10,6 @@ interface CartSkeletonProps {
 export function CartSkeleton({ className }: CartSkeletonProps) {
   return (
     <div className={cn('grid grid-cols-1 lg:grid-cols-12 gap-8 items-start animate-pulse', className)}>
-      {/* Left Items Column (8 cols) */}
       <div className="lg:col-span-8 space-y-4">
         <div className="flex justify-between items-center pb-2">
           <div className="h-6 w-36 rounded-xl bg-muted" />
@@ -39,7 +38,6 @@ export function CartSkeleton({ className }: CartSkeletonProps) {
         ))}
       </div>
 
-      {/* Right Summary Column (4 cols) */}
       <div className="lg:col-span-4 space-y-4">
         <div className="rounded-3xl border border-border bg-card p-6 space-y-4">
           <div className="h-5 w-32 rounded-md bg-muted" />

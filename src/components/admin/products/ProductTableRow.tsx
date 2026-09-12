@@ -51,7 +51,6 @@ export function ProductTableRow({
 
   return (
     <TableRow className="group">
-      {/* Product Column: Image + Name + SKU */}
       <TableCell>
         <div className="flex items-center gap-3">
           <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-xl border border-border bg-muted/30">
@@ -84,7 +83,6 @@ export function ProductTableRow({
         </div>
       </TableCell>
 
-      {/* Category */}
       <TableCell>
         {product.category?.name ? (
           <Badge variant="outline" className="text-xs font-medium">
@@ -95,19 +93,16 @@ export function ProductTableRow({
         )}
       </TableCell>
 
-      {/* Price */}
       <TableCell>
         <span className="font-bold text-sm text-foreground">
           {formatPrice(product.price)}
         </span>
       </TableCell>
 
-      {/* Stock */}
       <TableCell>
         {renderStockBadge(product.stock)}
       </TableCell>
 
-      {/* Status */}
       <TableCell>
         <Badge
           variant={product.status === 'ACTIVE' ? 'default' : 'secondary'}
@@ -117,7 +112,6 @@ export function ProductTableRow({
         </Badge>
       </TableCell>
 
-      {/* Three Dots Actions */}
       <TableCell className="text-right">
         <ProductRowActions
           product={product}

@@ -24,13 +24,11 @@ export function MobileNav({ user = null }: MobileNavProps) {
 
   return (
     <>
-      {/* Search Overlay */}
       <MobileSearch
         isOpen={isSearchOpen}
         onClose={() => setIsSearchOpen(false)}
       />
 
-      {/* Sticky Bottom Bar */}
       <nav className="fixed bottom-0 left-0 right-0 z-40 block md:hidden border-t border-border bg-card/95 backdrop-blur-md shadow-lg safe-area-bottom">
         <div className="flex h-16 items-center justify-around px-2">
           <MobileNavItem
@@ -47,7 +45,6 @@ export function MobileNav({ user = null }: MobileNavProps) {
             isActive={pathname.startsWith('/products') || pathname.startsWith('/categories')}
           />
 
-          {/* Search Trigger */}
           <button
             type="button"
             onClick={() => setIsSearchOpen(true)}

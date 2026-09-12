@@ -17,7 +17,6 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-background py-6 sm:py-8">
       <div className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8 space-y-8 sm:space-y-12">
-        {/* Breadcrumb Navigation */}
         <nav
           aria-label="Breadcrumb"
           className="flex items-center gap-1.5 text-xs text-muted-foreground"
@@ -33,16 +32,12 @@ export default function AboutPage() {
           <span className="font-bold text-foreground">About Us</span>
         </nav>
 
-        {/* 1. Brand Hero with Live Metrics */}
         <AboutHero />
 
-        {/* 2. Brand Story & Mission */}
         <AboutStory />
 
-        {/* 3. Core Values */}
         <AboutValues />
 
-        {/* 4. Conversion Call To Action */}
         <AboutCTA />
       </div>
     </div>

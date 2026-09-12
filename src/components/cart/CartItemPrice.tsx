@@ -24,7 +24,6 @@ export function CartItemPrice({
 
   return (
     <div className={cn('flex flex-col sm:items-end text-left sm:text-right', className)}>
-      {/* Line Total */}
       <div className="flex items-baseline gap-2">
         <span className="text-base sm:text-lg font-black text-foreground">
           {formatPrice(lineTotal)}
@@ -36,7 +35,6 @@ export function CartItemPrice({
         )}
       </div>
 
-      {/* Unit Price indicator if quantity > 1 */}
       {quantity > 1 && (
         <span className="text-[11px] text-muted-foreground">
           {formatPrice(price)} each

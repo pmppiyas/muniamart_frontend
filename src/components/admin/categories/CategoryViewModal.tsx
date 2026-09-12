@@ -69,7 +69,6 @@ export function CategoryViewModal({
       }
     >
       <div className="space-y-4">
-        {/* Header Preview Banner */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 rounded-2xl border border-border bg-muted/20 p-4">
           <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-xl border border-border bg-muted/40 flex items-center justify-center">
             {category.imageUrl ? (
@@ -121,7 +120,6 @@ export function CategoryViewModal({
           </div>
         </div>
 
-        {/* Hierarchy & Metrics Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
           <div className="rounded-xl border border-border bg-card p-3 space-y-1">
             <span className="text-[11px] font-semibold text-muted-foreground flex items-center gap-1.5">
@@ -156,7 +154,6 @@ export function CategoryViewModal({
           </div>
         </div>
 
-        {/* Nested Subcategories List */}
         <div className="space-y-2">
           <h3 className="text-xs font-bold uppercase tracking-wider text-foreground">
             Nested Subcategories ({children.length})
@@ -196,7 +193,6 @@ export function CategoryViewModal({
           )}
         </div>
 
-        {/* Public Catalog Link */}
         <div className="pt-1 flex items-center justify-between text-xs text-muted-foreground border-t border-border">
           <span>Customer shop view:</span>
           <Link

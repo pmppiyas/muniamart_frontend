@@ -17,7 +17,6 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-background py-6 sm:py-8">
       <div className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8 space-y-8 sm:space-y-12">
-        {/* Breadcrumb Navigation */}
         <nav
           aria-label="Breadcrumb"
           className="flex items-center gap-1.5 text-xs text-muted-foreground"
@@ -33,10 +32,8 @@ export default function ContactPage() {
           <span className="font-bold text-foreground">Contact Us</span>
         </nav>
 
-        {/* 1. Contact Hero & Direct Channels */}
         <ContactHero />
 
-        {/* 2. Inquiries Form & Quick Self-Help FAQs */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           <div className="lg:col-span-7">
             <ContactForm />
@@ -46,7 +43,6 @@ export default function ContactPage() {
           </div>
         </div>
 
-        {/* 3. Office & Fulfillment Location */}
         <ContactLocation />
       </div>
     </div>

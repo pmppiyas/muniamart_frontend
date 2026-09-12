@@ -62,46 +62,36 @@ export function Header({
 
   return (
     <header className="sticky top-0 z-40 w-full bg-background shadow-xs">
-      {/* Top utility announcement bar */}
       <TopNavbar />
 
-      {/* Main Header bar */}
       <div className="border-b border-border md:border-b-0 bg-background">
         <div className="mx-auto flex h-16 sm:h-20 max-w-7xl items-center justify-between gap-2 sm:gap-3 px-3 sm:px-6 lg:px-8">
-          {/* Logo (Left) */}
           <div className="flex items-center gap-2 sm:gap-4">
             <Logo showTagline />
           </div>
 
-          {/* Search Bar (Center) */}
           <div className="hidden md:flex flex-1 max-w-xl mx-4 lg:mx-8">
             <SearchBar />
           </div>
 
-          {/* Right: Actions */}
           <div className="flex items-center gap-1.5 sm:gap-2.5">
             <OfferButton />
 
-            {/* Light / Dark Mode Switcher */}
             <div className="hidden md:block">
               <ThemeToggle />
             </div>
 
-            {/* Cart Button */}
             <CartButton count={cartCount} total={cartTotal} />
 
-            {/* User Profile / Auth Menu */}
             <div className="hidden md:block">
               <UserMenu user={activeUser} onLogout={handleLogout} />
             </div>
 
-            {/* 3-Dot Mobile Menu Trigger (Far Right on mobile) */}
             <MobileMenu className="md:hidden" />
           </div>
         </div>
       </div>
 
-      {/* Categories & Secondary Nav bar */}
       <CategoryNavbar />
     </header>
   );

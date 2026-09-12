@@ -125,7 +125,6 @@ export function PaymentDetailsModal({
       }
     >
       <div className="space-y-5">
-        {/* Top Summary Header */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 p-4 rounded-xl bg-muted/40 border border-border">
           <div className="space-y-1">
             <span className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">
@@ -178,9 +177,7 @@ export function PaymentDetailsModal({
           </div>
         </div>
 
-        {/* Transaction & Order Details Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          {/* Amount and Gateway */}
           <div className="p-3.5 rounded-xl border border-border bg-card space-y-2">
             <h4 className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
               Payment Amount
@@ -194,7 +191,6 @@ export function PaymentDetailsModal({
             </p>
           </div>
 
-          {/* Associated Order */}
           <div className="p-3.5 rounded-xl border border-border bg-card space-y-2">
             <div className="flex items-center justify-between">
               <h4 className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
@@ -218,9 +214,7 @@ export function PaymentDetailsModal({
           </div>
         </div>
 
-        {/* Customer & Delivery Address */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          {/* Customer Profile */}
           <div className="p-3.5 rounded-xl border border-border bg-card space-y-1.5 text-xs">
             <h4 className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-2">
               Customer Information
@@ -243,7 +237,6 @@ export function PaymentDetailsModal({
             )}
           </div>
 
-          {/* Shipping Address */}
           <div className="p-3.5 rounded-xl border border-border bg-card space-y-1.5 text-xs">
             <h4 className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-2">
               Billing / Shipping Destination
@@ -268,7 +261,6 @@ export function PaymentDetailsModal({
           </div>
         </div>
 
-        {/* Raw Gateway Response (Collapsible / JSON View) */}
         {payment.rawResponse && (
           <div className="rounded-xl border border-border bg-card p-3.5 space-y-2">
             <h4 className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">

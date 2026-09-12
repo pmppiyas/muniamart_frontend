@@ -54,9 +54,7 @@ const CHANNELS = [
 export function ContactHero() {
   return (
     <section className="space-y-8">
-      {/* Top Hero Banner */}
       <div className="relative overflow-hidden rounded-3xl border border-border bg-gradient-to-b from-card via-card to-muted/30 p-6 sm:p-10 lg:p-12 text-center shadow-xs">
-        {/* Glow decoration */}
         <div className="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-blue-500/10 blur-3xl" />
 
@@ -89,7 +87,6 @@ export function ContactHero() {
         </div>
       </div>
 
-      {/* 4 Direct Contact Channels */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {CHANNELS.map((item) => {
           const Icon = item.icon;

@@ -238,7 +238,6 @@ export function CheckoutPage() {
     <>
       <div className="min-h-screen bg-muted/20 py-8 sm:py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          {/* Breadcrumb & Navigation */}
           <nav
             aria-label="Breadcrumb"
             className="mb-6 flex items-center justify-between"
@@ -276,7 +275,6 @@ export function CheckoutPage() {
             </Link>
           </nav>
 
-          {/* Page Title */}
           <div className="mb-8">
             <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-foreground">
               Secure Checkout
@@ -287,9 +285,7 @@ export function CheckoutPage() {
             </p>
           </div>
 
-          {/* 2-Column Grid Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            {/* Main Checkout Form (8 Cols) */}
             <div className="lg:col-span-7 xl:col-span-8">
               <CheckoutForm
                 user={user}
@@ -305,7 +301,6 @@ export function CheckoutPage() {
               />
             </div>
 
-            {/* Sticky Order Summary Sidebar (4 Cols) */}
             <div className="lg:col-span-5 xl:col-span-4 sticky top-24">
               <CheckoutOrderSummary
                 items={items}
@@ -320,7 +315,6 @@ export function CheckoutPage() {
         </div>
       </div>
 
-      {/* Stripe Payment Modal */}
       {stripeClientSecret && stripePromise && pendingOrderId && (
         <Elements
           stripe={stripePromise}

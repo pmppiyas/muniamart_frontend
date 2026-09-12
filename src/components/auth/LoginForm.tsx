@@ -95,7 +95,6 @@ export function LoginForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" noValidate>
-      {/* Email field */}
       <div className="space-y-1.5">
         <label
           htmlFor="login-email"
@@ -127,7 +126,6 @@ export function LoginForm() {
         )}
       </div>
 
-      {/* Password field */}
       <div className="space-y-1.5">
         <div className="flex items-center justify-between">
           <label
@@ -167,7 +165,6 @@ export function LoginForm() {
         )}
       </div>
 
-      {/* Submit button */}
       <button
         type="submit"
         disabled={isLoading}
@@ -186,7 +183,6 @@ export function LoginForm() {
         )}
       </button>
 
-      {/* Register Link */}
       <div className="pt-4 border-t border-border text-center text-xs text-muted-foreground">
         Don&apos;t have an account yet?{' '}
         <Link

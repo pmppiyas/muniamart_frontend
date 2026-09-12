@@ -35,7 +35,6 @@ export function ContactLocation() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-        {/* Office Details */}
         <div className="lg:col-span-4 space-y-4">
           <div className="rounded-2xl border border-border bg-muted/20 p-4 space-y-2">
             <div className="flex items-center gap-2 text-xs font-bold text-foreground">
@@ -74,7 +73,6 @@ export function ContactLocation() {
           </div>
         </div>
 
-        {/* Map View */}
         <div className="lg:col-span-8 relative aspect-16/9 sm:aspect-21/9 lg:aspect-16/8 w-full overflow-hidden rounded-2xl border border-border bg-muted">
           <iframe
             title="MuniaMart Location Map"

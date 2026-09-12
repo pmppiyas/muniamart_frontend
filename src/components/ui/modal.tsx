@@ -53,13 +53,11 @@ export function Modal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
-      {/* Backdrop */}
       <div
         className="fixed inset-0 bg-background/80 backdrop-blur-sm transition-opacity animate-in fade-in"
         onClick={onClose}
       />
 
-      {/* Dialog Container */}
       <div
         role="dialog"
         aria-modal="true"
@@ -69,7 +67,6 @@ export function Modal({
           className
         )}
       >
-        {/* Header */}
         {(title || description) && (
           <div className="flex items-start justify-between gap-4 pb-4 border-b border-border/60 shrink-0">
             <div className="space-y-1">
@@ -95,10 +92,8 @@ export function Modal({
           </div>
         )}
 
-        {/* Body Content */}
         <div className="flex-1 overflow-y-auto py-4">{children}</div>
 
-        {/* Footer */}
         {footer && (
           <div className="pt-4 border-t border-border/60 flex items-center justify-end gap-2.5 shrink-0">
             {footer}

@@ -51,9 +51,7 @@ export function ProductReviews({
 
   return (
     <div id="product-reviews" className={cn('space-y-8', className)}>
-      {/* Header & Rating Summary */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center rounded-3xl border border-border bg-card p-6 sm:p-8 shadow-xs">
-        {/* Left: Overall Score (4 cols) */}
         <div className="md:col-span-4 flex flex-col items-center justify-center text-center space-y-2 md:border-r border-border md:pr-8">
           <span className="text-5xl sm:text-6xl font-black tracking-tight text-foreground">
             {rating.toFixed(1)}
@@ -83,7 +81,6 @@ export function ProductReviews({
           </button>
         </div>
 
-        {/* Right: Star breakdown progress bars (8 cols) */}
         <div className="md:col-span-8 space-y-2.5">
           {[5, 4, 3, 2, 1].map((stars) => {
             const count = ratingDistribution[stars] || 0;
@@ -112,7 +109,6 @@ export function ProductReviews({
         </div>
       </div>
 
-      {/* Review Submission Form (if open) */}
       {showReviewForm && (
         <ReviewForm
           productId={productId}
@@ -121,7 +117,6 @@ export function ProductReviews({
         />
       )}
 
-      {/* Review Cards List */}
       <div className="space-y-4">
         <h3 className="text-base font-bold text-foreground flex items-center gap-2">
           <MessageSquare className="h-4 w-4 text-primary" />

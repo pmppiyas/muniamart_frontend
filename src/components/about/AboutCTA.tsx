@@ -8,7 +8,6 @@ import { siteConfig } from '@/config/site';
 export function AboutCTA() {
   return (
     <section className="relative overflow-hidden rounded-3xl border border-primary/20 bg-gradient-to-tr from-primary to-blue-600 p-8 sm:p-12 text-primary-foreground shadow-lg">
-      {/* Decorative blurred circles */}
       <div className="pointer-events-none absolute -top-16 -right-16 h-64 w-64 rounded-full bg-white/10 blur-2xl" />
       <div className="pointer-events-none absolute -bottom-16 -left-16 h-64 w-64 rounded-full bg-black/10 blur-2xl" />
 

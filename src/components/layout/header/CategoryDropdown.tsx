@@ -70,10 +70,8 @@ export function CategoryDropdown({ className }: CategoryDropdownProps) {
         />
       </button>
 
-      {/* Mega Dropdown Menu */}
       {isOpen && (
         <div className="absolute left-0 top-full z-50 mt-2 flex w-[680px] rounded-2xl border border-border bg-popover text-popover-foreground p-3 shadow-2xl animate-in fade-in-0 zoom-in-95">
-          {/* Categories Sidebar */}
           <div className="w-1/2 border-r border-border pr-3 space-y-1">
             <div className="px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
               Department List
@@ -92,7 +90,6 @@ export function CategoryDropdown({ className }: CategoryDropdownProps) {
             ))}
           </div>
 
-          {/* Subcategories & Featured Panel */}
           <div className="w-1/2 pl-4 flex flex-col justify-between">
             <div>
               <div className="border-b border-border pb-2">
@@ -116,7 +113,6 @@ export function CategoryDropdown({ className }: CategoryDropdownProps) {
               </div>
             </div>
 
-            {/* Quick Banner Link inside dropdown */}
             <div className="mt-4 rounded-xl bg-accent/60 p-3.5 border border-primary/20">
               <p className="text-xs font-bold text-foreground">Looking for custom deals?</p>
               <p className="text-[11px] text-muted-foreground">Save up to 40% on bulk department purchases.</p>

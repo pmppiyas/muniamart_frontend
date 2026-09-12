@@ -66,7 +66,6 @@ export function CheckoutOrderSummary({
         </span>
       </div>
 
-      {/* Cart Items List */}
       <div className="max-h-72 overflow-y-auto space-y-3 pr-1 divide-y divide-border/40">
         {items.map((item) => (
           <div key={item.id} className="pt-3 first:pt-0 flex items-center gap-3">
@@ -108,7 +107,6 @@ export function CheckoutOrderSummary({
         ))}
       </div>
 
-      {/* Coupon Code Input */}
       <div className="border-t border-border pt-4">
         {coupon ? (
           <div className="flex items-center justify-between rounded-xl bg-emerald-500/10 border border-emerald-500/20 px-3 py-2 text-xs text-emerald-600 dark:text-emerald-400">
@@ -143,7 +141,6 @@ export function CheckoutOrderSummary({
         )}
       </div>
 
-      {/* Calculations Breakdown */}
       <div className="space-y-2.5 border-t border-border pt-4 text-xs">
         <div className="flex justify-between text-muted-foreground">
           <span>Subtotal</span>
@@ -179,7 +176,6 @@ export function CheckoutOrderSummary({
         </div>
       </div>
 
-      {/* Trust Badge */}
       <div className="flex items-center justify-center gap-2 text-[11px] text-muted-foreground pt-1">
         <ShieldCheck className="h-4 w-4 text-emerald-500" />
         <span>Guaranteed 100% Safe & Secure Checkout</span>

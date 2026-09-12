@@ -122,7 +122,6 @@ export function CategoriesHeader({
         }
       />
 
-      {/* Shared Soft Colorful Metrics Row */}
       <AdminStatsGroup stats={stats} />
     </div>
   );

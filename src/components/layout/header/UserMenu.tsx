@@ -58,7 +58,6 @@ export function UserMenu({ className, user = null, onLogout }: UserMenuProps) {
         />
       </button>
 
-      {/* Dropdown Menu */}
       {isOpen && (
         <div className="absolute right-0 top-full z-50 mt-1.5 w-60 rounded-2xl border border-border bg-popover text-popover-foreground p-2 shadow-xl animate-in fade-in-0 zoom-in-95">
           {user ? (

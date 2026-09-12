@@ -16,7 +16,6 @@ export default async function AllCategoriesPage() {
   return (
     <div className="py-6 sm:py-8 lg:py-10 bg-background min-h-screen">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-6">
-        {/* Breadcrumb Navigation */}
         <nav
           aria-label="Breadcrumb"
           className="flex items-center gap-1.5 text-xs text-muted-foreground"
@@ -32,7 +31,6 @@ export default async function AllCategoriesPage() {
           <span className="font-bold text-foreground">Categories</span>
         </nav>
 
-        {/* Header */}
         <div className="border-b border-border pb-6 space-y-2">
           <div className="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-wider">
             <LayoutGrid className="h-4 w-4" />
@@ -40,14 +38,12 @@ export default async function AllCategoriesPage() {
           </div>
         </div>
 
-        {/* Categories Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 pt-2">
           {categories.map((category) => (
             <CategoryCard key={category.id} category={category} />
           ))}
         </div>
 
-        {/* Detailed Department Hierarchy Breakdown */}
         <div className="pt-8 border-t border-border space-y-6">
           <div className="space-y-1">
             <h2 className="text-xl font-bold tracking-tight text-foreground">

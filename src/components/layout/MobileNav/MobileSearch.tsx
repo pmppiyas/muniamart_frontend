@@ -39,7 +39,6 @@ export function MobileSearch({ isOpen, onClose }: MobileSearchProps) {
 
   return (
     <div className="fixed inset-0 z-50 flex flex-col bg-background text-foreground animate-in fade-in-0 slide-in-from-top-4 duration-200">
-      {/* Top Search Input Bar */}
       <div className="flex items-center gap-2 border-b border-border p-3">
         <div className="relative flex flex-1 items-center rounded-xl border border-border bg-muted/50 focus-within:border-primary focus-within:bg-background focus-within:ring-2 focus-within:ring-primary/20">
           <Search className="ml-3 h-4 w-4 text-muted-foreground" />
@@ -72,7 +71,6 @@ export function MobileSearch({ isOpen, onClose }: MobileSearchProps) {
         </button>
       </div>
 
-      {/* Quick Suggestions & Trending */}
       <div className="flex-1 overflow-y-auto p-4 space-y-6">
         <div>
           <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-muted-foreground mb-3">

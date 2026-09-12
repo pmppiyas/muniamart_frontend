@@ -29,7 +29,6 @@ export function OrdersFilterBar({
   return (
     <div className="rounded-2xl border border-border/80 bg-card p-3 sm:p-4 shadow-2xs space-y-3">
       <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
-        {/* Search Input */}
         <div className="relative flex-1 max-w-lg">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input
@@ -50,9 +49,7 @@ export function OrdersFilterBar({
           )}
         </div>
 
-        {/* Filters Group */}
         <div className="flex flex-wrap items-center gap-2">
-          {/* Status Dropdown */}
           <div className="flex items-center gap-1.5">
             <span className="text-xs text-muted-foreground hidden sm:inline">
               Status:
@@ -72,7 +69,6 @@ export function OrdersFilterBar({
             </select>
           </div>
 
-          {/* Date Range Dropdown */}
           <div className="flex items-center gap-1.5">
             <span className="text-xs text-muted-foreground hidden sm:inline">
               Timeframe:
@@ -89,7 +85,6 @@ export function OrdersFilterBar({
             </select>
           </div>
 
-          {/* Reset Filters */}
           {hasActiveFilters && (
             <Button
               variant="ghost"

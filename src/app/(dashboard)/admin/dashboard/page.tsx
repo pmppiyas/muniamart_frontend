@@ -183,7 +183,6 @@ export default function AdminDashboardPage() {
 
   return (
     <div className="space-y-6 sm:space-y-8 pb-10">
-      {/* 1. Reusable Page Header & Actions */}
       <AdminPageHeader
         title="Dashboard Overview"
         badge={
@@ -198,7 +197,6 @@ export default function AdminDashboardPage() {
         }
         actions={
           <>
-            {/* Date Range Selector */}
             <div className="inline-flex items-center gap-1.5 rounded-xl border border-border bg-card px-3 py-2 text-xs font-medium text-foreground shadow-2xs">
               <Calendar className="h-3.5 w-3.5 text-muted-foreground" />
               <span>{dateRange}</span>
@@ -219,12 +217,9 @@ export default function AdminDashboardPage() {
         }
       />
 
-      {/* 2. Key Metrics KPI Cards */}
       <AdminStatsGroup stats={stats} />
 
-      {/* 3. Analytics & Sales Chart Section */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-        {/* Weekly Revenue Bar Chart */}
         <div className="lg:col-span-8 rounded-2xl border border-border bg-card p-5 sm:p-6 shadow-xs">
           <div className="flex items-center justify-between mb-6">
             <div>
@@ -239,7 +234,6 @@ export default function AdminDashboardPage() {
             </div>
           </div>
 
-          {/* Bar Chart Visualization */}
           <div className="h-48 sm:h-56 flex items-end justify-between gap-2 sm:gap-4 pt-6 px-2">
             {weeklySales.map((item) => (
               <div key={item.day} className="flex-1 flex flex-col items-center gap-2 group">
@@ -262,7 +256,6 @@ export default function AdminDashboardPage() {
           </div>
         </div>
 
-        {/* Payment Channels & Gateways */}
         <div className="lg:col-span-4 rounded-2xl border border-border bg-card p-5 sm:p-6 shadow-xs flex flex-col justify-between">
           <div>
             <h3 className="text-base font-bold text-foreground">Payment Gateways</h3>
@@ -271,7 +264,6 @@ export default function AdminDashboardPage() {
             </p>
 
             <div className="mt-6 space-y-4">
-              {/* bKash */}
               <div className="space-y-1.5">
                 <div className="flex items-center justify-between text-xs font-semibold">
                   <div className="flex items-center gap-2">
@@ -286,7 +278,6 @@ export default function AdminDashboardPage() {
                 <p className="text-[11px] text-muted-foreground">782 completed transactions</p>
               </div>
 
-              {/* Stripe */}
               <div className="space-y-1.5 pt-2">
                 <div className="flex items-center justify-between text-xs font-semibold">
                   <div className="flex items-center gap-2">
@@ -301,7 +292,6 @@ export default function AdminDashboardPage() {
                 <p className="text-[11px] text-muted-foreground">364 completed transactions</p>
               </div>
 
-              {/* COD */}
               <div className="space-y-1.5 pt-2">
                 <div className="flex items-center justify-between text-xs font-semibold">
                   <div className="flex items-center gap-2">
@@ -330,7 +320,6 @@ export default function AdminDashboardPage() {
         </div>
       </div>
 
-      {/* 4. Recent Orders Table */}
       <div className="rounded-2xl border border-border bg-card shadow-xs overflow-hidden">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between p-5 border-b border-border gap-3">
           <div>
@@ -347,7 +336,6 @@ export default function AdminDashboardPage() {
           </Button>
         </div>
 
-        {/* Table */}
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
             <thead className="bg-muted/30 border-b border-border text-muted-foreground font-semibold uppercase tracking-wider text-[11px]">

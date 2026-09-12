@@ -99,7 +99,6 @@ export default function AdminOrderEditPage() {
 
   const order = orderResponse?.data;
 
-  // Form states
   const [status, setStatus] = React.useState<OrderStatus>('PENDING');
   const [fullName, setFullName] = React.useState('');
   const [phone, setPhone] = React.useState('');
@@ -113,7 +112,6 @@ export default function AdminOrderEditPage() {
   const [deliveryMethod, setDeliveryMethod] = React.useState('standard');
   const [paymentMethod, setPaymentMethod] = React.useState('cod');
 
-  // Populate form with order details
   React.useEffect(() => {
     if (order) {
       setStatus(order.status as OrderStatus);
@@ -193,7 +191,6 @@ export default function AdminOrderEditPage() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6 pb-16">
-      {/* Top Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-border/80 pb-4">
         <div className="flex items-center gap-3">
           <Button
@@ -253,7 +250,6 @@ export default function AdminOrderEditPage() {
         </div>
       </div>
 
-      {/* Section 1: Order Status Selector */}
       <div className="rounded-3xl border border-border/80 bg-card p-5 sm:p-6 shadow-2xs space-y-4">
         <div className="border-b border-border/60 pb-3 flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -309,7 +305,6 @@ export default function AdminOrderEditPage() {
         </div>
       </div>
 
-      {/* Section 2: Delivery & Shipping Address Form */}
       <div className="rounded-3xl border border-border/80 bg-card p-5 sm:p-6 shadow-2xs space-y-4">
         <div className="border-b border-border/60 pb-3 flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -324,7 +319,6 @@ export default function AdminOrderEditPage() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-          {/* Recipient Full Name */}
           <div className="space-y-1.5">
             <label className="font-semibold text-foreground flex items-center gap-1.5">
               <User className="h-3.5 w-3.5 text-primary" />
@@ -340,7 +334,6 @@ export default function AdminOrderEditPage() {
             />
           </div>
 
-          {/* Contact Phone */}
           <div className="space-y-1.5">
             <label className="font-semibold text-foreground flex items-center gap-1.5">
               <Phone className="h-3.5 w-3.5 text-primary" />
@@ -356,7 +349,6 @@ export default function AdminOrderEditPage() {
             />
           </div>
 
-          {/* Email Address */}
           <div className="space-y-1.5 sm:col-span-2">
             <label className="font-semibold text-foreground flex items-center gap-1.5">
               <Mail className="h-3.5 w-3.5 text-primary" />
@@ -371,7 +363,6 @@ export default function AdminOrderEditPage() {
             />
           </div>
 
-          {/* Street Address */}
           <div className="space-y-1.5 sm:col-span-2">
             <label className="font-semibold text-foreground flex items-center gap-1.5">
               <Home className="h-3.5 w-3.5 text-primary" />
@@ -387,7 +378,6 @@ export default function AdminOrderEditPage() {
             />
           </div>
 
-          {/* Apartment / Suite */}
           <div className="space-y-1.5">
             <label className="font-semibold text-foreground">Apartment / Suite (Optional)</label>
             <Input
@@ -399,7 +389,6 @@ export default function AdminOrderEditPage() {
             />
           </div>
 
-          {/* City / District */}
           <div className="space-y-1.5">
             <label className="font-semibold text-foreground">City / District</label>
             <Input
@@ -412,7 +401,6 @@ export default function AdminOrderEditPage() {
             />
           </div>
 
-          {/* State / Division */}
           <div className="space-y-1.5">
             <label className="font-semibold text-foreground">State / Division</label>
             <Input
@@ -425,7 +413,6 @@ export default function AdminOrderEditPage() {
             />
           </div>
 
-          {/* Postal Code */}
           <div className="space-y-1.5">
             <label className="font-semibold text-foreground">Postal / ZIP Code</label>
             <Input
@@ -438,7 +425,6 @@ export default function AdminOrderEditPage() {
             />
           </div>
 
-          {/* Delivery Notes */}
           <div className="space-y-1.5 sm:col-span-2">
             <label className="font-semibold text-foreground flex items-center gap-1.5">
               <FileText className="h-3.5 w-3.5 text-primary" />
@@ -455,7 +441,6 @@ export default function AdminOrderEditPage() {
         </div>
       </div>
 
-      {/* Section 3: Delivery & Payment Preferences */}
       <div className="rounded-3xl border border-border/80 bg-card p-5 sm:p-6 shadow-2xs space-y-4">
         <div className="border-b border-border/60 pb-3 flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -494,7 +479,6 @@ export default function AdminOrderEditPage() {
         </div>
       </div>
 
-      {/* Bottom Save Bar */}
       <div className="flex items-center justify-end gap-3 pt-2">
         <Button
           type="button"

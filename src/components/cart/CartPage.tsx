@@ -59,7 +59,6 @@ export function CartPage({ className }: CartPageProps) {
     return (
       <div className={cn('py-6 sm:py-8 lg:py-10 bg-background min-h-screen', className)}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-6">
-          {/* Breadcrumbs */}
           <nav
             aria-label="Breadcrumb"
             className="flex items-center gap-1.5 text-xs text-muted-foreground"
@@ -85,7 +84,6 @@ export function CartPage({ className }: CartPageProps) {
   return (
     <div className={cn('py-6 sm:py-8 lg:py-10 bg-background min-h-screen', className)}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-6">
-        {/* Breadcrumb Navigation */}
         <nav
           aria-label="Breadcrumb"
           className="flex items-center gap-1.5 text-xs text-muted-foreground"
@@ -102,7 +100,6 @@ export function CartPage({ className }: CartPageProps) {
           <span className="font-bold text-foreground">Shopping Cart</span>
         </nav>
 
-        {/* Page Title & Clear Action */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-border pb-5">
           <div className="space-y-1">
             <div className="flex items-center gap-2">
@@ -128,9 +125,7 @@ export function CartPage({ className }: CartPageProps) {
           </button>
         </div>
 
-        {/* 2-Column Responsive Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Left: Cart Items List (8 cols) */}
           <div className="lg:col-span-8 space-y-4">
             <div className="space-y-3">
               {items.map((item) => (
@@ -138,7 +133,6 @@ export function CartPage({ className }: CartPageProps) {
               ))}
             </div>
 
-            {/* Bottom Actions */}
             <div className="flex items-center justify-between pt-4">
               <Link
                 href="/products"
@@ -150,7 +144,6 @@ export function CartPage({ className }: CartPageProps) {
             </div>
           </div>
 
-          {/* Right: Coupon & Summary Sticky Sidebar (4 cols) */}
           <div className="lg:col-span-4 space-y-4 lg:sticky lg:top-[176px]">
             <CartCoupon />
             <CartSummary />

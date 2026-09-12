@@ -145,7 +145,6 @@ export function CustomersTable({
                   key={c.id}
                   className="hover:bg-muted/30 transition-colors group"
                 >
-                  {/* Customer Info (Name, Email, Phone in one column) */}
                   <TableCell className="py-3">
                     <div className="flex items-start gap-3">
                       <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary font-bold text-xs border border-primary/20 overflow-hidden mt-0.5">
@@ -177,7 +176,6 @@ export function CustomersTable({
                     </div>
                   </TableCell>
 
-                  {/* Status Badge */}
                   <TableCell className="py-3">
                     <Badge
                       variant="outline"
@@ -192,14 +190,12 @@ export function CustomersTable({
                     </Badge>
                   </TableCell>
 
-                  {/* Total Orders */}
                   <TableCell className="py-3 text-center">
                     <span className="inline-flex items-center justify-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-primary/10 text-primary">
                       {c.orderCount}
                     </span>
                   </TableCell>
 
-                  {/* Status-Wise Order Count */}
                   <TableCell className="py-3">
                     <div className="flex flex-wrap items-center gap-1.5">
                       {s.PENDING > 0 && (
@@ -270,12 +266,10 @@ export function CustomersTable({
                     </div>
                   </TableCell>
 
-                  {/* Total Spent */}
                   <TableCell className="py-3 text-xs font-semibold text-foreground">
                     {formatPrice(c.totalSpent)}
                   </TableCell>
 
-                  {/* Joined Date */}
                   <TableCell className="py-3 text-xs text-muted-foreground">
                     {new Date(c.createdAt).toLocaleDateString(undefined, {
                       year: 'numeric',
@@ -284,7 +278,6 @@ export function CustomersTable({
                     })}
                   </TableCell>
 
-                  {/* Actions */}
                   <TableCell className="py-3 text-right">
                     <div className="flex items-center justify-end gap-1">
                       <Button
@@ -314,7 +307,6 @@ export function CustomersTable({
         </Table>
       </div>
 
-      {/* Pagination Footer */}
       <div className="flex flex-col sm:flex-row items-center justify-between gap-3 px-4 py-3 border-t border-border bg-muted/20">
         <span className="text-xs text-muted-foreground">
           Showing{' '}

@@ -27,18 +27,15 @@ export function Footer() {
 
   return (
     <>
-      {/* 1. Separated CTA / Newsletter Section (Normally White) */}
       <section className="bg-white dark:bg-zinc-950 py-10 sm:py-14">
         <div className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
           <Newsletter />
         </div>
       </section>
 
-      {/* 2. Main Black Footer */}
       <footer className="bg-black text-zinc-400">
         <div className="mx-auto max-w-7xl px-3 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12">
-          {/* Brand Column */}
           <div className="lg:col-span-4 space-y-4">
             <Logo showTagline variant="dark" />
             <p className="text-xs text-zinc-400 leading-relaxed max-w-sm">
@@ -76,12 +73,10 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Quick Shop Links */}
           <div className="lg:col-span-2">
             <FooterColumn title="Shop" links={siteConfig.footerLinks.shop} />
           </div>
 
-          {/* Categories */}
           <div className="lg:col-span-3">
             <FooterColumn
               title="Categories"
@@ -89,14 +84,12 @@ export function Footer() {
             />
           </div>
 
-          {/* Customer Service & Company */}
           <div className="lg:col-span-3 space-y-6">
             <FooterColumn
               title="Customer Care"
               links={siteConfig.footerLinks.customerService}
             />
 
-            {/* Payment security assurance */}
             <div className="rounded-xl bg-zinc-900/60 p-3.5">
               <span className="block text-[11px] font-bold text-zinc-200">
                 Guaranteed Safe Checkout
@@ -110,7 +103,6 @@ export function Footer() {
         </div>
       </div>
 
-      {/* 4. Bottom Copyright & Payment Partners Bar */}
       <div className="bg-zinc-950 py-6">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 sm:flex-row sm:px-6 lg:px-8">
           <p className="text-xs text-zinc-400 text-center sm:text-left">
@@ -119,7 +111,6 @@ export function Footer() {
             rights reserved. Built for modern high-performance shopping.
           </p>
 
-          {/* Payment Badges */}
           <div className="flex flex-wrap items-center gap-2">
             <span className="rounded-md bg-zinc-900 px-2.5 py-1 text-[10px] font-black text-blue-400 shadow-2xs">
               VISA

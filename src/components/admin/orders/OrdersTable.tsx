@@ -220,7 +220,6 @@ export function OrdersTable({
                     key={order.id}
                     className="hover:bg-muted/30 transition-colors border-border/70 group"
                   >
-                    {/* Order ID & Date */}
                     <TableCell className="py-3 font-medium">
                       <Link
                         href={`/admin/orders/${order.id}`}
@@ -233,7 +232,6 @@ export function OrdersTable({
                       </div>
                     </TableCell>
 
-                    {/* Customer & Delivery Destination */}
                     <TableCell className="py-3">
                       <div className="flex items-start gap-2.5">
                         <div className="flex h-7.5 w-7.5 items-center justify-center rounded-full bg-primary/10 text-primary font-bold text-xs shrink-0 mt-0.5">
@@ -262,7 +260,6 @@ export function OrdersTable({
                       </div>
                     </TableCell>
 
-                    {/* Items */}
                     <TableCell className="py-3">
                       <div className="flex items-center gap-1.5">
                         {firstItem?.product?.photoUrl ? (
@@ -286,12 +283,10 @@ export function OrdersTable({
                       </div>
                     </TableCell>
 
-                    {/* Total Amount */}
                     <TableCell className="py-3 font-bold text-foreground">
                       {formatPrice(Number(order.totalAmount || 0))}
                     </TableCell>
 
-                    {/* Payment Info */}
                     <TableCell className="py-3">
                       <div className="space-y-0.5">
                         <span className="inline-flex items-center gap-1 font-bold text-[10px] uppercase tracking-wider text-muted-foreground">
@@ -313,7 +308,6 @@ export function OrdersTable({
                       </div>
                     </TableCell>
 
-                    {/* Order Status Badge (Green for CONFIRMED) */}
                     <TableCell className="py-3">
                       <span
                         className={cn(
@@ -328,10 +322,8 @@ export function OrdersTable({
                       </span>
                     </TableCell>
 
-                    {/* Action Buttons (FULL-PAGE NAVIGATION) */}
                     <TableCell className="py-3 text-right pr-4">
                       <div className="flex items-center justify-end gap-1">
-                        {/* 1. VIEW BUTTON -> Navigates to FULL-PAGE /admin/orders/[id] */}
                         <Button
                           asChild
                           variant="ghost"
@@ -344,7 +336,6 @@ export function OrdersTable({
                           </Link>
                         </Button>
 
-                        {/* 2. EDIT BUTTON -> Navigates to FULL-PAGE /admin/orders/[id]/edit */}
                         <Button
                           asChild
                           variant="ghost"
@@ -357,7 +348,6 @@ export function OrdersTable({
                           </Link>
                         </Button>
 
-                        {/* 3. DELETE BUTTON */}
                         <Button
                           variant="ghost"
                           size="sm"
@@ -377,7 +367,6 @@ export function OrdersTable({
         </Table>
       </div>
 
-      {/* Pagination Bar */}
       {!isLoading && orders.length > 0 && (
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-border/80 px-4 py-3 bg-card text-xs text-muted-foreground">
           <div>

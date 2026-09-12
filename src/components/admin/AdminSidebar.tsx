@@ -50,6 +50,12 @@ export function AdminSidebar({
     router.replace('/auth/login?from=/admin/dashboard');
   };
 
+  const hasPermission = (permission?: string) => {
+    if (!permission) return true;
+    if (isSuperAdmin) return true;
+    return user?.permissions?.includes(permission) ?? false;
+  };
+
   const navGroups = [
     {
       title: 'Overview',
@@ -68,22 +74,26 @@ export function AdminSidebar({
           name: 'Products',
           href: '/admin/products',
           icon: ShoppingBag,
+          permission: 'MANAGE_PRODUCTS',
         },
         {
           name: 'Categories',
           href: '/admin/categories',
           icon: Layers,
+          permission: 'MANAGE_CATEGORIES',
         },
         {
           name: 'Orders',
           href: '/admin/orders',
           icon: ShoppingCart,
+          permission: 'MANAGE_ORDERS',
           badge: '14',
         },
         {
           name: 'Customers',
           href: '/admin/customers',
           icon: Users,
+          permission: 'MANAGE_CUSTOMERS',
         },
       ],
     },
@@ -94,6 +104,7 @@ export function AdminSidebar({
           name: 'Payments',
           href: '/admin/payments',
           icon: CreditCard,
+          permission: 'MANAGE_PAYMENTS',
         },
       ],
     },
@@ -107,6 +118,7 @@ export function AdminSidebar({
                 href: '/admin/admins',
                 icon: ShieldCheck,
                 badge: 'Super',
+                superAdminOnly: true,
               },
             ]
           : []),
@@ -117,7 +129,16 @@ export function AdminSidebar({
         },
       ],
     },
-  ];
+  ]
+    .map((group) => ({
+      ...group,
+      items: group.items.filter((item: any) => {
+        if (item.superAdminOnly && !isSuperAdmin) return false;
+        if (item.permission && !hasPermission(item.permission)) return false;
+        return true;
+      }),
+    }))
+    .filter((group) => group.items.length > 0);
 
   const sidebarContent = (
     <div className="flex h-full flex-col overflow-hidden">

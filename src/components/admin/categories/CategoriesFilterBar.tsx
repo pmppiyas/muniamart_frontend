@@ -29,7 +29,6 @@ export function CategoriesFilterBar({
   return (
     <div className="rounded-2xl border border-border/80 bg-card p-4 shadow-2xs space-y-3">
       <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
-        {/* Search Input */}
         <div className="relative flex-1 max-w-md">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input
@@ -50,9 +49,7 @@ export function CategoriesFilterBar({
           )}
         </div>
 
-        {/* Filter Dropdowns & Expand/Collapse */}
         <div className="flex flex-wrap items-center gap-2">
-          {/* Hierarchy Level Filter */}
           <div className="flex items-center gap-1.5">
             <span className="text-xs text-muted-foreground hidden sm:inline">
               Level:
@@ -72,7 +69,6 @@ export function CategoriesFilterBar({
             </select>
           </div>
 
-          {/* Tree Expand / Collapse Buttons */}
           <div className="flex items-center border border-border rounded-xl bg-background overflow-hidden p-0.5">
             <Button
               type="button"
@@ -99,7 +95,6 @@ export function CategoriesFilterBar({
             </Button>
           </div>
 
-          {/* Reset Filters */}
           {hasActiveFilters && (
             <Button
               variant="ghost"

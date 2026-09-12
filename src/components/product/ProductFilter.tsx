@@ -69,7 +69,6 @@ export function ProductFilter({
 
   return (
     <aside className={cn('flex flex-col', isMobileDrawer ? 'space-y-6' : 'h-full', className)}>
-      {/* Header - Desktop only (mobile drawer already has its own header) */}
       {!isMobileDrawer && (
         <div className="flex items-center justify-between border-b border-border px-5 py-4 bg-card shrink-0 select-none">
           <div className="flex items-center gap-2">
@@ -90,14 +89,12 @@ export function ProductFilter({
         </div>
       )}
 
-      {/* Scrollable Filter Options Body */}
       <div
         className={cn(
           'space-y-6',
           !isMobileDrawer && 'flex-1 overflow-y-auto overscroll-contain p-5 pr-3'
         )}
       >
-        {/* 1. Category Filter */}
         <CategoryFilter
           categories={categories}
           selectedCategories={filters.categories}
@@ -106,7 +103,6 @@ export function ProductFilter({
 
         <div className="border-t border-border" />
 
-        {/* 2. Price Filter */}
         <PriceFilter
           priceRange={filters.priceRange}
           onPriceChange={handlePriceChange}
@@ -114,7 +110,6 @@ export function ProductFilter({
 
         <div className="border-t border-border" />
 
-        {/* 3. Brand Filter */}
         {availableBrands.length > 0 && (
           <>
             <BrandFilter
@@ -126,7 +121,6 @@ export function ProductFilter({
           </>
         )}
 
-        {/* 4. Availability Filter */}
         <div className="space-y-2">
           <h3 className="text-xs font-bold uppercase tracking-wider text-foreground">
             Availability
@@ -144,14 +138,12 @@ export function ProductFilter({
 
         <div className="border-t border-border" />
 
-        {/* 5. Rating Filter */}
         <RatingFilter
           minRating={filters.minRating}
           onRatingChange={handleRatingChange}
         />
       </div>
 
-      {/* Mobile Apply Button */}
       {isMobileDrawer && onCloseMobileDrawer && (
         <div className="pt-4 sticky bottom-0 bg-background border-t border-border pb-2">
           <button

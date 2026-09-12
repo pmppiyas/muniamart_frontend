@@ -107,7 +107,6 @@ export function PaymentsHeader({
         }
       />
 
-      {/* Shared Soft Colorful Metrics Row */}
       <AdminStatsGroup stats={stats} />
     </div>
   );

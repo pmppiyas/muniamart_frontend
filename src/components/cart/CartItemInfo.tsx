@@ -15,7 +15,6 @@ export function CartItemInfo({ item, className }: CartItemInfoProps) {
 
   return (
     <div className={cn('space-y-1.5 flex-1 min-w-0', className)}>
-      {/* Category & Brand */}
       <div className="flex flex-wrap items-center gap-1.5 text-xs text-muted-foreground">
         {item.category && (
           <span className="font-semibold text-primary">{item.category}</span>
@@ -28,7 +27,6 @@ export function CartItemInfo({ item, className }: CartItemInfoProps) {
         )}
       </div>
 
-      {/* Product Title */}
       <Link
         href={productHref}
         className="block text-sm sm:text-base font-bold text-foreground hover:underline transition-colors line-clamp-2 leading-snug"
@@ -36,7 +34,6 @@ export function CartItemInfo({ item, className }: CartItemInfoProps) {
         {item.name}
       </Link>
 
-      {/* Selected Variants */}
       {item.selectedVariants && Object.keys(item.selectedVariants).length > 0 && (
         <div className="flex flex-wrap items-center gap-1.5 pt-1">
           {Object.entries(item.selectedVariants).map(([key, val]) => (
@@ -53,7 +50,6 @@ export function CartItemInfo({ item, className }: CartItemInfoProps) {
         </div>
       )}
 
-      {/* SKU & Stock Info */}
       <div className="flex items-center gap-3 text-[11px] text-muted-foreground pt-0.5">
         <span>SKU: {item.sku}</span>
         <span>•</span>

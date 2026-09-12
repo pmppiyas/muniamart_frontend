@@ -103,7 +103,6 @@ export function CustomersHeader({
         }
       />
 
-      {/* Shared Soft Colorful Metrics Row */}
       <AdminStatsGroup stats={stats} />
     </div>
   );

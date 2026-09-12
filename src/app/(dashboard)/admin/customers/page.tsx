@@ -11,6 +11,7 @@ import {
 } from '@/components/admin/customers';
 import { useGetAllCustomersQuery } from '@/services/api/customerApi';
 import { CustomerListItem } from '@/types/customer';
+import { AdminPermissionGuard } from '@/components/admin/AdminPermissionGuard';
 
 export default function AdminCustomersPage() {
   const [page, setPage] = React.useState(1);
@@ -25,7 +26,6 @@ export default function AdminCustomersPage() {
   const [selectedCustomerForStatus, setSelectedCustomerForStatus] =
     React.useState<CustomerListItem | null>(null);
 
-  // Debounce search input by 300ms
   React.useEffect(() => {
     const timer = setTimeout(() => {
       setDebouncedSearch(searchQuery.trim());
@@ -34,7 +34,6 @@ export default function AdminCustomersPage() {
     return () => clearTimeout(timer);
   }, [searchQuery]);
 
-  // Fetch customers from backend
   const {
     data: customersResponse,
     isLoading,
@@ -67,7 +66,6 @@ export default function AdminCustomersPage() {
 
   const hasActiveFilters = Boolean(searchQuery || selectedStatus !== 'ALL');
 
-  // CSV Export
   const handleExportCSV = () => {
     if (customers.length === 0) {
       toast.info('No customers available to export');
@@ -128,58 +126,55 @@ export default function AdminCustomersPage() {
   };
 
   return (
-    <div className="space-y-4">
-      {/* 1. Header with title, metrics cards, refresh & export */}
-      <CustomersHeader
-        totalCount={totalCount}
-        metrics={metrics}
-        isFetching={isFetching}
-        onRefresh={() => refetch()}
-        onExport={handleExportCSV}
-      />
+    <AdminPermissionGuard requiredPermission="MANAGE_CUSTOMERS" moduleName="Customers">
+      <div className="space-y-4">
+        <CustomersHeader
+          totalCount={totalCount}
+          metrics={metrics}
+          isFetching={isFetching}
+          onRefresh={() => refetch()}
+          onExport={handleExportCSV}
+        />
 
-      {/* 2. Search & Status Filter Bar */}
-      <CustomersFilterBar
-        searchQuery={searchQuery}
-        onSearchChange={setSearchQuery}
-        selectedStatus={selectedStatus}
-        onStatusChange={handleStatusChange}
-        onReset={handleClearFilters}
-        hasActiveFilters={hasActiveFilters}
-      />
+        <CustomersFilterBar
+          searchQuery={searchQuery}
+          onSearchChange={setSearchQuery}
+          selectedStatus={selectedStatus}
+          onStatusChange={handleStatusChange}
+          onReset={handleClearFilters}
+          hasActiveFilters={hasActiveFilters}
+        />
 
-      {/* 3. Customers Table with Status-wise Order Breakdown */}
-      <CustomersTable
-        customers={customers}
-        isLoading={isLoading}
-        page={page}
-        totalPage={totalPage}
-        totalCustomers={totalCount}
-        limit={limit}
-        onPageChange={setPage}
-        onViewCustomer={(customer) => setSelectedCustomerForDetails(customer)}
-        onChangeStatus={(customer) => setSelectedCustomerForStatus(customer)}
-        isFiltering={hasActiveFilters}
-        onClearFilters={handleClearFilters}
-      />
+        <CustomersTable
+          customers={customers}
+          isLoading={isLoading}
+          page={page}
+          totalPage={totalPage}
+          totalCustomers={totalCount}
+          limit={limit}
+          onPageChange={setPage}
+          onViewCustomer={(customer) => setSelectedCustomerForDetails(customer)}
+          onChangeStatus={(customer) => setSelectedCustomerForStatus(customer)}
+          isFiltering={hasActiveFilters}
+          onClearFilters={handleClearFilters}
+        />
 
-      {/* 4. Customer Details & Order History Modal */}
-      <CustomerDetailsModal
-        customerId={selectedCustomerForDetails?.id || null}
-        isOpen={Boolean(selectedCustomerForDetails)}
-        onClose={() => setSelectedCustomerForDetails(null)}
-        onOpenStatusDialog={() => {
-          setSelectedCustomerForStatus(selectedCustomerForDetails);
-          setSelectedCustomerForDetails(null);
-        }}
-      />
+        <CustomerDetailsModal
+          customerId={selectedCustomerForDetails?.id || null}
+          isOpen={Boolean(selectedCustomerForDetails)}
+          onClose={() => setSelectedCustomerForDetails(null)}
+          onOpenStatusDialog={() => {
+            setSelectedCustomerForStatus(selectedCustomerForDetails);
+            setSelectedCustomerForDetails(null);
+          }}
+        />
 
-      {/* 5. Customer Status Update Modal */}
-      <CustomerStatusDialog
-        customer={selectedCustomerForStatus}
-        isOpen={Boolean(selectedCustomerForStatus)}
-        onClose={() => setSelectedCustomerForStatus(null)}
-      />
-    </div>
+        <CustomerStatusDialog
+          customer={selectedCustomerForStatus}
+          isOpen={Boolean(selectedCustomerForStatus)}
+          onClose={() => setSelectedCustomerForStatus(null)}
+        />
+      </div>
+    </AdminPermissionGuard>
   );
 }

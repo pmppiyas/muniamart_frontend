@@ -26,25 +26,18 @@ export default async function HomePage() {
 
   return (
     <div className="flex flex-col flex-1 bg-background">
-      {/* 1. Hero Section */}
       <HeroSection slides={heroSlides} />
 
-      {/* 2. Category Section */}
       <CategorySection categories={categories} />
 
-      {/* 3. Featured Products */}
       <FeaturedProducts products={products} />
 
-      {/* 4. Promotional Banner */}
       <PromoBanner banner={promoBanner} />
 
-      {/* 5. New Arrivals */}
       <NewArrivals products={products} />
 
-      {/* 6. Best Selling Products */}
       <BestSelling products={products} />
 
-      {/* 7. Why Choose Us */}
       <WhyChooseUs features={whyChooseUs} />
     </div>
   );

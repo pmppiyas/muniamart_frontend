@@ -96,7 +96,6 @@ export function ContactFAQ() {
         </div>
       </div>
 
-      {/* Instant WhatsApp Quick Help Card */}
       <div className="rounded-3xl border border-green-500/20 bg-green-500/5 p-6 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="space-y-1 text-center sm:text-left">
           <h3 className="text-sm font-bold text-foreground flex items-center justify-center sm:justify-start gap-2">

@@ -50,7 +50,6 @@ export function PriceFilter({
         </span>
       </div>
 
-      {/* Preset Chips */}
       <div className="flex flex-wrap gap-1.5 pt-1">
         {presetRanges.map((preset) => {
           const isActive =
@@ -74,7 +73,6 @@ export function PriceFilter({
         })}
       </div>
 
-      {/* Manual Input Range */}
       <form onSubmit={handleApplyInputs} className="flex items-center gap-2 pt-1">
         <div className="flex-1">
           <input

@@ -39,7 +39,6 @@ export function EmptyCart({ className }: EmptyCartProps) {
         </Link>
       </div>
 
-      {/* Suggested Quick Categories */}
       <div className="mt-10 pt-6 border-t border-border/80 w-full max-w-lg">
         <div className="flex items-center justify-center gap-1.5 text-xs text-muted-foreground mb-3 font-medium">
           <Sparkles className="h-3.5 w-3.5 text-primary" />

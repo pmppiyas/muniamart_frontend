@@ -59,7 +59,6 @@ export default async function ProductDetailPage({ params }: PageProps) {
   return (
     <div className="py-6 sm:py-8 lg:py-10 bg-background min-h-screen">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-12">
-        {/* Breadcrumb Navigation */}
         <nav
           aria-label="Breadcrumb"
           className="flex flex-wrap items-center gap-1.5 text-xs text-muted-foreground"
@@ -95,9 +94,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
           </span>
         </nav>
 
-        {/* Top 2-Column Hero: Gallery & Info */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-          {/* Gallery Column (6 cols) */}
           <div className="lg:col-span-6 lg:sticky lg:top-[176px]">
             <ProductGallery
               images={galleryImages}
@@ -109,16 +106,13 @@ export default async function ProductDetailPage({ params }: PageProps) {
             />
           </div>
 
-          {/* Product Info Column (6 cols) */}
           <div className="lg:col-span-6">
             <ProductInfo product={product} />
           </div>
         </div>
 
-        {/* Detailed Information & Tabs Section */}
         <ProductDetailTabs product={product} />
 
-        {/* Related Products */}
         <RelatedProducts
           currentProductId={product.id}
           categoryId={product.categoryId}

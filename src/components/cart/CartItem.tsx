@@ -36,7 +36,6 @@ export function CartItem({ item, className }: CartItemProps) {
         className
       )}
     >
-      {/* Media & Info Column */}
       <div className="flex items-center gap-3.5 sm:gap-4 flex-1 min-w-0">
         <CartItemImage
           src={item.photoUrl}
@@ -50,9 +49,7 @@ export function CartItem({ item, className }: CartItemProps) {
         </div>
       </div>
 
-      {/* Price, Controls & Actions Column */}
       <div className="flex items-center justify-between sm:justify-end gap-4 sm:gap-6 w-full sm:w-auto border-t sm:border-t-0 border-border/80 pt-3 sm:pt-0">
-        {/* Unit & Subtotal Price (mobile layout shows unit) */}
         <div className="sm:hidden">
           <CartItemPrice
             price={item.price}
@@ -60,14 +57,12 @@ export function CartItem({ item, className }: CartItemProps) {
           />
         </div>
 
-        {/* Quantity Controls */}
         <CartQuantitySelector
           quantity={item.quantity}
           maxStock={item.stock}
           onQuantityChange={handleQuantityChange}
         />
 
-        {/* Subtotal on desktop */}
         <div className="hidden sm:block min-w-[90px] text-right">
           <CartItemPrice
             price={item.price}
@@ -75,7 +70,6 @@ export function CartItem({ item, className }: CartItemProps) {
           />
         </div>
 
-        {/* Quick Actions (Delete) */}
         <CartItemActions
           onRemove={handleRemove}
         />

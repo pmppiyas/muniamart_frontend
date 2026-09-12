@@ -28,7 +28,6 @@ export function CategoryHero({
         className
       )}
     >
-      {/* Background Media with High Visibility & Crisp Contrast */}
       {category.imageUrl && (
         <div className="absolute inset-0 z-0">
           <Image
@@ -44,7 +43,6 @@ export function CategoryHero({
         </div>
       )}
 
-      {/* Content */}
       <div className="relative z-10 max-w-2xl space-y-3">
         <div className="flex items-center gap-2 flex-wrap">
           <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 border border-primary/20 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">

@@ -55,7 +55,6 @@ export function MobileMenu({ className }: MobileMenuProps) {
 
   return (
     <div className={className}>
-      {/* Menu Trigger Button */}
       <button
         type="button"
         onClick={() => setIsOpen(true)}
@@ -65,7 +64,6 @@ export function MobileMenu({ className }: MobileMenuProps) {
         <Menu className="h-4 w-4 sm:h-5 sm:w-5" />
       </button>
 
-      {/* Backdrop */}
       {isOpen && (
         <div
           className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs animate-in fade-in duration-200"
@@ -73,14 +71,12 @@ export function MobileMenu({ className }: MobileMenuProps) {
         />
       )}
 
-      {/* Slide-over Drawer (From Right) */}
       <aside
         className={cn(
           'fixed inset-y-0 right-0 z-50 flex w-full max-w-xs flex-col bg-background text-foreground shadow-2xl transition-transform duration-300 ease-in-out',
           isOpen ? 'translate-x-0' : 'translate-x-full'
         )}
       >
-        {/* Drawer Header: Logo + ThemeToggle */}
         <div className="flex items-center justify-between border-b border-border px-4 py-3.5">
           <div className="flex items-center gap-2.5">
             <Logo showTagline />
@@ -96,7 +92,6 @@ export function MobileMenu({ className }: MobileMenuProps) {
           </button>
         </div>
 
-        {/* Tab Switcher */}
         <div className="flex border-b border-border bg-muted/30">
           <button
             type="button"
@@ -124,7 +119,6 @@ export function MobileMenu({ className }: MobileMenuProps) {
           </button>
         </div>
 
-        {/* Drawer Content */}
         <div className="flex-1 overflow-y-auto px-4 py-3 space-y-4">
           {activeTab === 'categories' ? (
             <div className="space-y-1">
@@ -235,7 +229,6 @@ export function MobileMenu({ className }: MobileMenuProps) {
           )}
         </div>
 
-        {/* Drawer Footer */}
         <div className="border-t border-border p-4 space-y-2 bg-muted/10 text-xs">
           <div className="flex items-center gap-2 text-muted-foreground">
             <Phone className="h-3.5 w-3.5 text-primary" />

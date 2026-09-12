@@ -30,9 +30,7 @@ export function HeroSection({ slides = [] }: HeroSectionProps) {
     <section className="py-3 sm:py-5 lg:py-6 bg-background">
       <div className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-4 lg:gap-5 items-stretch">
-          {/* Main Hero Slider (8 cols on desktop) */}
           <div className="lg:col-span-8 relative min-h-[300px] sm:min-h-[350px] lg:min-h-[380px] rounded-3xl border border-border overflow-hidden bg-card flex flex-col justify-between p-4 sm:p-7 lg:p-8 shadow-sm group">
-            {/* Background Image with High Visibility & Crisp Contrast */}
             <div className="absolute inset-0 z-0">
               <Image
                 src={currentSlide.imageUrl}
@@ -43,12 +41,10 @@ export function HeroSection({ slides = [] }: HeroSectionProps) {
                 className="object-cover object-right md:object-center opacity-90 sm:opacity-95 dark:opacity-85 transition-all duration-700 group-hover:scale-105"
               />
               <div className={cn('absolute inset-0 bg-gradient-to-r', currentSlide.bgGradient)} />
-              {/* Tight text contrast gradient: clear white only on left under text, photo completely visible on right */}
               <div className="absolute inset-0 bg-gradient-to-r from-card/95 via-card/60 via-40% to-transparent" />
               <div className="absolute inset-0 bg-gradient-to-t from-card/80 via-transparent to-transparent sm:hidden" />
             </div>
 
-            {/* Slide Content */}
             <div className="relative z-10 max-w-xl space-y-2.5 sm:space-y-3">
               <div className="flex flex-wrap items-center gap-2">
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 border border-primary/20 px-2.5 py-0.5 text-[11px] sm:text-xs font-black tracking-wider text-primary uppercase">
@@ -86,7 +82,6 @@ export function HeroSection({ slides = [] }: HeroSectionProps) {
               </div>
             </div>
 
-            {/* Slider Controls / Dots */}
             <div className="relative z-10 flex items-center justify-between pt-3 border-t border-border/40 mt-2.5 sm:mt-3">
               <div className="flex items-center gap-1.5 sm:gap-2">
                 {slides.map((slide, idx) => (
@@ -130,9 +125,7 @@ export function HeroSection({ slides = [] }: HeroSectionProps) {
             </div>
           </div>
 
-          {/* Right Side Promo Cards (4 cols on desktop) */}
           <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 sm:gap-4">
-            {/* Promo Card 1 */}
             <div className="relative flex-1 overflow-hidden rounded-3xl border border-border bg-card p-3.5 sm:p-4 lg:p-5 flex flex-col justify-between shadow-2xs group min-h-[145px] sm:min-h-[155px]">
               <div className="absolute inset-0 z-0">
                 <Image
@@ -169,7 +162,6 @@ export function HeroSection({ slides = [] }: HeroSectionProps) {
               </div>
             </div>
 
-            {/* Promo Card 2 */}
             <div className="relative flex-1 overflow-hidden rounded-3xl border border-border bg-card p-3.5 sm:p-4 lg:p-5 flex flex-col justify-between shadow-2xs group min-h-[145px] sm:min-h-[155px]">
               <div className="absolute inset-0 z-0">
                 <Image

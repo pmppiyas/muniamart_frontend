@@ -46,7 +46,6 @@ export function ProductImage({
         </div>
       )}
 
-      {/* Badges Stack */}
       <div className="absolute left-2.5 top-2.5 z-10 flex flex-col gap-1.5 pointer-events-none">
         {discountPercent && discountPercent > 0 ? (
           <span className="rounded-md bg-destructive px-2 py-0.5 text-[10px] font-black uppercase tracking-wider text-destructive-foreground shadow-xs">
@@ -67,7 +66,6 @@ export function ProductImage({
         )}
       </div>
 
-      {/* Out of Stock Overlay */}
       {isOutOfStock && (
         <div className="absolute inset-0 z-20 flex items-center justify-center bg-background/80 backdrop-blur-2xs">
           <span className="rounded-lg bg-zinc-900 px-3 py-1 text-xs font-bold text-white shadow-xs">

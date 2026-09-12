@@ -27,7 +27,6 @@ export function DeliveryOptions({
         Shipping Method
       </label>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        {/* Standard Delivery */}
         <div
           onClick={() => onSelect('standard')}
           className={cn(
@@ -62,7 +61,6 @@ export function DeliveryOptions({
           </div>
         </div>
 
-        {/* Express Delivery */}
         <div
           onClick={() => onSelect('express')}
           className={cn(

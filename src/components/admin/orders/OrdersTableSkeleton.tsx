@@ -12,7 +12,6 @@ export function OrdersTableSkeleton({ rows = 6 }: OrdersTableSkeletonProps) {
     <>
       {Array.from({ length: rows }).map((_, index) => (
         <TableRow key={index} className="animate-pulse">
-          {/* Order ID */}
           <TableCell className="py-3.5">
             <div className="space-y-1.5">
               <div className="h-4 w-24 rounded-md bg-muted/70" />
@@ -20,7 +19,6 @@ export function OrdersTableSkeleton({ rows = 6 }: OrdersTableSkeletonProps) {
             </div>
           </TableCell>
 
-          {/* Customer */}
           <TableCell className="py-3.5">
             <div className="flex items-start gap-2.5">
               <div className="h-8 w-8 rounded-full bg-muted/60 shrink-0 mt-0.5" />
@@ -32,27 +30,22 @@ export function OrdersTableSkeleton({ rows = 6 }: OrdersTableSkeletonProps) {
             </div>
           </TableCell>
 
-          {/* Items */}
           <TableCell className="py-3.5">
             <div className="h-4 w-12 rounded-md bg-muted/60" />
           </TableCell>
 
-          {/* Amount */}
           <TableCell className="py-3.5">
             <div className="h-4 w-16 rounded-md bg-muted/70" />
           </TableCell>
 
-          {/* Payment */}
           <TableCell className="py-3.5">
             <div className="h-5 w-18 rounded-md bg-muted/50" />
           </TableCell>
 
-          {/* Status */}
           <TableCell className="py-3.5">
             <div className="h-6 w-24 rounded-full bg-muted/60" />
           </TableCell>
 
-          {/* Actions */}
           <TableCell className="py-3.5 text-right">
             <div className="flex items-center justify-end gap-1.5">
               <div className="h-8 w-8 rounded-lg bg-muted/60" />

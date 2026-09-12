@@ -62,18 +62,15 @@ export function CategoryTableRow({
           : 'bg-muted/15 hover:bg-muted/35'
       }`}
     >
-      {/* Category Column: Hierarchy Indentation + Toggle + Thumbnail + Name + Slug */}
       <TableCell className="py-2.5">
         <div
           className="flex items-center gap-2"
           style={{ paddingLeft: `${level * 24}px` }}
         >
-          {/* Hierarchy Line indicator for subcategories */}
           {!isRoot && (
             <CornerDownRight className="h-4 w-4 text-muted-foreground/60 shrink-0 -ml-1" />
           )}
 
-          {/* Expand/Collapse Chevron Button */}
           {hasChildren ? (
             <button
               type="button"
@@ -91,7 +88,6 @@ export function CategoryTableRow({
             <div className="w-6 shrink-0" />
           )}
 
-          {/* Category Thumbnail / Icon */}
           <div className="relative h-9 w-9 shrink-0 overflow-hidden rounded-xl border border-border bg-muted/40 flex items-center justify-center">
             {category.imageUrl ? (
               <Image
@@ -110,7 +106,6 @@ export function CategoryTableRow({
             )}
           </div>
 
-          {/* Name and Slug */}
           <div className="min-w-0">
             <div className="flex items-center gap-2">
               <span
@@ -132,7 +127,6 @@ export function CategoryTableRow({
         </div>
       </TableCell>
 
-      {/* Hierarchy Level Column */}
       <TableCell className="py-2.5">
         {isRoot ? (
           <Badge
@@ -158,7 +152,6 @@ export function CategoryTableRow({
         )}
       </TableCell>
 
-      {/* Subcategories Count */}
       <TableCell className="py-2.5">
         {childrenCount > 0 ? (
           <Badge
@@ -172,7 +165,6 @@ export function CategoryTableRow({
         )}
       </TableCell>
 
-      {/* Products Count */}
       <TableCell className="py-2.5">
         <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-foreground">
           <ShoppingBag className="h-3.5 w-3.5 text-muted-foreground" />
@@ -180,7 +172,6 @@ export function CategoryTableRow({
         </div>
       </TableCell>
 
-      {/* Created / Updated Info */}
       <TableCell className="py-2.5 text-xs text-muted-foreground font-mono">
         {category.createdAt
           ? new Date(category.createdAt).toLocaleDateString('en-US', {
@@ -191,7 +182,6 @@ export function CategoryTableRow({
           : '—'}
       </TableCell>
 
-      {/* Actions */}
       <TableCell className="py-2.5 text-right">
         <CategoryRowActions
           category={category}

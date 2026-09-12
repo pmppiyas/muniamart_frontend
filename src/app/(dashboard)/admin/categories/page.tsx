@@ -13,6 +13,7 @@ import {
 } from '@/components/admin/categories';
 import { useGetAllCategoriesQuery } from '@/services/api/categoryApi';
 import { Category } from '@/types/category';
+import { AdminPermissionGuard } from '@/components/admin/AdminPermissionGuard';
 
 export default function AdminCategoriesPage() {
   const [searchQuery, setSearchQuery] = React.useState('');
@@ -175,78 +176,76 @@ export default function AdminCategoriesPage() {
   }, [categories]);
 
   return (
-    <div className="space-y-3.5 pb-12">
-      {/* Header with Title, Count, Metrics Cards, and Actions */}
-      <CategoriesHeader
-        totalCount={totalCount}
-        categories={categories}
-        isFetching={isFetching}
-        onRefresh={() => refetch()}
-        onExport={handleExportCSV}
-        onAddCategory={handleAddCategory}
-      />
+    <AdminPermissionGuard requiredPermission="MANAGE_CATEGORIES" moduleName="Categories">
+      <div className="space-y-3.5 pb-12">
+        <CategoriesHeader
+          totalCount={totalCount}
+          categories={categories}
+          isFetching={isFetching}
+          onRefresh={() => refetch()}
+          onExport={handleExportCSV}
+          onAddCategory={handleAddCategory}
+        />
 
-      {/* Filter and Search Bar */}
-      <CategoriesFilterBar
-        searchQuery={searchQuery}
-        onSearchChange={setSearchQuery}
-        hierarchyFilter={hierarchyFilter}
-        onHierarchyFilterChange={setHierarchyFilter}
-        onExpandAll={handleExpandAll}
-        onCollapseAll={handleCollapseAll}
-        onReset={handleResetFilters}
-        hasActiveFilters={hasActiveFilters}
-      />
+        <CategoriesFilterBar
+          searchQuery={searchQuery}
+          onSearchChange={setSearchQuery}
+          hierarchyFilter={hierarchyFilter}
+          onHierarchyFilterChange={setHierarchyFilter}
+          onExpandAll={handleExpandAll}
+          onCollapseAll={handleCollapseAll}
+          onReset={handleResetFilters}
+          hasActiveFilters={hasActiveFilters}
+        />
 
-      {/* Categories Tree Table */}
-      <CategoriesTable
-        categories={categories}
-        isLoading={isLoading}
-        isFetching={isFetching}
-        error={error}
-        onRetry={() => refetch()}
-        searchQuery={searchQuery}
-        hierarchyFilter={hierarchyFilter}
-        expandedIds={expandedIds}
-        onToggleExpand={handleToggleExpand}
-        onClearFilters={handleResetFilters}
-        onAddCategory={handleAddCategory}
-        onView={setSelectedCategoryForView}
-        onEdit={setSelectedCategoryForEdit}
-        onDelete={setSelectedCategoryForDelete}
-        onAddSubcategory={handleAddSubcategory}
-      />
+        <CategoriesTable
+          categories={categories}
+          isLoading={isLoading}
+          isFetching={isFetching}
+          error={error}
+          onRetry={() => refetch()}
+          searchQuery={searchQuery}
+          hierarchyFilter={hierarchyFilter}
+          expandedIds={expandedIds}
+          onToggleExpand={handleToggleExpand}
+          onClearFilters={handleResetFilters}
+          onAddCategory={handleAddCategory}
+          onView={setSelectedCategoryForView}
+          onEdit={setSelectedCategoryForEdit}
+          onDelete={setSelectedCategoryForDelete}
+          onAddSubcategory={handleAddSubcategory}
+        />
 
-      {/* Modals & Dialogs */}
-      <CategoryCreateModal
-        isOpen={isCreateModalOpen}
-        onClose={() => setIsCreateModalOpen(false)}
-        categories={categories}
-        defaultParentId={createDefaultParentId}
-      />
+        <CategoryCreateModal
+          isOpen={isCreateModalOpen}
+          onClose={() => setIsCreateModalOpen(false)}
+          categories={categories}
+          defaultParentId={createDefaultParentId}
+        />
 
-      <CategoryEditModal
-        category={selectedCategoryForEdit}
-        isOpen={!!selectedCategoryForEdit}
-        onClose={() => setSelectedCategoryForEdit(null)}
-        categories={categories}
-      />
+        <CategoryEditModal
+          category={selectedCategoryForEdit}
+          isOpen={!!selectedCategoryForEdit}
+          onClose={() => setSelectedCategoryForEdit(null)}
+          categories={categories}
+        />
 
-      <CategoryViewModal
-        category={selectedCategoryForView}
-        isOpen={!!selectedCategoryForView}
-        onClose={() => setSelectedCategoryForView(null)}
-        onEdit={(cat) => {
-          setSelectedCategoryForView(null);
-          setSelectedCategoryForEdit(cat);
-        }}
-      />
+        <CategoryViewModal
+          category={selectedCategoryForView}
+          isOpen={!!selectedCategoryForView}
+          onClose={() => setSelectedCategoryForView(null)}
+          onEdit={(cat) => {
+            setSelectedCategoryForView(null);
+            setSelectedCategoryForEdit(cat);
+          }}
+        />
 
-      <CategoryDeleteDialog
-        category={selectedCategoryForDelete}
-        isOpen={!!selectedCategoryForDelete}
-        onClose={() => setSelectedCategoryForDelete(null)}
-      />
-    </div>
+        <CategoryDeleteDialog
+          category={selectedCategoryForDelete}
+          isOpen={!!selectedCategoryForDelete}
+          onClose={() => setSelectedCategoryForDelete(null)}
+        />
+      </div>
+    </AdminPermissionGuard>
   );
 }

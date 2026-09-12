@@ -156,7 +156,6 @@ export function ProductCreateModal({
       }
     >
       <form id="create-product-form" onSubmit={handleSubmit} className="space-y-4">
-        {/* Product Name */}
         <div className="space-y-1.5">
           <label className="text-xs font-semibold text-foreground">
             Product Name <span className="text-destructive">*</span>
@@ -169,7 +168,6 @@ export function ProductCreateModal({
           />
         </div>
 
-        {/* SKU Row */}
         <div className="space-y-1.5">
           <div className="flex items-center justify-between">
             <label className="text-xs font-semibold text-foreground">
@@ -191,7 +189,6 @@ export function ProductCreateModal({
           />
         </div>
 
-        {/* Pricing & Stock Row */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="space-y-1.5">
             <label className="text-xs font-semibold text-foreground">
@@ -223,7 +220,6 @@ export function ProductCreateModal({
           </div>
         </div>
 
-        {/* Category Selector */}
         <div className="space-y-1.5">
           <label className="text-xs font-semibold text-foreground">
             Category <span className="text-destructive">*</span>
@@ -245,7 +241,6 @@ export function ProductCreateModal({
           </select>
         </div>
 
-        {/* Product Image (Upload to Cloudinary or URL) */}
         <div className="space-y-1.5">
           <label className="text-xs font-semibold text-foreground">
             Product Image (Cloudinary Upload)
@@ -307,7 +302,6 @@ export function ProductCreateModal({
           </div>
         </div>
 
-        {/* Description */}
         <div className="space-y-1.5">
           <label className="text-xs font-semibold text-foreground">
             Description

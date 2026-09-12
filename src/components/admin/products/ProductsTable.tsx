@@ -118,7 +118,6 @@ export function ProductsTable({
             </Table>
           </div>
 
-          {/* Pagination & Meta Footer */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-border px-4 py-3 text-xs text-muted-foreground">
             <div>
               Showing <strong className="text-foreground">{startItem}</strong> to{' '}
@@ -126,7 +125,6 @@ export function ProductsTable({
               <strong className="text-foreground">{total}</strong> products (Limit {limit}/page)
             </div>
 
-            {/* Pagination Controls */}
             {totalPage > 1 && (
               <div className="flex items-center gap-1.5">
                 <Button

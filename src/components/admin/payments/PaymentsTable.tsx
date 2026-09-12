@@ -189,7 +189,6 @@ export function PaymentsTable({
                   key={p.id}
                   className="hover:bg-muted/30 transition-colors group"
                 >
-                  {/* Transaction ID with Copy */}
                   <TableCell className="py-3">
                     <div className="flex items-center gap-1.5">
                       <span className="font-mono text-xs font-bold text-foreground truncate max-w-[120px] sm:max-w-[140px]">
@@ -210,7 +209,6 @@ export function PaymentsTable({
                     </div>
                   </TableCell>
 
-                  {/* Order Reference */}
                   <TableCell className="py-3">
                     <Link
                       href={`/admin/orders/${p.orderId}`}
@@ -222,7 +220,6 @@ export function PaymentsTable({
                     </Link>
                   </TableCell>
 
-                  {/* Customer Info */}
                   <TableCell className="py-3">
                     <div className="min-w-0 space-y-0.5">
                       <p className="text-xs font-bold text-foreground truncate">
@@ -243,7 +240,6 @@ export function PaymentsTable({
                     </div>
                   </TableCell>
 
-                  {/* Gateway Provider */}
                   <TableCell className="py-3">
                     <Badge
                       variant="outline"
@@ -258,12 +254,10 @@ export function PaymentsTable({
                     </Badge>
                   </TableCell>
 
-                  {/* Amount */}
                   <TableCell className="py-3 text-xs font-bold text-foreground">
                     {formatPrice(amount)}
                   </TableCell>
 
-                  {/* Status */}
                   <TableCell className="py-3">
                     <Badge
                       variant="outline"
@@ -279,7 +273,6 @@ export function PaymentsTable({
                     </Badge>
                   </TableCell>
 
-                  {/* Date & Time */}
                   <TableCell className="py-3 text-xs text-muted-foreground">
                     {new Date(p.createdAt).toLocaleDateString(undefined, {
                       month: 'short',
@@ -288,7 +281,6 @@ export function PaymentsTable({
                     })}
                   </TableCell>
 
-                  {/* Action */}
                   <TableCell className="py-3 text-right">
                     <Button
                       variant="ghost"
@@ -307,7 +299,6 @@ export function PaymentsTable({
         </Table>
       </div>
 
-      {/* Pagination Footer */}
       <div className="flex flex-col sm:flex-row items-center justify-between gap-3 px-4 py-3 border-t border-border bg-muted/20">
         <span className="text-xs text-muted-foreground">
           Showing <span className="font-semibold text-foreground">{startRecord}</span> to{' '}
