@@ -12,6 +12,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { AdminPageHeader } from '@/components/admin/AdminPageHeader';
+import { AdminStatsGroup, AdminStatItem } from '@/components/admin/AdminStatsGroup';
 import { CustomerMetrics } from '@/types/customer';
 import { cn } from '@/lib/utils';
 
@@ -30,33 +31,33 @@ export function CustomersHeader({
   onRefresh,
   onExport,
 }: CustomersHeaderProps) {
-  const cards = [
+  const stats: AdminStatItem[] = [
     {
       title: 'Total Customers',
       value: metrics?.totalCustomers ?? totalCount,
       icon: Users,
-      color: 'text-primary bg-primary/10',
+      color: 'primary',
       badge: 'Registered',
     },
     {
       title: 'Active Accounts',
       value: metrics?.activeCount ?? 0,
       icon: UserCheck,
-      color: 'text-emerald-500 bg-emerald-500/10',
+      color: 'emerald',
       badge: 'Active',
     },
     {
       title: 'Inactive / Blocked',
       value: (metrics?.inactiveCount ?? 0) + (metrics?.blockedCount ?? 0),
       icon: UserX,
-      color: 'text-amber-500 bg-amber-500/10',
+      color: 'amber',
       badge: 'Restricted',
     },
     {
       title: 'Total Customer Orders',
       value: metrics?.totalOrdersCount ?? 0,
       icon: ShoppingBag,
-      color: 'text-blue-500 bg-blue-500/10',
+      color: 'blue',
       badge: 'Lifetime',
     },
   ];
@@ -102,40 +103,8 @@ export function CustomersHeader({
         }
       />
 
-      {/* Metrics Row */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-        {cards.map((card) => {
-          const Icon = card.icon;
-          return (
-            <div
-              key={card.title}
-              className="relative overflow-hidden rounded-xl border border-border bg-card p-4 transition-all hover:border-border/80 shadow-xs"
-            >
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-medium text-muted-foreground">
-                  {card.title}
-                </span>
-                <div
-                  className={cn(
-                    'flex h-8 w-8 items-center justify-center rounded-lg',
-                    card.color
-                  )}
-                >
-                  <Icon className="h-4 w-4" />
-                </div>
-              </div>
-              <div className="mt-2 flex items-baseline gap-2">
-                <span className="text-2xl font-bold tracking-tight text-foreground">
-                  {card.value.toLocaleString()}
-                </span>
-                <span className="text-[11px] text-muted-foreground font-medium">
-                  {card.badge}
-                </span>
-              </div>
-            </div>
-          );
-        })}
-      </div>
+      {/* Shared Soft Colorful Metrics Row */}
+      <AdminStatsGroup stats={stats} />
     </div>
   );
 }

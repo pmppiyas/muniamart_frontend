@@ -138,9 +138,10 @@ export default function AdminProductsPage() {
 
   return (
     <div className="space-y-3.5 pb-12">
-      {/* Reusable Header with Action Buttons */}
+      {/* Reusable Header with Action Buttons and Metric Cards */}
       <ProductsHeader
         totalCount={meta?.total ?? products.length}
+        products={products}
         isFetching={isFetching}
         onRefresh={() => refetch()}
         onExport={handleExportCSV}

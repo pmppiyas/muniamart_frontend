@@ -176,9 +176,10 @@ export default function AdminCategoriesPage() {
 
   return (
     <div className="space-y-3.5 pb-12">
-      {/* Header with Title, Count, Actions */}
+      {/* Header with Title, Count, Metrics Cards, and Actions */}
       <CategoriesHeader
         totalCount={totalCount}
+        categories={categories}
         isFetching={isFetching}
         onRefresh={() => refetch()}
         onExport={handleExportCSV}

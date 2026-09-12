@@ -3,8 +3,6 @@
 import * as React from 'react';
 import Link from 'next/link';
 import {
-  TrendingUp,
-  TrendingDown,
   DollarSign,
   ShoppingCart,
   Users,
@@ -26,6 +24,7 @@ import { selectCurrentUser, selectIsSuperAdmin } from '@/features/auth/authSelec
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { AdminPageHeader } from '@/components/admin/AdminPageHeader';
+import { AdminStatsGroup, AdminStatItem } from '@/components/admin/AdminStatsGroup';
 import { useCurrency } from '@/hooks/useCurrency';
 import { cn } from '@/lib/utils';
 
@@ -36,7 +35,7 @@ export default function AdminDashboardPage() {
 
   const [dateRange, setDateRange] = React.useState('Last 30 Days');
 
-  const stats = [
+  const stats: AdminStatItem[] = [
     {
       title: 'Total Revenue',
       value: formatPrice(1842900),
@@ -44,7 +43,7 @@ export default function AdminDashboardPage() {
       isPositive: true,
       subtext: 'vs previous month',
       icon: DollarSign,
-      iconColor: 'text-emerald-500 bg-emerald-500/10',
+      color: 'emerald',
     },
     {
       title: 'Total Orders',
@@ -53,7 +52,7 @@ export default function AdminDashboardPage() {
       isPositive: true,
       subtext: 'vs previous month',
       icon: ShoppingCart,
-      iconColor: 'text-blue-500 bg-blue-500/10',
+      color: 'blue',
     },
     {
       title: 'Active Customers',
@@ -62,7 +61,7 @@ export default function AdminDashboardPage() {
       isPositive: true,
       subtext: '48 registered this week',
       icon: Users,
-      iconColor: 'text-purple-500 bg-purple-500/10',
+      color: 'purple',
     },
     {
       title: 'Active Inventory',
@@ -71,7 +70,7 @@ export default function AdminDashboardPage() {
       isPositive: false,
       subtext: '6 items low in stock',
       icon: Package,
-      iconColor: 'text-amber-500 bg-amber-500/10',
+      color: 'amber',
     },
   ];
 
@@ -221,48 +220,7 @@ export default function AdminDashboardPage() {
       />
 
       {/* 2. Key Metrics KPI Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4">
-        {stats.map((stat) => {
-          const Icon = stat.icon;
-          return (
-            <div
-              key={stat.title}
-              className="group relative overflow-hidden rounded-2xl border border-border bg-card p-4 shadow-2xs transition-all hover:shadow-xs hover:border-primary/40"
-            >
-              <div className="flex items-center justify-between">
-                <span className="text-[11px] sm:text-xs font-medium text-muted-foreground">
-                  {stat.title}
-                </span>
-                <div className={cn('flex h-8 w-8 items-center justify-center rounded-xl', stat.iconColor)}>
-                  <Icon className="h-3.5 w-3.5" />
-                </div>
-              </div>
-
-              <div className="mt-2.5">
-                <div className="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight">
-                  {stat.value}
-                </div>
-                <div className="mt-1 flex items-center gap-1.5 text-[11px]">
-                  <span
-                    className={cn(
-                      'inline-flex items-center font-bold',
-                      stat.isPositive ? 'text-emerald-600 dark:text-emerald-400' : 'text-rose-600 dark:text-rose-400'
-                    )}
-                  >
-                    {stat.isPositive ? (
-                      <TrendingUp className="h-3 w-3 mr-0.5" />
-                    ) : (
-                      <TrendingDown className="h-3 w-3 mr-0.5" />
-                    )}
-                    {stat.change}
-                  </span>
-                  <span className="text-muted-foreground text-[10.5px] truncate">{stat.subtext}</span>
-                </div>
-              </div>
-            </div>
-          );
-        })}
-      </div>
+      <AdminStatsGroup stats={stats} />
 
       {/* 3. Analytics & Sales Chart Section */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">

@@ -12,6 +12,8 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { AdminPageHeader } from '@/components/admin/AdminPageHeader';
+import { AdminStatsGroup, AdminStatItem } from '@/components/admin/AdminStatsGroup';
 import { OrderMetrics } from '@/types/order';
 import { cn } from '@/lib/utils';
 
@@ -34,6 +36,37 @@ export function OrdersHeader({
   onRefresh,
   onExport,
 }: OrdersHeaderProps) {
+  const stats: AdminStatItem[] = [
+    {
+      title: 'Total Orders',
+      value: metrics?.total ?? totalCount,
+      icon: ShoppingBag,
+      color: 'primary',
+      badge: 'Lifetime',
+    },
+    {
+      title: 'Pending Orders',
+      value: metrics?.pending ?? 0,
+      icon: Clock,
+      color: 'amber',
+      badge: 'Needs Action',
+    },
+    {
+      title: 'In Progress / Delivery',
+      value: (metrics?.confirmed ?? 0) + (metrics?.inProgress ?? 0),
+      icon: Truck,
+      color: 'sky',
+      badge: 'Active Flow',
+    },
+    {
+      title: 'Delivered Orders',
+      value: metrics?.delivered ?? 0,
+      icon: CheckCircle2,
+      color: 'emerald',
+      badge: 'Completed',
+    },
+  ];
+
   const statusTabs = [
     {
       id: 'ALL',
@@ -89,56 +122,51 @@ export function OrdersHeader({
   ];
 
   return (
-    <div className="space-y-3">
-      {/* Top row: Title, Total badge, Action buttons */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 min-h-11 py-0.5">
-        <div className="space-y-0.5">
-          <div className="flex items-center gap-2.5">
-            <h1 className="text-lg sm:text-xl font-bold tracking-tight text-foreground">
-              Orders
-            </h1>
-            <Badge
-              variant="secondary"
-              className="font-mono text-[11px] h-6 px-2 font-semibold"
+    <div className="space-y-4">
+      {/* Reusable AdminPageHeader with Breadcrumbs, Badge, and Action Buttons */}
+      <AdminPageHeader
+        title="Orders"
+        description="Monitor incoming orders, track customer shipments, and manage fulfillment workflow."
+        breadcrumbs={[{ label: 'Orders' }]}
+        badge={
+          <Badge
+            variant="outline"
+            className="bg-primary/5 text-primary border-primary/20 text-xs px-2.5 py-0.5"
+          >
+            {totalCount} Total
+          </Badge>
+        }
+        actions={
+          <div className="flex items-center gap-2">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={onRefresh}
+              disabled={isFetching}
+              className="h-9 gap-2 text-xs"
             >
-              {totalCount} Total
-            </Badge>
+              <RefreshCw
+                className={cn('h-3.5 w-3.5', isFetching && 'animate-spin')}
+              />
+              Refresh
+            </Button>
+            <Button
+              variant="default"
+              size="sm"
+              onClick={onExport}
+              className="h-9 gap-2 text-xs"
+            >
+              <Download className="h-3.5 w-3.5" />
+              Export CSV
+            </Button>
           </div>
-          <p className="text-[11px] sm:text-xs text-muted-foreground">
-            Monitor incoming orders, track customer shipments, and manage
-            fulfillment workflow
-          </p>
-        </div>
+        }
+      />
 
-        <div className="flex items-center gap-2 shrink-0">
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={onRefresh}
-            disabled={isFetching}
-            className="h-8.5 rounded-xl px-2.5 text-xs font-semibold shadow-2xs cursor-pointer"
-            title="Refresh Orders"
-          >
-            <RefreshCw
-              className={`h-3.5 w-3.5 mr-1.5 ${isFetching ? 'animate-spin' : ''}`}
-            />
-            Refresh
-          </Button>
+      {/* Shared Soft Colorful Metrics Row */}
+      <AdminStatsGroup stats={stats} />
 
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={onExport}
-            className="h-8.5 rounded-xl px-2.5 text-xs font-semibold shadow-2xs cursor-pointer"
-            title="Export Orders CSV"
-          >
-            <Download className="h-3.5 w-3.5 mr-1.5" />
-            Export CSV
-          </Button>
-        </div>
-      </div>
-
-      {/* Status Filter Metrics Bar */}
+      {/* Interactive Status Filter Bar */}
       <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
         {statusTabs.map((tab) => {
           const isActive = selectedStatus === tab.id;

@@ -2,11 +2,11 @@
 
 import * as React from 'react';
 import {
-  Package,
+  CreditCard,
+  DollarSign,
   CheckCircle2,
-  AlertCircle,
+  Clock,
   XCircle,
-  Plus,
   RefreshCw,
   Download,
 } from 'lucide-react';
@@ -14,67 +14,64 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { AdminPageHeader } from '@/components/admin/AdminPageHeader';
 import { AdminStatsGroup, AdminStatItem } from '@/components/admin/AdminStatsGroup';
-import { Product } from '@/types/product';
+import { PaymentMetrics } from '@/types/payment';
+import { useCurrency } from '@/hooks/useCurrency';
 import { cn } from '@/lib/utils';
 
-interface ProductsHeaderProps {
+interface PaymentsHeaderProps {
   totalCount: number;
-  products?: Product[];
+  metrics?: PaymentMetrics;
   isFetching: boolean;
   onRefresh: () => void;
   onExport: () => void;
-  onAddProduct: () => void;
 }
 
-export function ProductsHeader({
+export function PaymentsHeader({
   totalCount,
-  products = [],
+  metrics,
   isFetching,
   onRefresh,
   onExport,
-  onAddProduct,
-}: ProductsHeaderProps) {
-  const activeCount = products.filter((p) => p.status === 'ACTIVE').length;
-  const lowStockCount = products.filter((p) => p.stock > 0 && p.stock <= 5).length;
-  const outOfStockCount = products.filter((p) => p.stock === 0).length;
+}: PaymentsHeaderProps) {
+  const { formatPrice } = useCurrency();
 
   const stats: AdminStatItem[] = [
     {
-      title: 'Total Products',
-      value: totalCount,
-      icon: Package,
-      color: 'primary',
-      badge: 'Catalog',
-    },
-    {
-      title: 'Active Products',
-      value: activeCount,
-      icon: CheckCircle2,
+      title: 'Total Captured Revenue',
+      value: formatPrice(metrics?.totalRevenue ?? 0),
+      icon: DollarSign,
       color: 'emerald',
-      badge: 'In Store',
+      badge: 'Net Revenue',
     },
     {
-      title: 'Low Stock Items',
-      value: lowStockCount,
-      icon: AlertCircle,
+      title: 'Successful Payments',
+      value: (metrics?.successfulCount ?? 0).toLocaleString(),
+      icon: CheckCircle2,
+      color: 'primary',
+      badge: 'Settled',
+    },
+    {
+      title: 'Pending Transactions',
+      value: (metrics?.pendingCount ?? 0).toLocaleString(),
+      icon: Clock,
       color: 'amber',
-      badge: 'Stock <= 5',
+      badge: 'Processing',
     },
     {
-      title: 'Out of Stock',
-      value: outOfStockCount,
+      title: 'Failed / Disputed',
+      value: (metrics?.failedCount ?? 0).toLocaleString(),
       icon: XCircle,
       color: 'rose',
-      badge: 'Needs Restock',
+      badge: 'Unsuccessful',
     },
   ];
 
   return (
     <div className="space-y-4">
       <AdminPageHeader
-        title="Products"
-        description="Manage and organize your store catalog, pricing and stock inventory."
-        breadcrumbs={[{ label: 'Products' }]}
+        title="Payments"
+        description="Monitor online payment transactions, provider gateways (Stripe & bKash), and settled revenue."
+        breadcrumbs={[{ label: 'Payments' }]}
         badge={
           <Badge
             variant="outline"
@@ -98,22 +95,13 @@ export function ProductsHeader({
               Refresh
             </Button>
             <Button
-              variant="outline"
+              variant="default"
               size="sm"
               onClick={onExport}
               className="h-9 gap-2 text-xs"
             >
               <Download className="h-3.5 w-3.5" />
               Export CSV
-            </Button>
-            <Button
-              variant="default"
-              size="sm"
-              onClick={onAddProduct}
-              className="h-9 gap-2 text-xs"
-            >
-              <Plus className="h-3.5 w-3.5" />
-              Add Product
             </Button>
           </div>
         }
