@@ -89,7 +89,7 @@ export function ProductsTable({
         />
       ) : (
         <>
-          <div className="relative">
+          <div className="relative min-h-[220px]">
             {isFetching && (
               <div className="absolute inset-0 bg-background/30 backdrop-blur-[1px] z-10 flex items-center justify-center transition-opacity" />
             )}

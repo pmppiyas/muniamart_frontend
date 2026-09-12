@@ -1,7 +1,15 @@
 'use client';
 
 import * as React from 'react';
-import { RefreshCw, Download, CheckCircle2, Clock, Truck, XCircle, ShoppingBag } from 'lucide-react';
+import {
+  RefreshCw,
+  Download,
+  CheckCircle2,
+  Clock,
+  Truck,
+  XCircle,
+  ShoppingBag,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { OrderMetrics } from '@/types/order';
@@ -39,7 +47,8 @@ export function OrdersHeader({
       label: 'Pending',
       count: metrics?.pending ?? 0,
       icon: Clock,
-      color: 'text-amber-600 dark:text-amber-400 bg-amber-500/10 border-amber-500/20',
+      color:
+        'text-amber-600 dark:text-amber-400 bg-amber-500/10 border-amber-500/20',
       activeColor: 'bg-amber-600 text-white border-amber-600',
     },
     {
@@ -47,7 +56,8 @@ export function OrdersHeader({
       label: 'Confirmed',
       count: metrics?.confirmed ?? 0,
       icon: CheckCircle2,
-      color: 'text-emerald-700 dark:text-emerald-300 bg-emerald-500/15 border-emerald-500/30',
+      color:
+        'text-emerald-700 dark:text-emerald-300 bg-emerald-500/15 border-emerald-500/30',
       activeColor: 'bg-emerald-600 text-white border-emerald-600',
     },
     {
@@ -63,7 +73,8 @@ export function OrdersHeader({
       label: 'Delivered',
       count: metrics?.delivered ?? 0,
       icon: CheckCircle2,
-      color: 'text-green-700 dark:text-green-300 bg-green-500/15 border-green-500/30',
+      color:
+        'text-green-700 dark:text-green-300 bg-green-500/15 border-green-500/30',
       activeColor: 'bg-green-600 text-white border-green-600',
     },
     {
@@ -71,7 +82,8 @@ export function OrdersHeader({
       label: 'Canceled',
       count: metrics?.canceled ?? 0,
       icon: XCircle,
-      color: 'text-rose-600 dark:text-rose-400 bg-rose-500/10 border-rose-500/20',
+      color:
+        'text-rose-600 dark:text-rose-400 bg-rose-500/10 border-rose-500/20',
       activeColor: 'bg-rose-600 text-white border-rose-600',
     },
   ];
@@ -93,7 +105,8 @@ export function OrdersHeader({
             </Badge>
           </div>
           <p className="text-[11px] sm:text-xs text-muted-foreground">
-            Monitor incoming orders, track customer shipments, and manage fulfillment workflow
+            Monitor incoming orders, track customer shipments, and manage
+            fulfillment workflow
           </p>
         </div>
 
@@ -138,7 +151,10 @@ export function OrdersHeader({
                 'inline-flex items-center gap-1.5 rounded-xl border px-2.5 py-1.5 text-xs font-semibold whitespace-nowrap transition-all cursor-pointer select-none',
                 isActive
                   ? tab.activeColor
-                  : cn('bg-card text-muted-foreground border-border/80 hover:text-foreground', tab.color)
+                  : cn(
+                      'bg-card text-muted-foreground border-border/80 hover:text-foreground',
+                      tab.color
+                    )
               )}
             >
               {tab.icon && <tab.icon className="h-3.5 w-3.5 shrink-0" />}
@@ -146,7 +162,9 @@ export function OrdersHeader({
               <span
                 className={cn(
                   'rounded-md px-1.5 py-0.2 text-[10px] font-mono font-bold',
-                  isActive ? 'bg-white/25 text-white' : 'bg-muted text-foreground'
+                  isActive
+                    ? 'bg-white/25 text-white'
+                    : 'bg-muted text-foreground'
                 )}
               >
                 {tab.count}

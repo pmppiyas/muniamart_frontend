@@ -69,28 +69,77 @@ export function DropdownMenuTrigger({
 export function DropdownMenuContent({
   children,
   align = 'end',
+  side = 'auto',
   className,
 }: {
   children: React.ReactNode;
   align?: 'start' | 'center' | 'end';
+  side?: 'top' | 'bottom' | 'auto';
   className?: string;
 }) {
   const context = React.useContext(DropdownContext);
   if (!context) throw new Error('DropdownMenuContent must be used within DropdownMenu');
 
+  const contentRef = React.useRef<HTMLDivElement>(null);
+  const [openUpwards, setOpenUpwards] = React.useState(side === 'top');
+
+  React.useLayoutEffect(() => {
+    if (!context.open || !contentRef.current) return;
+
+    if (side === 'top') {
+      setOpenUpwards(true);
+      return;
+    }
+    if (side === 'bottom') {
+      setOpenUpwards(false);
+      return;
+    }
+
+    const rect = contentRef.current.getBoundingClientRect();
+    const viewportHeight = window.innerHeight;
+
+    let parentBottom = viewportHeight;
+    let parentElem: HTMLElement | null = contentRef.current.parentElement;
+    while (parentElem && parentElem !== document.body) {
+      const style = window.getComputedStyle(parentElem);
+      if (
+        style.overflow === 'auto' ||
+        style.overflow === 'hidden' ||
+        style.overflowY === 'auto' ||
+        style.overflowY === 'hidden'
+      ) {
+        parentBottom = parentElem.getBoundingClientRect().bottom;
+        break;
+      }
+      parentElem = parentElem.parentElement;
+    }
+
+    if (rect.bottom > parentBottom || rect.bottom > viewportHeight - 20) {
+      setOpenUpwards(true);
+    } else {
+      setOpenUpwards(false);
+    }
+  }, [context.open, side]);
+
   if (!context.open) return null;
 
   const alignClasses = {
-    start: 'left-0 origin-top-left',
-    center: 'left-1/2 -translate-x-1/2 origin-top',
-    end: 'right-0 origin-top-right',
+    start: 'left-0',
+    center: 'left-1/2 -translate-x-1/2',
+    end: 'right-0',
   };
+
+  const positionClasses = openUpwards
+    ? 'bottom-full mb-1.5 origin-bottom-right'
+    : 'top-full mt-1.5 origin-top-right';
 
   return (
     <div
+      ref={contentRef}
       className={cn(
-        'absolute z-50 mt-1.5 min-w-[10rem] overflow-hidden rounded-xl border border-border bg-popover/95 p-1 text-popover-foreground shadow-lg backdrop-blur-md animate-in fade-in-0 zoom-in-95 duration-100',
+        'absolute z-50 min-w-[10rem] overflow-hidden rounded-xl border border-border bg-popover/95 p-1 text-popover-foreground shadow-lg backdrop-blur-md animate-in fade-in-0 zoom-in-95 duration-100',
         alignClasses[align],
+        positionClasses,
         className
       )}
     >
