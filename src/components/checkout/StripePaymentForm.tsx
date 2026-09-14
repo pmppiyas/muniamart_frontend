@@ -36,11 +36,12 @@ export function StripePaymentForm({
     setErrorMessage(null);
 
     try {
-      const { error } = await stripe.confirmPayment({
+      const { error, paymentIntent } = await stripe.confirmPayment({
         elements,
         confirmParams: {
           return_url: `${window.location.origin}/checkout/success?orderId=${orderId}`,
         },
+        redirect: 'if_required',
       });
 
       if (error) {
@@ -50,6 +51,9 @@ export function StripePaymentForm({
           setErrorMessage('An unexpected error occurred. Please try again.');
         }
         toast.error(error.message || 'Payment failed');
+      } else if (paymentIntent && paymentIntent.status === 'succeeded') {
+        toast.success('Payment completed successfully!');
+        onSuccess();
       }
     } catch (err) {
       setErrorMessage('Something went wrong. Please try again.');
@@ -60,9 +64,9 @@ export function StripePaymentForm({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
-      <div className="w-full max-w-md rounded-3xl border border-border bg-card p-6 shadow-2xl space-y-5">
-        <div className="flex items-center justify-between">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 overflow-y-auto">
+      <div className="w-full max-w-md max-h-[90vh] overflow-y-auto rounded-3xl border border-border bg-card p-6 shadow-2xl space-y-5 my-auto">
+        <div className="sticky top-0 z-10 flex items-center justify-between bg-card pb-2 pt-1 border-b border-border/50">
           <h3 className="text-lg font-bold text-foreground">
             Complete Payment
           </h3>

@@ -14,6 +14,7 @@ export interface CreatePaymentRequest {
 export interface CreatePaymentResponse {
   paymentId: string;
   clientSecret: string;
+  redirectUrl?: string;
   transactionId: string;
 }
 

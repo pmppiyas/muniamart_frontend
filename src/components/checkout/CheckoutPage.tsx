@@ -52,9 +52,9 @@ export function CheckoutPage() {
   const [pendingConfirmation, setPendingConfirmation] =
     React.useState<OrderConfirmationData | null>(null);
 
-  const standardFee = subtotal >= 50 ? 0 : 5;
-  const expressFee = 10;
-  const shippingFee = deliveryMethod === 'express' ? expressFee : standardFee;
+  const standardFee = 0;
+  const expressFee = 0;
+  const shippingFee = 0;
 
   const discount = React.useMemo(() => {
     if (!coupon) return 0;
@@ -77,6 +77,23 @@ export function CheckoutPage() {
       router.push('/cart');
     }
   }, [mounted, items.length, router, stripeClientSecret]);
+
+  React.useEffect(() => {
+    if (!mounted) return;
+    const params = new URLSearchParams(window.location.search);
+    const paymentStatus = params.get('paymentStatus');
+    if (paymentStatus === 'cancel') {
+      toast.info('bKash payment was cancelled.');
+      window.history.replaceState({}, '', window.location.pathname);
+    } else if (paymentStatus === 'failed') {
+      toast.error('bKash payment failed. Please try again.');
+      window.history.replaceState({}, '', window.location.pathname);
+    } else if (paymentStatus === 'error') {
+      const msg = params.get('message') || 'Payment processing error.';
+      toast.error(msg);
+      window.history.replaceState({}, '', window.location.pathname);
+    }
+  }, [mounted]);
 
   const buildConfirmationData = (
     formData: CheckoutFormData,
@@ -156,27 +173,28 @@ export function CheckoutPage() {
       if (formData.paymentMethod === 'cod') {
         await saveAndRedirectSuccess(confirmationData);
       } else if (formData.paymentMethod === 'card') {
-        if (!stripePromise) {
-          toast.error('Stripe is not configured. Please contact support.');
-          setIsSubmitting(false);
-          return;
-        }
-
         const paymentRes = await createPaymentApi({
           orderId,
           provider: 'STRIPE',
         }).unwrap();
 
-        const clientSecret = paymentRes.data?.clientSecret;
-        if (!clientSecret) {
+        const stripeURL =
+          paymentRes.data?.redirectUrl ||
+          paymentRes.data?.clientSecret;
+
+        if (!stripeURL) {
           throw new Error(
-            'Failed to create payment - no client secret returned'
+            'Failed to create Stripe payment - no checkout URL returned'
           );
         }
 
-        setPendingOrderId(orderId);
-        setPendingConfirmation(confirmationData);
-        setStripeClientSecret(clientSecret);
+        try {
+          sessionStorage.setItem('lastOrder', JSON.stringify(confirmationData));
+        } catch {}
+
+        toast.info('Redirecting to Stripe Checkout...');
+        window.location.href = stripeURL;
+        return;
       } else if (formData.paymentMethod === 'bkash') {
         const paymentRes = await createPaymentApi({
           orderId,

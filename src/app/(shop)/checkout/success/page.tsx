@@ -4,12 +4,18 @@ import * as React from 'react';
 import { useSearchParams } from 'next/navigation';
 import { OrderSuccessReceipt } from '@/components/checkout/OrderSuccessReceipt';
 import { OrderConfirmationData } from '@/features/checkout/checkoutTypes';
+import { useCart } from '@/hooks/useCart';
 
 function CheckoutSuccessContent() {
   const searchParams = useSearchParams();
   const orderIdFromUrl = searchParams.get('orderId');
   const [orderData, setOrderData] =
     React.useState<OrderConfirmationData | null>(null);
+  const { clearAll } = useCart();
+
+  React.useEffect(() => {
+    clearAll();
+  }, [clearAll]);
 
   React.useEffect(() => {
     try {

@@ -11,7 +11,6 @@ import {
   DeliveryMethod,
   PaymentMethod,
 } from '@/features/checkout/checkoutTypes';
-import { DeliveryOptions } from './DeliveryOptions';
 import { PaymentMethodSelector } from './PaymentMethodSelector';
 import { CustomerUser } from '@/features/auth/authTypes';
 
@@ -240,15 +239,6 @@ export function CheckoutForm({
             />
           </div>
         </div>
-      </div>
-
-      <div className="rounded-3xl border border-border bg-card p-6 shadow-sm">
-        <DeliveryOptions
-          selectedMethod={deliveryMethod}
-          onSelect={onDeliveryMethodChange}
-          standardFee={standardFee}
-          expressFee={expressFee}
-        />
       </div>
 
       <div className="rounded-3xl border border-border bg-card p-6 shadow-sm">
