@@ -8,9 +8,14 @@ import {
   PermissionDefinition,
   UpdateAdminPayload,
 } from '@/types/admin';
+import { DashboardMetadata } from '@/types/dashboard';
 
 export const adminApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
+    getDashboardMetadata: builder.query<ApiResponse<DashboardMetadata>, void>({
+      query: () => '/admin/metadata',
+      providesTags: ['Order', 'Product', 'Customer', { type: 'Admin', id: 'LIST' }],
+    }),
     getAllAdmins: builder.query<GetAllAdminsResponse, AdminQueryParams | void>({
       query: (params) => {
         const queryParams = new URLSearchParams();
@@ -82,6 +87,7 @@ export const adminApi = baseApi.injectEndpoints({
 });
 
 export const {
+  useGetDashboardMetadataQuery,
   useGetAllAdminsQuery,
   useGetSingleAdminQuery,
   useGetAvailablePermissionsQuery,
