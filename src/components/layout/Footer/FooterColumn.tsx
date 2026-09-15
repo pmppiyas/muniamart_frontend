@@ -19,7 +19,7 @@ interface FooterColumnProps {
 export function FooterColumn({ title, links, className }: FooterColumnProps) {
   return (
     <div className={cn('space-y-3.5', className)}>
-      <h4 className="text-xs font-black uppercase tracking-wider text-zinc-900">
+      <h4 className="text-xs font-black uppercase tracking-wider text-white">
         {title}
       </h4>
       <ul className="space-y-2.5">
@@ -27,11 +27,11 @@ export function FooterColumn({ title, links, className }: FooterColumnProps) {
           <li key={link.label}>
             <Link
               href={link.href}
-              className="inline-flex items-center gap-1.5 text-xs font-medium text-zinc-600 hover:text-blue-600 transition-colors"
+              className="inline-flex items-center gap-1.5 text-xs font-medium text-zinc-400 hover:text-white transition-colors"
             >
               <span>{link.label}</span>
               {link.badge && (
-                <span className="rounded-full bg-blue-100 px-1.5 py-0.2 text-[9px] font-bold text-blue-700">
+                <span className="rounded-full bg-primary/20 text-blue-300 px-1.5 py-0.2 text-[9px] font-bold">
                   {link.badge}
                 </span>
               )}

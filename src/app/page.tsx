@@ -1,16 +1,44 @@
-export default function HomePage() {
+import mockData from '@/data/mockData.json';
+import { HeroSection } from '@/components/home/HeroSection';
+import { CategorySection } from '@/components/home/CategorySection';
+import { FeaturedProducts } from '@/components/home/FeaturedProducts';
+import { PromoBanner } from '@/components/home/PromoBanner';
+import { NewArrivals } from '@/components/home/NewArrivals';
+import { BestSelling } from '@/components/home/BestSelling';
+import { WhyChooseUs } from '@/components/home/WhyChooseUs';
+import { getCategoriesFromDb } from '@/services/categoryService';
+import { getProductsFromDb } from '@/services/productService';
+import {
+  Product,
+  HeroSlide,
+  PromoBanner as PromoBannerType,
+  TrustFeature,
+} from '@/types/product';
+
+export default async function HomePage() {
+  const [categories, products] = await Promise.all([
+    getCategoriesFromDb(),
+    getProductsFromDb(),
+  ]);
+  const heroSlides = mockData.heroSlides as HeroSlide[];
+  const promoBanner = mockData.promoBanner as PromoBannerType;
+  const whyChooseUs = mockData.whyChooseUs as TrustFeature[];
+
   return (
-    <div className="flex flex-1 flex-col items-center justify-center min-h-[50vh] p-8 text-center">
-      <div className="flex flex-col items-center gap-3">
-        <div className="rounded-2xl border border-border bg-card px-8 py-6 shadow-xs">
-          <span className="text-3xl sm:text-4xl font-black tracking-wider text-foreground">
-            MUNIA<span className="text-primary">MART</span>
-          </span>
-          <p className="mt-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-            Phase 1: Header, Footer, Light &amp; Black Mode Ready
-          </p>
-        </div>
-      </div>
+    <div className="flex flex-col flex-1 bg-background">
+      <HeroSection slides={heroSlides} />
+
+      <CategorySection categories={categories} />
+
+      <FeaturedProducts products={products} />
+
+      <PromoBanner banner={promoBanner} />
+
+      <NewArrivals products={products} />
+
+      <BestSelling products={products} />
+
+      <WhyChooseUs features={whyChooseUs} />
     </div>
   );
 }

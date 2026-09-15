@@ -1,0 +1,2765 @@
+{
+  "heroSlides": [
+    {
+      "id": "slide-1",
+      "badge": "NEW DROP 2026",
+      "tagline": "LIMITED TIME OFFER",
+      "title": "Next-Gen Pro Audio & Noise Cancelling",
+      "subtitle": "Immerse yourself in studio-grade acoustic clarity with all-day ergonomic comfort.",
+      "discountText": "Save Up to 40% OFF",
+      "buttonText": "Shop Headphones",
+      "buttonLink": "/categories/electronics",
+      "imageUrl": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1000&auto=format&fit=crop",
+      "bgGradient": "from-blue-600/10 via-primary/5 to-transparent"
+    },
+    {
+      "id": "slide-2",
+      "badge": "SUMMER FASHION",
+      "tagline": "EXCLUSIVE ARRIVALS",
+      "title": "Minimalist Streetwear & Luxury Essentials",
+      "subtitle": "Crafted from 100% sustainable organic cotton and premium breathable materials.",
+      "discountText": "Flat 30% OFF Today",
+      "buttonText": "Explore Collection",
+      "buttonLink": "/categories/fashion",
+      "imageUrl": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1000&auto=format&fit=crop",
+      "bgGradient": "from-amber-500/10 via-orange-500/5 to-transparent"
+    },
+    {
+      "id": "slide-3",
+      "badge": "SMART LIVING",
+      "tagline": "FLAGSHIP DEVICES",
+      "title": "Titanium Smartwatch Ultra Edition",
+      "subtitle": "Precision biometric health tracking, sapphire glass display, and 14-day battery life.",
+      "discountText": "From $199 with Free Strap",
+      "buttonText": "Order Now",
+      "buttonLink": "/categories/electronics",
+      "imageUrl": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1000&auto=format&fit=crop",
+      "bgGradient": "from-emerald-500/10 via-teal-500/5 to-transparent"
+    }
+  ],
+  "categories": [
+    {
+      "id": "cat_cl01electronics",
+      "name": "Electronics & Gadgets",
+      "slug": "electronics",
+      "description": "Explore high-performance laptops, pro audio headphones, smart wearables, and cutting-edge optical gear engineered for everyday productivity.",
+      "parentId": null,
+      "icon": "Smartphone",
+      "itemCount": 15,
+      "imageUrl": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=600&auto=format&fit=crop",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "children": [
+        {
+          "id": "sub_mob",
+          "name": "Mobile",
+          "slug": "mobile",
+          "parentId": "cat_cl01electronics",
+          "icon": "Smartphone",
+          "itemCount": 3,
+          "imageUrl": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          "id": "sub_lap",
+          "name": "Laptop",
+          "slug": "laptop",
+          "parentId": "cat_cl01electronics",
+          "icon": "Laptop",
+          "itemCount": 3,
+          "imageUrl": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          "id": "sub_cam",
+          "name": "Camera",
+          "slug": "camera",
+          "parentId": "cat_cl01electronics",
+          "icon": "Camera",
+          "itemCount": 3,
+          "imageUrl": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          "id": "sub_acc",
+          "name": "Accessories",
+          "slug": "accessories",
+          "parentId": "cat_cl01electronics",
+          "icon": "Headphones",
+          "itemCount": 7,
+          "imageUrl": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=400&auto=format&fit=crop"
+        }
+      ]
+    },
+    {
+      "id": "cat_cl02fashion",
+      "name": "Fashion & Apparel",
+      "slug": "fashion",
+      "description": "Premium apparel crafted from sustainable organic textiles, luxury leather accessories, and everyday minimalist streetwear.",
+      "parentId": null,
+      "icon": "Shirt",
+      "itemCount": 13,
+      "imageUrl": "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?q=80&w=600&auto=format&fit=crop",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "children": [
+        {
+          "id": "sub_mcl",
+          "name": "Men's Clothing",
+          "slug": "mens-clothing",
+          "parentId": "cat_cl02fashion",
+          "icon": "Shirt",
+          "itemCount": 5,
+          "imageUrl": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          "id": "sub_foot",
+          "name": "Footwear",
+          "slug": "footwear",
+          "parentId": "cat_cl02fashion",
+          "icon": "Footprints",
+          "itemCount": 4,
+          "imageUrl": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          "id": "sub_bag",
+          "name": "Bags & Luggage",
+          "slug": "bags",
+          "parentId": "cat_cl02fashion",
+          "icon": "Briefcase",
+          "itemCount": 2,
+          "imageUrl": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          "id": "sub_eye",
+          "name": "Eyewear",
+          "slug": "eyewear",
+          "parentId": "cat_cl02fashion",
+          "icon": "Glasses",
+          "itemCount": 3,
+          "imageUrl": "https://images.unsplash.com/photo-1572635196237-14b3f281503f?q=80&w=400&auto=format&fit=crop"
+        }
+      ]
+    },
+    {
+      "id": "cat_cl03homeliving",
+      "name": "Home & Living",
+      "slug": "home-living",
+      "description": "Curated modern home essentials, barista espresso setups, artisan ceramic stoneware, and comfortable furniture.",
+      "parentId": null,
+      "icon": "Home",
+      "itemCount": 13,
+      "imageUrl": "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=600&auto=format&fit=crop",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "children": [
+        {
+          "id": "sub_coffee",
+          "name": "Coffee Equipment",
+          "slug": "coffee-equipment",
+          "parentId": "cat_cl03homeliving",
+          "icon": "Coffee",
+          "itemCount": 4,
+          "imageUrl": "https://images.unsplash.com/photo-1517668808822-9ebb02f2a0e6?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          "id": "sub_mugs",
+          "name": "Mugs & Cups",
+          "slug": "mugs-cups",
+          "parentId": "cat_cl03homeliving",
+          "icon": "CupSoda",
+          "itemCount": 5,
+          "imageUrl": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          "id": "sub_decor",
+          "name": "Decor & Lighting",
+          "slug": "decor-lighting",
+          "parentId": "cat_cl03homeliving",
+          "icon": "Lamp",
+          "itemCount": 4,
+          "imageUrl": "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=400&auto=format&fit=crop"
+        }
+      ]
+    },
+    {
+      "id": "cat_cl04beautyhealth",
+      "name": "Beauty & Wellness",
+      "slug": "beauty-health",
+      "description": "Dermatologist-tested skincare routines, clean organic cosmetics, and rejuvenating personal wellness treatments.",
+      "parentId": null,
+      "icon": "Sparkles",
+      "itemCount": 10,
+      "imageUrl": "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=600&auto=format&fit=crop",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "children": [
+        {
+          "id": "sub_skin",
+          "name": "Skincare",
+          "slug": "skincare",
+          "parentId": "cat_cl04beautyhealth",
+          "icon": "Sparkles",
+          "itemCount": 5,
+          "imageUrl": "https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          "id": "sub_hair",
+          "name": "Haircare",
+          "slug": "haircare",
+          "parentId": "cat_cl04beautyhealth",
+          "icon": "Scissors",
+          "itemCount": 2,
+          "imageUrl": "https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          "id": "sub_frag",
+          "name": "Fragrance",
+          "slug": "fragrance",
+          "parentId": "cat_cl04beautyhealth",
+          "icon": "Heart",
+          "itemCount": 2,
+          "imageUrl": "https://images.unsplash.com/photo-1547887537-6158d64c35b3?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          "id": "sub_make",
+          "name": "Makeup",
+          "slug": "makeup",
+          "parentId": "cat_cl04beautyhealth",
+          "icon": "Palette",
+          "itemCount": 1,
+          "imageUrl": "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=400&auto=format&fit=crop"
+        }
+      ]
+    },
+    {
+      "id": "cat_cl05sports",
+      "name": "Sports & Fitness",
+      "slug": "sports-fitness",
+      "description": "High-durability workout gear, performance running shoes, yoga mats, and recovery wellness equipment.",
+      "parentId": null,
+      "icon": "Dumbbell",
+      "itemCount": 12,
+      "imageUrl": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=600&auto=format&fit=crop",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "children": [
+        {
+          "id": "sub_work",
+          "name": "Workout Gear",
+          "slug": "workout-gear",
+          "parentId": "cat_cl05sports",
+          "icon": "Dumbbell",
+          "itemCount": 4,
+          "imageUrl": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          "id": "sub_run",
+          "name": "Running Shoes",
+          "slug": "running-shoes",
+          "parentId": "cat_cl05sports",
+          "icon": "Footprints",
+          "itemCount": 0,
+          "imageUrl": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          "id": "sub_yoga",
+          "name": "Yoga & Pilates",
+          "slug": "yoga-pilates",
+          "parentId": "cat_cl05sports",
+          "icon": "Heart",
+          "itemCount": 1,
+          "imageUrl": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          "id": "sub_fitacc",
+          "name": "Fitness Accessories",
+          "slug": "fitness-accessories",
+          "parentId": "cat_cl05sports",
+          "icon": "Watch",
+          "itemCount": 5,
+          "imageUrl": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=400&auto=format&fit=crop"
+        }
+      ]
+    },
+    {
+      "id": "cat_cl06groceries",
+      "name": "Daily Groceries",
+      "slug": "groceries",
+      "description": "Farm-fresh organic fruits, vegetables, pantry provisions, and dairy products delivered straight to your doorstep.",
+      "parentId": null,
+      "icon": "ShoppingBasket",
+      "itemCount": 10,
+      "imageUrl": "https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=600&auto=format&fit=crop",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "children": [
+        {
+          "id": "sub_fresh",
+          "name": "Fresh Produce",
+          "slug": "fresh-produce",
+          "parentId": "cat_cl06groceries",
+          "icon": "Apple",
+          "itemCount": 1,
+          "imageUrl": "https://images.unsplash.com/photo-1610832958506-aa56368176cf?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          "id": "sub_dairy",
+          "name": "Dairy & Eggs",
+          "slug": "dairy-eggs",
+          "parentId": "cat_cl06groceries",
+          "icon": "Egg",
+          "itemCount": 3,
+          "imageUrl": "https://images.unsplash.com/photo-1550583724-b2692b85b150?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          "id": "sub_bev",
+          "name": "Beverages",
+          "slug": "beverages",
+          "parentId": "cat_cl06groceries",
+          "icon": "Coffee",
+          "itemCount": 2,
+          "imageUrl": "https://images.unsplash.com/photo-1544145945-f90425340c7e?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          "id": "sub_snack",
+          "name": "Snacks & Pantry",
+          "slug": "snacks-pantry",
+          "parentId": "cat_cl06groceries",
+          "icon": "Cookie",
+          "itemCount": 4,
+          "imageUrl": "https://images.unsplash.com/photo-1599490659213-e2b9527bd087?q=80&w=400&auto=format&fit=crop"
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "prod_cl01sonywh",
+      "slug": "sony-wh-1000xm5",
+      "name": "Sony WH-1000XM5 Wireless Noise Cancelling Headphones",
+      "sku": "SKU-SNY-WH1005",
+      "brand": "Sony",
+      "description": "Industry leading noise cancellation with two processors and 8 microphones. Ultra comfortable lightweight design with soft fit leather and up to 30 hours of battery life with quick charging.",
+      "photoUrl": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=800&auto=format&fit=crop",
+      "images": [
+        "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=800&auto=format&fit=crop"
+      ],
+      "price": 348,
+      "originalPrice": 399.99,
+      "discountPercent": 13,
+      "stock": 25,
+      "status": "ACTIVE",
+      "rating": 4.9,
+      "reviewsCount": 384,
+      "categoryId": "cat_cl01electronics",
+      "subcategorySlug": "accessories",
+      "category": {
+        "id": "cat_cl01electronics",
+        "name": "Electronics & Gadgets",
+        "slug": "electronics"
+      },
+      "isFeatured": true,
+      "isNew": false,
+      "isBestSeller": true,
+      "features": [
+        "Industry-leading active noise cancellation with Auto NC Optimizer",
+        "Magnificent sound engineered with High-Resolution Audio support",
+        "Crystal clear hands-free calling with 4 beamforming microphones",
+        "Up to 30-hour battery life with quick 3-minute charging for 3 hours playback",
+        "Multipoint Bluetooth connection allows pairing with two devices simultaneously"
+      ],
+      "specifications": {
+        "Brand": "Sony",
+        "Model": "WH-1000XM5",
+        "Type": "Over-Ear Wireless",
+        "Connectivity": "Bluetooth 5.2, 3.5mm Aux",
+        "Battery Life": "Up to 30 Hours (ANC On)",
+        "Weight": "250 grams",
+        "Noise Cancellation": "Active (Auto NC Optimizer)",
+        "Warranty": "1 Year Manufacturer Official"
+      },
+      "variants": [
+        {
+          "id": "v-black",
+          "type": "color",
+          "name": "Black",
+          "value": "#000000",
+          "inStock": true
+        },
+        {
+          "id": "v-silver",
+          "type": "color",
+          "name": "Platinum Silver",
+          "value": "#D1D5DB",
+          "inStock": true
+        },
+        {
+          "id": "v-blue",
+          "type": "color",
+          "name": "Midnight Blue",
+          "value": "#1E3A8A",
+          "inStock": true
+        }
+      ],
+      "reviews": [
+        {
+          "id": "rev-1",
+          "author": "Marcus Vance",
+          "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=120&auto=format&fit=crop",
+          "rating": 5,
+          "date": "2026-02-14",
+          "title": "Unbelievable noise cancelling & acoustic depth",
+          "comment": "These are hands-down the best travel and work headphones I've ever owned. The noise cancelling removes all subway drone and office chatter effortlessly. Battery easily lasts the whole work week.",
+          "verifiedPurchase": true
+        },
+        {
+          "id": "rev-2",
+          "author": "Sarah Jenkins",
+          "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=120&auto=format&fit=crop",
+          "rating": 5,
+          "date": "2026-02-02",
+          "title": "Super lightweight and comfortable for long sessions",
+          "comment": "I wear these 7-8 hours a day for meetings and coding. Unlike previous models, these don't put any pressure on the crown of the head. Soundstage is crisp and immersive.",
+          "verifiedPurchase": true
+        },
+        {
+          "id": "rev-3",
+          "author": "David Chen",
+          "rating": 4,
+          "date": "2026-01-28",
+          "title": "Great sound, wish the case folded smaller",
+          "comment": "Sound quality and call clarity are a solid 10/10. The only minor gripe is the case is slightly larger than the XM4 because the earcups rotate flat but don't fold inward.",
+          "verifiedPurchase": true
+        }
+      ],
+      "createdAt": "2026-01-10T00:00:00.000Z",
+      "updatedAt": "2026-01-10T00:00:00.000Z"
+    },
+    {
+      "id": "prod_cl02applewatch",
+      "slug": "apple-watch-series-9",
+      "name": "Apple Watch Series 9 GPS 45mm Midnight Aluminum",
+      "sku": "SKU-APL-WTHS9",
+      "brand": "Apple",
+      "description": "Smarter, brighter, and mightier. Powered by the S9 SiP with Double Tap gesture control, precision blood oxygen monitoring, and Carbon Neutral combinations.",
+      "photoUrl": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=800&auto=format&fit=crop",
+      "images": [
+        "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?q=80&w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?q=80&w=800&auto=format&fit=crop"
+      ],
+      "price": 389,
+      "originalPrice": 429,
+      "discountPercent": 9,
+      "stock": 18,
+      "status": "ACTIVE",
+      "rating": 4.8,
+      "reviewsCount": 215,
+      "categoryId": "cat_cl01electronics",
+      "subcategorySlug": "mobile",
+      "category": {
+        "id": "cat_cl01electronics",
+        "name": "Electronics & Gadgets",
+        "slug": "electronics"
+      },
+      "isFeatured": true,
+      "isNew": true,
+      "isBestSeller": true,
+      "features": [
+        "Powerful S9 SiP chip with 4-core Neural Engine",
+        "Magical Double Tap gesture control without touching the screen",
+        "Up to 2000 nits Always-On Retina OLED display",
+        "Advanced ECG, blood oxygen, and temperature tracking",
+        "50m water resistant and swimproof"
+      ],
+      "specifications": {
+        "Brand": "Apple",
+        "Case Size": "45mm",
+        "Material": "100% Recycled Aluminum",
+        "Display": "Always-On Retina (2000 nits)",
+        "Water Resistance": "50 meters (ISO 22810)",
+        "Battery": "Up to 18 hours (36 hours Low Power)",
+        "Warranty": "1 Year Apple Limited"
+      },
+      "variants": [
+        {
+          "id": "v-midnight",
+          "type": "color",
+          "name": "Midnight",
+          "value": "#1E293B",
+          "inStock": true
+        },
+        {
+          "id": "v-starlight",
+          "type": "color",
+          "name": "Starlight",
+          "value": "#F1F5F9",
+          "inStock": true
+        },
+        {
+          "id": "v-silver",
+          "type": "color",
+          "name": "Silver",
+          "value": "#E2E8F0",
+          "inStock": true
+        }
+      ],
+      "reviews": [
+        {
+          "id": "rev-w1",
+          "author": "Jessica Taylor",
+          "rating": 5,
+          "date": "2026-02-18",
+          "title": "The double tap gesture is surprisingly useful",
+          "comment": "I use the double tap feature constantly when carrying groceries or cooking. Screen is blazing bright outdoors under direct sunlight.",
+          "verifiedPurchase": true
+        }
+      ],
+      "createdAt": "2026-01-12T00:00:00.000Z",
+      "updatedAt": "2026-01-12T00:00:00.000Z"
+    },
+    {
+      "id": "prod_cl03leatherbackpack",
+      "slug": "heritage-leather-backpack",
+      "name": "Heritage Full-Grain Leather Commuter Backpack",
+      "sku": "SKU-BAG-LTH01",
+      "brand": "Heritage",
+      "description": "Handcrafted with full-grain Italian leather, padded 16-inch laptop compartment, water-resistant lining, and solid brass hardware.",
+      "photoUrl": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=800&auto=format&fit=crop",
+      "images": [
+        "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=800&auto=format&fit=crop"
+      ],
+      "price": 149,
+      "originalPrice": 199,
+      "discountPercent": 25,
+      "stock": 12,
+      "status": "ACTIVE",
+      "rating": 4.7,
+      "reviewsCount": 94,
+      "categoryId": "cat_cl02fashion",
+      "subcategorySlug": "bags",
+      "category": {
+        "id": "cat_cl02fashion",
+        "name": "Fashion & Apparel",
+        "slug": "fashion"
+      },
+      "isFeatured": true,
+      "isNew": false,
+      "isBestSeller": false,
+      "features": [
+        "100% Full-grain vegetable-tanned Italian leather",
+        "Dedicated padded compartment fits laptops up to 16 inches",
+        "Ergonomic padded shoulder straps with breathable mesh back panel",
+        "Weatherproof YKK antique brass zippers"
+      ],
+      "specifications": {
+        "Brand": "Heritage",
+        "Material": "Full-Grain Leather",
+        "Capacity": "22 Liters",
+        "Laptop Fit": "Up to 16-inch MacBook Pro",
+        "Dimensions": "45 x 30 x 15 cm",
+        "Warranty": "Lifetime Craftsmanship Warranty"
+      },
+      "variants": [
+        {
+          "id": "v-tan",
+          "type": "color",
+          "name": "Cognac Tan",
+          "value": "#92400E",
+          "inStock": true
+        },
+        {
+          "id": "v-brown",
+          "type": "color",
+          "name": "Dark Espresso",
+          "value": "#451A03",
+          "inStock": true
+        },
+        {
+          "id": "v-black",
+          "type": "color",
+          "name": "Matte Black",
+          "value": "#18181B",
+          "inStock": true
+        }
+      ],
+      "reviews": [
+        {
+          "id": "rev-b1",
+          "author": "Liam Gallagher",
+          "rating": 5,
+          "date": "2026-01-20",
+          "title": "Smells amazing, patina develops beautifully",
+          "comment": "Have been using this for daily commuting for a month. Extremely sturdy leather and fits my 16 inch laptop with charger and notebook comfortably.",
+          "verifiedPurchase": true
+        }
+      ],
+      "createdAt": "2026-01-15T00:00:00.000Z",
+      "updatedAt": "2026-01-15T00:00:00.000Z"
+    },
+    {
+      "id": "prod_cl04running",
+      "slug": "nike-air-zoom-pegasus-40",
+      "name": "Nike Air Zoom Pegasus 40 Performance Running Shoes",
+      "sku": "SKU-NKE-PG40",
+      "brand": "Nike",
+      "description": "A springy ride for any run with responsive React technology and two Zoom Air units for energetic toe-offs.",
+      "photoUrl": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=800&auto=format&fit=crop",
+      "images": [
+        "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1608231387042-66d1773070a5?q=80&w=800&auto=format&fit=crop"
+      ],
+      "price": 129.99,
+      "originalPrice": 160,
+      "discountPercent": 19,
+      "stock": 30,
+      "status": "ACTIVE",
+      "rating": 4.9,
+      "reviewsCount": 512,
+      "categoryId": "cat_cl05sports",
+      "subcategorySlug": "footwear",
+      "category": {
+        "id": "cat_cl05sports",
+        "name": "Sports & Fitness",
+        "slug": "sports-fitness"
+      },
+      "isFeatured": true,
+      "isNew": false,
+      "isBestSeller": true,
+      "features": [
+        "Dual Zoom Air units at forefoot and heel for responsive energy return",
+        "Nike React foam midsole for smooth, cushioned ride",
+        "Engineered single-layer mesh upper for optimal breathability",
+        "Waffle-inspired rubber outsole delivers high-durability traction"
+      ],
+      "specifications": {
+        "Brand": "Nike",
+        "Model": "Pegasus 40",
+        "Surface": "Road / Track Running",
+        "Drop": "10 mm",
+        "Cushioning": "Medium / Responsive",
+        "Weight": "288g (Men's Size 10)"
+      },
+      "variants": [
+        {
+          "id": "v-red",
+          "type": "color",
+          "name": "University Red",
+          "value": "#DC2626",
+          "inStock": true
+        },
+        {
+          "id": "v-black",
+          "type": "color",
+          "name": "Black / White",
+          "value": "#18181B",
+          "inStock": true
+        },
+        {
+          "id": "v-blue",
+          "type": "color",
+          "name": "Racer Blue",
+          "value": "#2563EB",
+          "inStock": true
+        },
+        {
+          "id": "s-8",
+          "type": "size",
+          "name": "US 8",
+          "value": "8",
+          "inStock": true
+        },
+        {
+          "id": "s-9",
+          "type": "size",
+          "name": "US 9",
+          "value": "9",
+          "inStock": true
+        },
+        {
+          "id": "s-10",
+          "type": "size",
+          "name": "US 10",
+          "value": "10",
+          "inStock": true
+        },
+        {
+          "id": "s-11",
+          "type": "size",
+          "name": "US 11",
+          "value": "11",
+          "inStock": true
+        }
+      ],
+      "reviews": [
+        {
+          "id": "rev-p1",
+          "author": "Alex Rivera",
+          "rating": 5,
+          "date": "2026-02-11",
+          "title": "My go-to daily trainer for marathon prep",
+          "comment": "Clocked over 200 miles on these shoes already and the cushion hasn't compressed. True to size with great arch support.",
+          "verifiedPurchase": true
+        }
+      ],
+      "createdAt": "2026-01-08T00:00:00.000Z",
+      "updatedAt": "2026-01-08T00:00:00.000Z"
+    },
+    {
+      "id": "prod_cl05macbook",
+      "slug": "macbook-air-15-m3",
+      "name": "Apple MacBook Air 15-inch M3 Chip 16GB / 512GB",
+      "sku": "SKU-APL-MBA15",
+      "brand": "Apple",
+      "description": "Incredibly thin and fast. Liquid Retina display, MagSafe 3 charging, 18-hour battery life, and high-performance neural engine.",
+      "photoUrl": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=800&auto=format&fit=crop",
+      "images": [
+        "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=800&auto=format&fit=crop"
+      ],
+      "price": 1499,
+      "originalPrice": 1699,
+      "discountPercent": 12,
+      "stock": 8,
+      "status": "ACTIVE",
+      "rating": 5,
+      "reviewsCount": 168,
+      "categoryId": "cat_cl01electronics",
+      "subcategorySlug": "laptop",
+      "category": {
+        "id": "cat_cl01electronics",
+        "name": "Electronics & Gadgets",
+        "slug": "electronics"
+      },
+      "isFeatured": false,
+      "isNew": true,
+      "isBestSeller": true,
+      "createdAt": "2026-01-20T00:00:00.000Z",
+      "updatedAt": "2026-01-20T00:00:00.000Z"
+    },
+    {
+      "id": "prod_cl06sunglasses",
+      "slug": "rayban-aviator-polarized",
+      "name": "Ray-Ban Classic Polarized Aviator Sunglasses",
+      "sku": "SKU-RAY-AV01",
+      "brand": "Ray-Ban",
+      "description": "Timeless icon with crystal polarized lenses providing 100% UV protection and glare elimination with ultra durable gold-tone frame.",
+      "photoUrl": "https://images.unsplash.com/photo-1572635196237-14b3f281503f?q=80&w=800&auto=format&fit=crop",
+      "images": [
+        "https://images.unsplash.com/photo-1572635196237-14b3f281503f?q=80&w=800&auto=format&fit=crop"
+      ],
+      "price": 168,
+      "originalPrice": 210,
+      "discountPercent": 20,
+      "stock": 42,
+      "status": "ACTIVE",
+      "rating": 4.8,
+      "reviewsCount": 147,
+      "categoryId": "cat_cl02fashion",
+      "subcategorySlug": "eyewear",
+      "category": {
+        "id": "cat_cl02fashion",
+        "name": "Fashion & Apparel",
+        "slug": "fashion"
+      },
+      "isFeatured": false,
+      "isNew": true,
+      "isBestSeller": false,
+      "createdAt": "2026-01-22T00:00:00.000Z",
+      "updatedAt": "2026-01-22T00:00:00.000Z"
+    },
+    {
+      "id": "prod_cl07speaker",
+      "slug": "marshall-stanmore-iii",
+      "name": "Marshall Stanmore III Bluetooth Wireless Speaker",
+      "sku": "SKU-MSH-ST3",
+      "brand": "Marshall",
+      "description": "Re-engineered for a wider soundstage. Signature vintage rock design with room-filling Marshall stereo sound and Bluetooth 5.2.",
+      "photoUrl": "https://images.unsplash.com/photo-1545454675-3531b543be5d?q=80&w=800&auto=format&fit=crop",
+      "images": [
+        "https://images.unsplash.com/photo-1545454675-3531b543be5d?q=80&w=800&auto=format&fit=crop"
+      ],
+      "price": 379.99,
+      "originalPrice": 420,
+      "discountPercent": 10,
+      "stock": 14,
+      "status": "ACTIVE",
+      "rating": 4.9,
+      "reviewsCount": 89,
+      "categoryId": "cat_cl01electronics",
+      "subcategorySlug": "accessories",
+      "category": {
+        "id": "cat_cl01electronics",
+        "name": "Electronics & Gadgets",
+        "slug": "electronics"
+      },
+      "isFeatured": false,
+      "isNew": true,
+      "isBestSeller": false,
+      "createdAt": "2026-01-24T00:00:00.000Z",
+      "updatedAt": "2026-01-24T00:00:00.000Z"
+    },
+    {
+      "id": "prod_cl08ceramicmug",
+      "slug": "artisan-ceramic-mug-set",
+      "name": "Artisan Stoneware Ceramic Coffee Mug 4-Piece Set",
+      "sku": "SKU-HOM-MUG4",
+      "brand": "Artisan",
+      "description": "Hand-glazed artisan stoneware with earthy tones. Microwave and dishwasher safe, featuring ergonomic handle design.",
+      "photoUrl": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=800&auto=format&fit=crop",
+      "images": [
+        "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=800&auto=format&fit=crop"
+      ],
+      "price": 34.5,
+      "originalPrice": 45,
+      "discountPercent": 23,
+      "stock": 60,
+      "status": "ACTIVE",
+      "rating": 4.6,
+      "reviewsCount": 73,
+      "categoryId": "cat_cl03homeliving",
+      "subcategorySlug": "mugs-cups",
+      "category": {
+        "id": "cat_cl03homeliving",
+        "name": "Home & Living",
+        "slug": "home-living"
+      },
+      "isFeatured": false,
+      "isNew": false,
+      "isBestSeller": true,
+      "createdAt": "2026-01-05T00:00:00.000Z",
+      "updatedAt": "2026-01-05T00:00:00.000Z"
+    },
+    {
+      "id": "prod_cl09coffee",
+      "slug": "delonghi-dedica-deluxe",
+      "name": "De'Longhi Dedica Deluxe Espresso & Cappuccino Machine",
+      "sku": "SKU-HOM-DLG01",
+      "brand": "De'Longhi",
+      "description": "Sleek compact 15-bar pump espresso maker with manual milk frother for barista quality lattes and cappuccinos at home.",
+      "photoUrl": "https://images.unsplash.com/photo-1517668808822-9ebb02f2a0e6?q=80&w=800&auto=format&fit=crop",
+      "images": [
+        "https://images.unsplash.com/photo-1517668808822-9ebb02f2a0e6?q=80&w=800&auto=format&fit=crop"
+      ],
+      "price": 299.95,
+      "originalPrice": 349.95,
+      "discountPercent": 14,
+      "stock": 16,
+      "status": "ACTIVE",
+      "rating": 4.8,
+      "reviewsCount": 310,
+      "categoryId": "cat_cl03homeliving",
+      "subcategorySlug": "coffee-equipment",
+      "category": {
+        "id": "cat_cl03homeliving",
+        "name": "Home & Living",
+        "slug": "home-living"
+      },
+      "isFeatured": true,
+      "isNew": false,
+      "isBestSeller": true,
+      "createdAt": "2026-01-04T00:00:00.000Z",
+      "updatedAt": "2026-01-04T00:00:00.000Z"
+    },
+    {
+      "id": "prod_cl10camera",
+      "slug": "fujifilm-xt5-camera",
+      "name": "Fujifilm X-T5 Mirrorless Camera Body (Silver)",
+      "sku": "SKU-CAM-FUJI5",
+      "brand": "Fujifilm",
+      "description": "40.2MP X-Trans CMOS 5 HR sensor, 5-axis in-body image stabilization, and legendary film simulation modes in a retro dial body.",
+      "photoUrl": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=800&auto=format&fit=crop",
+      "images": [
+        "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=800&auto=format&fit=crop"
+      ],
+      "price": 1699,
+      "originalPrice": 1799,
+      "discountPercent": 6,
+      "stock": 5,
+      "status": "ACTIVE",
+      "rating": 4.9,
+      "reviewsCount": 82,
+      "categoryId": "cat_cl01electronics",
+      "subcategorySlug": "camera",
+      "category": {
+        "id": "cat_cl01electronics",
+        "name": "Electronics & Gadgets",
+        "slug": "electronics"
+      },
+      "isFeatured": false,
+      "isNew": true,
+      "isBestSeller": false,
+      "createdAt": "2026-01-25T00:00:00.000Z",
+      "updatedAt": "2026-01-25T00:00:00.000Z"
+    },
+    {
+      "id": "prod_cl11nikehoodie",
+      "slug": "nike-sportswear-club-fleece-hoodie",
+      "name": "Nike Sportswear Club Fleece Pullover Hoodie",
+      "sku": "SKU-NKE-CLBF01",
+      "brand": "Nike",
+      "description": "Soft brushed-back fleece fabric with ribbed cuffs and adjustable drawstring hood. Standard fit for a relaxed, easy feel.",
+      "photoUrl": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=800&auto=format&fit=crop",
+      "images": [
+        "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=800&auto=format&fit=crop"
+      ],
+      "price": 65,
+      "originalPrice": 75,
+      "discountPercent": 13,
+      "stock": 35,
+      "status": "ACTIVE",
+      "rating": 4.7,
+      "reviewsCount": 189,
+      "categoryId": "cat_cl02fashion",
+      "subcategorySlug": "mens-clothing",
+      "category": {
+        "id": "cat_cl02fashion",
+        "name": "Fashion & Apparel",
+        "slug": "fashion"
+      },
+      "isFeatured": false,
+      "isNew": false,
+      "isBestSeller": true,
+      "createdAt": "2026-01-16T00:00:00.000Z",
+      "updatedAt": "2026-01-16T00:00:00.000Z"
+    },
+    {
+      "id": "prod_cl12airpods",
+      "slug": "apple-airpods-pro-2",
+      "name": "Apple AirPods Pro (2nd Generation) USB-C",
+      "sku": "SKU-APL-APP2",
+      "brand": "Apple",
+      "description": "Up to 2x more Active Noise Cancellation. Transparency mode and Personalized Spatial Audio with dynamic head tracking.",
+      "photoUrl": "https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?q=80&w=800&auto=format&fit=crop",
+      "images": [
+        "https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?q=80&w=800&auto=format&fit=crop"
+      ],
+      "price": 249,
+      "originalPrice": 279,
+      "discountPercent": 11,
+      "stock": 20,
+      "status": "ACTIVE",
+      "rating": 4.9,
+      "reviewsCount": 420,
+      "categoryId": "cat_cl01electronics",
+      "subcategorySlug": "accessories",
+      "category": {
+        "id": "cat_cl01electronics",
+        "name": "Electronics & Gadgets",
+        "slug": "electronics"
+      },
+      "isFeatured": true,
+      "isNew": true,
+      "isBestSeller": true,
+      "createdAt": "2026-01-26T00:00:00.000Z",
+      "updatedAt": "2026-01-26T00:00:00.000Z"
+    },
+    {
+      "id": "prod_cl13smartbottle",
+      "slug": "ember-temperature-control-smart-mug-2",
+      "name": "Ember Temperature Control Smart Mug 2 (14 oz)",
+      "sku": "SKU-EMB-SM2",
+      "brand": "Ember",
+      "description": "Keep your hot drink at your exact preferred drinking temperature for up to 80 minutes on a single charge or all day on coaster.",
+      "photoUrl": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=800&auto=format&fit=crop",
+      "images": [
+        "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=800&auto=format&fit=crop"
+      ],
+      "price": 149.95,
+      "originalPrice": 179.95,
+      "discountPercent": 17,
+      "stock": 0,
+      "status": "ACTIVE",
+      "rating": 4.5,
+      "reviewsCount": 64,
+      "categoryId": "cat_cl03homeliving",
+      "subcategorySlug": "mugs-cups",
+      "category": {
+        "id": "cat_cl03homeliving",
+        "name": "Home & Living",
+        "slug": "home-living"
+      },
+      "isFeatured": false,
+      "isNew": false,
+      "isBestSeller": false,
+      "createdAt": "2026-01-07T00:00:00.000Z",
+      "updatedAt": "2026-01-07T00:00:00.000Z"
+    },
+    {
+      "id": "prod_cl14yogamat",
+      "slug": "lululemon-reversible-yoga-mat-5mm",
+      "name": "Lululemon 5mm Reversible Natural Rubber Yoga Mat",
+      "sku": "SKU-LLM-YM5",
+      "brand": "Lululemon",
+      "description": "Designed for yoga and floor workouts with textured grip on both sides and natural antimicrobial rubber base.",
+      "photoUrl": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800&auto=format&fit=crop",
+      "images": [
+        "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800&auto=format&fit=crop"
+      ],
+      "price": 88,
+      "originalPrice": 98,
+      "discountPercent": 10,
+      "stock": 22,
+      "status": "ACTIVE",
+      "rating": 4.8,
+      "reviewsCount": 112,
+      "categoryId": "cat_cl05sports",
+      "subcategorySlug": "accessories",
+      "category": {
+        "id": "cat_cl05sports",
+        "name": "Sports & Fitness",
+        "slug": "sports-fitness"
+      },
+      "isFeatured": false,
+      "isNew": true,
+      "isBestSeller": false,
+      "createdAt": "2026-01-21T00:00:00.000Z",
+      "updatedAt": "2026-01-21T00:00:00.000Z"
+    },
+    {
+      "id": "prod_elec_macbook",
+      "slug": "macbook-pro-16-m3",
+      "name": "Apple MacBook Pro 16\" M3 Max (36GB RAM, 1TB SSD)",
+      "sku": "SKU-ELEC-MBP16",
+      "brand": "Apple",
+      "description": "Supercharged by M3 Max with up to 16-core CPU and 40-core GPU. Liquid Retina XDR display with 1000 nits sustained brightness and up to 22 hours of battery life.",
+      "photoUrl": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=800&auto=format&fit=crop",
+      "price": 2499,
+      "originalPrice": 2899,
+      "discountPercent": 14,
+      "stock": 18,
+      "status": "ACTIVE",
+      "rating": 4.9,
+      "reviewsCount": 210,
+      "categoryId": "cat_cl01electronics",
+      "subcategorySlug": "laptop",
+      "category": {
+        "id": "cat_cl01electronics",
+        "name": "Electronics & Gadgets",
+        "slug": "electronics"
+      },
+      "isFeatured": true,
+      "isBestSeller": true,
+      "isNew": true,
+      "images": [
+        "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_elec_applewatch",
+      "slug": "apple-watch-ultra-2",
+      "name": "Apple Watch Ultra 2 GPS + Cellular Titanium 49mm",
+      "sku": "SKU-ELEC-AWU2",
+      "brand": "Apple",
+      "description": "The most rugged and capable Apple Watch. Powered by S9 SiP with a 3000-nit display, precision dual-frequency GPS, and up to 72 hours in Low Power Mode.",
+      "photoUrl": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=800&auto=format&fit=crop",
+      "price": 799,
+      "originalPrice": 849,
+      "discountPercent": 6,
+      "stock": 30,
+      "status": "ACTIVE",
+      "rating": 4.8,
+      "reviewsCount": 145,
+      "categoryId": "cat_cl01electronics",
+      "subcategorySlug": "accessories",
+      "category": {
+        "id": "cat_cl01electronics",
+        "name": "Electronics & Gadgets",
+        "slug": "electronics"
+      },
+      "isFeatured": true,
+      "isBestSeller": false,
+      "isNew": true,
+      "images": [
+        "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_elec_s24ultra",
+      "slug": "samsung-galaxy-s24-ultra",
+      "name": "Samsung Galaxy S24 Ultra 5G (512GB Titanium Gray)",
+      "sku": "SKU-ELEC-S24U",
+      "brand": "Samsung",
+      "description": "Galaxy AI powered flagship with built-in S Pen, 200MP camera system with 5x optical zoom, and titanium frame protection.",
+      "photoUrl": "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?q=80&w=800&auto=format&fit=crop",
+      "price": 1199,
+      "originalPrice": 1299.99,
+      "discountPercent": 8,
+      "stock": 22,
+      "status": "ACTIVE",
+      "rating": 4.8,
+      "reviewsCount": 312,
+      "categoryId": "cat_cl01electronics",
+      "subcategorySlug": "mobile",
+      "category": {
+        "id": "cat_cl01electronics",
+        "name": "Electronics & Gadgets",
+        "slug": "electronics"
+      },
+      "isFeatured": false,
+      "isBestSeller": true,
+      "isNew": true,
+      "images": [
+        "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_elec_a7iv",
+      "slug": "sony-alpha-a7-iv",
+      "name": "Sony Alpha A7 IV Full-Frame Mirrorless Camera Body",
+      "sku": "SKU-ELEC-A7IV",
+      "brand": "Sony",
+      "description": "33MP BSI full-frame Exmor R CMOS sensor, 4K 60p 10-bit video, Real-time Eye AF for humans, animals and birds with 5-axis optical stabilization.",
+      "photoUrl": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=800&auto=format&fit=crop",
+      "price": 2198,
+      "originalPrice": 2498,
+      "discountPercent": 12,
+      "stock": 14,
+      "status": "ACTIVE",
+      "rating": 4.9,
+      "reviewsCount": 189,
+      "categoryId": "cat_cl01electronics",
+      "subcategorySlug": "camera",
+      "category": {
+        "id": "cat_cl01electronics",
+        "name": "Electronics & Gadgets",
+        "slug": "electronics"
+      },
+      "isFeatured": false,
+      "isBestSeller": false,
+      "isNew": false,
+      "images": [
+        "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_elec_dellxps",
+      "slug": "dell-xps-15-oled",
+      "name": "Dell XPS 15 (9530) 3.5K OLED Touch Laptop Intel i9",
+      "sku": "SKU-ELEC-XPS15",
+      "brand": "Dell",
+      "description": "Stunning 3.5K OLED InfinityEdge display, 13th Gen Intel Core i9, NVIDIA GeForce RTX 4070, and CNC machined aluminum chassis.",
+      "photoUrl": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?q=80&w=800&auto=format&fit=crop",
+      "price": 1899,
+      "originalPrice": 2199,
+      "discountPercent": 14,
+      "stock": 16,
+      "status": "ACTIVE",
+      "rating": 4.7,
+      "reviewsCount": 98,
+      "categoryId": "cat_cl01electronics",
+      "subcategorySlug": "laptop",
+      "category": {
+        "id": "cat_cl01electronics",
+        "name": "Electronics & Gadgets",
+        "slug": "electronics"
+      },
+      "isFeatured": false,
+      "isBestSeller": false,
+      "isNew": false,
+      "images": [
+        "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_elec_ipadpro",
+      "slug": "apple-ipad-pro-129",
+      "name": "Apple iPad Pro 12.9\" M2 Liquid Retina XDR 256GB",
+      "sku": "SKU-ELEC-IPAD129",
+      "brand": "Apple",
+      "description": "Liquid Retina XDR display with ProMotion and True Tone. M2 chip with 8-core CPU and 10-core GPU, supporting Apple Pencil hover experience.",
+      "photoUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?q=80&w=800&auto=format&fit=crop",
+      "price": 1099,
+      "originalPrice": 1199,
+      "discountPercent": 8,
+      "stock": 28,
+      "status": "ACTIVE",
+      "rating": 4.9,
+      "reviewsCount": 240,
+      "categoryId": "cat_cl01electronics",
+      "subcategorySlug": "mobile",
+      "category": {
+        "id": "cat_cl01electronics",
+        "name": "Electronics & Gadgets",
+        "slug": "electronics"
+      },
+      "isFeatured": true,
+      "isBestSeller": true,
+      "isNew": false,
+      "images": [
+        "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_elec_boseqc",
+      "slug": "bose-quietcomfort-ultra",
+      "name": "Bose QuietComfort Ultra Wireless Earbuds",
+      "sku": "SKU-ELEC-BOSEQC",
+      "brand": "Bose",
+      "description": "Breakthrough spatialized audio for more immersive listening. World-class noise cancellation calibrated custom to your ear shape with CustomTune.",
+      "photoUrl": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?q=80&w=800&auto=format&fit=crop",
+      "price": 299,
+      "originalPrice": 349,
+      "discountPercent": 14,
+      "stock": 45,
+      "status": "ACTIVE",
+      "rating": 4.8,
+      "reviewsCount": 167,
+      "categoryId": "cat_cl01electronics",
+      "subcategorySlug": "accessories",
+      "category": {
+        "id": "cat_cl01electronics",
+        "name": "Electronics & Gadgets",
+        "slug": "electronics"
+      },
+      "isFeatured": false,
+      "isBestSeller": false,
+      "isNew": true,
+      "images": [
+        "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_elec_canonr6",
+      "slug": "canon-eos-r6-mk2",
+      "name": "Canon EOS R6 Mark II Mirrorless Camera Kit with 24-105mm Lens",
+      "sku": "SKU-ELEC-CANONR6",
+      "brand": "Canon",
+      "description": "24.2MP CMOS Sensor, 40 fps electronic shutter, 4K 60p 10-bit internal recording, Dual Pixel CMOS AF II with Deep Learning technology.",
+      "photoUrl": "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?q=80&w=800&auto=format&fit=crop",
+      "price": 2299,
+      "originalPrice": 2599,
+      "discountPercent": 11,
+      "stock": 12,
+      "status": "ACTIVE",
+      "rating": 4.9,
+      "reviewsCount": 88,
+      "categoryId": "cat_cl01electronics",
+      "subcategorySlug": "camera",
+      "category": {
+        "id": "cat_cl01electronics",
+        "name": "Electronics & Gadgets",
+        "slug": "electronics"
+      },
+      "isFeatured": false,
+      "isBestSeller": false,
+      "isNew": false,
+      "images": [
+        "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_elec_anker200w",
+      "slug": "anker-prime-200w-powerbank",
+      "name": "Anker Prime 20,000mAh Power Bank (200W Output)",
+      "sku": "SKU-ELEC-ANKER200",
+      "brand": "Anker",
+      "description": "Dual high-speed USB-C ports with 200W total charging power, smart digital display showing remaining battery and real-time charging status.",
+      "photoUrl": "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?q=80&w=800&auto=format&fit=crop",
+      "price": 129.99,
+      "originalPrice": 149.99,
+      "discountPercent": 13,
+      "stock": 60,
+      "status": "ACTIVE",
+      "rating": 4.8,
+      "reviewsCount": 320,
+      "categoryId": "cat_cl01electronics",
+      "subcategorySlug": "accessories",
+      "category": {
+        "id": "cat_cl01electronics",
+        "name": "Electronics & Gadgets",
+        "slug": "electronics"
+      },
+      "isFeatured": false,
+      "isBestSeller": true,
+      "isNew": false,
+      "images": [
+        "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_fash_nikedunk",
+      "slug": "nike-dunk-low-retro",
+      "name": "Nike Dunk Low Retro White Black (Panda)",
+      "sku": "SKU-FASH-DUNK",
+      "brand": "Nike",
+      "description": "Created for the hardwood but taken to the streets, the Nike Dunk Low Retro delivers classic retro basketball looks with padded low-cut collars.",
+      "photoUrl": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=800&auto=format&fit=crop",
+      "price": 115,
+      "originalPrice": 135,
+      "discountPercent": 15,
+      "stock": 40,
+      "status": "ACTIVE",
+      "rating": 4.8,
+      "reviewsCount": 512,
+      "categoryId": "cat_cl02fashion",
+      "subcategorySlug": "footwear",
+      "category": {
+        "id": "cat_cl02fashion",
+        "name": "Fashion & Apparel",
+        "slug": "fashion"
+      },
+      "isFeatured": true,
+      "isBestSeller": true,
+      "isNew": false,
+      "images": [
+        "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_fash_levi501",
+      "slug": "levis-501-original-fit",
+      "name": "Levi's 501 Original Fit Straight Leg Jeans",
+      "sku": "SKU-FASH-LEVI501",
+      "brand": "Levi's",
+      "description": "The original straight fit jean since 1873. Crafted with signature button fly, all-cotton construction, and iconic leather patch at back waist.",
+      "photoUrl": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=800&auto=format&fit=crop",
+      "price": 79.5,
+      "originalPrice": 98,
+      "discountPercent": 19,
+      "stock": 55,
+      "status": "ACTIVE",
+      "rating": 4.7,
+      "reviewsCount": 390,
+      "categoryId": "cat_cl02fashion",
+      "subcategorySlug": "mens-clothing",
+      "category": {
+        "id": "cat_cl02fashion",
+        "name": "Fashion & Apparel",
+        "slug": "fashion"
+      },
+      "isFeatured": false,
+      "isBestSeller": true,
+      "isNew": false,
+      "images": [
+        "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_fash_rloxford",
+      "slug": "ralph-lauren-classic-oxford",
+      "name": "Polo Ralph Lauren Classic Fit Cotton Oxford Shirt",
+      "sku": "SKU-FASH-RLOX",
+      "brand": "Ralph Lauren",
+      "description": "An essential pillar of the Polo style. Crafted from breathable cotton oxford fabric with button-down collar and signature embroidered Pony.",
+      "photoUrl": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=800&auto=format&fit=crop",
+      "price": 98,
+      "originalPrice": 115,
+      "discountPercent": 15,
+      "stock": 35,
+      "status": "ACTIVE",
+      "rating": 4.8,
+      "reviewsCount": 220,
+      "categoryId": "cat_cl02fashion",
+      "subcategorySlug": "mens-clothing",
+      "category": {
+        "id": "cat_cl02fashion",
+        "name": "Fashion & Apparel",
+        "slug": "fashion"
+      },
+      "isFeatured": true,
+      "isBestSeller": false,
+      "isNew": true,
+      "images": [
+        "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_fash_patagonia",
+      "slug": "patagonia-better-sweater",
+      "name": "Patagonia Men's Better Sweater Fleece Jacket",
+      "sku": "SKU-FASH-PATAGO",
+      "brand": "Patagonia",
+      "description": "Warm, 100% recycled polyester sweater-knit fleece jacket dyed with a low-impact process that significantly reduces environmental footprint.",
+      "photoUrl": "https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=800&auto=format&fit=crop",
+      "price": 139,
+      "originalPrice": 159,
+      "discountPercent": 12,
+      "stock": 28,
+      "status": "ACTIVE",
+      "rating": 4.9,
+      "reviewsCount": 175,
+      "categoryId": "cat_cl02fashion",
+      "subcategorySlug": "mens-clothing",
+      "category": {
+        "id": "cat_cl02fashion",
+        "name": "Fashion & Apparel",
+        "slug": "fashion"
+      },
+      "isFeatured": false,
+      "isBestSeller": false,
+      "isNew": false,
+      "images": [
+        "https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_fash_rayban",
+      "slug": "rayban-classic-wayfarer",
+      "name": "Ray-Ban Original Wayfarer Classic Polarized Sunglasses",
+      "sku": "SKU-FASH-RAYBAN",
+      "brand": "Ray-Ban",
+      "description": "The most recognizable style in the history of sunglasses. Black acetate frame with G-15 green polarized lenses providing 100% UV protection.",
+      "photoUrl": "https://images.unsplash.com/photo-1572635196237-14b3f281503f?q=80&w=800&auto=format&fit=crop",
+      "price": 163,
+      "originalPrice": 195,
+      "discountPercent": 16,
+      "stock": 45,
+      "status": "ACTIVE",
+      "rating": 4.8,
+      "reviewsCount": 410,
+      "categoryId": "cat_cl02fashion",
+      "subcategorySlug": "eyewear",
+      "category": {
+        "id": "cat_cl02fashion",
+        "name": "Fashion & Apparel",
+        "slug": "fashion"
+      },
+      "isFeatured": true,
+      "isBestSeller": true,
+      "isNew": false,
+      "images": [
+        "https://images.unsplash.com/photo-1572635196237-14b3f281503f?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_fash_bellroy",
+      "slug": "bellroy-classic-backpack-plus",
+      "name": "Bellroy Classic Backpack Plus 24L Water-Resistant",
+      "sku": "SKU-FASH-BELLROY",
+      "brand": "Bellroy",
+      "description": "Thoughtful dual-compartment organization with separate laptop access, lumbar support, and sustainably sourced recycled woven fabrics.",
+      "photoUrl": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=800&auto=format&fit=crop",
+      "price": 189,
+      "originalPrice": 219,
+      "discountPercent": 14,
+      "stock": 20,
+      "status": "ACTIVE",
+      "rating": 4.9,
+      "reviewsCount": 132,
+      "categoryId": "cat_cl02fashion",
+      "subcategorySlug": "bags",
+      "category": {
+        "id": "cat_cl02fashion",
+        "name": "Fashion & Apparel",
+        "slug": "fashion"
+      },
+      "isFeatured": false,
+      "isBestSeller": false,
+      "isNew": true,
+      "images": [
+        "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_fash_ultraboost",
+      "slug": "adidas-ultraboost-light",
+      "name": "Adidas Ultraboost Light Running Shoes Core Black",
+      "sku": "SKU-FASH-UB01",
+      "brand": "Adidas",
+      "description": "Experience epic energy return with the lightest Ultraboost yet. Featuring Light BOOST midsole and Continental Natural Performance Rubber outsole.",
+      "photoUrl": "https://images.unsplash.com/photo-1587563871167-1ee9c731aefb?q=80&w=800&auto=format&fit=crop",
+      "price": 190,
+      "originalPrice": 210,
+      "discountPercent": 10,
+      "stock": 32,
+      "status": "ACTIVE",
+      "rating": 4.8,
+      "reviewsCount": 285,
+      "categoryId": "cat_cl02fashion",
+      "subcategorySlug": "footwear",
+      "category": {
+        "id": "cat_cl02fashion",
+        "name": "Fashion & Apparel",
+        "slug": "fashion"
+      },
+      "isFeatured": false,
+      "isBestSeller": true,
+      "isNew": false,
+      "images": [
+        "https://images.unsplash.com/photo-1587563871167-1ee9c731aefb?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_fash_tommybomber",
+      "slug": "tommy-hilfiger-bomber-jacket",
+      "name": "Tommy Hilfiger Classic Lightweight Water-Resistant Bomber",
+      "sku": "SKU-FASH-THBOMB",
+      "brand": "Tommy Hilfiger",
+      "description": "Timeless rib-knit collar and cuffs with signature flag embroidery at the chest and breathable interior mesh lining.",
+      "photoUrl": "https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=800&auto=format&fit=crop",
+      "price": 145,
+      "originalPrice": 179,
+      "discountPercent": 19,
+      "stock": 25,
+      "status": "ACTIVE",
+      "rating": 4.7,
+      "reviewsCount": 142,
+      "categoryId": "cat_cl02fashion",
+      "subcategorySlug": "mens-clothing",
+      "category": {
+        "id": "cat_cl02fashion",
+        "name": "Fashion & Apparel",
+        "slug": "fashion"
+      },
+      "isFeatured": false,
+      "isBestSeller": false,
+      "isNew": false,
+      "images": [
+        "https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_fash_fossil",
+      "slug": "fossil-grant-chronograph",
+      "name": "Fossil Grant Chronograph Roman Numerals Leather Watch",
+      "sku": "SKU-FASH-FOSSIL",
+      "brand": "Fossil",
+      "description": "Classic vintage styling featuring cream dial with blue hands, genuine dark brown leather band, and 50m water resistance.",
+      "photoUrl": "https://images.unsplash.com/photo-1524805444758-089113d48a6d?q=80&w=800&auto=format&fit=crop",
+      "price": 125,
+      "originalPrice": 155,
+      "discountPercent": 19,
+      "stock": 38,
+      "status": "ACTIVE",
+      "rating": 4.8,
+      "reviewsCount": 290,
+      "categoryId": "cat_cl02fashion",
+      "subcategorySlug": "eyewear",
+      "category": {
+        "id": "cat_cl02fashion",
+        "name": "Fashion & Apparel",
+        "slug": "fashion"
+      },
+      "isFeatured": false,
+      "isBestSeller": true,
+      "isNew": false,
+      "images": [
+        "https://images.unsplash.com/photo-1524805444758-089113d48a6d?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_fash_align",
+      "slug": "lululemon-align-high-rise",
+      "name": "Lululemon Align High-Rise Pant 25\" Nulu Fabric",
+      "sku": "SKU-FASH-LULU",
+      "brand": "Lululemon",
+      "description": "Buttery-soft weightless Nulu fabric engineered to feel like next to nothing while gently holding you during yoga and daily wear.",
+      "photoUrl": "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=800&auto=format&fit=crop",
+      "price": 98,
+      "originalPrice": 118,
+      "discountPercent": 17,
+      "stock": 50,
+      "status": "ACTIVE",
+      "rating": 4.9,
+      "reviewsCount": 680,
+      "categoryId": "cat_cl02fashion",
+      "subcategorySlug": "footwear",
+      "category": {
+        "id": "cat_cl02fashion",
+        "name": "Fashion & Apparel",
+        "slug": "fashion"
+      },
+      "isFeatured": true,
+      "isBestSeller": true,
+      "isNew": true,
+      "images": [
+        "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_home_breville",
+      "slug": "breville-barista-touch",
+      "name": "Breville Barista Touch Espresso Machine Brushed Stainless",
+      "sku": "SKU-HOME-BREV",
+      "brand": "Breville",
+      "description": "Automated touchscreen with pre-programmed cafe drinks. ThermoJet heating reaches extraction temperature in 3 seconds with auto microfoam milk texturing.",
+      "photoUrl": "https://images.unsplash.com/photo-1517668808822-9ebb02f2a0e6?q=80&w=800&auto=format&fit=crop",
+      "price": 999.95,
+      "originalPrice": 1199.95,
+      "discountPercent": 17,
+      "stock": 12,
+      "status": "ACTIVE",
+      "rating": 4.9,
+      "reviewsCount": 215,
+      "categoryId": "cat_cl03homeliving",
+      "subcategorySlug": "coffee-equipment",
+      "category": {
+        "id": "cat_cl03homeliving",
+        "name": "Home & Living",
+        "slug": "home-living"
+      },
+      "isFeatured": true,
+      "isBestSeller": true,
+      "isNew": true,
+      "images": [
+        "https://images.unsplash.com/photo-1517668808822-9ebb02f2a0e6?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_home_fellow",
+      "slug": "fellow-ode-gen2-grinder",
+      "name": "Fellow Ode Gen 2 Electric Conical Burr Coffee Grinder",
+      "sku": "SKU-HOME-FELLOW",
+      "brand": "Fellow",
+      "description": "Precision cafe-performance grinder with 64mm professional flat burrs, anti-static technology for mess-free mornings and auto-stop.",
+      "photoUrl": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=800&auto=format&fit=crop",
+      "price": 345,
+      "originalPrice": 395,
+      "discountPercent": 13,
+      "stock": 20,
+      "status": "ACTIVE",
+      "rating": 4.8,
+      "reviewsCount": 168,
+      "categoryId": "cat_cl03homeliving",
+      "subcategorySlug": "coffee-equipment",
+      "category": {
+        "id": "cat_cl03homeliving",
+        "name": "Home & Living",
+        "slug": "home-living"
+      },
+      "isFeatured": false,
+      "isBestSeller": false,
+      "isNew": true,
+      "images": [
+        "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_home_ceramicset",
+      "slug": "ceramic-pour-over-set",
+      "name": "Artisan Ceramic Pour-Over Dripper & Glass Server Set",
+      "sku": "SKU-HOME-CERAMIC",
+      "brand": "Kinto",
+      "description": "Handmade matte ceramic cone dripper with heat-resistant borosilicate glass carafe for meditative slow-coffee extraction.",
+      "photoUrl": "https://images.unsplash.com/photo-1577937927133-66ef06acdf18?q=80&w=800&auto=format&fit=crop",
+      "price": 48,
+      "originalPrice": 58,
+      "discountPercent": 17,
+      "stock": 65,
+      "status": "ACTIVE",
+      "rating": 4.8,
+      "reviewsCount": 94,
+      "categoryId": "cat_cl03homeliving",
+      "subcategorySlug": "mugs-cups",
+      "category": {
+        "id": "cat_cl03homeliving",
+        "name": "Home & Living",
+        "slug": "home-living"
+      },
+      "isFeatured": false,
+      "isBestSeller": true,
+      "isNew": false,
+      "images": [
+        "https://images.unsplash.com/photo-1577937927133-66ef06acdf18?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_home_dysonv15",
+      "slug": "dyson-v15-detect-vacuum",
+      "name": "Dyson V15 Detect Cordless Vacuum Cleaner with Laser",
+      "sku": "SKU-HOME-DYSON",
+      "brand": "Dyson",
+      "description": "Engineered with laser illumination to reveal invisible microscopic dust. Piezo sensor counts and measures dust particles on LCD screen.",
+      "photoUrl": "https://images.unsplash.com/photo-1558317374-067fb5f30001?q=80&w=800&auto=format&fit=crop",
+      "price": 749.99,
+      "originalPrice": 849.99,
+      "discountPercent": 12,
+      "stock": 15,
+      "status": "ACTIVE",
+      "rating": 4.9,
+      "reviewsCount": 310,
+      "categoryId": "cat_cl03homeliving",
+      "subcategorySlug": "decor-lighting",
+      "category": {
+        "id": "cat_cl03homeliving",
+        "name": "Home & Living",
+        "slug": "home-living"
+      },
+      "isFeatured": true,
+      "isBestSeller": true,
+      "isNew": false,
+      "images": [
+        "https://images.unsplash.com/photo-1558317374-067fb5f30001?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_home_philipshue",
+      "slug": "philips-hue-smart-kit",
+      "name": "Philips Hue White & Color Ambiance Smart Starter Kit",
+      "sku": "SKU-HOME-HUE",
+      "brand": "Philips Hue",
+      "description": "Includes 4 smart A19 LED color bulbs and Hue Bridge. 16 million colors to transform home atmosphere with voice and app control.",
+      "photoUrl": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?q=80&w=800&auto=format&fit=crop",
+      "price": 159.99,
+      "originalPrice": 199.99,
+      "discountPercent": 20,
+      "stock": 40,
+      "status": "ACTIVE",
+      "rating": 4.7,
+      "reviewsCount": 245,
+      "categoryId": "cat_cl03homeliving",
+      "subcategorySlug": "decor-lighting",
+      "category": {
+        "id": "cat_cl03homeliving",
+        "name": "Home & Living",
+        "slug": "home-living"
+      },
+      "isFeatured": false,
+      "isBestSeller": false,
+      "isNew": false,
+      "images": [
+        "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_home_kitchenaid",
+      "slug": "kitchenaid-artisan-stand-mixer",
+      "name": "KitchenAid Artisan Series 5-Quart Tilt-Head Stand Mixer",
+      "sku": "SKU-HOME-KAID",
+      "brand": "KitchenAid",
+      "description": "10 speeds for kneading, whipping and blending. Durable all-metal construction with stainless steel bowl and pouring shield.",
+      "photoUrl": "https://images.unsplash.com/photo-1594385208974-2e75f8d7bb48?q=80&w=800&auto=format&fit=crop",
+      "price": 449.99,
+      "originalPrice": 499.99,
+      "discountPercent": 10,
+      "stock": 22,
+      "status": "ACTIVE",
+      "rating": 4.9,
+      "reviewsCount": 480,
+      "categoryId": "cat_cl03homeliving",
+      "subcategorySlug": "coffee-equipment",
+      "category": {
+        "id": "cat_cl03homeliving",
+        "name": "Home & Living",
+        "slug": "home-living"
+      },
+      "isFeatured": true,
+      "isBestSeller": true,
+      "isNew": false,
+      "images": [
+        "https://images.unsplash.com/photo-1594385208974-2e75f8d7bb48?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_home_lecreuset",
+      "slug": "le-creuset-dutch-oven",
+      "name": "Le Creuset Enameled Cast Iron Round Dutch Oven 5.5 Qt",
+      "sku": "SKU-HOME-LECREU",
+      "brand": "Le Creuset",
+      "description": "Iconic French culinary staple designed for superior heat distribution and moisture retention from stovetop to oven to table.",
+      "photoUrl": "https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?q=80&w=800&auto=format&fit=crop",
+      "price": 420,
+      "originalPrice": 460,
+      "discountPercent": 9,
+      "stock": 18,
+      "status": "ACTIVE",
+      "rating": 4.9,
+      "reviewsCount": 320,
+      "categoryId": "cat_cl03homeliving",
+      "subcategorySlug": "mugs-cups",
+      "category": {
+        "id": "cat_cl03homeliving",
+        "name": "Home & Living",
+        "slug": "home-living"
+      },
+      "isFeatured": false,
+      "isBestSeller": false,
+      "isNew": false,
+      "images": [
+        "https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_home_nordiclamp",
+      "slug": "nordic-wood-floor-lamp",
+      "name": "Minimalist Nordic Solid Ash Wood Dimmable Floor Lamp",
+      "sku": "SKU-HOME-NORDIC",
+      "brand": "Muuto",
+      "description": "Sleek sculptural floor lamp with linen drum shade and warm touch-dimmable LED lighting designed to elevate living room tranquility.",
+      "photoUrl": "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?q=80&w=800&auto=format&fit=crop",
+      "price": 189,
+      "originalPrice": 229,
+      "discountPercent": 17,
+      "stock": 26,
+      "status": "ACTIVE",
+      "rating": 4.8,
+      "reviewsCount": 88,
+      "categoryId": "cat_cl03homeliving",
+      "subcategorySlug": "decor-lighting",
+      "category": {
+        "id": "cat_cl03homeliving",
+        "name": "Home & Living",
+        "slug": "home-living"
+      },
+      "isFeatured": false,
+      "isBestSeller": false,
+      "isNew": true,
+      "images": [
+        "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_home_ember",
+      "slug": "ember-temperature-smart-mug-2",
+      "name": "Ember Temperature Control Smart Mug 2 (14 oz, Matte Black)",
+      "sku": "SKU-HOME-EMBER",
+      "brand": "Ember",
+      "description": "Set your exact drinking temperature and keep hot coffee or tea at perfection for up to 80 minutes on a single charge.",
+      "photoUrl": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=800&auto=format&fit=crop",
+      "price": 129.95,
+      "originalPrice": 149.95,
+      "discountPercent": 13,
+      "stock": 42,
+      "status": "ACTIVE",
+      "rating": 4.7,
+      "reviewsCount": 195,
+      "categoryId": "cat_cl03homeliving",
+      "subcategorySlug": "mugs-cups",
+      "category": {
+        "id": "cat_cl03homeliving",
+        "name": "Home & Living",
+        "slug": "home-living"
+      },
+      "isFeatured": false,
+      "isBestSeller": true,
+      "isNew": false,
+      "images": [
+        "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_home_bamboosheet",
+      "slug": "luxury-bamboo-bed-sheets",
+      "name": "100% Organic Bamboo Cooling Sheet Set (Queen, White)",
+      "sku": "SKU-HOME-BAMBOO",
+      "brand": "Cozy Earth",
+      "description": "Ultra-breathable viscose from bamboo delivers cooling temperature regulation with a silky soft sateen weave.",
+      "photoUrl": "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=800&auto=format&fit=crop",
+      "price": 119,
+      "originalPrice": 149,
+      "discountPercent": 20,
+      "stock": 35,
+      "status": "ACTIVE",
+      "rating": 4.8,
+      "reviewsCount": 260,
+      "categoryId": "cat_cl03homeliving",
+      "subcategorySlug": "decor-lighting",
+      "category": {
+        "id": "cat_cl03homeliving",
+        "name": "Home & Living",
+        "slug": "home-living"
+      },
+      "isFeatured": false,
+      "isBestSeller": false,
+      "isNew": false,
+      "images": [
+        "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_beauty_dysonsupersonic",
+      "slug": "dyson-supersonic-nural",
+      "name": "Dyson Supersonic Nural Intelligent Hair Dryer",
+      "sku": "SKU-BEAU-DYSON",
+      "brand": "Dyson",
+      "description": "Automatic scalp protection with intelligent Nural sensors. Fast drying without extreme heat to protect natural hair shine.",
+      "photoUrl": "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=800&auto=format&fit=crop",
+      "price": 429.99,
+      "originalPrice": 499.99,
+      "discountPercent": 14,
+      "stock": 20,
+      "status": "ACTIVE",
+      "rating": 4.9,
+      "reviewsCount": 195,
+      "categoryId": "cat_cl04beautyhealth",
+      "subcategorySlug": "haircare",
+      "category": {
+        "id": "cat_cl04beautyhealth",
+        "name": "Beauty & Wellness",
+        "slug": "beauty-health"
+      },
+      "isFeatured": true,
+      "isBestSeller": true,
+      "isNew": true,
+      "images": [
+        "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_beauty_ordinary",
+      "slug": "the-ordinary-niacinamide-serum",
+      "name": "The Ordinary Niacinamide 10% + Zinc 1% Oil Control Serum",
+      "sku": "SKU-BEAU-ORDIN",
+      "brand": "The Ordinary",
+      "description": "High-strength vitamin and mineral blemish formula that visibly reduces shine and pores while improving skin texture.",
+      "photoUrl": "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=800&auto=format&fit=crop",
+      "price": 12.5,
+      "originalPrice": 15,
+      "discountPercent": 17,
+      "stock": 120,
+      "status": "ACTIVE",
+      "rating": 4.8,
+      "reviewsCount": 840,
+      "categoryId": "cat_cl04beautyhealth",
+      "subcategorySlug": "skincare",
+      "category": {
+        "id": "cat_cl04beautyhealth",
+        "name": "Beauty & Wellness",
+        "slug": "beauty-health"
+      },
+      "isFeatured": false,
+      "isBestSeller": true,
+      "isNew": false,
+      "images": [
+        "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_beauty_cerave",
+      "slug": "cerave-hydrating-cleanser",
+      "name": "CeraVe Hydrating Facial Cleanser with Ceramides 16 oz",
+      "sku": "SKU-BEAU-CERAVE",
+      "brand": "CeraVe",
+      "description": "Developed with dermatologists. Non-comedogenic gentle cleanser with hyaluronic acid and 3 essential ceramides for 24h hydration.",
+      "photoUrl": "https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=800&auto=format&fit=crop",
+      "price": 18.99,
+      "originalPrice": 22.99,
+      "discountPercent": 17,
+      "stock": 90,
+      "status": "ACTIVE",
+      "rating": 4.9,
+      "reviewsCount": 650,
+      "categoryId": "cat_cl04beautyhealth",
+      "subcategorySlug": "skincare",
+      "category": {
+        "id": "cat_cl04beautyhealth",
+        "name": "Beauty & Wellness",
+        "slug": "beauty-health"
+      },
+      "isFeatured": false,
+      "isBestSeller": true,
+      "isNew": false,
+      "images": [
+        "https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_beauty_laroche",
+      "slug": "la-roche-posay-anthelios",
+      "name": "La Roche-Posay Anthelios Ultra Light Mineral Sunscreen SPF 60",
+      "sku": "SKU-BEAU-LRP",
+      "brand": "La Roche-Posay",
+      "description": "100% mineral sunscreen with Cell-Ox Shield technology. Fast-absorbing, matte finish suitable for sensitive skin without white cast.",
+      "photoUrl": "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?q=80&w=800&auto=format&fit=crop",
+      "price": 26.99,
+      "originalPrice": 32,
+      "discountPercent": 16,
+      "stock": 75,
+      "status": "ACTIVE",
+      "rating": 4.8,
+      "reviewsCount": 420,
+      "categoryId": "cat_cl04beautyhealth",
+      "subcategorySlug": "skincare",
+      "category": {
+        "id": "cat_cl04beautyhealth",
+        "name": "Beauty & Wellness",
+        "slug": "beauty-health"
+      },
+      "isFeatured": true,
+      "isBestSeller": false,
+      "isNew": false,
+      "images": [
+        "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_beauty_baccarat",
+      "slug": "baccarat-rouge-540-edp",
+      "name": "Maison Francis Kurkdjian Baccarat Rouge 540 Eau de Parfum",
+      "sku": "SKU-BEAU-MFK",
+      "brand": "MFK",
+      "description": "Luminous and sophisticated fragrance laying on the skin like an amber, floral and woody breeze with cedarwood and jasmine accents.",
+      "photoUrl": "https://images.unsplash.com/photo-1547887537-6158d64c35b3?q=80&w=800&auto=format&fit=crop",
+      "price": 325,
+      "originalPrice": 350,
+      "discountPercent": 7,
+      "stock": 15,
+      "status": "ACTIVE",
+      "rating": 4.9,
+      "reviewsCount": 290,
+      "categoryId": "cat_cl04beautyhealth",
+      "subcategorySlug": "fragrance",
+      "category": {
+        "id": "cat_cl04beautyhealth",
+        "name": "Beauty & Wellness",
+        "slug": "beauty-health"
+      },
+      "isFeatured": true,
+      "isBestSeller": true,
+      "isNew": false,
+      "images": [
+        "https://images.unsplash.com/photo-1547887537-6158d64c35b3?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_beauty_chanel",
+      "slug": "chanel-coco-mademoiselle",
+      "name": "CHANEL Coco Mademoiselle Eau de Parfum Vaporisateur Spray",
+      "sku": "SKU-BEAU-CHANEL",
+      "brand": "CHANEL",
+      "description": "Irresistibly sensual, assertive and spirited amber fragrance featuring sparks of fresh vibrant orange, clear Grasse jasmine and May rose.",
+      "photoUrl": "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&w=800&auto=format&fit=crop",
+      "price": 165,
+      "originalPrice": 185,
+      "discountPercent": 11,
+      "stock": 24,
+      "status": "ACTIVE",
+      "rating": 4.9,
+      "reviewsCount": 460,
+      "categoryId": "cat_cl04beautyhealth",
+      "subcategorySlug": "fragrance",
+      "category": {
+        "id": "cat_cl04beautyhealth",
+        "name": "Beauty & Wellness",
+        "slug": "beauty-health"
+      },
+      "isFeatured": false,
+      "isBestSeller": true,
+      "isNew": false,
+      "images": [
+        "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_beauty_fenty",
+      "slug": "fenty-beauty-gloss-bomb",
+      "name": "Fenty Beauty Gloss Bomb Universal Lip Luminizer Fenty Glow",
+      "sku": "SKU-BEAU-FENTY",
+      "brand": "Fenty Beauty",
+      "description": "The ultimate gotta-have-it lip gloss with explosive shine that feels as good as it looks, enriched with conditioning shea butter.",
+      "photoUrl": "https://images.unsplash.com/photo-1586495777744-4413f21062fa?q=80&w=800&auto=format&fit=crop",
+      "price": 21,
+      "originalPrice": 25,
+      "discountPercent": 16,
+      "stock": 85,
+      "status": "ACTIVE",
+      "rating": 4.8,
+      "reviewsCount": 540,
+      "categoryId": "cat_cl04beautyhealth",
+      "subcategorySlug": "makeup",
+      "category": {
+        "id": "cat_cl04beautyhealth",
+        "name": "Beauty & Wellness",
+        "slug": "beauty-health"
+      },
+      "isFeatured": false,
+      "isBestSeller": true,
+      "isNew": false,
+      "images": [
+        "https://images.unsplash.com/photo-1586495777744-4413f21062fa?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_beauty_paulas",
+      "slug": "paulas-choice-bha-exfoliant",
+      "name": "Paula's Choice Skin Perfecting 2% BHA Liquid Exfoliant",
+      "sku": "SKU-BEAU-PC",
+      "brand": "Paula's Choice",
+      "description": "Cult-favorite leave-on exfoliant with salicylic acid unclogs pores, smooths wrinkles, and evens out tone for glass skin radiance.",
+      "photoUrl": "https://images.unsplash.com/photo-1608248597359-0a37e5812975?q=80&w=800&auto=format&fit=crop",
+      "price": 35,
+      "originalPrice": 42,
+      "discountPercent": 17,
+      "stock": 65,
+      "status": "ACTIVE",
+      "rating": 4.8,
+      "reviewsCount": 380,
+      "categoryId": "cat_cl04beautyhealth",
+      "subcategorySlug": "skincare",
+      "category": {
+        "id": "cat_cl04beautyhealth",
+        "name": "Beauty & Wellness",
+        "slug": "beauty-health"
+      },
+      "isFeatured": false,
+      "isBestSeller": false,
+      "isNew": false,
+      "images": [
+        "https://images.unsplash.com/photo-1608248597359-0a37e5812975?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_beauty_olaplex",
+      "slug": "olaplex-no3-hair-perfector",
+      "name": "Olaplex No. 3 Hair Perfector Repairing Bond Treatment",
+      "sku": "SKU-BEAU-OLAPLEX",
+      "brand": "Olaplex",
+      "description": "Global best-seller that repairs broken disulfide bonds in damaged hair caused by chemical, thermal, and mechanical styling.",
+      "photoUrl": "https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?q=80&w=800&auto=format&fit=crop",
+      "price": 30,
+      "originalPrice": 36,
+      "discountPercent": 17,
+      "stock": 70,
+      "status": "ACTIVE",
+      "rating": 4.9,
+      "reviewsCount": 520,
+      "categoryId": "cat_cl04beautyhealth",
+      "subcategorySlug": "haircare",
+      "category": {
+        "id": "cat_cl04beautyhealth",
+        "name": "Beauty & Wellness",
+        "slug": "beauty-health"
+      },
+      "isFeatured": false,
+      "isBestSeller": true,
+      "isNew": false,
+      "images": [
+        "https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_beauty_theragun",
+      "slug": "theragun-prime-massager",
+      "name": "Therabody Theragun Prime Quiet Percussive Muscle Massager",
+      "sku": "SKU-BEAU-THERA",
+      "brand": "Therabody",
+      "description": "Deep muscle treatment with proprietary brushless motor and QuietForce Technology to release everyday stress, knots, and tension.",
+      "photoUrl": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800&auto=format&fit=crop",
+      "price": 299,
+      "originalPrice": 349,
+      "discountPercent": 14,
+      "stock": 18,
+      "status": "ACTIVE",
+      "rating": 4.8,
+      "reviewsCount": 190,
+      "categoryId": "cat_cl04beautyhealth",
+      "subcategorySlug": "skincare",
+      "category": {
+        "id": "cat_cl04beautyhealth",
+        "name": "Beauty & Wellness",
+        "slug": "beauty-health"
+      },
+      "isFeatured": true,
+      "isBestSeller": false,
+      "isNew": true,
+      "images": [
+        "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_sport_bowflex",
+      "slug": "bowflex-selecttech-552",
+      "name": "Bowflex SelectTech 552 Adjustable Dumbbells Pair",
+      "sku": "SKU-SPRT-BOWF",
+      "brand": "Bowflex",
+      "description": "Replaces 15 sets of weights in one compact system. Adjusts from 5 to 52.5 lbs with intuitive turn of a dial.",
+      "photoUrl": "https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?q=80&w=800&auto=format&fit=crop",
+      "price": 429,
+      "originalPrice": 549,
+      "discountPercent": 22,
+      "stock": 15,
+      "status": "ACTIVE",
+      "rating": 4.9,
+      "reviewsCount": 395,
+      "categoryId": "cat_cl05sports",
+      "subcategorySlug": "workout-gear",
+      "category": {
+        "id": "cat_cl05sports",
+        "name": "Sports & Fitness",
+        "slug": "sports-fitness"
+      },
+      "isFeatured": true,
+      "isBestSeller": true,
+      "isNew": false,
+      "images": [
+        "https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_sport_manduka",
+      "slug": "manduka-pro-yoga-mat",
+      "name": "Manduka PRO 6mm High-Density Premium Yoga Mat",
+      "sku": "SKU-SPRT-MANDU",
+      "brand": "Manduka",
+      "description": "The #1 yoga mat recommended by teachers worldwide. Ultra-dense cushioning provides joint protection and lifetime durability.",
+      "photoUrl": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800&auto=format&fit=crop",
+      "price": 128,
+      "originalPrice": 148,
+      "discountPercent": 14,
+      "stock": 35,
+      "status": "ACTIVE",
+      "rating": 4.8,
+      "reviewsCount": 220,
+      "categoryId": "cat_cl05sports",
+      "subcategorySlug": "yoga-pilates",
+      "category": {
+        "id": "cat_cl05sports",
+        "name": "Sports & Fitness",
+        "slug": "sports-fitness"
+      },
+      "isFeatured": false,
+      "isBestSeller": true,
+      "isNew": false,
+      "images": [
+        "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_sport_garmin",
+      "slug": "garmin-forerunner-265",
+      "name": "Garmin Forerunner 265 AMOLED GPS Running Smartwatch",
+      "sku": "SKU-SPRT-GARMIN",
+      "brand": "Garmin",
+      "description": "Brilliant AMOLED touchscreen with training readiness metric, morning report, wrist-based running power and multi-band GNSS.",
+      "photoUrl": "https://images.unsplash.com/photo-1510017803434-a899398421b3?q=80&w=800&auto=format&fit=crop",
+      "price": 449.99,
+      "originalPrice": 499.99,
+      "discountPercent": 10,
+      "stock": 22,
+      "status": "ACTIVE",
+      "rating": 4.9,
+      "reviewsCount": 165,
+      "categoryId": "cat_cl05sports",
+      "subcategorySlug": "fitness-accessories",
+      "category": {
+        "id": "cat_cl05sports",
+        "name": "Sports & Fitness",
+        "slug": "sports-fitness"
+      },
+      "isFeatured": true,
+      "isBestSeller": true,
+      "isNew": true,
+      "images": [
+        "https://images.unsplash.com/photo-1510017803434-a899398421b3?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_sport_hydroflask",
+      "slug": "hydro-flask-32oz-bottle",
+      "name": "Hydro Flask 32 oz Wide Mouth with Flex Straw Cap",
+      "sku": "SKU-SPRT-HYDRO",
+      "brand": "Hydro Flask",
+      "description": "TempShield double-wall vacuum insulation keeps drinks ice cold for 24 hours or hot for 12 hours with pro-grade stainless steel.",
+      "photoUrl": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?q=80&w=800&auto=format&fit=crop",
+      "price": 44.95,
+      "originalPrice": 49.95,
+      "discountPercent": 10,
+      "stock": 80,
+      "status": "ACTIVE",
+      "rating": 4.8,
+      "reviewsCount": 480,
+      "categoryId": "cat_cl05sports",
+      "subcategorySlug": "fitness-accessories",
+      "category": {
+        "id": "cat_cl05sports",
+        "name": "Sports & Fitness",
+        "slug": "sports-fitness"
+      },
+      "isFeatured": false,
+      "isBestSeller": true,
+      "isNew": false,
+      "images": [
+        "https://images.unsplash.com/photo-1602143407151-7111542de6e8?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_sport_nikepro",
+      "slug": "nike-pro-drifit-tights",
+      "name": "Nike Pro Dri-FIT Compression Full-Length Training Tights",
+      "sku": "SKU-SPRT-NKPRO",
+      "brand": "Nike",
+      "description": "Lightweight stretchy fabric hugs your body with Dri-FIT technology to help you stay cool and dry through the toughest workouts.",
+      "photoUrl": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=800&auto=format&fit=crop",
+      "price": 38,
+      "originalPrice": 45,
+      "discountPercent": 16,
+      "stock": 65,
+      "status": "ACTIVE",
+      "rating": 4.7,
+      "reviewsCount": 230,
+      "categoryId": "cat_cl05sports",
+      "subcategorySlug": "workout-gear",
+      "category": {
+        "id": "cat_cl05sports",
+        "name": "Sports & Fitness",
+        "slug": "sports-fitness"
+      },
+      "isFeatured": false,
+      "isBestSeller": false,
+      "isNew": false,
+      "images": [
+        "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_sport_roguebands",
+      "slug": "rogue-resistance-bands-set",
+      "name": "Rogue Fitness Heavy-Duty Monster Resistance Bands Set of 4",
+      "sku": "SKU-SPRT-ROGUE",
+      "brand": "Rogue Fitness",
+      "description": "Durable natural latex bands providing progressive resistance from 15 to 140 lbs for pull-up assists, powerlifting and stretching.",
+      "photoUrl": "https://images.unsplash.com/photo-1598289431512-b97b0917affc?q=80&w=800&auto=format&fit=crop",
+      "price": 65,
+      "originalPrice": 79,
+      "discountPercent": 18,
+      "stock": 40,
+      "status": "ACTIVE",
+      "rating": 4.8,
+      "reviewsCount": 140,
+      "categoryId": "cat_cl05sports",
+      "subcategorySlug": "workout-gear",
+      "category": {
+        "id": "cat_cl05sports",
+        "name": "Sports & Fitness",
+        "slug": "sports-fitness"
+      },
+      "isFeatured": false,
+      "isBestSeller": false,
+      "isNew": false,
+      "images": [
+        "https://images.unsplash.com/photo-1598289431512-b97b0917affc?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_sport_speedo",
+      "slug": "speedo-vanquisher-goggles",
+      "name": "Speedo Vanquisher 2.0 Mirrored Anti-Fog Swim Goggles",
+      "sku": "SKU-SPRT-SPEEDO",
+      "brand": "Speedo",
+      "description": "Panoramic anti-fog mirrored lenses with UV 50+ protection, cushioned silicone eye seals, and interchangeable nose bridges.",
+      "photoUrl": "https://images.unsplash.com/photo-1530549387789-4c1017266635?q=80&w=800&auto=format&fit=crop",
+      "price": 24.99,
+      "originalPrice": 29.99,
+      "discountPercent": 17,
+      "stock": 55,
+      "status": "ACTIVE",
+      "rating": 4.8,
+      "reviewsCount": 310,
+      "categoryId": "cat_cl05sports",
+      "subcategorySlug": "fitness-accessories",
+      "category": {
+        "id": "cat_cl05sports",
+        "name": "Sports & Fitness",
+        "slug": "sports-fitness"
+      },
+      "isFeatured": false,
+      "isBestSeller": false,
+      "isNew": false,
+      "images": [
+        "https://images.unsplash.com/photo-1530549387789-4c1017266635?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_sport_uashirt",
+      "slug": "under-armour-tech-shirt",
+      "name": "Under Armour Men's Tech 2.0 Short Sleeve Moisture-Wicking T-Shirt",
+      "sku": "SKU-SPRT-UASHIRT",
+      "brand": "Under Armour",
+      "description": "UA Tech fabric has an ultra-soft, more natural feel for unmatched comfort with anti-odor technology that prevents growth of odor microbes.",
+      "photoUrl": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=800&auto=format&fit=crop",
+      "price": 25,
+      "originalPrice": 30,
+      "discountPercent": 17,
+      "stock": 90,
+      "status": "ACTIVE",
+      "rating": 4.7,
+      "reviewsCount": 420,
+      "categoryId": "cat_cl05sports",
+      "subcategorySlug": "workout-gear",
+      "category": {
+        "id": "cat_cl05sports",
+        "name": "Sports & Fitness",
+        "slug": "sports-fitness"
+      },
+      "isFeatured": false,
+      "isBestSeller": true,
+      "isNew": false,
+      "images": [
+        "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_sport_foamroller",
+      "slug": "triggerpoint-grid-foam-roller",
+      "name": "TriggerPoint GRID 13\" Multi-Density Foam Roller",
+      "sku": "SKU-SPRT-FOAM",
+      "brand": "TriggerPoint",
+      "description": "Patented multi-density foam surface channels blood and oxygen directly to muscle tissues for fast post-workout recovery.",
+      "photoUrl": "https://images.unsplash.com/photo-1600881333168-2ef49b341f30?q=80&w=800&auto=format&fit=crop",
+      "price": 39.99,
+      "originalPrice": 46.99,
+      "discountPercent": 15,
+      "stock": 45,
+      "status": "ACTIVE",
+      "rating": 4.8,
+      "reviewsCount": 260,
+      "categoryId": "cat_cl05sports",
+      "subcategorySlug": "fitness-accessories",
+      "category": {
+        "id": "cat_cl05sports",
+        "name": "Sports & Fitness",
+        "slug": "sports-fitness"
+      },
+      "isFeatured": false,
+      "isBestSeller": false,
+      "isNew": false,
+      "images": [
+        "https://images.unsplash.com/photo-1600881333168-2ef49b341f30?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_sport_fitbit",
+      "slug": "fitbit-charge-6-tracker",
+      "name": "Fitbit Charge 6 Fitness Tracker with Google Apps & Heart Rate",
+      "sku": "SKU-SPRT-FITBIT",
+      "brand": "Fitbit",
+      "description": "Google Maps, Google Wallet, 40+ exercise modes, EDA stress management sensor, sleep score, and 7-day battery life.",
+      "photoUrl": "https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?q=80&w=800&auto=format&fit=crop",
+      "price": 159.95,
+      "originalPrice": 179.95,
+      "discountPercent": 11,
+      "stock": 30,
+      "status": "ACTIVE",
+      "rating": 4.7,
+      "reviewsCount": 180,
+      "categoryId": "cat_cl05sports",
+      "subcategorySlug": "fitness-accessories",
+      "category": {
+        "id": "cat_cl05sports",
+        "name": "Sports & Fitness",
+        "slug": "sports-fitness"
+      },
+      "isFeatured": true,
+      "isBestSeller": false,
+      "isNew": true,
+      "images": [
+        "https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_groc_dates",
+      "slug": "organic-medjool-dates-1kg",
+      "name": "Natural Delights Organic Medjool Dates Jumbo Grade 1kg Box",
+      "sku": "SKU-GROC-DATE",
+      "brand": "Natural Delights",
+      "description": "Naturally sweet, rich, and caramel-like soft Medjool dates hand-picked from sunny desert date palm farms with zero added sugars.",
+      "photoUrl": "https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=800&auto=format&fit=crop",
+      "price": 18.5,
+      "originalPrice": 22,
+      "discountPercent": 16,
+      "stock": 75,
+      "status": "ACTIVE",
+      "rating": 4.9,
+      "reviewsCount": 340,
+      "categoryId": "cat_cl06groceries",
+      "subcategorySlug": "fresh-produce",
+      "category": {
+        "id": "cat_cl06groceries",
+        "name": "Daily Groceries",
+        "slug": "groceries"
+      },
+      "isFeatured": true,
+      "isBestSeller": true,
+      "isNew": false,
+      "images": [
+        "https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_groc_oliveoil",
+      "slug": "extra-virgin-olive-oil-750ml",
+      "name": "Colavita Premium Italian Extra Virgin Olive Oil Cold Pressed 750ml",
+      "sku": "SKU-GROC-EVOO",
+      "brand": "Colavita",
+      "description": "Pressed from 100% estate-grown Italian olives within 24 hours of harvest. Delicate fruity flavor with subtle peppery finish.",
+      "photoUrl": "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?q=80&w=800&auto=format&fit=crop",
+      "price": 22.99,
+      "originalPrice": 27.99,
+      "discountPercent": 18,
+      "stock": 60,
+      "status": "ACTIVE",
+      "rating": 4.9,
+      "reviewsCount": 420,
+      "categoryId": "cat_cl06groceries",
+      "subcategorySlug": "snacks-pantry",
+      "category": {
+        "id": "cat_cl06groceries",
+        "name": "Daily Groceries",
+        "slug": "groceries"
+      },
+      "isFeatured": false,
+      "isBestSeller": true,
+      "isNew": false,
+      "images": [
+        "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_groc_honey",
+      "slug": "raw-organic-mountain-honey",
+      "name": "Pure Wild Forest Organic Raw Unfiltered Honey 500g Glass Jar",
+      "sku": "SKU-GROC-HONEY",
+      "brand": "Beekeeper's Naturals",
+      "description": "Unpasteurized 100% pure raw wildflower honey loaded with naturally occurring enzymes, pollen, and therapeutic antioxidants.",
+      "photoUrl": "https://images.unsplash.com/photo-1587049352846-4a222e784d38?q=80&w=800&auto=format&fit=crop",
+      "price": 14.99,
+      "originalPrice": 17.99,
+      "discountPercent": 17,
+      "stock": 50,
+      "status": "ACTIVE",
+      "rating": 4.8,
+      "reviewsCount": 280,
+      "categoryId": "cat_cl06groceries",
+      "subcategorySlug": "snacks-pantry",
+      "category": {
+        "id": "cat_cl06groceries",
+        "name": "Daily Groceries",
+        "slug": "groceries"
+      },
+      "isFeatured": true,
+      "isBestSeller": false,
+      "isNew": true,
+      "images": [
+        "https://images.unsplash.com/photo-1587049352846-4a222e784d38?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_groc_coffeebeans",
+      "slug": "colombian-whole-bean-coffee",
+      "name": "Single Origin Colombian Supremo Medium Roast Whole Bean Coffee 1kg",
+      "sku": "SKU-GROC-COFFEE",
+      "brand": "Stumptown",
+      "description": "Roasted fresh in small batches with notes of sweet red apple, honeycomb, and dark chocolate praline.",
+      "photoUrl": "https://images.unsplash.com/photo-1587734195503-904fca47e0e9?q=80&w=800&auto=format&fit=crop",
+      "price": 27.5,
+      "originalPrice": 32,
+      "discountPercent": 14,
+      "stock": 40,
+      "status": "ACTIVE",
+      "rating": 4.9,
+      "reviewsCount": 195,
+      "categoryId": "cat_cl06groceries",
+      "subcategorySlug": "beverages",
+      "category": {
+        "id": "cat_cl06groceries",
+        "name": "Daily Groceries",
+        "slug": "groceries"
+      },
+      "isFeatured": false,
+      "isBestSeller": true,
+      "isNew": false,
+      "images": [
+        "https://images.unsplash.com/photo-1587734195503-904fca47e0e9?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_groc_eggs",
+      "slug": "free-range-brown-eggs-12",
+      "name": "Happy Egg Co. Free-Range Grade A Large Brown Eggs (12-Pack)",
+      "sku": "SKU-GROC-EGGS",
+      "brand": "Happy Egg Co.",
+      "description": "Pasture-raised on local family farms with rich deep-amber yolks, high protein content, and certified humane treatment.",
+      "photoUrl": "https://images.unsplash.com/photo-1506976785307-8732e854ad03?q=80&w=800&auto=format&fit=crop",
+      "price": 6.99,
+      "originalPrice": 8.5,
+      "discountPercent": 18,
+      "stock": 95,
+      "status": "ACTIVE",
+      "rating": 4.9,
+      "reviewsCount": 510,
+      "categoryId": "cat_cl06groceries",
+      "subcategorySlug": "dairy-eggs",
+      "category": {
+        "id": "cat_cl06groceries",
+        "name": "Daily Groceries",
+        "slug": "groceries"
+      },
+      "isFeatured": false,
+      "isBestSeller": true,
+      "isNew": false,
+      "images": [
+        "https://images.unsplash.com/photo-1506976785307-8732e854ad03?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_groc_matcha",
+      "slug": "japanese-ceremonial-matcha",
+      "name": "Ippodo Uji Japanese Ceremonial Grade Green Tea Matcha Powder 100g",
+      "sku": "SKU-GROC-MATCHA",
+      "brand": "Ippodo Tea",
+      "description": "First harvest shade-grown spring tencha leaves stone ground in Kyoto, Japan. Vibrant emerald green with smooth umami sweetness.",
+      "photoUrl": "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?q=80&w=800&auto=format&fit=crop",
+      "price": 29.99,
+      "originalPrice": 35,
+      "discountPercent": 14,
+      "stock": 35,
+      "status": "ACTIVE",
+      "rating": 4.9,
+      "reviewsCount": 160,
+      "categoryId": "cat_cl06groceries",
+      "subcategorySlug": "beverages",
+      "category": {
+        "id": "cat_cl06groceries",
+        "name": "Daily Groceries",
+        "slug": "groceries"
+      },
+      "isFeatured": true,
+      "isBestSeller": false,
+      "isNew": true,
+      "images": [
+        "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_groc_almonds",
+      "slug": "organic-california-almonds-1kg",
+      "name": "Kirkland Signature Organic Whole Raw California Almonds 1kg Bag",
+      "sku": "SKU-GROC-ALMOND",
+      "brand": "Kirkland Signature",
+      "description": "Fresh, unpasteurized steam-treated supreme grade almonds packed with plant-based protein, dietary fiber and healthy fats.",
+      "photoUrl": "https://images.unsplash.com/photo-1508061253366-f7da158b6d46?q=80&w=800&auto=format&fit=crop",
+      "price": 19.5,
+      "originalPrice": 24,
+      "discountPercent": 19,
+      "stock": 65,
+      "status": "ACTIVE",
+      "rating": 4.8,
+      "reviewsCount": 380,
+      "categoryId": "cat_cl06groceries",
+      "subcategorySlug": "snacks-pantry",
+      "category": {
+        "id": "cat_cl06groceries",
+        "name": "Daily Groceries",
+        "slug": "groceries"
+      },
+      "isFeatured": false,
+      "isBestSeller": true,
+      "isNew": false,
+      "images": [
+        "https://images.unsplash.com/photo-1508061253366-f7da158b6d46?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_groc_butter",
+      "slug": "kerrygold-pure-irish-butter",
+      "name": "Kerrygold Pure Grass-Fed Irish Salted Butter Foil Block 250g",
+      "sku": "SKU-GROC-BUTTER",
+      "brand": "Kerrygold",
+      "description": "Made with milk from grass-fed cows that graze on lush green pastures of Ireland. Golden yellow color with silky creamy texture.",
+      "photoUrl": "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?q=80&w=800&auto=format&fit=crop",
+      "price": 5.99,
+      "originalPrice": 7.2,
+      "discountPercent": 17,
+      "stock": 80,
+      "status": "ACTIVE",
+      "rating": 4.9,
+      "reviewsCount": 620,
+      "categoryId": "cat_cl06groceries",
+      "subcategorySlug": "dairy-eggs",
+      "category": {
+        "id": "cat_cl06groceries",
+        "name": "Daily Groceries",
+        "slug": "groceries"
+      },
+      "isFeatured": false,
+      "isBestSeller": true,
+      "isNew": false,
+      "images": [
+        "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_groc_maple",
+      "slug": "pure-canadian-maple-syrup",
+      "name": "Crown Maple Organic Grade A Dark Robust Canadian Maple Syrup 500ml",
+      "sku": "SKU-GROC-MAPLE",
+      "brand": "Crown Maple",
+      "description": "Estate-produced pure maple syrup with deep brown sugar and warm caramel notes. Zero artificial flavors or corn syrups.",
+      "photoUrl": "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?q=80&w=800&auto=format&fit=crop",
+      "price": 16.99,
+      "originalPrice": 20.99,
+      "discountPercent": 19,
+      "stock": 45,
+      "status": "ACTIVE",
+      "rating": 4.8,
+      "reviewsCount": 175,
+      "categoryId": "cat_cl06groceries",
+      "subcategorySlug": "snacks-pantry",
+      "category": {
+        "id": "cat_cl06groceries",
+        "name": "Daily Groceries",
+        "slug": "groceries"
+      },
+      "isFeatured": false,
+      "isBestSeller": false,
+      "isNew": false,
+      "images": [
+        "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?q=80&w=800&auto=format&fit=crop"
+      ]
+    },
+    {
+      "id": "prod_groc_feta",
+      "slug": "greek-organic-feta-cheese",
+      "name": "Dodoni Traditional Greek Organic PDO Barrel-Aged Feta Cheese 200g",
+      "sku": "SKU-GROC-FETA",
+      "brand": "Dodoni",
+      "description": "Authentic PDO Greek feta made from pasteurized organic sheep and goat milk, cured in natural brine for pleasant tangy richness.",
+      "photoUrl": "https://images.unsplash.com/photo-1559561853-08451507cbe7?q=80&w=800&auto=format&fit=crop",
+      "price": 7.5,
+      "originalPrice": 9,
+      "discountPercent": 17,
+      "stock": 55,
+      "status": "ACTIVE",
+      "rating": 4.8,
+      "reviewsCount": 210,
+      "categoryId": "cat_cl06groceries",
+      "subcategorySlug": "dairy-eggs",
+      "category": {
+        "id": "cat_cl06groceries",
+        "name": "Daily Groceries",
+        "slug": "groceries"
+      },
+      "isFeatured": false,
+      "isBestSeller": false,
+      "isNew": false,
+      "images": [
+        "https://images.unsplash.com/photo-1559561853-08451507cbe7?q=80&w=800&auto=format&fit=crop"
+      ]
+    }
+  ],
+  "promoBanner": {
+    "id": "banner-main",
+    "badge": "LIMITED FLASH SALE",
+    "title": "Upgrade Your Workspace with Premium Smart Gadgets",
+    "subtitle": "Discover productivity boosters, ergonomic accessories, and 4K displays at unprecedented prices.",
+    "discountText": "UP TO 50% OFF",
+    "buttonText": "Shop The Flash Sale",
+    "buttonLink": "/products?sale=true",
+    "imageUrl": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?q=80&w=1000&auto=format&fit=crop"
+  },
+  "whyChooseUs": [
+    {
+      "id": "why-1",
+      "title": "Fast & Free Shipping",
+      "description": "Enjoy free express delivery on all orders over $50 with real-time GPS tracking.",
+      "icon": "Truck"
+    },
+    {
+      "id": "why-2",
+      "title": "100% Genuine Products",
+      "description": "Every item is certified original directly from verified brand manufacturers.",
+      "icon": "ShieldCheck"
+    },
+    {
+      "id": "why-3",
+      "title": "30-Day Hassle-Free Returns",
+      "description": "Not satisfied with your item? Get a full refund or instant replacement with zero questions.",
+      "icon": "RefreshCw"
+    },
+    {
+      "id": "why-4",
+      "title": "24/7 Dedicated Support",
+      "description": "Our support champions are always online via live chat, phone, and email to assist you.",
+      "icon": "Headphones"
+    }
+  ]
+}

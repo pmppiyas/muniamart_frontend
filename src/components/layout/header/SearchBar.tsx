@@ -58,7 +58,6 @@ export function SearchBar({ className, autoFocus = false, onSearchSubmit }: Sear
         className
       )}
     >
-      {/* Category Dropdown Selector */}
       <div className="relative hidden border-r border-border sm:block" ref={dropdownRef}>
         <button
           type="button"
@@ -113,15 +112,14 @@ export function SearchBar({ className, autoFocus = false, onSearchSubmit }: Sear
         )}
       </div>
 
-      {/* Input */}
       <div className="relative flex flex-1 items-center">
         <input
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search products, brands and categories..."
+          placeholder="Search products, brands..."
           autoFocus={autoFocus}
-          className="h-11 w-full bg-transparent px-4 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none"
+          className="h-10 sm:h-11 w-full bg-transparent px-3 sm:px-4 text-xs sm:text-sm text-foreground placeholder:text-muted-foreground focus:outline-none"
         />
         {query && (
           <button
@@ -134,7 +132,6 @@ export function SearchBar({ className, autoFocus = false, onSearchSubmit }: Sear
         )}
       </div>
 
-      {/* Search Submit Button */}
       <button
         type="submit"
         aria-label="Search"

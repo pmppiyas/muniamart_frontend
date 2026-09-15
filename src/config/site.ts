@@ -1,9 +1,11 @@
+import { env } from './env';
+
 export const siteConfig = {
   name: 'MUNIAMART',
   tagline: 'Your Trusted Modern E-Commerce Destination',
   description:
     'Discover premium quality products at the best prices with lightning fast delivery, easy returns, and secure payment options.',
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000',
+  url: env.SITE_URL,
   contact: {
     phone: '+880 1700-000000',
     email: 'support@muniamart.com',

@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import Link from 'next/link';
-import { User, Package, MapPin, Heart, LogIn, LogOut, ChevronDown } from 'lucide-react';
+import { User, Package, MapPin, LogIn, LogOut, ChevronDown, LayoutDashboard } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface UserMenuProps {
@@ -11,6 +11,7 @@ interface UserMenuProps {
     name?: string;
     email?: string;
     avatar?: string;
+    role?: string;
   } | null;
   onLogout?: () => void;
 }
@@ -57,7 +58,6 @@ export function UserMenu({ className, user = null, onLogout }: UserMenuProps) {
         />
       </button>
 
-      {/* Dropdown Menu */}
       {isOpen && (
         <div className="absolute right-0 top-full z-50 mt-1.5 w-60 rounded-2xl border border-border bg-popover text-popover-foreground p-2 shadow-xl animate-in fade-in-0 zoom-in-95">
           {user ? (
@@ -89,8 +89,24 @@ export function UserMenu({ className, user = null, onLogout }: UserMenuProps) {
           )}
 
           <div className="py-1">
+            {user && (user.role === 'ADMIN' || user.role === 'SUPER_ADMIN') && (
+              <Link
+                href="/admin/dashboard"
+                onClick={() => setIsOpen(false)}
+                className="flex items-center justify-between gap-2.5 rounded-lg bg-primary/10 px-3 py-2 text-xs font-bold text-primary hover:bg-primary/20 transition-colors mb-1"
+              >
+                <div className="flex items-center gap-2">
+                  <LayoutDashboard className="h-4 w-4" />
+                  <span>Admin Dashboard</span>
+                </div>
+                <span className="rounded bg-primary px-1.5 py-0.2 text-[9px] font-extrabold text-white uppercase">
+                  {user.role === 'SUPER_ADMIN' ? 'Super' : 'Admin'}
+                </span>
+              </Link>
+            )}
+
             <Link
-              href="/profile"
+              href="/profile?tab=info"
               onClick={() => setIsOpen(false)}
               className="flex items-center gap-2.5 rounded-lg px-3 py-2 text-xs font-medium text-foreground hover:bg-muted transition-colors"
             >
@@ -98,7 +114,7 @@ export function UserMenu({ className, user = null, onLogout }: UserMenuProps) {
               My Profile
             </Link>
             <Link
-              href="/orders"
+              href="/profile?tab=orders"
               onClick={() => setIsOpen(false)}
               className="flex items-center gap-2.5 rounded-lg px-3 py-2 text-xs font-medium text-foreground hover:bg-muted transition-colors"
             >
@@ -106,15 +122,7 @@ export function UserMenu({ className, user = null, onLogout }: UserMenuProps) {
               My Orders & Tracking
             </Link>
             <Link
-              href="/wishlist"
-              onClick={() => setIsOpen(false)}
-              className="flex items-center gap-2.5 rounded-lg px-3 py-2 text-xs font-medium text-foreground hover:bg-muted transition-colors"
-            >
-              <Heart className="h-4 w-4 text-muted-foreground" />
-              Wishlist
-            </Link>
-            <Link
-              href="/addresses"
+              href="/profile?tab=addresses"
               onClick={() => setIsOpen(false)}
               className="flex items-center gap-2.5 rounded-lg px-3 py-2 text-xs font-medium text-foreground hover:bg-muted transition-colors"
             >
