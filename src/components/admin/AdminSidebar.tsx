@@ -24,6 +24,7 @@ import { cn } from '@/lib/utils';
 import { useAppSelector } from '@/store/hooks';
 import { selectCurrentUser, selectIsSuperAdmin } from '@/features/auth/authSelectors';
 import { useLogoutMutation } from '@/services/api/authApi';
+import { useGetAllOrdersQuery } from '@/services/api/orderApi';
 import { useRouter } from 'next/navigation';
 
 interface AdminSidebarProps {
@@ -56,6 +57,17 @@ export function AdminSidebar({
     return user?.permissions?.includes(permission) ?? false;
   };
 
+  const canManageOrders = hasPermission('MANAGE_ORDERS');
+  const { data: ordersResponse } = useGetAllOrdersQuery(
+    { status: 'PENDING', limit: 1 },
+    { skip: !canManageOrders }
+  );
+
+  const pendingCount =
+    ordersResponse?.meta?.metrics?.pending ??
+    ordersResponse?.meta?.total ??
+    0;
+
   const navGroups = [
     {
       title: 'Overview',
@@ -87,7 +99,7 @@ export function AdminSidebar({
           href: '/admin/orders',
           icon: ShoppingCart,
           permission: 'MANAGE_ORDERS',
-          badge: '14',
+          badge: pendingCount > 0 ? (pendingCount > 99 ? '99+' : String(pendingCount)) : undefined,
         },
         {
           name: 'Customers',

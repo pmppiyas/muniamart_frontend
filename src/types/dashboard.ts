@@ -3,6 +3,7 @@ export interface DashboardMetrics {
   revenueChange: string;
   totalOrders: number;
   ordersChange: string;
+  pendingOrders?: number;
   totalCustomers: number;
   customersChange: string;
   totalProducts: number;
