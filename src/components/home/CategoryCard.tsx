@@ -5,22 +5,25 @@ import Link from 'next/link';
 import Image from 'next/image';
 import {
   Smartphone,
-  Shirt,
-  Home,
-  Sparkles,
-  Dumbbell,
+  Laptop,
+  Watch,
+  Headphones,
+  Camera,
+  Zap,
   ShoppingBasket,
   LucideIcon,
 } from 'lucide-react';
 import { Category } from '@/types/category';
+import { getCategoryIconPath } from '@/lib/categoryIcons';
 import { cn } from '@/lib/utils';
 
 const iconMap: Record<string, LucideIcon> = {
   Smartphone,
-  Shirt,
-  Home,
-  Sparkles,
-  Dumbbell,
+  Laptop,
+  Watch,
+  Headphones,
+  Camera,
+  Zap,
   ShoppingBasket,
 };
 
@@ -30,44 +33,41 @@ interface CategoryCardProps {
 }
 
 export function CategoryCard({ category, className }: CategoryCardProps) {
-  const IconComponent = (category.icon && iconMap[category.icon]) || ShoppingBasket;
+  const iconPath =
+    category.imageUrl ||
+    getCategoryIconPath(category.slug, category.icon) ||
+    getCategoryIconPath(category.name, category.icon);
+
+  const IconComponent =
+    (category.icon && iconMap[category.icon]) || Laptop || ShoppingBasket;
+
+  const targetHref = category.href || `/categories/${category.slug}`;
 
   return (
     <Link
-      href={`/categories/${category.slug}`}
+      href={targetHref}
       className={cn(
-        'group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-border bg-card p-2 sm:p-2.5 shadow-2xs',
+        'group flex flex-col items-center justify-start text-center p-2 sm:p-2.5 cursor-pointer select-none',
         className
       )}
     >
-      <div className="relative aspect-4/3 w-full overflow-hidden rounded-xl bg-muted/30 mb-2">
-        {category.imageUrl ? (
+      <div className="relative h-14 w-14 sm:h-16 sm:w-16 flex items-center justify-center shrink-0 mb-2 sm:mb-2.5">
+        {iconPath ? (
           <Image
-            src={category.imageUrl}
+            src={iconPath}
             alt={category.name}
-            fill
-            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 16vw"
-            className="object-cover object-center"
+            width={56}
+            height={56}
+            className="h-12 w-12 sm:h-14 sm:w-14 object-contain"
           />
         ) : (
-          <div className="flex h-full w-full items-center justify-center bg-accent/40 text-primary">
-            <IconComponent className="h-7 w-7" />
-          </div>
+          <IconComponent className="h-9 w-9 sm:h-11 sm:w-11 text-foreground/80" />
         )}
-
-        <div className="absolute left-2 top-2 flex h-7 w-7 items-center justify-center rounded-lg bg-background/90 backdrop-blur-xs text-primary shadow-xs">
-          <IconComponent className="h-3.5 w-3.5" />
-        </div>
       </div>
 
-      <div className="space-y-0.5 px-1 pb-0.5">
-        <h3 className="font-bold text-xs sm:text-sm text-foreground group-hover:text-primary transition-colors line-clamp-1">
-          {category.name}
-        </h3>
-        <p className="text-[11px] sm:text-xs text-muted-foreground">
-          {category.itemCount ? `${category.itemCount}+ Products` : 'Explore Items'}
-        </p>
-      </div>
+      <span className="text-sm sm:text-[15px] font-semibold text-foreground group-hover:text-primary transition-colors text-center line-clamp-2 leading-snug">
+        {category.name}
+      </span>
     </Link>
   );
 }

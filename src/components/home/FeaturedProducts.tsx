@@ -14,10 +14,7 @@ export function FeaturedProducts({ products = [] }: FeaturedProductsProps) {
 
   return (
     <ProductSection
-      badge="TOP PICKS"
-      badgeVariant="primary"
       title="Featured Products"
-      subtitle="Hand-selected by our product specialists for exceptional durability, design, and unbeatable customer ratings."
       viewAllHref="/products?featured=true"
       products={displayProducts}
     />

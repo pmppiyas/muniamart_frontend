@@ -12,6 +12,7 @@ export interface Category {
   icon?: string | null;
   itemCount?: number;
   imageUrl?: string | null;
+  href?: string;
   _count?: {
     products?: number;
     children?: number;

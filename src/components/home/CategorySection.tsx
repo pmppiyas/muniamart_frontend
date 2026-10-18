@@ -2,37 +2,60 @@
 
 import * as React from 'react';
 import Link from 'next/link';
-import { ArrowRight, LayoutGrid } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Category } from '@/types/category';
+import { useGetAllCategoriesQuery } from '@/services/api/categoryApi';
 import { CategoryCard } from './CategoryCard';
 
 interface CategorySectionProps {
   categories?: Category[];
 }
 
-export function CategorySection({ categories = [] }: CategorySectionProps) {
-  if (!categories || categories.length === 0) return null;
+export function CategorySection({ categories: initialCategories = [] }: CategorySectionProps) {
+  // Live RTK query so changes in admin reflect immediately
+  const { data: catRes } = useGetAllCategoriesQuery(undefined, {
+    refetchOnMountOrArgChange: true,
+  });
+
+  const categories = React.useMemo(() => {
+    if (catRes?.data && Array.isArray(catRes.data) && catRes.data.length > 0) {
+      return catRes.data as Category[];
+    }
+    return initialCategories;
+  }, [catRes, initialCategories]);
+
+  // JUST main root categories (no subcategories mixed in)
+  const mainCategories = React.useMemo(() => {
+    if (!categories || categories.length === 0) return [];
+    return categories.filter((c) => !c.parentId);
+  }, [categories]);
+
+  if (mainCategories.length === 0) return null;
 
   return (
-    <section className="py-8 sm:py-12 border-b border-border bg-background">
+    <section className="py-7 sm:py-10 border-b border-border/40 bg-background">
       <div className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
+        <div className="flex items-center justify-between gap-4 border-b border-border/60 pb-3.5 sm:pb-4 mb-6 sm:mb-8">
+          <div className="flex items-center gap-2.5 sm:gap-3">
+            <span className="w-1.5 h-6 sm:h-7 bg-primary rounded-full shrink-0" />
+            <h2 className="text-xl sm:text-2xl md:text-[26px] font-bold tracking-tight text-foreground">
+              Explore Departments
+            </h2>
+          </div>
+
           <Link
             href="/categories"
-            className="group inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-primary hover:underline shrink-0"
+            className="group inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-primary hover:text-primary/80 transition-colors shrink-0"
           >
-            <div className="space-y-1">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 border border-primary/20 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-primary">
-                <LayoutGrid className="h-3 w-3" />
-                <span>Explore Departments</span>
-              </span>
-            </div>
+            <span>View All</span>
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
         </div>
 
-        <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-6">
-          {categories.map((category) => (
-            <CategoryCard key={category.id} category={category} />
+        {/* Flat main category icon display */}
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-6 gap-x-3 sm:gap-x-6 gap-y-6 sm:gap-y-8">
+          {mainCategories.map((item) => (
+            <CategoryCard key={item.id} category={item} />
           ))}
         </div>
       </div>

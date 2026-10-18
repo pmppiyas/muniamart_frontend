@@ -31,7 +31,7 @@ export async function getCategoriesFromDb(): Promise<Category[]> {
   try {
     const baseUrl = env.API_BASE_URL;
     const res = await fetch(`${baseUrl}/category`, {
-      next: { revalidate: 60 },
+      cache: 'no-store',
     });
 
     if (!res.ok) {

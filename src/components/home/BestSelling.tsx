@@ -14,10 +14,7 @@ export function BestSelling({ products = [] }: BestSellingProps) {
 
   return (
     <ProductSection
-      badge="CUSTOMER FAVORITES"
-      badgeVariant="warning"
       title="Best Selling Products"
-      subtitle="The most loved and top-reviewed items across our departments, trusted by thousands of happy shoppers."
       viewAllHref="/products?sort=bestseller"
       products={displayProducts}
     />

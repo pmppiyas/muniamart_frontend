@@ -31,15 +31,9 @@ export function RelatedProducts({
   return (
     <section className={cn('py-8 sm:py-12 border-t border-border', className)}>
       <div className="flex items-center justify-between gap-4 mb-6">
-        <div className="space-y-1">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 border border-primary/20 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-primary">
-            <Sparkles className="h-3 w-3" />
-            <span>Recommended For You</span>
-          </span>
-          <h2 className="text-xl sm:text-2xl font-black tracking-tight text-foreground">
-            Related Products
-          </h2>
-        </div>
+        <h2 className="text-lg sm:text-xl font-bold tracking-tight text-foreground">
+          Related Products
+        </h2>
 
         <Link
           href="/products"

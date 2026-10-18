@@ -2,7 +2,6 @@ import mockData from '@/data/mockData.json';
 import { HeroSection } from '@/components/home/HeroSection';
 import { CategorySection } from '@/components/home/CategorySection';
 import { FeaturedProducts } from '@/components/home/FeaturedProducts';
-import { PromoBanner } from '@/components/home/PromoBanner';
 import { NewArrivals } from '@/components/home/NewArrivals';
 import { BestSelling } from '@/components/home/BestSelling';
 import { WhyChooseUs } from '@/components/home/WhyChooseUs';
@@ -11,7 +10,6 @@ import { getProductsFromDb } from '@/services/productService';
 import {
   Product,
   HeroSlide,
-  PromoBanner as PromoBannerType,
   TrustFeature,
 } from '@/types/product';
 
@@ -21,7 +19,6 @@ export default async function HomePage() {
     getProductsFromDb(),
   ]);
   const heroSlides = mockData.heroSlides as HeroSlide[];
-  const promoBanner = mockData.promoBanner as PromoBannerType;
   const whyChooseUs = mockData.whyChooseUs as TrustFeature[];
 
   return (
@@ -31,8 +28,6 @@ export default async function HomePage() {
       <CategorySection categories={categories} />
 
       <FeaturedProducts products={products} />
-
-      <PromoBanner banner={promoBanner} />
 
       <NewArrivals products={products} />
 

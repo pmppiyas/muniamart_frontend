@@ -14,10 +14,7 @@ export function NewArrivals({ products = [] }: NewArrivalsProps) {
 
   return (
     <ProductSection
-      badge="JUST DROPPED"
-      badgeVariant="primary"
       title="New Arrivals"
-      subtitle="Stay ahead with the freshest seasonal releases, innovative designs, and cutting-edge tech gear."
       viewAllHref="/products?sort=newest"
       products={displayProducts}
     />
