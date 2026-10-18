@@ -22,7 +22,9 @@ export function MobileMenu({ className }: MobileMenuProps) {
     null
   );
 
-  const { data: categoriesRes } = useGetAllCategoriesQuery();
+  const { data: categoriesRes } = useGetAllCategoriesQuery(undefined, {
+    refetchOnMountOrArgChange: true,
+  });
   const dbCategories = categoriesRes?.data;
 
   const categoriesList = React.useMemo(() => {
@@ -79,7 +81,7 @@ export function MobileMenu({ className }: MobileMenuProps) {
       >
         <div className="flex items-center justify-between border-b border-border px-4 py-3.5">
           <div className="flex items-center gap-2.5">
-            <Logo showTagline />
+            <Logo />
             <ThemeToggle />
           </div>
           <button
