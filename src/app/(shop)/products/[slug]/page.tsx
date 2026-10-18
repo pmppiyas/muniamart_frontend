@@ -57,11 +57,11 @@ export default async function ProductDetailPage({ params }: PageProps) {
       : [];
 
   return (
-    <div className="py-6 sm:py-8 lg:py-10 bg-background min-h-screen">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-12">
+    <div className="pb-10 sm:pb-16 bg-background min-h-screen">
+      <div className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
         <nav
           aria-label="Breadcrumb"
-          className="flex flex-wrap items-center gap-1.5 text-xs text-muted-foreground"
+          className="flex flex-wrap items-center gap-1.5 text-xs text-muted-foreground py-3.5 sm:py-4"
         >
           <Link
             href="/"
@@ -94,30 +94,32 @@ export default async function ProductDetailPage({ params }: PageProps) {
           </span>
         </nav>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-          <div className="lg:col-span-6 lg:sticky lg:top-[176px]">
-            <ProductGallery
-              images={galleryImages}
-              productName={product.name}
-              discountPercent={product.discountPercent}
-              isNew={product.isNew}
-              isBestSeller={product.isBestSeller}
-              isOutOfStock={product.stock <= 0}
-            />
+        <div className="space-y-8 sm:space-y-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+            <div className="lg:col-span-6 lg:sticky lg:top-[176px]">
+              <ProductGallery
+                images={galleryImages}
+                productName={product.name}
+                discountPercent={product.discountPercent}
+                isNew={product.isNew}
+                isBestSeller={product.isBestSeller}
+                isOutOfStock={product.stock <= 0}
+              />
+            </div>
+
+            <div className="lg:col-span-6">
+              <ProductInfo product={product} />
+            </div>
           </div>
 
-          <div className="lg:col-span-6">
-            <ProductInfo product={product} />
-          </div>
+          <ProductDetailTabs product={product} />
+
+          <RelatedProducts
+            currentProductId={product.id}
+            categoryId={product.categoryId}
+            allProducts={allProducts}
+          />
         </div>
-
-        <ProductDetailTabs product={product} />
-
-        <RelatedProducts
-          currentProductId={product.id}
-          categoryId={product.categoryId}
-          allProducts={allProducts}
-        />
       </div>
     </div>
   );

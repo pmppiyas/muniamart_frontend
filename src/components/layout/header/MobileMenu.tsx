@@ -193,13 +193,6 @@ export function MobileMenu({ className }: MobileMenuProps) {
                 Shop Catalog
               </Link>
               <Link
-                href="/categories"
-                onClick={() => setIsOpen(false)}
-                className="block rounded-xl px-3 py-2.5 hover:bg-muted transition-colors"
-              >
-                Categories
-              </Link>
-              <Link
                 href="/cart"
                 onClick={() => setIsOpen(false)}
                 className="block rounded-xl px-3 py-2.5 hover:bg-muted transition-colors"

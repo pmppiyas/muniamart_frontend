@@ -517,14 +517,6 @@ function CategoryNavList() {
                   </Link>
                 ))}
               </div>
-              <div className="my-1.5 border-t border-border/50" />
-              <Link
-                href="/categories"
-                className="flex items-center justify-between rounded-xl px-3 py-2 text-xs font-bold text-primary hover:bg-primary/10 transition-colors"
-              >
-                <span>View All Categories</span>
-                <ArrowRight className="h-3.5 w-3.5" />
-              </Link>
             </div>
           </div>
         </div>
@@ -551,7 +543,7 @@ function CategoryNavFallback() {
 
 export function CategoryNavbar() {
   return (
-    <div className="hidden md:block border-t border-border/50 bg-background/50 relative z-30">
+    <div className="hidden md:block border-y border-border/50 bg-background/50 relative z-30">
       <div className="mx-auto flex h-11 max-w-7xl items-center px-4 sm:px-6 lg:px-8">
         <React.Suspense fallback={<CategoryNavFallback />}>
           <CategoryNavList />

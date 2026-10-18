@@ -45,15 +45,37 @@ export default async function CategoryDetailPage({ params }: PageProps) {
   }
 
   const allProducts = await getProductsFromDb();
-  const categoryProducts = allProducts.filter(
-    (p) =>
-      p.categoryId === category.id ||
-      p.category?.slug?.toLowerCase() === category.slug.toLowerCase()
-  );
+
+  // Recursively collect all descendant category IDs and slugs
+  const allDescendantCategoryIds = new Set<string>([category.id]);
+  const allDescendantCategorySlugs = new Set<string>([category.slug.toLowerCase()]);
+
+  const queue = [...(category.children || [])];
+  while (queue.length > 0) {
+    const item = queue.shift();
+    if (!item) continue;
+    allDescendantCategoryIds.add(item.id);
+    if (item.slug) allDescendantCategorySlugs.add(item.slug.toLowerCase());
+    if (item.children && item.children.length > 0) {
+      queue.push(...item.children);
+    }
+  }
+
+  const categoryProducts = allProducts.filter((p) => {
+    if (allDescendantCategoryIds.has(p.categoryId)) return true;
+    if (p.subcategoryId && allDescendantCategoryIds.has(p.subcategoryId)) return true;
+    if (p.subcategorySlug && allDescendantCategorySlugs.has(p.subcategorySlug.toLowerCase())) return true;
+    if (p.category) {
+      if (allDescendantCategoryIds.has(p.category.id)) return true;
+      if (p.category.slug && allDescendantCategorySlugs.has(p.category.slug.toLowerCase())) return true;
+      if (p.category.parentId && allDescendantCategoryIds.has(p.category.parentId)) return true;
+    }
+    return false;
+  });
 
   return (
-    <div className="py-6 sm:py-8 lg:py-10 bg-background min-h-screen">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-6">
+    <div className="pb-10 sm:pb-12 bg-background min-h-screen">
+      <div className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
         <React.Suspense fallback={<div className="min-h-[400px] animate-pulse rounded-3xl bg-muted/40" />}>
           <CategoryPageContent
             category={category}

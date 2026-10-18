@@ -46,6 +46,7 @@ export function CategoryCard({ category, className }: CategoryCardProps) {
   return (
     <Link
       href={targetHref}
+      scroll={true}
       className={cn(
         'group flex flex-col items-center justify-start text-center p-2 sm:p-2.5 cursor-pointer select-none',
         className

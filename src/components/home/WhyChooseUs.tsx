@@ -3,6 +3,7 @@
 import * as React from 'react';
 import { BadgeCheck, Truck, Lock, RefreshCw } from 'lucide-react';
 import { TrustFeature } from '@/types/product';
+import { SectionHeader } from '@/components/common/SectionHeader';
 
 interface WhyChooseUsProps {
   features?: TrustFeature[];
@@ -36,12 +37,10 @@ export function WhyChooseUs({ features }: WhyChooseUsProps) {
     <section className="py-7 sm:py-9 border-t border-border/50 bg-background">
       <div className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex items-center gap-2.5 sm:gap-3 border-b border-border/60 pb-3.5 sm:pb-4 mb-5 sm:mb-6">
-          <span className="w-1.5 h-6 sm:h-7 bg-primary rounded-full shrink-0" />
-          <h2 className="text-xl sm:text-2xl md:text-[26px] font-bold tracking-tight text-foreground">
-            Why Shop with MUNIAMART?
-          </h2>
-        </div>
+        <SectionHeader
+          title="Why Shop with MUNIAMART?"
+          className="mb-5 sm:mb-6"
+        />
 
         {/* 4 Compact Trust Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">

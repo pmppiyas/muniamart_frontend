@@ -242,11 +242,11 @@ function ProductsContent() {
   };
 
   return (
-    <div className="py-6 sm:py-8 lg:py-10 bg-background min-h-screen">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-6">
+    <div className="pb-10 sm:pb-16 bg-background min-h-screen">
+      <div className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
         <nav
           aria-label="Breadcrumb"
-          className="flex items-center gap-1.5 text-xs text-muted-foreground"
+          className="flex items-center gap-1.5 text-xs text-muted-foreground py-3.5 sm:py-4"
         >
           <Link
             href="/"
@@ -294,7 +294,8 @@ function ProductsContent() {
           )}
         </nav>
 
-        <div className="border-b border-border pb-5">
+        <div className="space-y-6">
+          <div className="border-b border-border pb-5">
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-foreground">
             {isDealPage
               ? 'Hot Deals & Special Offers'
@@ -428,6 +429,7 @@ function ProductsContent() {
           </div>
         </div>
       )}
+      </div>
     </div>
   );
 }

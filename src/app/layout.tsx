@@ -7,6 +7,7 @@ import { StoreProvider } from '@/providers/StoreProvider';
 import { Header } from '@/components/layout/header/Header';
 import { Footer } from '@/components/layout/Footer/Footer';
 import { MobileNav } from '@/components/layout/MobileNav/MobileNav';
+import { ScrollToTop } from '@/components/common/ScrollToTop';
 import { Toaster } from 'sonner';
 
 const geistSans = Geist({
@@ -108,6 +109,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <StoreProvider>
+            <ScrollToTop />
             <Header />
             <main className="flex-1 flex flex-col">{children}</main>
             <Footer />
