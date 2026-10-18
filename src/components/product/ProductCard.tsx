@@ -155,7 +155,7 @@ export function ProductCard({
   return (
     <div
       className={cn(
-        'group relative flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl border border-zinc-200/90 dark:border-zinc-800/80 bg-card p-2 sm:p-2.5 shadow-xs transition-all duration-300 hover:shadow-md hover:border-border/80',
+        'group relative flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl border border-zinc-200/90 dark:border-zinc-800/80 bg-card p-2 sm:p-2.5 shadow-xs transition-all duration-300 hover:shadow-md hover:border-border/80 h-full',
         className
       )}
     >
