@@ -1,0 +1,22 @@
+{
+  "name": "MuniaMart E-Commerce",
+  "short_name": "MuniaMart",
+  "description": "Your Trusted Modern E-Commerce Destination",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}

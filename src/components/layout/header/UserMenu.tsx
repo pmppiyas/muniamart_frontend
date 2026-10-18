@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import Link from 'next/link';
-import { User, Package, MapPin, Heart, LogIn, LogOut, ChevronDown } from 'lucide-react';
+import { User, Package, MapPin, LogIn, LogOut, ChevronDown, LayoutDashboard } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface UserMenuProps {
@@ -11,6 +11,7 @@ interface UserMenuProps {
     name?: string;
     email?: string;
     avatar?: string;
+    role?: string;
   } | null;
   onLogout?: () => void;
 }
@@ -34,30 +35,29 @@ export function UserMenu({ className, user = null, onLogout }: UserMenuProps) {
       <button
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
-        className="group flex items-center gap-2.5 rounded-xl border border-border bg-card px-3 py-2 text-foreground shadow-xs transition-all hover:border-primary hover:text-primary active:scale-95 cursor-pointer"
+        className="group flex h-9 sm:h-10 items-center gap-2 rounded-xl border border-border bg-card px-2.5 sm:px-3 text-foreground shadow-xs transition-all hover:border-primary hover:text-primary active:scale-95 cursor-pointer"
         aria-expanded={isOpen}
       >
-        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-secondary text-secondary-foreground transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-          <User className="h-4 w-4" />
+        <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-secondary text-secondary-foreground transition-colors group-hover:bg-primary group-hover:text-primary-foreground text-xs font-bold">
+          {user?.name ? (
+            user.name.charAt(0).toUpperCase()
+          ) : (
+            <User className="h-3.5 w-3.5" />
+          )}
         </div>
 
-        <div className="hidden lg:flex flex-col text-left leading-tight">
-          <span className="text-[11px] font-medium text-muted-foreground">
-            {user ? 'Welcome back' : 'Sign In / Join'}
-          </span>
-          <span className="text-xs font-bold text-foreground group-hover:text-primary max-w-[90px] truncate">
-            {user ? user.name || 'Account' : 'My Account'}
-          </span>
-        </div>
+        <span className="hidden sm:inline text-xs font-semibold max-w-[85px] truncate">
+          {user ? user.name?.split(' ')[0] || 'Account' : 'Sign In'}
+        </span>
 
         <ChevronDown
-          className={cn('hidden lg:block h-3.5 w-3.5 text-muted-foreground transition-transform duration-200', {
-            'rotate-180': isOpen,
-          })}
+          className={cn(
+            'hidden sm:block h-3 w-3 text-muted-foreground transition-transform duration-200 group-hover:text-primary',
+            { 'rotate-180': isOpen }
+          )}
         />
       </button>
 
-      {/* Dropdown Menu */}
       {isOpen && (
         <div className="absolute right-0 top-full z-50 mt-1.5 w-60 rounded-2xl border border-border bg-popover text-popover-foreground p-2 shadow-xl animate-in fade-in-0 zoom-in-95">
           {user ? (
@@ -89,8 +89,24 @@ export function UserMenu({ className, user = null, onLogout }: UserMenuProps) {
           )}
 
           <div className="py-1">
+            {user && (user.role === 'ADMIN' || user.role === 'SUPER_ADMIN') && (
+              <Link
+                href="/admin/dashboard"
+                onClick={() => setIsOpen(false)}
+                className="flex items-center justify-between gap-2.5 rounded-lg bg-primary/10 px-3 py-2 text-xs font-bold text-primary hover:bg-primary/20 transition-colors mb-1"
+              >
+                <div className="flex items-center gap-2">
+                  <LayoutDashboard className="h-4 w-4" />
+                  <span>Admin Dashboard</span>
+                </div>
+                <span className="rounded bg-primary px-1.5 py-0.2 text-[9px] font-extrabold text-white uppercase">
+                  {user.role === 'SUPER_ADMIN' ? 'Super' : 'Admin'}
+                </span>
+              </Link>
+            )}
+
             <Link
-              href="/profile"
+              href="/profile?tab=info"
               onClick={() => setIsOpen(false)}
               className="flex items-center gap-2.5 rounded-lg px-3 py-2 text-xs font-medium text-foreground hover:bg-muted transition-colors"
             >
@@ -98,7 +114,7 @@ export function UserMenu({ className, user = null, onLogout }: UserMenuProps) {
               My Profile
             </Link>
             <Link
-              href="/orders"
+              href="/profile?tab=orders"
               onClick={() => setIsOpen(false)}
               className="flex items-center gap-2.5 rounded-lg px-3 py-2 text-xs font-medium text-foreground hover:bg-muted transition-colors"
             >
@@ -106,15 +122,7 @@ export function UserMenu({ className, user = null, onLogout }: UserMenuProps) {
               My Orders & Tracking
             </Link>
             <Link
-              href="/wishlist"
-              onClick={() => setIsOpen(false)}
-              className="flex items-center gap-2.5 rounded-lg px-3 py-2 text-xs font-medium text-foreground hover:bg-muted transition-colors"
-            >
-              <Heart className="h-4 w-4 text-muted-foreground" />
-              Wishlist
-            </Link>
-            <Link
-              href="/addresses"
+              href="/profile?tab=addresses"
               onClick={() => setIsOpen(false)}
               className="flex items-center gap-2.5 rounded-lg px-3 py-2 text-xs font-medium text-foreground hover:bg-muted transition-colors"
             >

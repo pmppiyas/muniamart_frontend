@@ -4,6 +4,7 @@ import * as React from 'react';
 import Link from 'next/link';
 import { LayoutGrid, ChevronDown, ArrowRight } from 'lucide-react';
 import { siteConfig } from '@/config/site';
+import { useGetAllCategoriesQuery } from '@/services/api/categoryApi';
 import { CategoryItem } from './CategoryItem';
 import { cn } from '@/lib/utils';
 
@@ -13,10 +14,26 @@ interface CategoryDropdownProps {
 
 export function CategoryDropdown({ className }: CategoryDropdownProps) {
   const [isOpen, setIsOpen] = React.useState(false);
-  const [activeCategorySlug, setActiveCategorySlug] = React.useState(
-    siteConfig.categories[0]?.slug || ''
-  );
   const containerRef = React.useRef<HTMLDivElement>(null);
+
+  const { data: categoriesRes } = useGetAllCategoriesQuery();
+  const dbCategories = categoriesRes?.data;
+
+  const categoriesList = React.useMemo(() => {
+    if (Array.isArray(dbCategories) && dbCategories.length > 0) {
+      return dbCategories.map((c) => ({
+        id: c.id,
+        name: c.name,
+        slug: c.slug,
+        icon: c.icon || 'LayoutGrid',
+        subcategories: (c.children || []).map((ch) => ch.name),
+      }));
+    }
+    return siteConfig.categories;
+  }, [dbCategories]);
+
+  const [selectedCategorySlug, setSelectedCategorySlug] = React.useState<string | null>(null);
+  const activeCategorySlug = selectedCategorySlug || categoriesList[0]?.slug || '';
 
   React.useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -28,7 +45,8 @@ export function CategoryDropdown({ className }: CategoryDropdownProps) {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const activeCategory = siteConfig.categories.find((c) => c.slug === activeCategorySlug);
+  const activeCategory =
+    categoriesList.find((c) => c.slug === activeCategorySlug) || categoriesList[0];
 
   return (
     <div className={cn('relative', className)} ref={containerRef}>
@@ -52,18 +70,16 @@ export function CategoryDropdown({ className }: CategoryDropdownProps) {
         />
       </button>
 
-      {/* Mega Dropdown Menu */}
       {isOpen && (
         <div className="absolute left-0 top-full z-50 mt-2 flex w-[680px] rounded-2xl border border-border bg-popover text-popover-foreground p-3 shadow-2xl animate-in fade-in-0 zoom-in-95">
-          {/* Categories Sidebar */}
           <div className="w-1/2 border-r border-border pr-3 space-y-1">
             <div className="px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
               Department List
             </div>
-            {siteConfig.categories.map((cat) => (
+            {categoriesList.map((cat) => (
               <div
                 key={cat.id}
-                onMouseEnter={() => setActiveCategorySlug(cat.slug)}
+                onMouseEnter={() => setSelectedCategorySlug(cat.slug)}
               >
                 <CategoryItem
                   category={cat}
@@ -74,7 +90,6 @@ export function CategoryDropdown({ className }: CategoryDropdownProps) {
             ))}
           </div>
 
-          {/* Subcategories & Featured Panel */}
           <div className="w-1/2 pl-4 flex flex-col justify-between">
             <div>
               <div className="border-b border-border pb-2">
@@ -98,7 +113,6 @@ export function CategoryDropdown({ className }: CategoryDropdownProps) {
               </div>
             </div>
 
-            {/* Quick Banner Link inside dropdown */}
             <div className="mt-4 rounded-xl bg-accent/60 p-3.5 border border-primary/20">
               <p className="text-xs font-bold text-foreground">Looking for custom deals?</p>
               <p className="text-[11px] text-muted-foreground">Save up to 40% on bulk department purchases.</p>

@@ -7,9 +7,12 @@ import { cn } from '@/lib/utils';
 interface LogoProps {
   className?: string;
   showTagline?: boolean;
+  variant?: 'default' | 'dark';
 }
 
-export function Logo({ className, showTagline = false }: LogoProps) {
+export function Logo({ className, showTagline = false, variant = 'default' }: LogoProps) {
+  const isDark = variant === 'dark';
+
   return (
     <Link
       href="/"
@@ -23,13 +26,15 @@ export function Logo({ className, showTagline = false }: LogoProps) {
       </div>
       <div className="flex flex-col">
         <div className="flex items-center tracking-tight">
-          <span className="text-xl font-black text-foreground">MUNIA</span>
+          <span className={cn('text-xl font-black', isDark ? 'text-white' : 'text-foreground')}>
+            MUNIA
+          </span>
           <span className="ml-1 rounded-md bg-primary px-1.5 py-0.5 text-xs font-extrabold tracking-wider text-primary-foreground">
             MART
           </span>
         </div>
         {showTagline && (
-          <span className="text-[10px] font-medium tracking-wide text-muted-foreground">
+          <span className={cn('text-[10px] font-medium tracking-wide', isDark ? 'text-zinc-400' : 'text-muted-foreground')}>
             PREMIUM SHOPPING
           </span>
         )}

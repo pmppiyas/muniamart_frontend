@@ -2,29 +2,33 @@
 
 import * as React from 'react';
 import { usePathname } from 'next/navigation';
-import { Home, LayoutGrid, Search, Heart, ShoppingBag, User } from 'lucide-react';
+import { Home, LayoutGrid, Search, User } from 'lucide-react';
 import { MobileNavItem } from './MobileNavItem';
 import { MobileSearch } from './MobileSearch';
+import { useAppSelector } from '@/store/hooks';
+import { selectCurrentUser } from '@/features/auth/authSelectors';
 
 interface MobileNavProps {
-  cartCount?: number;
-  wishlistCount?: number;
   user?: object | null;
 }
 
-export function MobileNav({ cartCount = 0, wishlistCount = 0, user = null }: MobileNavProps) {
+export function MobileNav({ user = null }: MobileNavProps) {
   const pathname = usePathname();
   const [isSearchOpen, setIsSearchOpen] = React.useState(false);
+  const reduxUser = useAppSelector(selectCurrentUser);
+  const activeUser = user !== undefined && user !== null ? user : reduxUser;
+
+  if (pathname?.startsWith('/admin')) {
+    return null;
+  }
 
   return (
     <>
-      {/* Search Overlay */}
       <MobileSearch
         isOpen={isSearchOpen}
         onClose={() => setIsSearchOpen(false)}
       />
 
-      {/* Sticky Bottom Bar */}
       <nav className="fixed bottom-0 left-0 right-0 z-40 block md:hidden border-t border-border bg-card/95 backdrop-blur-md shadow-lg safe-area-bottom">
         <div className="flex h-16 items-center justify-around px-2">
           <MobileNavItem
@@ -41,7 +45,6 @@ export function MobileNav({ cartCount = 0, wishlistCount = 0, user = null }: Mob
             isActive={pathname.startsWith('/products') || pathname.startsWith('/categories')}
           />
 
-          {/* Search Trigger */}
           <button
             type="button"
             onClick={() => setIsSearchOpen(true)}
@@ -52,29 +55,13 @@ export function MobileNav({ cartCount = 0, wishlistCount = 0, user = null }: Mob
           </button>
 
           <MobileNavItem
-            label="Wishlist"
-            href="/wishlist"
-            icon={Heart}
-            isActive={pathname === '/wishlist'}
-            badge={wishlistCount}
-          />
-
-          <MobileNavItem
-            label="Cart"
-            href="/cart"
-            icon={ShoppingBag}
-            isActive={pathname === '/cart'}
-            badge={cartCount}
-          />
-
-          <MobileNavItem
-            label={user ? 'Account' : 'Profile'}
-            href={user ? '/profile' : '/auth/login'}
+            label={activeUser ? 'Account' : 'Profile'}
+            href={activeUser ? '/profile' : '/auth/login'}
             icon={User}
             isActive={
-              pathname.startsWith('/profile') ||
-              pathname.startsWith('/orders') ||
-              pathname.startsWith('/auth')
+              pathname === '/profile' ||
+              pathname === '/auth/login' ||
+              pathname === '/auth/register'
             }
           />
         </div>

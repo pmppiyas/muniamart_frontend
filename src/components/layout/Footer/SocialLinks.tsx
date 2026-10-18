@@ -56,7 +56,7 @@ export function SocialLinks({ className }: SocialLinksProps) {
           target="_blank"
           rel="noopener noreferrer"
           aria-label={social.name}
-          className="flex h-9 w-9 items-center justify-center rounded-xl border border-border bg-card text-muted-foreground shadow-2xs transition-all hover:border-primary hover:bg-primary hover:text-primary-foreground hover:shadow-xs active:scale-95"
+          className="flex h-9 w-9 items-center justify-center rounded-xl bg-zinc-900 text-zinc-400 shadow-2xs transition-all hover:bg-primary hover:text-white hover:shadow-xs active:scale-95"
         >
           {social.icon}
         </a>
